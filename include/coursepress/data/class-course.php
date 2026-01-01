@@ -575,7 +575,19 @@ class CoursePress_Data_Course {
 		);
 	}
 
-	public static function update_setting( $course_id, $value, $key = true ) {
+	/**
+	 * Update a course setting
+	 *
+	 * @param int $course_id The course ID
+	 * @param mixed $key The setting key (string) or true to replace all settings. Defaults to true.
+	 * @param mixed $value The setting value. Required.
+	 */
+	public static function update_setting( $course_id, $key = null, $value = null ) {
+		// Handle parameter defaults - $key defaults to true if not provided
+		if ( $key === null ) {
+			$key = true;
+		}
+		
 		$settings = get_post_meta( $course_id, 'course_settings', true );
 
 		if ( empty( $settings ) ) {

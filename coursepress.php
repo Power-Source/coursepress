@@ -171,6 +171,11 @@ class CoursePress {
 		add_action( 'coursepress_activate', array( 'CoursePress_Admin_SampleCourses', 'add_sample_courses' ) );
 
 		/**
+		 * Redirect to setup page after activation.
+		 **/
+		add_action( 'admin_init', array( __CLASS__, 'redirect_to_setup_page' ) );
+
+		/**
 		* register_activation_hook
 		 */
 		register_activation_hook( __FILE__, array( __CLASS__, 'register_activation_hook' ) );
@@ -300,6 +305,33 @@ class CoursePress {
 		 * @since 2.0.7
 		 **/
 		do_action( 'coursepress_activate' );
+	}
+
+	/**
+	 * Redirect to CoursePress setup page after activation.
+	 *
+	 * @since 2.4.1
+	 */
+	public static function redirect_to_setup_page() {
+		// Check if this is an admin page and the coursepress_activate option is set
+		if ( is_admin() && get_option( 'coursepress_activate' ) ) {
+			// Delete the option to prevent redirect on every page load
+			delete_option( 'coursepress_activate' );
+
+			// Build the setup page URL
+			$setup_url = add_query_arg(
+				array(
+					'post_type' => 'course',
+					'page'      => 'coursepress_settings',
+					'tab'       => 'setup'
+				),
+				admin_url( 'edit.php' )
+			);
+
+			// Redirect to the setup page
+			wp_redirect( $setup_url );
+			exit;
+		}
 	}
 
 	/**
