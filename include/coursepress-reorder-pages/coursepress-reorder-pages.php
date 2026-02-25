@@ -77,7 +77,11 @@ function ema_modal_window_admin_style($hook) {
 
 				var emaButtonEnvelope = document.createElement('div');
 				emaButtonEnvelope.setAttribute('class', 'ema-button-envelope');
-				emaButtonEnvelope.innerHTML = '<button class="ema-modal-header-btn ema-modal-trigger btn-fixed" onclick=emaPrepareAndOpenModal();>Abschnitte neu anordnen</button>';
+			var emaButton = document.createElement('button');
+			emaButton.setAttribute('class', 'ema-modal-header-btn ema-modal-trigger btn-fixed');
+			emaButton.setAttribute('onclick', 'emaPrepareAndOpenModal();');
+			emaButton.textContent = 'Abschnitte neu anordnen';
+			emaButtonEnvelope.appendChild(emaButton);
 				var	emaFind = document.querySelector('h1.wp-heading-inline'); 
 				emaFind.appendChild(emaButtonEnvelope);
 				

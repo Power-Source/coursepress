@@ -289,13 +289,13 @@ class CoursePress_View_Admin_Setting_General {
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Redirect After Login', 'cp' ) . '
+								' . esc_html__( 'Umleitung nach Login', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
 										<div class="tooltip-button">&times;</div>
 										<div class="tooltip-content">
-											' . __( 'Redirect students to their Dashboard upon login via wp-login form.', 'cp' ) . '
+											' . __( 'Leitet Schüler nach dem Login über das wp-login-Formular zu ihrem Dashboard weiter.', 'cp' ) . '
 										</div>
 									</div>
 								</th>
@@ -311,19 +311,19 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- PRIVACY -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Privacy', 'cp' ) . '</span></h3>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Datenschutz', 'cp' ) . '</span></h3>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Show Instructor Username in URL', 'cp' ) . '
+								' . esc_html__( 'Dozentennamen in der URL anzeigen', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
 										<div class="tooltip-button">&times;</div>
 										<div class="tooltip-content">
-											' . __( 'If checked, instructors username will be shown in the url. Otherwise, hashed (MD5) version will be shown.', 'cp' ) . '
+											' . __( 'Wenn aktiviert, wird der Benutzername des Dozenten in der URL angezeigt. Andernfalls wird eine gehashte (MD5) Version angezeigt.', 'cp' ) . '
 										</div>
 									</div>
 								</th>
@@ -339,20 +339,20 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- COURSE DETAILS PAGE -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Course Details Page', 'cp' ) . '</span></h3>
-				<p class="description">' . __( 'Media to use when viewing course details.', 'cp' ) . '</p>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Kursdetailseite', 'cp' ) . '</span></h3>
+				<p class="description">' . __( 'Medien, die beim Anzeigen von Kursdetails verwendet werden sollen.', 'cp' ) . '</p>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Media Type', 'cp' ) . '
+								' . esc_html__( 'Medientyp', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
 										<div class="tooltip-button">&times;</div>
 										<div class="tooltip-content">
-											' . __( '"Priority" - Use the media type below, with the other type as a fallback.', 'cp' ) . '
+											' . __( '"Priority" - Verwende den unten stehenden Medientyp, mit dem anderen Typ als Fallback.', 'cp' ) . '
 										</div>
 									</div>
 								</th>
@@ -375,7 +375,7 @@ class CoursePress_View_Admin_Setting_General {
 										<div class="tooltip-before"></div>
 										<div class="tooltip-button">&times;</div>
 										<div class="tooltip-content">
-											' . __( 'Example: Using "video", the featured video will be used if available. The listing image is a fallback.', 'cp' ) . '
+											' . __( 'Beispiel: Wenn "Video" verwendet wird, wird das hervorgehobene Video verwendet, falls verfügbar. Das Listenbild ist ein Fallback.', 'cp' ) . '
 										</div>
 									</div>
 								</th>
@@ -384,8 +384,8 @@ class CoursePress_View_Admin_Setting_General {
 		$selected_priority = CoursePress_Core::get_setting( 'course/details_media_priority', 'default' );
 		$content .= '
 									<select name="coursepress_settings[course][details_media_priority]" class="widefat" id="course_details_media_priority">
-										<option value="video" ' . selected( $selected_priority, 'video', false ) .'>' . __( 'Featured Video (image fallback)', 'cp' ) . '</option>
-										<option value="image" ' . selected( $selected_priority, 'image', false ) .'>' . __( 'List Image (video fallback)', 'cp' ) . '</option>
+										<option value="video" ' . selected( $selected_priority, 'video', false ) .'>' . __( 'Hervorgehobenes Video (Listenbild als Fallback)', 'cp' ) . '</option>
+										<option value="image" ' . selected( $selected_priority, 'image', false ) .'>' . __( 'Listenbild (hervorgehobenes Video als Fallback)', 'cp' ) . '</option>
 									</select>
 								</td>
 							</tr>
@@ -394,20 +394,20 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- COURSE LISTINGS -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Course Listings', 'cp' ) . '</span></h3>
-				<p class="description">' . __( 'Media to use when viewing course listings (e.g. Courses page or Instructor page).', 'cp' ) . '</p>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Kurslisten', 'cp' ) . '</span></h3>
+				<p class="description">' . __( 'Medien, die beim Anzeigen von Kurslisten verwendet werden sollen (z. B. Kursseite oder Dozentenseite).', 'cp' ) . '</p>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Media Type', 'cp' ) . '
+								' . esc_html__( 'Medientyp', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
 										<div class="tooltip-button">&times;</div>
 										<div class="tooltip-content">
-											' . __( '"Priority" - Use the media type below, with the other type as a fallback.', 'cp' ) . '
+											' . __( '"Priority" - Verwende den unten stehenden Medientyp, mit dem anderen Typ als Fallback.', 'cp' ) . '
 										</div>
 									</div>
 								</th>
@@ -417,8 +417,8 @@ class CoursePress_View_Admin_Setting_General {
 		$content .= '
 									<select name="coursepress_settings[course][listing_media_type]" class="widefat" id="course_listing_media_type">
 										<option value="default" ' . selected( $selected_type, 'default', false ) .'>' . __( 'Priority Mode (default)', 'cp' ) . '</option>
-										<option value="video" ' . selected( $selected_type, 'video', false ) .'>' . __( 'Featured Video', 'cp' ) . '</option>
-										<option value="image" ' . selected( $selected_type, 'image', false ) .'>' . __( 'List Image', 'cp' ) . '</option>
+										<option value="video" ' . selected( $selected_type, 'video', false ) .'>' . __( 'Hervorgehobenes Video', 'cp' ) . '</option>
+										<option value="image" ' . selected( $selected_type, 'image', false ) .'>' . __( 'Listenbild', 'cp' ) . '</option>
 									</select>
 								</td>
 							</tr>
@@ -430,17 +430,15 @@ class CoursePress_View_Admin_Setting_General {
 										<div class="tooltip-before"></div>
 										<div class="tooltip-button">&times;</div>
 										<div class="tooltip-content">
-											' . __( 'Example: Using "video", the featured video will be used if available. The listing image is a fallback.', 'cp' ) . '
+											' . __( 'Beispiel: Wenn "Video" verwendet wird, wird das hervorgehobene Video verwendet, falls verfügbar. Das Listenbild ist ein Fallback.', 'cp' ) . '
 										</div>
 									</div>
 								</th>
-								<td>';
-
-		$selected_priority = CoursePress_Core::get_setting( 'course/listing_media_priority', 'default' );
-		$content .= '
+								<td>';$selected_priority = CoursePress_Core::get_setting( 'course/listing_media_priority', 'default' );
+								$content .= '
 									<select name="coursepress_settings[course][listing_media_priority]" class="widefat" id="course_listing_media_priority">
-										<option value="video" ' . selected( $selected_priority, 'video', false ) .'>' . __( 'Featured Video (image fallback)', 'cp' ) . '</option>
-										<option value="image" ' . selected( $selected_priority, 'image', false ) .'>' . __( 'List Image (video fallback)', 'cp' ) . '</option>
+										<option value="video" ' . selected( $selected_priority, 'video', false ) .'>' . __( 'Hervorgehobenes Video (Listenbild als Fallback)', 'cp' ) . '</option>
+										<option value="image" ' . selected( $selected_priority, 'image', false ) .'>' . __( 'Listenbild (hervorgehobenes Video als Fallback)', 'cp' ) . '</option>
 									</select>
 								</td>
 							</tr>
@@ -450,14 +448,14 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- COURSE IMAGES -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Course Images', 'cp' ) . '</span></h3>
-				<p class="description">' . __( 'Size for (newly uploaded) course images.', 'cp' ) . '</p>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Kursbilder', 'cp' ) . '</span></h3>
+				<p class="description">' . __( 'Größe für (neu hochgeladene) Kursbilder.', 'cp' ) . '</p>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Image Width', 'cp' ) . '
+								' . esc_html__( 'Bildbreite', 'cp' ) . '
 								</th>
 								<td>
 									<input type="text" name="coursepress_settings[course][image_width]" value="' . esc_attr( CoursePress_Core::get_setting( 'course/image_width', 235 ) ) . '"/>
@@ -465,7 +463,7 @@ class CoursePress_View_Admin_Setting_General {
 							</tr>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Image Height', 'cp' ) . '
+								' . esc_html__( 'Bildhöhe', 'cp' ) . '
 								</th>
 								<td>
 									<input type="text" name="coursepress_settings[course][image_height]" value="' . esc_attr( CoursePress_Core::get_setting( 'course/image_height', 225 ) ) . '"/>
@@ -476,23 +474,23 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- COURSE ORDER -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Course Order', 'cp' ) . '</span></h3>
-				<p class="description">' . __( 'Order of courses in admin and on front.', 'cp' ) . '</p>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Kursreihenfolge', 'cp' ) . '</span></h3>
+				<p class="description">' . __( 'Reihenfolge der Kurse im Admin-Bereich und auf der Frontseite.', 'cp' ) . '</p>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Order by', 'cp' ) . '
+								' . esc_html__( 'Sortieren nach', 'cp' ) . '
 								</th>
 								<td>';
 
 		$selected_order = CoursePress_Core::get_setting( 'course/order_by', 'course_start_date' );
 
 		$options = array(
-			'post_date' => __( 'Post Date', 'cp' ),
-			'start_date' => __( 'Course start date', 'cp' ),
-			'enrollment_start_date' => __( 'Course enrollment start date', 'cp' ),
+			'post_date' => __( 'Beitragsdatum', 'cp' ),
+			'start_date' => __( 'Kursbeginn', 'cp' ),
+			'enrollment_start_date' => __( 'Kursanmeldungsbeginn', 'cp' ),
 		);
 		$content .= CoursePress_Helper_UI::select(
 			'coursepress_settings[course][order_by]',
@@ -505,28 +503,28 @@ class CoursePress_View_Admin_Setting_General {
 		$content .= '</td></tr>';
 		$content .= '<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Direction', 'cp' ) . '
+								' . esc_html__( 'Richtung', 'cp' ) . '
 								</th>
 								<td>';
 
 		$selected_dir = CoursePress_Core::get_setting( 'course/order_by_direction', 'DESC' );
 		$content .= '
 									<select name="coursepress_settings[course][order_by_direction]" class="widefat" id="course_order_by_direction">
-										<option value="DESC" ' . selected( $selected_dir, 'DESC', false ) .'>' . __( 'Descending', 'cp' ) . '</option>
-										<option value="ASC" ' . selected( $selected_dir, 'ASC', false ) .'>' . __( 'Ascending', 'cp' ) . '</option>
+										<option value="DESC" ' . selected( $selected_dir, 'DESC', false ) .'>' . __( 'Absteigend', 'cp' ) . '</option>
+										<option value="ASC" ' . selected( $selected_dir, 'ASC', false ) .'>' . __( 'Aufsteigend', 'cp' ) . '</option>
 									</select>
 								</td>
 							</tr>
 
 <!-- Default course Enrollment Restrictions -->
 							<tr valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Enrollment Restrictions', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Einschränkungen bei der Anmeldung', 'cp' ) . '</th>
 								<td>';
 		$enrollment_types = CoursePress_Data_Course::get_enrollment_types_array();
 		$enrollment_type_default = CoursePress_Data_Course::get_enrollment_type_default();
 		$selected = CoursePress_Core::get_setting( 'course/enrollment_type_default', $enrollment_type_default );
 		$content .= CoursePress_Helper_UI::select( 'coursepress_settings[course][enrollment_type_default]', $enrollment_types, $selected, 'chosen-select medium' );
-		$content .= sprintf( '<p class="description">%s</p>', __( 'Select the default limitations on accessing and enrolling in this course.', 'cp' ) );
+		$content .= sprintf( '<p class="description">%s</p>', __( 'Wähle die Standardbeschränkungen für den Zugriff und die Anmeldung zu diesem Kurs.', 'cp' ) );
 		$content .= '
 								</td>
 							</tr>
@@ -535,48 +533,41 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- REPORTS -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Reports', 'cp' ) . '</span></h3>
-				<p class="description">' . __( 'Select font which will be used in the PDF reports.', 'cp' ) . '</p>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Berichte', 'cp' ) . '</span></h3>
+				<p class="description">' . __( 'Wähle die Schriftart, die in den PDF-Berichten verwendet wird.', 'cp' ) . '</p>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Font', 'cp' ) . '
+								' . esc_html__( 'Schriftart', 'cp' ) . '
 								</th>
 								<td>';
 
 		$reports_font = CoursePress_Core::get_setting( 'reports/font', 'helvetica' );
 		$reports_font = empty( $reports_font ) ? 'helvetica' : $reports_font;
 		$fonts = CoursePress_Helper_PDF::fonts();
-		$content .= '
-									<select name="coursepress_settings[reports][font]" class="widefat" id="course_order_by_direction">
-					';
+		$content .= '<select name="coursepress_settings[reports][font]" class="widefat" id="course_order_by_direction">';
 
 		foreach ( $fonts as $font_php => $font_name ) {
 			if ( ! empty( $font_name ) ) {
 				$font = str_replace( '.php', '', $font_php );
-				$content .= '
-										<option value="' . esc_attr( $font ) . '" ' . selected( $reports_font, $font, false ) . '>' . esc_html( $font_name ) . '</option>
-				';
+				$content .= '<option value="' . esc_attr( $font ) . '" ' . selected( $reports_font, $font, false ) . '>' . esc_html( $font_name ) . '</option>';
 			}
 		}
-		$content .= '
-									</select>
+		$content .= '</select>
 								</td>
 							</tr>
 						</tbody>
 					</table>
-				</div>';
-
-		$content .= '<!-- schema.org -->
+				</div>';$content .= '<!-- schema.org -->
 				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'schema.org', 'cp' ) . '</span></h3>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Add microdata syntax', 'cp' ) . '
+								' . esc_html__( 'Mikrodatensyntax hinzufügen', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
@@ -590,7 +581,7 @@ class CoursePress_View_Admin_Setting_General {
 		$checked = cp_is_true( CoursePress_Core::get_setting( 'general/add_structure_data', 1 ) ) ? 'checked' : '';
 		$content .= '
 									<input type="checkbox" name="coursepress_settings[general][add_structure_data]" ' . $checked . ' />
-				<p class="description">' . esc_html__( 'Add structure data to courses.', 'cp' ) . '</p>
+				<p class="description">' . esc_html__( 'Füge Kursen Strukturdaten hinzu.', 'cp' ) . '</p>
 								</td>
 							</tr>
 						</tbody>
@@ -689,14 +680,14 @@ class CoursePress_View_Admin_Setting_General {
 		);
 		if ( empty( $dropdown ) ) {
 			return sprintf(
-				__( 'Please <a href="%1$s">add new page</a> with shortcode: %2$s.', 'cp' ),
+				__( 'Bitte <a href="%1$s">füge eine neue Seite hinzu</a> mit dem Shortcode: %2$s.', 'cp' ),
 				esc_url( add_query_arg( 'post_type', 'page', admin_url( 'post-new.php' ) ) ),
 				$shortcode
 			);
 		}
 		$content = $dropdown;
 		$content .= '<p class="description">';
-		$text = __( 'Select page where you have %s shortcode or any other set of %s. Please note that slug for the page set above will not be used if "Virtuelle Seite verwenden" is not selected.', 'cp' );
+		$text = __( 'Wähle die Seite aus, auf der du den %s Shortcode oder eine andere Sammlung von %s hast. Bitte beachte, dass der Slug für die oben festgelegte Seite nicht verwendet wird, wenn "Virtuelle Seite verwenden" nicht ausgewählt ist.', 'cp' );
 		$url = add_query_arg(
 			array(
 				'post_type' => CoursePress_Data_Course::get_post_type_name(),

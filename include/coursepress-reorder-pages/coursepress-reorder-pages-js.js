@@ -18,7 +18,7 @@ function emaPrepareAndOpenModal() {
 	unitName = document.querySelector('li.coursepress-ub-tab.active span').innerHTML;
 	
 	locUnitName = document.querySelector('span.ema-unit-name');
-	locUnitName.innerHTML = unitName + " (" + unitID + ")";
+	locUnitName.textContent = unitName + " (" + unitID + ")";
 	
 	/* Get names of pages in active Unit */
 	existElements = [];
@@ -50,7 +50,18 @@ function emaPrepareAndOpenModal() {
 	
 	/* output into modal window */
 	var target = document.getElementById('ema-page-list');
-	target.innerHTML = output;
+	// Clear previous content safely
+	while (target.firstChild) {
+		target.removeChild(target.firstChild);
+	}
+	// Create list items safely
+	for (var i = 0; i < len; i++) {
+		var li = document.createElement('li');
+		li.setAttribute('id', 'ema-old-' + (i + 1));
+		li.setAttribute('tabindex', '-1');
+		li.textContent = '(' + (i + 1) + ') ' + existElements[i];
+		target.appendChild(li);
+	}
 	
 	/* open the modal window */
 	EmaModal.open();
