@@ -914,7 +914,7 @@ var CoursePress = CoursePress || {};
 				return false;
 			}
 			$('#respond #cancel-comment-reply-link').hide();
-			form.append('<div class="mask"><span><i class="fa fa-spinner fa-pulse"></i></span></div>');
+			form.append( $('<div class="mask"><span><i class="fa fa-spinner fa-pulse"></i></span></div>') );
 			mask = $('.mask', form );
 			mask.css({
 				width: form.width()+"px",
@@ -957,7 +957,7 @@ var CoursePress = CoursePress || {};
 							 */
 							comment_parent = $('#comment-'+data.data.comment_parent);
 							if ( 0 == $('.children', comment_parent ).length ) {
-								comment_parent.append('<ul class="children"></ul>');
+								comment_parent.append( $('<ul class="children"></ul>') );
 							}
 							$('.children', comment_parent).first().append(data.data.html);
 							$('.comments-list').before($('#respond'));
@@ -1071,7 +1071,7 @@ var CoursePress = CoursePress || {};
 			if ( allowed ) {
 				submit_button_container.closest('form').addClass('is-valid-file');
 			} else {
-				$( progress ).append( '<span class="invalid-extension">' + _coursepress.invalid_upload_message + allowed_string + '</span>' );
+				$( progress ).append( $('<span class="invalid-extension">').text(_coursepress.invalid_upload_message + allowed_string) );
 				submit_button_container.closest('form').removeClass('is-valid-file');
 			}
 		} );
@@ -1193,7 +1193,7 @@ var CoursePress = CoursePress || {};
 						xhr.upload.addEventListener( 'loadstart', function() {
 							var progress = $( parent ).find( '.upload-progress' );
 							$( progress ).find( '.spinner' ).detach();
-							$( progress ).append( '<span class="image spinner">&#xf111</span>' );
+							$( progress ).append( $('<span class="image spinner">').html('&#xf111;') );
 						}, false );
 						// Progress
 						xhr.upload.addEventListener( 'progress', function( e ) {
@@ -1202,9 +1202,9 @@ var CoursePress = CoursePress || {};
 							percent = parseInt( percent );
 
 							if ( percent_el.length > 0 ) {
-								$( percent_el ).replaceWith( '<span class="upload-percent">' + percent + '%</span>' );
+								$( percent_el ).replaceWith( $('<span class="upload-percent">').text(percent + '%') );
 							} else {
-								$( parent ).find( '.upload-progress' ).append( '<span class="upload-percent">' + percent + '%</span>' );
+								$( parent ).find( '.upload-progress' ).append( $('<span class="upload-percent">').text(percent + '%') );
 							}
 						}, false );
 
@@ -1237,12 +1237,9 @@ var CoursePress = CoursePress || {};
 								$( result ).detach();
 								$( elements ).addClass( 'hide' );
 								response_div = response.length > 0 ? $( response ) : $( '<div class="module-response">' ).insertAfter( elements );
-								response_div.replaceWith( '<div class="module-response">' +
-									'<p class="file_holder">' + _coursepress.file_uploaded_message + '</p>' +
-									'</div>'
-								);
-
-								// Update the navigation links.
+							var newDiv = $('<div class="module-response"><p class="file_holder"></p></div>');
+							newDiv.find('p').text(_coursepress.file_uploaded_message);
+							response_div.replaceWith( newDiv );
 								if ( data.html && data.html.length ) {
 									var module = jQuery( data.html );
 									var new_nav = module.find( '.focus-nav' );
@@ -1259,10 +1256,7 @@ var CoursePress = CoursePress || {};
 								$( elements ).addClass( 'hide' );
 								response_div = response.length > 0 ? $( response ) : $( '<div class="module-response">' ).insertAfter( elements );
 
-								response_div.replaceWith( '<div class="module-response">' +
-									'<p class="file_holder">' + _coursepress.file_upload_fail_message + '</p>' +
-									'</div>'
-								);
+								response_div.replaceWith( $('<div class="module-response"><p class="file_holder"></p></div>').find('p').text(_coursepress.file_upload_fail_message).closest('div') );
 							}
 
 						}, false );
@@ -1288,13 +1282,7 @@ var CoursePress = CoursePress || {};
 
 			// Add Spinner.
 			$( elements ).find( '.response-processing' ).detach();
-			$( elements ).find( '.module-submit-action' ).append( '<span class="response-processing image spinner">&#xf111</span>' );
-
-			// Record Response
-			var model = new CoursePress.Models.CourseFront();
-
-			model.set( 'action', 'record_module_response' );
-			model.set( 'course_id', course_id );
+		$( elements ).find( '.module-submit-action' ).append( $('<span class="response-processing image spinner">').html('&#xf111;') );
 			model.set( 'unit_id', unit_id );
 			model.set( 'module_id', module_id );
 			model.set( 'student_id', student_id );

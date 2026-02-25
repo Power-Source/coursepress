@@ -271,8 +271,8 @@ var CoursePress = CoursePress || {};
 			content += '<textarea></textarea>';
 			content += question_content;
 			content += '</div>';
-			var contentElement = $( '<div/>' ).append( content );
-			$(container).append( contentElement.contents() );
+			var parsedContent = $.parseHTML( content );
+			$(container).append( parsedContent );
 			CoursePress.Helpers.Module.quiz.update_meta( mod_el );
 			CoursePress.Helpers.Module.quiz.bind_buttons();
 		} );
@@ -334,8 +334,8 @@ var CoursePress = CoursePress || {};
 			content += '<textarea></textarea>';
 			content += question_content;
 			content += '</div>';
-			var contentElement = $( '<div/>' ).append( content );
-			$(container).append( contentElement.contents() );
+			var parsedContent = $.parseHTML( content );
+			$(container).append( parsedContent );
 			CoursePress.Helpers.Module.form.update_meta( mod_el );
 			CoursePress.Helpers.Module.form.bind_buttons();
 		} );
@@ -510,8 +510,8 @@ var CoursePress = CoursePress || {};
 			var input_name = $( question).attr('data-type') + '-' + $( question).attr('data-id');
 
 			var answerDiv = $('<div class="answer"></div>');
-			var inputElem = $('<input type="' + input + '" value="" name="' + input_name + '">');
-			var textInput = $('<input type="text" name="" value="" class="' + css_class + '">');
+			var inputElem = $('<input/>').attr('type', input).attr('name', input_name);
+			var textInput = $('<input type="text" name="">').attr('class', css_class);
 			var removeBtn = $('<span class="remove-quiz-item"><i class="fa fa-trash-o"></i></span>');
 			
 			answerDiv.append(inputElem).append(textInput).append(removeBtn);
@@ -752,8 +752,8 @@ var CoursePress = CoursePress || {};
 			var input_name = $( question).attr('data-type') + '-' + $( question).attr('data-id');
 
 			var answerDiv = $('<div class="answer"></div>');
-			var inputElem = $('<input type="' + input + '" value="" name="' + input_name + '">');
-			var textInput = $('<input type="text" name="" value="" class="' + css_class + '">');
+			var inputElem = $('<input/>').attr('type', input).attr('name', input_name);
+			var textInput = $('<input type="text" name="">').attr('class', css_class);
 			var removeBtn = $('<span class="remove-form-item"><i class="fa fa-trash-o"></i></span>');
 			
 			answerDiv.append(inputElem).append(textInput).append(removeBtn);
@@ -2531,8 +2531,8 @@ var CoursePress = CoursePress || {};
 			var new_name = $( $(el).parents('.module-holder')[0] ).attr('class').match(/input-radio|input-select/) ? 'meta_answers_selected[' + cid + ']' : 'meta_answers_selected[' + cid + '][]';
 
 			var answerDiv = $('<div class="answer"></div>');
-			var input = $('<input type="' + el_type + '" value="' + value + '" name="' + new_name + '">');
-			var textInput = $('<input class="component-' + el_type + '-answer wide" type="text" name="meta_answers[]" value="">');
+			var input = $('<input/>').attr('type', el_type).val(value).attr('name', new_name);
+			var textInput = $('<input type="text" name="meta_answers[]">').attr('class', 'component-' + el_type + '-answer wide');
 			var removeBtn = $('<span class="remove-item"><i class="fa fa-trash-o"></i></span>');
 			
 			answerDiv.append(input).append(textInput).append(removeBtn);

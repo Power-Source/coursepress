@@ -325,7 +325,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		 * course title
 		 */
 		if ( _coursepress.course_title ) {
-			$('.coursepress_settings_wrapper h1').append( ': <small>'+_coursepress.course_title+'</small>');
+			$('.coursepress_settings_wrapper h1').append( ': ' ).append( $('<small>').text(_coursepress.course_title) );
 			$('#course_name').on('change', function() {
 				$('.coursepress_settings_wrapper h1 small').text($(this).val());
 			});
@@ -965,7 +965,9 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 				nonce: get_setup_nonce()
 			};
 
-			var div = $( '<div class="facilitator-avatar-holder empty" id="facilitator-' + facilitator_id + '"><span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span></div>' ).appendTo( container );
+			var div = $( '<div class="facilitator-avatar-holder empty"><span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span></div>' )
+				.attr('id', 'facilitator-' + facilitator_id)
+				.appendTo( container );
 
 			CoursePress.Course.set( 'action', 'add_facilitator' );
 			CoursePress.Course.set( 'data', data );
@@ -1050,7 +1052,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 					}
 					// Confirm before deleting
 					if ( window.confirm( message ) ) {
-						$(target).html( '<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>' );
+						$(target).html( $('<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>') );
 						$(target).parent().addClass('removing-process');
 						step_box = $( target ).parents('.cp-box-content')[0];
 						$( step_box ).find('.button.update.hidden' ).removeClass('hidden');
@@ -1076,7 +1078,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 					}
 					// Confirm before deleting
 					if ( window.confirm( message ) ) {
-						$(target).html( '<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>' );
+						$(target).html( $('<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>') );
 						$(target).parent().addClass('removing-process');
 						step_box = $( target ).parents('.cp-box-content')[0];
 						$( step_box ).find('.button.update.hidden' ).removeClass('hidden');
@@ -1125,7 +1127,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 			var buttons = $( '.step-content.step-' + data.last_step ).find( '.course-step-buttons' )[0];
 
 			$( '#step-done-message' ).remove();
-			$( buttons ).append( '<span id="step-done-message">&nbsp;<i class="fa fa-check"></i></span>' );
+			$( buttons ).append( $('<span id="step-done-message">&nbsp;<i class="fa fa-check"></i></span>') );
 			// Popup Message
 			$( '#step-done-message' ).show( function() {
 				$( this ).fadeOut( 1000 );

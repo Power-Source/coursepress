@@ -54,13 +54,13 @@ var CoursePress = CoursePress || {};
 		// Fix whitespace bug
 		editor = editor.replace( /<p>\s/g, '' );
 
-		// Create editor element from HTML template
-		var editorElement = $( '<div>' ).append( editor );
+		// Create editor element from HTML template using parseHTML for safety
+		var parsedHtml = $.parseHTML( editor );
 		
 		if ( append ) {
-			$( target ).append( editorElement.contents() );
+			$( target ).append( parsedHtml );
 		} else {
-			$( target ).replaceWith( editorElement.contents() );
+			$( target ).replaceWith( parsedHtml );
 		}
 		content = _.unescape(content);
 		$('textarea#' + id ).val(content);
@@ -154,7 +154,7 @@ var CoursePress = CoursePress || {};
 		var qt_button = '<button id="' + instance.id + '-text' + '" class="wp-switch-editor switch-html" type="button">' + _coursepress.editor_text + '</button>';
 
 		// Add dummy button to deal with weird auto-clicking
-		$( button_wrapper ).append( '<button class="hidden"></button>' );
+		$( button_wrapper ).append( $('<button class="hidden"></button>') );
 		$( button_wrapper + ' [class="hidden"]' ).on( 'click', function( e ) {
 			e.preventDefault();
 			e.stopPropagation();
@@ -1049,7 +1049,7 @@ var CoursePress = CoursePress || {};
 			switch( options.action ) {
 
 				case 'none':
-					self.append('<div class="cp-counter-clock"> </div>');
+					self.append( $('<div class="cp-counter-clock"> </div>') );
 					var d_hours = parseInt(seconds / 60 / 60);
 					var d_minutes = parseInt(( seconds - ( d_hours * 60 * 60 ) ) / 60);
 					var d_seconds = seconds - ( d_hours * 60 * 60 ) - ( d_minutes * 60 );
@@ -1060,8 +1060,8 @@ var CoursePress = CoursePress || {};
 					}
 					duration += CoursePress.utility.pad(d_minutes, 2) + ':';
 					duration += CoursePress.utility.pad(d_seconds, 2);
-					$(self.find('.cp-counter-clock')[0]).replaceWith('<div class="cp-counter-clock">' + duration + '</div>');
-					self.append('<input class="cp-counter-start" type="button" value="' + _coursepress.labels['module_start_quiz'] + '">');
+					$(self.find('.cp-counter-clock')[0]).replaceWith( $('<div class="cp-counter-clock">').text(duration) );
+					self.append( $('<input class="cp-counter-start" type="button">').val(_coursepress.labels['module_start_quiz']) );
 					self.find('.cp-counter-start').on('click', function() {
 						options.action = 'start';
 						self.coursepress_timer( options );
@@ -1098,7 +1098,7 @@ var CoursePress = CoursePress || {};
 								duration += CoursePress.utility.pad(d_minutes, 2) + ':';
 								duration += CoursePress.utility.pad(d_seconds, 2);
 
-								$(self.find('.cp-counter-clock')[0]).replaceWith('<div class="cp-counter-clock">' + duration + '</div>');
+								$(self.find('.cp-counter-clock')[0]).replaceWith( $(' <div class="cp-counter-clock">').text(duration) );
 								self.trigger('timer_updated', elapsed, seconds);
 							} else {
 								self.trigger('timer_ended');
