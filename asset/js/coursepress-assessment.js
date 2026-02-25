@@ -172,7 +172,7 @@
 		progress.icon.insertAfter( this );
 		CoursePress.UnitsPost.save( param );
 		CoursePress.UnitsPost.off( 'coursepress:update_success' );
-		CoursePress.UnitsPost.on( 'coursepress:update_success', function(data){
+		CoursePress.UnitsPost.on( 'coursepress:update_success', function(data) {
 			CoursePress.Events.on( 'coursepress:progress:success', function() {
 				module.attr( 'data-grade', grade ).data( 'grade', grade );
 				draftButton.addClass( 'disabled' );
@@ -200,7 +200,9 @@
 					draft_icon[ with_feedback ? 'hide' : 'show']();
 					$( '.description', feedback_editor ).hide(); // Hide no feedback info
 					$( '.cp-feedback-details', feedback_editor ).html( param.feedback_content );
-				$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
+					$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
+				}
+			});
 		});
 		CoursePress.UnitsPost.on( 'coursepress:update_error', function(){
 			progress.error( _coursepress.server_error );
@@ -301,7 +303,7 @@
 					draft_icon = $( '.cp-draft-icon', feedback_editor ).show();
 				$( '.description', feedback_editor ).hide(); // Hide no feedback info
 				$( '.cp-feedback-details', feedback_editor ).html( param.feedback_content );
-			$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
+				$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
 				cancelButton.trigger( 'click' );
 			});
 			progress.success( _coursepress.assessment_labels.sucess );
@@ -315,7 +317,7 @@
 	var filterStudentRows = function() {
 		// Set the templates
 		$( '.cp-content script' ).each(function() {
-			var template_script = $( this )
+			var template_script = $( this ),
 				template = template_script.html()
 			;
 			template_script.replaceWith( template );
