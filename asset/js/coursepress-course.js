@@ -1021,14 +1021,14 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 			CoursePress.Course.on( 'coursepress:send_email_success', function( data ){
 				$('.coursepress-email-sending td', message_container).text(data.message.info);
 				$('.coursepress-email-field-subject td', message_container).text(data.message.subject);;
-				$('.coursepress-email-field-body td', message_container).html(data.message.body);;
+				$('.coursepress-email-field-body td', message_container).empty().append( $.parseHTML( data.message.body ) );;
 				$('.coursepress-email-field', message_container).slideDown();
 			});
 			CoursePress.Course.off( 'coursepress:send_email_error' );
 			CoursePress.Course.on( 'coursepress:send_email_error', function( data ) {
 				$('.coursepress-email-sending td', message_container).text(data.message.info);
 				$('.coursepress-email-field-subject td', message_container).text(data.message.subject);;
-				$('.coursepress-email-field-body td', message_container).html(data.message.body);;
+				$('.coursepress-email-field-body td', message_container).empty().append( $.parseHTML( data.message.body ) );;
 				$('.coursepress-email-field', message_container).slideDown();
 			});
 		} );

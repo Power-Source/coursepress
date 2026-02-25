@@ -976,7 +976,7 @@ var CoursePress = CoursePress || {};
 							$(window).scrollTop( top );
 						}
 					} else {
-						$('#comments .comments-list-container').html( data.data.html );
+						$('#comments .comments-list-container').append( $.parseHTML( data.data.html ) );
 					}
 					bind_buttons();
 
@@ -1346,7 +1346,7 @@ var CoursePress = CoursePress || {};
 								$('.module-content').after(not_passed_message);
 								not_passed_message = $('.not-passed-message');
 							}
-							not_passed_message.html(data.results.message.text);
+							not_passed_message.empty().append( $( '<i class="fa fa-remove"></i>' ) ).append( $( '<span/>' ).text( data.results.message.text ) );
 						}
 					}
 				}

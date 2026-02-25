@@ -190,16 +190,16 @@
 
 				var totalUnitGrade = calculateUnitGrade( unit_id, student_id ),
 					totalCourseGrade = calculateFinalGrade( student_id, data.course_grade );
-				unitGrade.html( data.unit_grade + '%' );
+			unitGrade.text( data.unit_grade + '%' );
 
-				if ( with_feedback && '' != param.feedback_content.trim() ) {
-					var feedback_editor = $( '.cp-instructor-feedback', moduleDiv ).show(),
-						draft_icon = $( '.cp-draft-icon', feedback_editor )
-					;
+			if ( with_feedback && '' != param.feedback_content.trim() ) {
+				var feedback_editor = $( '.cp-instructor-feedback', moduleDiv ).show(),
+					draft_icon = $( '.cp-draft-icon', feedback_editor )
+				;
 
-					draft_icon[ with_feedback ? 'hide' : 'show']();
-					$( '.description', feedback_editor ).hide(); // Hide no feedback info
-					$( '.cp-feedback-details', feedback_editor ).html( param.feedback_content );
+				draft_icon[ with_feedback ? 'hide' : 'show']();
+				$( '.description', feedback_editor ).hide(); // Hide no feedback info
+				$( '.cp-feedback-details', feedback_editor ).empty().append( $( '<div/>' ).text( param.feedback_content ) );
 					$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
 				}
 			});
@@ -302,7 +302,7 @@
 				var feedback_editor = $( '.cp-instructor-feedback', moduleDiv ).show(),
 					draft_icon = $( '.cp-draft-icon', feedback_editor ).show();
 				$( '.description', feedback_editor ).hide(); // Hide no feedback info
-				$( '.cp-feedback-details', feedback_editor ).html( param.feedback_content );
+				$( '.cp-feedback-details', feedback_editor ).empty().append( $( '<div/>' ).text( param.feedback_content ) );
 				$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
 				cancelButton.trigger( 'click' );
 			});
@@ -413,7 +413,7 @@
 
 		CoursePress.UnitsPost.save( data );
 		CoursePress.UnitsPost.on( 'coursepress:table_success', function( data ) {
-			container.html( data.html );
+			container.append( $.parseHTML( data.html ) );
 			loader_info.hide();
 			filterStudentRows();
 		});

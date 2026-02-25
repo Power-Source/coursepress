@@ -83,7 +83,7 @@
 			success: function( message ) {
 				message = ! message ? '' : message;
 				var msgSpan = $('<span></span>').text(message);
-				progress.addClass( 'success' ).html( check ).append( msgSpan );
+				progress.addClass( 'success' ).append( $( check ) ).append( msgSpan );
 				progress.fadeOut( 3500, progress.remove );
 
 				CoursePress.Events.trigger( 'coursepress:progress:success' );
@@ -91,7 +91,7 @@
 			error: function( message ) {
 				message = ! message ? '' : message;
 				var msgSpan = $('<span></span>').text(message);
-				progress.addClass( 'error' ).html( error ).append( msgSpan );
+				progress.addClass( 'error' ).append( $( error ) ).append( msgSpan );
 				progress.fadeOut( 3500, progress.remove );
 
 				CoursePress.Events.trigger( 'coursepress:progress:error' );
