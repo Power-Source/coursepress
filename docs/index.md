@@ -185,34 +185,34 @@ Beginnen wir mit dem Hinzufügen eines Kurses. Gehe zu _CoursePress > Neuer Kurs
 
 ![CoursePress - Neuer Kurs - Einschreibung](assets/images/CoursePress-New-Course-Enrollment.png)
 
-Aktiviere die Option "_Dies ist ein kostenpflichtiger Kurs_", um Zahlungsoptionen anzuzeigen. Für Zahlungen integriert sich CoursePress Pro sowohl mit [MarketPress](https://cp-psource.github.io/marketpress/ "MarketPress ClassicPress e-Commerce") als auch mit [WooCommerce](https://wordpress.org/plugins/woocommerce/). Beachte bitte, dass derzeit nur eines der beiden Plugins (entweder MarketPress oder WooCommerce) aktiviert sein sollte, da die gleichzeitige Aktivierung beider Plugins zu Konflikten führen kann. 
+Aktiviere die Option "_Dies ist ein kostenpflichtiger Kurs_", um Zahlungsoptionen anzuzeigen. Für Zahlungen integriert sich CoursePress sowohl mit [MarketPress](https://cp-psource.github.io/marketpress/ "MarketPress ClassicPress e-Commerce") als auch mit [WooCommerce](https://wordpress.org/plugins/woocommerce/). Beachte bitte, dass derzeit nur eines der beiden Plugins (entweder MarketPress oder WooCommerce) aktiviert sein sollte, da die gleichzeitige Aktivierung beider Plugins zu Konflikten führen kann. 
 
 Für die MarketPress-Integration wird dir beim ersten Aktivieren der oben genannten Zahlungsoption eine Nachricht zu MarketPress angezeigt, wie hier:
 
-![CoursePress Pro - MarketPress aktivieren](assets/images/CoursePress-Pro-1.2.5.4-Payment-settings-Activate-MarketPress.png)
+![CoursePress - MarketPress aktivieren](assets/images/CoursePress-Pro-1.2.5.4-Payment-settings-Activate-MarketPress.png)
 
-Klicke auf den Link "_MarketPress aktivieren_", um den Aktivierungsprozess zu starten und die Zahlungsoptionen freizuschalten. Für die WooCommerce-Integration stelle sicher, dass WooCommerce installiert und aktiviert ist, und aktiviere dann die Einstellung "_WooCommerce verwenden, um Kurse zu verkaufen_" unter _CoursePress Pro > Einstellungen_. Optional kannst du auch einstellen, dass WooCommerce-Produktseiten zu einem übergeordneten Kurs weiterleiten.
+Klicke auf den Link "_MarketPress aktivieren_", um den Aktivierungsprozess zu starten und die Zahlungsoptionen freizuschalten. Für die WooCommerce-Integration stelle sicher, dass WooCommerce installiert und aktiviert ist, und aktiviere dann die Einstellung "_WooCommerce verwenden, um Kurse zu verkaufen_" unter _CoursePress > Einstellungen_. Optional kannst du auch einstellen, dass WooCommerce-Produktseiten zu einem übergeordneten Kurs weiterleiten.
 
-![CoursePress Pro - Einstellungen - WooCommerce-Integration](assets/images/CoursePress-Pro-1.2.5.4-WooCommerce-Settings.png)
+![CoursePress - Einstellungen - WooCommerce-Integration](assets/images/CoursePress-Pro-1.2.5.4-WooCommerce-Settings.png)
 
-WooCommerce-Einstellungen unter CoursePress Pro > Einstellungen
+WooCommerce-Einstellungen unter CoursePress > Einstellungen
 
 Mit entweder MarketPress oder WooCommerce installiert und aktiviert sowie den oben konfigurierten Einstellungen werden dir dann Zahlungsoptionen für deinen Kurs angezeigt.
 
 ![CoursePress - Neuer Kurs - Einschreibung - Dies ist ein kostenpflichtiger Kurs](assets/images/CoursePress-New-Course-Enrollment-This-is-a-paid-course.png)
 
-* Aktiviere die Option "_Automatisch eine Artikelnummer (SKU) generieren_", damit CoursePress Pro automatisch eine eindeutige SKU erstellt. Alternativ kannst du selbst einen SKU-Wert eingeben.
+* Aktiviere die Option "_Automatisch eine Artikelnummer (SKU) generieren_", damit CoursePress automatisch eine eindeutige SKU erstellt. Alternativ kannst du selbst einen SKU-Wert eingeben.
 * Gib den _Preis_ ein.
 * Aktiviere die Option "_Reduzierter Preis aktiviert_", um anzugeben, dass dieser Kurs im Angebot ist.
 * Gib einen _Angebotspreis_ ein, der mit der obigen Option verwendet wird.
 * Wenn du MarketPress verwendest, hast du die Möglichkeit, die _Zahlungsgateways zu bearbeiten_. Dabei wird ein Pop-up-Dialog angezeigt, in dem du die Zahlungsgateways auswählen und konfigurieren kannst.
 
-![CoursePress Pro - Zahlungsgateways](assets/images/CoursePress-Pro-1.2.1.9-Payment-Gateways.png)
+![CoursePress - Zahlungsgateways](assets/images/CoursePress-Pro-1.2.1.9-Payment-Gateways.png)
 
 Wenn du die Zahlungseinstellungen fertig konfiguriert hast, kannst du auf die Schaltfläche "_Zurück_" klicken, um zum vorherigen Abschnitt zu gelangen, oder auf "_Fertig_", um den Kurs-Erstellungsprozess abzuschließen und den neuen Kurs zu speichern.
 ### Kurse
 
-Schauen wir uns die Kurse unter _CoursePress Pro > Kurse_ an.
+Schauen wir uns die Kurse unter _CoursePress > Kurse_ an.
 
 ![CoursePress - Kurse-Menü](assets/images/CoursePress-Courses-menu1.png)
 
@@ -383,7 +383,7 @@ Am unteren Ende der Seite findest Du noch ein paar weitere Buttons und einen Ums
 *   Nutze den Umschalter, um zwischen _Entwurf_ und _Live_-Modus zu wechseln.
 ### Dozenten
 
-Kurse brauchen Dozenten – schauen wir uns an, wie Du sie unter _CoursePress Pro > Dozenten_ hinzufügen und bearbeiten kannst.
+Kurse brauchen Dozenten – schauen wir uns an, wie Du sie unter _CoursePress > Dozenten_ hinzufügen und bearbeiten kannst.
 
 ![CoursePress - Dozenten-Menü](assets/images/CoursePress-Instructors-menu1.png)
 
@@ -416,7 +416,7 @@ Außerdem gibt es einen kleinen Profilbereich mit zusätzlichen Details und eine
 
 ### Studenten
 
-Kurse brauchen auch Studenten – schauen wir uns an, wie Du sie unter _CoursePress Pro > Studenten_ hinzufügen und bearbeiten kannst.
+Kurse brauchen auch Studenten – schauen wir uns an, wie Du sie unter _CoursePress > Studenten_ hinzufügen und bearbeiten kannst.
 
 ![CoursePress - Studenten-Menü](assets/images/CoursePress-Students-menu1.png)
 
@@ -440,7 +440,7 @@ Um _Massenaktionen_ zu nutzen, markiere einfach die Studenten, die Du bearbeiten
 Ein Klick auf die Option _Profil_ bringt Dich zur Profilseite des Studenten. Hier siehst Du eine Liste aller _Kurse_, in denen der Student eingeschrieben ist, sowie Links zu jedem Kurs. Außerdem gibt es einen kleinen Profilbereich mit zusätzlichen Details und einem Link _Profil bearbeiten_, der Dich zur Benutzerbearbeitungsseite für das Benutzerkonto dieses Studenten führt.
 ### Einstellungen
 
-Lass uns die Einstellungen des Plugins unter _CoursePress Pro > Einstellungen_ durchgehen.
+Lass uns die Einstellungen des Plugins unter _CoursePress > Einstellungen_ durchgehen.
 
 ![CoursePress - Einstellungsmenü](assets/images/CoursePress-Settings-menu.png)
 
@@ -573,7 +573,7 @@ Einfach die gewünschten Fähigkeiten anhaken und dann auf den Button _Änderung
 
 ##### Shortcodes
 
-CoursePress Pro bietet zahlreiche Shortcodes, die du in den Inhaltsbereichen deiner Website verwenden kannst, um Plugin-Funktionen nach Bedarf bereitzustellen.
+CoursePress bietet zahlreiche Shortcodes, die du in den Inhaltsbereichen deiner Website verwenden kannst, um Plugin-Funktionen nach Bedarf bereitzustellen.
 
 ![CoursePress - Einstellungen - Shortcodes](assets/images/CoursePress-Settings-Shortcodes.png)
 
@@ -616,9 +616,9 @@ Hier findest du eine detaillierte Übersicht, die dir bei den Shortcodes hilft. 
 
  This is just a quick link back to the welcome page, so you'll always have access to the 'Getting Started' section through this link.
 
-### The CoursePress Pro Theme
+### The CoursePress Theme
 
-CoursePress Pro works with any standard ClassicPress theme, but it also includes a built-in theme to help you get started. Lets switch to that theme at _Appearance > Themes_. 
+CoursePress works with any standard ClassicPress theme, but it also includes a built-in theme to help you get started. Lets switch to that theme at _Appearance > Themes_. 
 
 ![CoursePress - Themes menu](assets/images/CoursePress-Themes-menu.png)
 
@@ -630,7 +630,7 @@ CoursePress Pro works with any standard ClassicPress theme, but it also includes
 
 ### Widgets
 
-CoursePress Pro also includes a number of widgets for use in your theme's sidebar areas, as follows:
+CoursePress also includes a number of widgets for use in your theme's sidebar areas, as follows:
 
 *   _Featured Course_ - displays a featured Course
 

@@ -104,7 +104,7 @@ class CoursePress {
 	 *
 	 * @var string
 	 */
-	public static $name = 'CoursePress Pro'; // Translated by grunt.
+	public static $name = 'CoursePress'; // Translated by grunt.
 
 	/**
 	 * Absolut path to this file (main plugin file).
@@ -143,7 +143,7 @@ class CoursePress {
 		/**
 		 * Translate plugin name
 		 */
-		//self::$name = _x( 'CoursePress Pro', 'plugin name', 'cp' ); // Translated by grunt.
+		//self::$name = _x( 'CoursePress', 'plugin name', 'cp' ); // Translated by grunt.
 		// Initialise the autoloader.
 		spl_autoload_register( array( __CLASS__, 'class_loader' ) );
 

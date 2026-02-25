@@ -660,7 +660,7 @@ var CoursePress = CoursePress || {};
 
 			// Is paid course?
 			if ( 'yes' === _coursepress.current_course_is_paid ) {
-				$(newDiv).html(CoursePress.Enrollment.dialog.render().el);
+				$(newDiv).empty().append( CoursePress.Enrollment.dialog.render().el );
 				CoursePress.Enrollment.dialog.openAtAction('paid_enrollment');
 			} else {
 				$(newDiv ).addClass('hidden');
@@ -671,11 +671,11 @@ var CoursePress = CoursePress || {};
 				};
 				// We're logged in, so lets try to enroll
 				CoursePress.Enrollment.dialog.attempt_enroll( enroll_data );
-				$(newDiv).html(CoursePress.Enrollment.dialog.render().el);
+				$(newDiv).empty().append( CoursePress.Enrollment.dialog.render().el );
 			}
 
 		} else {
-			$(newDiv).html(CoursePress.Enrollment.dialog.render().el);
+			$(newDiv).empty().append( CoursePress.Enrollment.dialog.render().el );
 		}
 	}
 

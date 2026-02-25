@@ -509,7 +509,7 @@
 			CoursePress.UnitsPost.save( param );
 			CoursePress.UnitsPost.off( 'coursepress:get_student_modules_success' );
 			CoursePress.UnitsPost.on( 'coursepress:get_student_modules_success', function( data ) {
-				$("#user-" + data.student_id ).after( template( data ) );
+				$("#user-" + data.student_id ).after( $.parseHTML( template( data ) ) );
 			});
 			template_script = $( '#student-grade-' + data.student );
 			isopen = true;

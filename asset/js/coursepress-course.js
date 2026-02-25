@@ -687,7 +687,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 			if ( is_done ) {
 				return; // Bail if instructor already exist
 			}
-			dropdown.html( _coursepress.labels.user_dropdown_placeholder );
+			dropdown.text( _coursepress.labels.user_dropdown_placeholder );
 			var div = $( '<div class="instructor-avatar-holder empty" id="instructor_holder_' + instructor_id + '"><span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span></div>' ).appendTo( container );
 
 			CoursePress.Course.set( 'action', 'add_instructor' );
@@ -956,7 +956,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 				return; // Bail if facilitator already exist
 			}
 
-			dropdown.html( _coursepress.labels.user_dropdown_placeholder );
+			dropdown.text( _coursepress.labels.user_dropdown_placeholder );
 
 			var data = {
 				facilitator_id: facilitator_id,
@@ -1052,7 +1052,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 					}
 					// Confirm before deleting
 					if ( window.confirm( message ) ) {
-						$(target).html( $('<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>') );
+						$(target).empty().append( $( '<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>' ) );
 						$(target).parent().addClass('removing-process');
 						step_box = $( target ).parents('.cp-box-content')[0];
 						$( step_box ).find('.button.update.hidden' ).removeClass('hidden');
@@ -1078,7 +1078,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 					}
 					// Confirm before deleting
 					if ( window.confirm( message ) ) {
-						$(target).html( $('<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>') );
+						$(target).empty().append( $( '<span class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></span>' ) );
 						$(target).parent().addClass('removing-process');
 						step_box = $( target ).parents('.cp-box-content')[0];
 						$( step_box ).find('.button.update.hidden' ).removeClass('hidden');

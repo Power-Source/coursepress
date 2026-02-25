@@ -659,11 +659,11 @@ msgstr "Teilnahmebestätigung zum Fortbildungsabschluss"
 #: admin/class-edit.php:936
 msgid ""
 "The free version of CoursePress is limited to one course. To add more "
-"courses, upgrade to CoursePress Pro for unlimited courses and more payment "
+"courses, upgrade to CoursePress for unlimited courses and more payment "
 "gateways."
 msgstr ""
 "Die kostenlose Version von CoursePress ist auf einen Kurs beschränkt. Um "
-"weitere Kurse hinzuzufügen, aktualisiere auf CoursePress Pro für unbegrenzte "
+"weitere Kurse hinzuzufügen, aktualisiere auf CoursePress für unbegrenzte "
 "Kurse und mehr Zahlungs-Gateways."
 
 #. Plugin URI of the plugin/theme
@@ -672,8 +672,8 @@ msgid "https://cp-psource.github.io/coursepress/"
 msgstr "https://cp-psource.github.io/coursepress/"
 
 #: admin/class-edit.php:941
-msgid "Try CoursePress Pro for Free"
-msgstr "Teste CoursePress Pro kostenlos"
+msgid "Try CoursePress for Free"
+msgstr "Teste CoursePress kostenlos"
 
 #: admin/class-export.php:16
 msgid "CoursePress Export"
@@ -2642,8 +2642,8 @@ msgstr "Teilnehmer nicht gefunden."
 
 #: coursepress.php:121
 msgctxt "plugin name"
-msgid "CoursePress Pro"
-msgstr "CoursePress Pro"
+msgid "CoursePress"
+msgstr "CoursePress"
 
 #: include/coursepress/class-email.php:37
 #: include/coursepress/class-email.php:74
@@ -6800,9 +6800,9 @@ msgstr ""
 
 #: include/coursepress/view/admin/course/class-edit.php:960
 msgid ""
-"<p>The full version of MarketPress has been bundled with CoursePress Pro.</p>"
+"<p>The full version of MarketPress has been bundled with CoursePress.</p>"
 msgstr ""
-"<p>Die Vollversion von MarketPress ist mit CoursePress Pro gebündelt worden."
+"<p>Die Vollversion von MarketPress ist mit CoursePress gebündelt worden."
 "</p>"
 
 #: include/coursepress/view/admin/course/class-edit.php:962
