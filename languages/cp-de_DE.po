@@ -7381,7 +7381,7 @@ msgid "my-course"
 msgstr "mein-kurs"
 
 #: include/coursepress/view/admin/setting/class-general.php:32
-msgid "Use virtual page"
+msgid "Virtuelle Seite verwenden"
 msgstr "Virtuelle Seite verwenden"
 
 #: include/coursepress/view/admin/setting/class-general.php:60
@@ -7764,7 +7764,7 @@ msgstr ""
 #, php-format
 msgid ""
 "Select page where you have %s shortcode or any other set of %s. Please note "
-"that slug for the page set above will not be used if \"Use virtual page\" is "
+"that slug for the page set above will not be used if \"Virtuelle Seite verwenden\" is "
 "not selected."
 msgstr ""
 "Wähle die Seite, wo Du den %s shortcode oder irgendein anderes aus dem Set "
