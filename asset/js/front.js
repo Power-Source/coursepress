@@ -1272,7 +1272,7 @@ $(document)
 						errorList.append(listItem);
 					} );
 
-					$( '.bbm-wrapper #error-messages' ).html(errorList);
+					$( '.bbm-wrapper #error-messages' ).append(errorList);
 					$( 'input[name=password]' ).val('');
 					$( 'input[name=password_confirmation]' ).val('');
 				} else {
@@ -1318,7 +1318,7 @@ $(document)
 						var listItem = $('<li></li>').text(item);
 						errorList.append(listItem);
 					} );
-					$( '.bbm-wrapper #error-messages' ).html( errorList );
+					$( '.bbm-wrapper #error-messages' ).append( errorList );
 					$( 'input[name=password]' ).val('');
 				}
 			}
@@ -1389,13 +1389,14 @@ $(document)
 			}
 
 			if ( errors.length > 0 ) {
-			var errorList = $('<ul></ul>');
-			errors.forEach( function( item ) {
-				var listItem = $('<li></li>').text(item);
-				errorList.append(listItem);
-			} );
+				var errorList = $('<ul></ul>');
+				errors.forEach( function( item ) {
+					var listItem = $('<li></li>').text(item);
+					errorList.append(listItem);
+				} );
 
-			$( '.bbm-wrapper #error-messages' ).first().html( errorList );
+				$( '.bbm-wrapper #error-messages' ).first().append( errorList );
+			}
 
 			return valid;
 		},

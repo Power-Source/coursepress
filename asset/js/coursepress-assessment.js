@@ -200,15 +200,7 @@
 					draft_icon[ with_feedback ? 'hide' : 'show']();
 					$( '.description', feedback_editor ).hide(); // Hide no feedback info
 					$( '.cp-feedback-details', feedback_editor ).html( param.feedback_content );
-					$( 'cite', feedback_editor ).html( '- ' + _coursepress.instructor_name );
-				}
-
-				// Toggle certified icon
-				var certified = $( '[data-student="' + student_id + '"] .cp-certified' );
-				certified[ true === data.completed ? 'show' : 'hide' ]();
-			});
-
-			progress.success();
+				$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
 		});
 		CoursePress.UnitsPost.on( 'coursepress:update_error', function(){
 			progress.error( _coursepress.server_error );
@@ -309,7 +301,7 @@
 					draft_icon = $( '.cp-draft-icon', feedback_editor ).show();
 				$( '.description', feedback_editor ).hide(); // Hide no feedback info
 				$( '.cp-feedback-details', feedback_editor ).html( param.feedback_content );
-				$( 'cite', feedback_editor ).html( '- ' + _coursepress.instructor_name );
+			$( 'cite', feedback_editor ).text( '- ' + _coursepress.instructor_name );
 				cancelButton.trigger( 'click' );
 			});
 			progress.success( _coursepress.assessment_labels.sucess );

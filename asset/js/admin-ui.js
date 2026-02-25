@@ -82,14 +82,16 @@
 			icon: progress,
 			success: function( message ) {
 				message = ! message ? '' : message;
-				progress.addClass( 'success' ).html( check + message );
+				var msgSpan = $('<span></span>').text(message);
+				progress.addClass( 'success' ).html( check ).append( msgSpan );
 				progress.fadeOut( 3500, progress.remove );
 
 				CoursePress.Events.trigger( 'coursepress:progress:success' );
 			},
 			error: function( message ) {
 				message = ! message ? '' : message;
-				progress.addClass( 'error' ).html( error + message );
+				var msgSpan = $('<span></span>').text(message);
+				progress.addClass( 'error' ).html( error ).append( msgSpan );
 				progress.fadeOut( 3500, progress.remove );
 
 				CoursePress.Events.trigger( 'coursepress:progress:error' );
