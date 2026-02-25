@@ -950,11 +950,11 @@ var CoursePress = CoursePress || {};
 			wrapper.addClass(args.class);
 		}
 		
-		var link = $('<a class="popup-link"></a>').html(args.link_text);
+		var link = $('<a class="popup-link"></a>').append( $.parseHTML( args.link_text ) );
 		var popupDiv = $('<div class="popup hidden"></div>');
 		var popupBefore = $('<div class="popup-before"></div>');
 		var popupButton = $('<div class="popup-button"></div>').text('×');
-		var popupContent = $('<div class="popup-content"></div>').html(args.content);
+		var popupContent = $('<div class="popup-content"></div>').append( $.parseHTML( args.content ) );
 		
 		popupDiv.append(popupBefore).append(popupButton).append(popupContent);
 		wrapper.append(link).append(popupDiv);

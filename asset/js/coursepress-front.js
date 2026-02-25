@@ -1009,9 +1009,9 @@ var CoursePress = CoursePress || {};
 		$('label.file').on( 'change', 'input[type=file]', function() {
 			var target = $('span', $(this).parent() );
 			if ( $(this).val().length) {
-				target.html( target.data('change') );
+				target.empty().append( $.parseHTML( target.data('change') ) );
 			} else {
-				target.html( target.data('upload') );
+				target.empty().append( $.parseHTML( target.data('upload') ) );
 			}
 			return true;
 		});
