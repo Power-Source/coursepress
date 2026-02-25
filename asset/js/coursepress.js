@@ -938,18 +938,25 @@ var CoursePress = CoursePress || {};
 		args.link_text = args.link_text ? args.link_text : '';
 		args.class = args.class ? args.class : '';
 
-		content = '<div id="' + id + '" name="' + name + '" class="link-popup ' + args.class + '">' +
-		'<a class="popup-link">' + args.link_text + '</a>' +
-		'<div class="popup hidden">' +
-		'<div class="popup-before"></div>' +
-		'<div class="popup-button">&times;</div>' +
-		'<div class="popup-content">' +
-		args.content +
-		'</div>' +
-		'</div>' +
-		'</div>';
+		// Use jQuery to create elements safely
+		var wrapper = $('<div class="link-popup"></div>')
+			.attr('id', id)
+			.attr('name', name);
+		
+		if (args.class) {
+			wrapper.addClass(args.class);
+		}
+		
+		var link = $('<a class="popup-link"></a>').html(args.link_text);
+		var popupDiv = $('<div class="popup hidden"></div>');
+		var popupBefore = $('<div class="popup-before"></div>');
+		var popupButton = $('<div class="popup-button"></div>').text('×');
+		var popupContent = $('<div class="popup-content"></div>').html(args.content);
+		
+		popupDiv.append(popupBefore).append(popupButton).append(popupContent);
+		wrapper.append(link).append(popupDiv);
 
-		return content;
+		return wrapper.prop('outerHTML');
 	};
 
 	// Add UI extensions

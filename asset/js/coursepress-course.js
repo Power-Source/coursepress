@@ -327,7 +327,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		if ( _coursepress.course_title ) {
 			$('.coursepress_settings_wrapper h1').append( ': <small>'+_coursepress.course_title+'</small>');
 			$('#course_name').on('change', function() {
-				$('.coursepress_settings_wrapper h1 small').html($(this).val());
+				$('.coursepress_settings_wrapper h1 small').text($(this).val());
 			});
 		}
 
@@ -1017,15 +1017,15 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 			CoursePress.Course.save();
 			CoursePress.Course.off( 'coursepress:send_email_success' );
 			CoursePress.Course.on( 'coursepress:send_email_success', function( data ){
-				$('.coursepress-email-sending td', message_container).html(data.message.info);
-				$('.coursepress-email-field-subject td', message_container).html(data.message.subject);;
+				$('.coursepress-email-sending td', message_container).text(data.message.info);
+				$('.coursepress-email-field-subject td', message_container).text(data.message.subject);;
 				$('.coursepress-email-field-body td', message_container).html(data.message.body);;
 				$('.coursepress-email-field', message_container).slideDown();
 			});
 			CoursePress.Course.off( 'coursepress:send_email_error' );
 			CoursePress.Course.on( 'coursepress:send_email_error', function( data ) {
-				$('.coursepress-email-sending td', message_container).html(data.message.info);
-				$('.coursepress-email-field-subject td', message_container).html(data.message.subject);;
+				$('.coursepress-email-sending td', message_container).text(data.message.info);
+				$('.coursepress-email-field-subject td', message_container).text(data.message.subject);;
 				$('.coursepress-email-field-body td', message_container).html(data.message.body);;
 				$('.coursepress-email-field', message_container).slideDown();
 			});
@@ -1305,7 +1305,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 		CoursePress.Course.on( 'coursepress:add_facilitator_error', function( data ) {
 			var div = $( '#facilitator-' + data.facilitator_id ).empty();
-			div.html(data.message);
+			div.text(data.message);
 
 			div.fadeOut(3000, function() {
 				div.remove();
@@ -1660,7 +1660,10 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		CoursePress.Post.on( 'coursepress:discussion:unit_items_success', function( data ) {
 			if ( data.items.length > 0 ) {
 				$.each( data.items, function( index, item ) {
-					$( '.coursepress_communications_wrapper.discussions select#unit_id' ).append( '<option value="' + item.key + '">' + item.value + '</option>' );
+					var option = $('<option></option>')
+						.attr('value', item.key)
+						.text(item.value);
+					$( '.coursepress_communications_wrapper.discussions select#unit_id' ).append( option );
 				} );
 			}
 		} );
@@ -1848,7 +1851,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		 * Notification & Forum
 		 */
 		$( ".course-edit-notification .save-post-status, .course-edit-forums .save-post-status").on('click', function() {
-			$( "#post-status-display" ).html( $( "option:selected", $( "#post-status-select" ) ).text() );
+			$( "#post-status-display" ).text( $( "option:selected", $( "#post-status-select" ) ).text() );
 		});
 		$( ".course-edit-notification input[type=submit], .course-edit-forums input[type=submit]" ).on('click', function() {
 			var is_notification = $('.course-edit-notification').length > 0;
@@ -1905,15 +1908,15 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		 */
 		$( "#course_id" ).on('change', function() {
 			if ( "all" === $( "option:selected", $(this) ).val() ) {
-				$( "#post-visibility-display" ).html( $("#misc-publishing-actions").data("no-options") );
+				$( "#post-visibility-display" ).text( $("#misc-publishing-actions").data("no-options") );
 				$( "#visibility a.edit-visibility" ).hide();
 			} else {
-				$( "#post-visibility-display" ).html( $( "input:checked", $( "#visibility" ) ).data( "info" ) );
+				$( "#post-visibility-display" ).text( $( "input:checked", $( "#visibility" ) ).data( "info" ) );
 				$( "#visibility a.edit-visibility" ).show();
 			}
 		});
 		$( ".course-edit-notification .save-post-visibility" ).on('click', function( event ) {
-			$( "#post-visibility-display" ).html( $( "input:checked", $( "#visibility" ) ).data( "info" ) );
+			$( "#post-visibility-display" ).text( $( "input:checked", $( "#visibility" ) ).data( "info" ) );
 		});
 
 	} )

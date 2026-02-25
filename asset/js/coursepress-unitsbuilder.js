@@ -507,13 +507,13 @@ var CoursePress = CoursePress || {};
 
 			var input_name = $( question).attr('data-type') + '-' + $( question).attr('data-id');
 
-			var content = '<div class="answer">' +
-				'<input type="' + input + '" value="" name="' + input_name + '">' +
-				'<input type="text" name="" value="" class="' + css_class + '">' +
-				'<span class="remove-quiz-item"><i class="fa fa-trash-o"></i></span>' +
-				'</div>';
-
-			$(question).find('.answer-group').append( content );
+			var answerDiv = $('<div class="answer"></div>');
+			var inputElem = $('<input type="' + input + '" value="" name="' + input_name + '">');
+			var textInput = $('<input type="text" name="" value="" class="' + css_class + '">');
+			var removeBtn = $('<span class="remove-quiz-item"><i class="fa fa-trash-o"></i></span>');
+			
+			answerDiv.append(inputElem).append(textInput).append(removeBtn);
+			$(question).find('.answer-group').append( answerDiv );
 			CoursePress.Helpers.Module.quiz.bind_remove_item();
 			CoursePress.Helpers.Module.quiz.bind_checkboxes();
 			CoursePress.Helpers.Module.quiz.bind_textboxes();
@@ -749,13 +749,13 @@ var CoursePress = CoursePress || {};
 
 			var input_name = $( question).attr('data-type') + '-' + $( question).attr('data-id');
 
-			var content = '<div class="answer">' +
-				'<input type="' + input + '" value="" name="' + input_name + '">' +
-				'<input type="text" name="" value="" class="' + css_class + '">' +
-				'<span class="remove-form-item"><i class="fa fa-trash-o"></i></span>' +
-				'</div>';
-
-			$(question).find('.answer-group').append( content );
+			var answerDiv = $('<div class="answer"></div>');
+			var inputElem = $('<input type="' + input + '" value="" name="' + input_name + '">');
+			var textInput = $('<input type="text" name="" value="" class="' + css_class + '">');
+			var removeBtn = $('<span class="remove-form-item"><i class="fa fa-trash-o"></i></span>');
+			
+			answerDiv.append(inputElem).append(textInput).append(removeBtn);
+			$(question).find('.answer-group').append( answerDiv );
 			CoursePress.Helpers.Module.form.bind_remove_item();
 			CoursePress.Helpers.Module.form.bind_checkboxes();
 			CoursePress.Helpers.Module.form.bind_textboxes();
@@ -2162,7 +2162,7 @@ var CoursePress = CoursePress || {};
 			unit.set_meta( 'unit_feature_image', el_val );
 		},
 		updateTabTitle: function( e ) {
-			$( '[data-tab="' + this.parentView.activeUnitID + '"] span' ).html( $( e.currentTarget ).val() );
+			$( '[data-tab="' + this.parentView.activeUnitID + '"] span' ).text( $( e.currentTarget ).val() );
 		},
 		toggleUnitState: function( e ) {
 			CoursePress.Helpers.Module.toggle_unit_state( e );
@@ -2299,7 +2299,7 @@ var CoursePress = CoursePress || {};
 			$('.page-info-holder input[name=page_title]').on('keyup', function() {
 				label = $( this ).val();
 				label = ( label.length > 19 ) ? label.substr( 0, 19 ) + "…" : label;
-				$( '.unit-builder-pager li.active' ).html( label ) ;
+				$( '.unit-builder-pager li.active' ).text( label ) ;
 			});
 			return this;
 		},
@@ -2465,7 +2465,7 @@ var CoursePress = CoursePress || {};
 		updateUIHeading: function( e ) {
 			var el = $( e.currentTarget );
 			var header = $( el.parents( '.module-holder' ).first() ).siblings( 'h3' ).first();
-			$( header ).find( '.label' ).html( el.val() );
+			$( header ).find( '.label' ).text( el.val() );
 		},
 		changePage: function( e ) {
 			var self = this;
@@ -2528,9 +2528,13 @@ var CoursePress = CoursePress || {};
 			var el_type = $( $(el).parents('.module-holder')[0] ).attr('class').match(/input-radio|input-select/) ? 'radio' : 'checkbox';
 			var new_name = $( $(el).parents('.module-holder')[0] ).attr('class').match(/input-radio|input-select/) ? 'meta_answers_selected[' + cid + ']' : 'meta_answers_selected[' + cid + '][]';
 
-			$( group ).append( '<div class="answer"><input type="' + el_type + '" value="' + value + '" name="' + new_name + '">' +
-			'<input class="component-' + el_type + '-answer wide" type="text" name="meta_answers[]" value="">' +
-			' <span class="remove-item"><i class="fa fa-trash-o"></i></span></div>' );
+			var answerDiv = $('<div class="answer"></div>');
+			var input = $('<input type="' + el_type + '" value="' + value + '" name="' + new_name + '">');
+			var textInput = $('<input class="component-' + el_type + '-answer wide" type="text" name="meta_answers[]" value="">');
+			var removeBtn = $('<span class="remove-item"><i class="fa fa-trash-o"></i></span>');
+			
+			answerDiv.append(input).append(textInput).append(removeBtn);
+			$( group ).append( answerDiv );
 
 		},
 		removeAnswer: function( e ) {
