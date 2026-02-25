@@ -54,10 +54,13 @@ var CoursePress = CoursePress || {};
 		// Fix whitespace bug
 		editor = editor.replace( /<p>\s/g, '' );
 
+		// Create editor element from HTML template
+		var editorElement = $( '<div>' ).append( editor );
+		
 		if ( append ) {
-			$( target ).append( editor );
+			$( target ).append( editorElement.contents() );
 		} else {
-			$( target ).replaceWith( editor );
+			$( target ).replaceWith( editorElement.contents() );
 		}
 		content = _.unescape(content);
 		$('textarea#' + id ).val(content);

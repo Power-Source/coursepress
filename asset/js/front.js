@@ -1587,7 +1587,7 @@ $(document)
 			
 			// We're logged in, so lets try to enroll
 			CoursePress.Enrollment.dialog.attempt_enroll( enroll_data );
-			$(newDiv).html(CoursePress.Enrollment.dialog.render().el);
+			$(newDiv).empty().append(CoursePress.Enrollment.dialog.render().el);
 		}
 
 		return false;
