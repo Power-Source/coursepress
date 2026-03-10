@@ -22,8 +22,8 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 
 	public function get_labels() {
 		return array(
-			'title' => __( 'CoursePress Students', 'cp' ),
-			'menu_title' => __( 'Students', 'cp' ),
+			'title' => __( 'CoursePress Studenten', 'cp' ),
+			'menu_title' => __( 'Studenten', 'cp' ),
 		);
 	}
 
@@ -190,9 +190,17 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 
 		$course_id = (int) $_GET['course_id'];
 		if ( wp_verify_nonce( $nonce_request, 'coursepress_search_users' ) ) {
+			if ( ! CoursePress_Data_Capabilities::can_assign_facilitator( $course_id ) ) {
+				echo json_encode( $results );
+				die;
+			}
 			// Facilitator
 			$exclude = CoursePress_Data_Facilitator::get_course_facilitators( $course_id );
 		} elseif ( wp_verify_nonce( $nonce_request, 'coursepress_instructor_search' ) ) {
+			if ( ! CoursePress_Data_Capabilities::can_assign_course_instructor( $course_id ) ) {
+				echo json_encode( $results );
+				die;
+			}
 			// Instructors
 			$exclude = CoursePress_Data_Course::get_setting( $course_id, 'instructors', array() );
 			$exclude = array_filter( $exclude );
@@ -200,6 +208,10 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 			// Student
 			$nonce = self::get_search_nonce_name( $_GET['course_id'] );
 			if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], $nonce ) ) {
+				echo json_encode( $results );
+				die;
+			}
+			if ( ! CoursePress_Data_Capabilities::can_assign_course_student( $course_id ) ) {
 				echo json_encode( $results );
 				die;
 			}
@@ -330,9 +342,17 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 			echo json_encode( $results );
 			die;
 		}
-		$result = CoursePress_Data_Certificate::send_certificate( $_POST['id'] );
+
+		$certificate_id = absint( $_POST['id'] );
+		$course_id = (int) wp_get_post_parent_id( $certificate_id );
+		if ( empty( $course_id ) || ! CoursePress_Data_Capabilities::can_view_course_students( $course_id ) ) {
+			$results['step'] = 'cap';
+			echo json_encode( $results );
+			die;
+		}
+		$result = CoursePress_Data_Certificate::send_certificate( $certificate_id );
 		if ( $result ) {
-			$parent_id = wp_get_post_parent_id( $_POST['id'] );
+			$parent_id = wp_get_post_parent_id( $certificate_id );
 			$results = array(
 				'success' => true,
 				'message' => sprintf(

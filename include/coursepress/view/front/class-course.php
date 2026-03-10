@@ -273,7 +273,20 @@ class CoursePress_View_Front_Course {
 			$module_id = (int) $_REQUEST['module_id'];
 		}
 		if ( isset( $_REQUEST['student_id'] ) ) {
-			$student_id = (int) $_REQUEST['student_id'];
+			$requested_student_id = (int) $_REQUEST['student_id'];
+			if ( $requested_student_id && ( $requested_student_id !== $student_id ) && ! current_user_can( 'manage_options' ) ) {
+				$json_data['response'] = __( 'Invalid student context.', 'cp' );
+				$json_data['success'] = false;
+				$process_file = false;
+			} elseif ( current_user_can( 'manage_options' ) ) {
+				$student_id = $requested_student_id;
+			}
+		}
+
+		if ( ! $course_id || ! CoursePress_Data_Course::can_access( $course_id, 'student', $student_id ) ) {
+			$json_data['response'] = __( 'Access denied.', 'cp' );
+			$json_data['success'] = false;
+			$process_file = false;
 		}
 
 		if ( ! $course_id && ! $unit_id && ! $module_id ) {
@@ -1403,6 +1416,12 @@ class CoursePress_View_Front_Course {
 		$data = json_decode( file_get_contents( 'php://input' ) );
 		$json_data = array();
 		$success = false;
+		$current_user_id = get_current_user_id();
+
+		if ( ! $current_user_id ) {
+			$json_data['message'] = __( 'Please sign in to continue.', 'cp' );
+			wp_send_json_error( $json_data );
+		}
 
 		if ( empty( $data->action ) ) {
 			$json_data['message'] = __( 'Course Update: No action.', 'cp' );
@@ -1417,13 +1436,22 @@ class CoursePress_View_Front_Course {
 		switch ( $action ) {
 			case 'record_module_response':
 				// Update Course.
+				if ( empty( $data->cpnonce ) || ! wp_verify_nonce( $data->cpnonce, 'coursepress_nonce' ) ) {
+					$json_data['message'] = __( 'Invalid request nonce.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 
 				$course_id = (int) $data->course_id;
 				$unit_id = (int) $data->unit_id;
 				$module_id = (int) $data->module_id;
-				$student_id = (int) $data->student_id;
+				$student_id = $current_user_id;
 				$response = $data->response;
 				$module_type = $data->module_type;
+
+				if ( ! CoursePress_Data_Course::can_access( $course_id, 'student', $current_user_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 
 				if ( CoursePress_Data_Course::get_course_status( $course_id ) == 'closed' ) {
 					$json_data['message'] = __( 'This course is completed, you can not submit answers anymore.', 'cp' );
@@ -1475,26 +1503,40 @@ class CoursePress_View_Front_Course {
 					'echo' => false,
 				);
 				$json_data['html'] = CoursePress_Data_Shortcode_Template::coursepress_focus_item( $attr );
+				$json_data['student_id'] = $student_id;
 
 				$json_data = array_merge( $json_data, $data );
+				$json_data['student_id'] = $student_id;
 				$success = true;
 				break;
 
 			case 'calculate_completion':
+				if ( empty( $data->cpnonce ) || ! wp_verify_nonce( $data->cpnonce, 'coursepress_nonce' ) ) {
+					$json_data['message'] = __( 'Invalid request nonce.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 
 				$course_id = (int) $data->course_id;
-				$student_id = (int) $data->student_id;
+				$student_id = $current_user_id;
 
-				if ( $student_id > 0 && $course_id > 0 ) {
+				if ( $student_id > 0 && $course_id > 0 && CoursePress_Data_Course::can_access( $course_id, 'student', $current_user_id ) ) {
 					CoursePress_Data_Student::get_calculated_completion_data( $student_id, $course_id );
 					CoursePress_Debugger::log( sprintf( 'Course progress updated via ajax ID: %d, STUDENT: %d', $course_id, $student_id ) );
 				}
+				$json_data['student_id'] = $student_id;
 
 				$success = true;
 				break;
 
 			case 'comment_add_new':
+				if ( empty( $data->cpnonce ) || ! wp_verify_nonce( $data->cpnonce, 'coursepress_nonce' ) ) {
+					$json_data['message'] = __( 'Invalid request nonce.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				$json_data = CoursePress_Data_Discussion::comment_add_new( $data, $json_data );
+				if ( empty( $json_data['student_id'] ) ) {
+					$json_data['student_id'] = $current_user_id;
+				}
 				$success = true;
 		}
 

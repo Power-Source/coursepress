@@ -149,7 +149,23 @@ class CoursePress_Module {
 
 		$unit_id = (int) $input['unit_id'];
 		$course_id = (int) $input['course_id'];
-		$student_id = (int) $input['student_id'];
+		$student_id = get_current_user_id();
+		$request_student_id = isset( $input['student_id'] ) ? (int) $input['student_id'] : 0;
+
+		if ( empty( $student_id ) || ( ! empty( $request_student_id ) && $request_student_id !== $student_id && ! current_user_can( 'manage_options' ) ) ) {
+			wp_send_json_error( array( 'success' => false ) );
+			return;
+		}
+
+		if ( $unit_id !== (int) wp_get_post_parent_id( $module_id ) || $course_id !== (int) wp_get_post_parent_id( $unit_id ) ) {
+			wp_send_json_error( array( 'success' => false ) );
+			return;
+		}
+
+		if ( ! empty( CoursePress_Data_Course::can_access( $course_id, $unit_id, $module_id, $student_id ) ) ) {
+			wp_send_json_error( array( 'success' => false ) );
+			return;
+		}
 
 		$comments = array(
 			'comment_content' => $input['comment'],
@@ -534,7 +550,24 @@ class CoursePress_Module {
 		$module_id = (int) $request['module_id'];
 		$course_id = (int) $request['course_id'];
 		$unit_id = (int) $request['unit_id'];
-		$student_id = (int) $request['student_id'];
+		$student_id = get_current_user_id();
+		$request_student_id = isset( $request['student_id'] ) ? (int) $request['student_id'] : 0;
+
+		if ( empty( $student_id ) || ( ! empty( $request_student_id ) && $request_student_id !== $student_id && ! current_user_can( 'manage_options' ) ) ) {
+			wp_send_json_error( array( 'success' => false ) );
+			return;
+		}
+
+		if ( $unit_id !== (int) wp_get_post_parent_id( $module_id ) || $course_id !== (int) wp_get_post_parent_id( $unit_id ) ) {
+			wp_send_json_error( array( 'success' => false ) );
+			return;
+		}
+
+		if ( ! empty( CoursePress_Data_Course::can_access( $course_id, $unit_id, $module_id, $student_id ) ) ) {
+			wp_send_json_error( array( 'success' => false ) );
+			return;
+		}
+
 		$keys = array( $course_id, $unit_id, $module_id, $student_id );
 		$key = 'response_' . implode( '_', $keys );
 		$count = (int) get_user_meta( $student_id, $key, true );

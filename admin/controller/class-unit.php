@@ -231,11 +231,20 @@ class CoursePress_Admin_Controller_Unit {
 	public static function unit_builder_ajax() {
 		$json_data = array();
 		$skip_empty = false;
-		$task = $_REQUEST['task'];
+		$task = isset( $_REQUEST['task'] ) ? sanitize_key( $_REQUEST['task'] ) : '';
+		$course_id = isset( $_REQUEST['course_id'] ) ? (int) $_REQUEST['course_id'] : 0;
+		$unit_id = isset( $_REQUEST['unit_id'] ) ? (int) $_REQUEST['unit_id'] : 0;
+		if ( empty( $course_id ) && ! empty( $unit_id ) ) {
+			$course_id = (int) wp_get_post_parent_id( $unit_id );
+		}
+		$can_update_course = ! empty( $course_id ) && CoursePress_Data_Capabilities::can_update_course( $course_id );
 		$is_valid = defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['wp_nonce'] ) && wp_verify_nonce( $_REQUEST['wp_nonce'], 'unit_builder' );
 
 		switch ( $task ) {
 			case 'units':
+				if ( ! $is_valid || ! $can_update_course ) {
+					break;
+				}
 				$course_id = (int) $_REQUEST['course_id'];
 				$user_id = get_current_user_id();
 				$units = CoursePress_Data_Course::get_units( $course_id, 'any' );
@@ -325,6 +334,9 @@ class CoursePress_Admin_Controller_Unit {
 				break;
 
 			case 'modules':
+				if ( ! $is_valid || ! $can_update_course ) {
+					break;
+				}
 				$unit_id = (int) $_REQUEST['unit_id'];
 				$page = (int) $_REQUEST['page'];
 				$modules = CoursePress_Data_Course::get_unit_modules( $unit_id, 'any', false, false, array( 'page' => $page ) );
@@ -375,7 +387,7 @@ class CoursePress_Admin_Controller_Unit {
 				break;
 
 			case 'units_update':
-				if ( true === $is_valid ) {
+				if ( true === $is_valid && $can_update_course ) {
 					$data = json_decode( file_get_contents( 'php://input' ) );
 					$data = CoursePress_Helper_Utility::object_to_array( $data );
 					$units = array();
@@ -472,7 +484,7 @@ class CoursePress_Admin_Controller_Unit {
 				break;
 
 			case 'modules_update':
-				if ( true === $is_valid ) {
+				if ( true === $is_valid && $can_update_course ) {
 					$data = json_decode( file_get_contents( 'php://input' ) );
 					$data = CoursePress_Helper_Utility::object_to_array( $data );
 					$unit_id = (int) $_REQUEST['unit_id'];
@@ -592,7 +604,7 @@ class CoursePress_Admin_Controller_Unit {
 			case 'unit_toggle':
 				$unit_id = (int) $_REQUEST['unit_id'];
 
-				if ( true === $is_valid ) {
+				if ( true === $is_valid && $can_update_course ) {
 					$state = sanitize_text_field( $_REQUEST['state'] );
 					$response = wp_update_post( array(
 						'ID' => $unit_id,
@@ -607,7 +619,7 @@ class CoursePress_Admin_Controller_Unit {
 				break;
 
 			case 'module_add':
-				if ( true === $is_valid ) {
+				if ( true === $is_valid && $can_update_course ) {
 					$data = json_decode( file_get_contents( 'php://input' ) );
 					$data = CoursePress_Helper_Utility::object_to_array( $data );
 					$new_module = false;
@@ -644,7 +656,7 @@ class CoursePress_Admin_Controller_Unit {
 				}
 				break;
 			case 'modules_update_delete_section':
-				if ( $is_valid ) {
+				if ( $is_valid && $can_update_course ) {
 					$unit_id = $_REQUEST['unit_id'];
 					$page = $_REQUEST['page'];
 					CoursePress_Data_Unit::delete_section( $unit_id, $page );

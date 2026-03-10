@@ -1571,7 +1571,7 @@ class CoursePress_View_Admin_Course_Edit {
 
 							case 'publish':
 								if ( ! CoursePress_Data_Capabilities::can_update_course( $course_id ) ) {
-									continue;
+									continue 2;
 								}
 								wp_update_post( array(
 									'ID' => $course_id,
@@ -1580,7 +1580,7 @@ class CoursePress_View_Admin_Course_Edit {
 							break;
 							case 'unpublish':
 								if ( ! CoursePress_Data_Capabilities::can_update_course( $course_id ) ) {
-									continue;
+									continue 2;
 								}
 								wp_update_post( array(
 									'ID' => $course_id,

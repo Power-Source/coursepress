@@ -179,7 +179,7 @@ function ema_modal_window_admin_style($hook) {
 		
 		// Data from Course -----------------------------------
 		$courseMeta = get_post_meta( $courseid );
-		$courseSettings = unserialize( $courseMeta[ 'course_settings' ][0]);
+		$courseSettings = maybe_unserialize( $courseMeta[ 'course_settings' ][0] );
 		
 		if ($test) {
 			print('<div style="margin-left:50px;">');
@@ -189,19 +189,19 @@ function ema_modal_window_admin_style($hook) {
 			print("transprint: $transprint");
 		}
 		if ($test) print('<br><br>Kurs sichtbare Einheiten<br>');
-		$cp_structure_visible_units_array = unserialize($courseMeta['cp_structure_visible_units'][0]);
+		$cp_structure_visible_units_array = maybe_unserialize( $courseMeta['cp_structure_visible_units'][0] );
 		if ($test) { print_r( $cp_structure_visible_units_array );print("<br>");
 					 print_r($courseSettings['structure_visible_units']); }
 		
 		
 		if ($test) print('<br><br>Kurs Einheiten-Vorschau<br>');
-		$cp_structure_preview_units_array = unserialize($courseMeta['cp_structure_preview_units'][0]);
+		$cp_structure_preview_units_array = maybe_unserialize( $courseMeta['cp_structure_preview_units'][0] );
 		if ($test) { print_r( $cp_structure_preview_units_array );print("<br>");
 					 print_r($courseSettings['structure_preview_units']); }
 		
 		
 		if ($test) print("<br><br>Sichtbare Einheiten des Kurses<br>");
-		$cp_structure_visible_pages_array =  unserialize( $courseMeta['cp_structure_visible_pages'][0] );
+		$cp_structure_visible_pages_array = maybe_unserialize( $courseMeta['cp_structure_visible_pages'][0] );
 		if(!isset($cp_structure_visible_pages_array) || is_null($cp_structure_visible_pages_array)) 
 			$cp_structure_visible_pages_array = [];
 		$trans_cp_structure_visible_pages_array = [];
@@ -229,7 +229,7 @@ function ema_modal_window_admin_style($hook) {
 					 
 		
 		if ($test) print("<br><br>Kurs Einheiten-Vorschau<br>");
-		$cp_structure_preview_pages_array =  unserialize( $courseMeta['cp_structure_preview_pages'][0] );
+		$cp_structure_preview_pages_array = maybe_unserialize( $courseMeta['cp_structure_preview_pages'][0] );
 		if(!isset($cp_structure_preview_pages_array) || is_null($cp_structure_preview_pages_array)) 
 			$cp_structure_preview_pages_array = [];
 		$trans_cp_structure_preview_pages_array = [];
@@ -257,7 +257,7 @@ function ema_modal_window_admin_style($hook) {
 	 
 									 
 		if ($test) print("<br><br>Kurs sichtbare Module<br>");
-		$cp_structure_visible_modules_array =  unserialize( $courseMeta['cp_structure_visible_modules'][0]);
+		$cp_structure_visible_modules_array = maybe_unserialize( $courseMeta['cp_structure_visible_modules'][0] );
 		if(!isset($cp_structure_visible_modules_array) || is_null($cp_structure_visible_modules_array))
 			$cp_structure_visible_modules_array = [];
 		$trans_cp_structure_visible_modules_array = [];
@@ -288,7 +288,7 @@ function ema_modal_window_admin_style($hook) {
 			  		 
 		
 		if ($test) { print("<br><br>Kurs Vorschau-Module<br>"); }
-		$cp_structure_preview_modules_array =  unserialize( $courseMeta['cp_structure_preview_modules'][0]);
+		$cp_structure_preview_modules_array = maybe_unserialize( $courseMeta['cp_structure_preview_modules'][0] );
 		if(!isset($cp_structure_preview_modules_array) || is_null($cp_structure_preview_modules_array))
 			$cp_structure_preview_modules_array = [];
 		// print_r($cp_structure_preview_modules_array);
@@ -373,7 +373,7 @@ function ema_modal_window_admin_style($hook) {
 		$unitMeta = get_post_meta( $unitid );
 		
 		if ($test) print("<br><br>Einheitenseitentitel<br>");
-		$page_title_array = unserialize( $unitMeta['page_title'][0] );
+		$page_title_array = maybe_unserialize( $unitMeta['page_title'][0] );
 		if(!isset($page_title_array) || is_null($page_title_array))
 			$page_title_array= [];
 		$trans_page_title_array = [];
@@ -395,7 +395,7 @@ function ema_modal_window_admin_style($hook) {
 		
 		
 		if ($test) print("<br><br>Einheit Seitentitel anzeigen<br>");
-		$show_page_title_array = unserialize( $unitMeta['show_page_title'][0] );
+		$show_page_title_array = maybe_unserialize( $unitMeta['show_page_title'][0] );
 		if(!isset($show_page_title_array) || is_null($show_page_title_array))
 			$show_page_title_array= [];
 		$trans_show_page_title_array = [];
@@ -453,7 +453,7 @@ function ema_modal_window_admin_style($hook) {
 		
 		
 		if ($test) print("<br><br>Beschreibung der Einheitenseite<br>");
-		$page_desc_array = unserialize( $unitMeta['page_description'][0] );
+		$page_desc_array = maybe_unserialize( $unitMeta['page_description'][0] );
 		if(!isset($page_desc_array) || is_null($page_desc_array))
 			$page_desc_array= [];
 		$trans_page_desc_array = [];
@@ -506,7 +506,7 @@ function ema_modal_window_admin_style($hook) {
 	}
 
 	function ema_print_nice($arg, $level = "") {
-		$here = (is_serialized($arg) ? unserialize($arg) : $arg);
+		$here = is_serialized( $arg ) ? maybe_unserialize( $arg ) : $arg;
 		if (!is_array($here) && !is_object($here)) {
 			print($level.$here."<br>");
 			return;

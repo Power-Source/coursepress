@@ -41,6 +41,6 @@ $assigned_courses = array_map( 'get_post', $assigned_courses );
 	</table>
 	<?php else : ?>
 	<br />
-	<p class="description"><?php esc_html_e( 'No courses found!', 'cp' ); ?></p>
+	<p class="description"><?php esc_html_e( 'Keine Kurse gefunden!', 'cp' ); ?></p>
 	<?php endif; ?>
 </div>

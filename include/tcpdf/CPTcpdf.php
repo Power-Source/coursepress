@@ -12576,7 +12576,7 @@ class CP_TCPDF {
 		$k = $this->k;
 		$this->javascript .= sprintf("f".$name."=this.addField('%s','%s',%u,[%F,%F,%F,%F]);", $name, $type, $this->PageNo()-1, $x*$k, ($this->h-$y)*$k+1, ($x+$w)*$k, ($this->h-$y-$h)*$k+1)."\n";
 		$this->javascript .= 'f'.$name.'.textSize='.$this->FontSizePt.";\n";
-		while (list($key, $val) = each($prop)) {
+		foreach ($prop as $key => $val) {
 			if (strcmp(substr($key, -5), 'Color') == 0) {
 				$val = CP_TCPDF_COLORS::_JScolor($val);
 			} else {
@@ -16540,7 +16540,7 @@ class CP_TCPDF {
 					// get attributes
 					preg_match_all('/([^=\s]*)[\s]*=[\s]*"([^"]*)"/', $element, $attr_array, PREG_PATTERN_ORDER);
 					$dom[$key]['attribute'] = array(); // reset attribute array
-					while (list($id, $name) = each($attr_array[1])) {
+					foreach ($attr_array[1] as $id => $name) {
 						$dom[$key]['attribute'][strtolower($name)] = $attr_array[2][$id];
 					}
 					if (!empty($css)) {
@@ -16553,7 +16553,7 @@ class CP_TCPDF {
 						// get style attributes
 						preg_match_all('/([^;:\s]*):([^;]*)/', $dom[$key]['attribute']['style'], $style_array, PREG_PATTERN_ORDER);
 						$dom[$key]['style'] = array(); // reset style attribute array
-						while (list($id, $name) = each($style_array[1])) {
+						foreach ($style_array[1] as $id => $name) {
 							// in case of duplicate attribute the last replace the previous
 							$dom[$key]['style'][strtolower($name)] = trim($style_array[2][$id]);
 						}
@@ -16891,10 +16891,10 @@ class CP_TCPDF {
 					if (($dom[$key]['value'] == 'pre') OR ($dom[$key]['value'] == 'tt')) {
 						$dom[$key]['fontname'] = $this->default_monospaced_font;
 					}
-					if (!empty($dom[$key]['value']) AND ($dom[$key]['value'][0] == 'h') AND (intval($dom[$key]['value']{1}) > 0) AND (intval($dom[$key]['value']{1}) < 7)) {
+					if (!empty($dom[$key]['value']) AND ($dom[$key]['value'][0] == 'h') AND (intval($dom[$key]['value'][1]) > 0) AND (intval($dom[$key]['value'][1]) < 7)) {
 						// headings h1, h2, h3, h4, h5, h6
 						if (!isset($dom[$key]['attribute']['size']) AND !isset($dom[$key]['style']['font-size'])) {
-							$headsize = (4 - intval($dom[$key]['value']{1})) * 2;
+							$headsize = (4 - intval($dom[$key]['value'][1])) * 2;
 							$dom[$key]['fontsize'] = $dom[0]['fontsize'] + $headsize;
 						}
 						if (!isset($dom[$key]['style']['font-weight'])) {
@@ -17716,7 +17716,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 										if ($offset === false) {
 											$this->Error('HTML Justification: malformed PDF code.');
 										}
-										continue;
+										continue 2;
 									}
 									if ($this->isRTLTextDir()) {
 										$spacew = ($spacewidth * ($nsmax - $ns));
@@ -17740,7 +17740,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 											$pmid_e = substr($pmid, $epsposend);
 											$pmid = $pmid_b."\nq\n".$trx."\n".$pmid_m."\nQ\n".$pmid_e;
 											$offset = $epsposend;
-											continue;
+											continue 2;
 										}
 									}
 									$currentxpos = 0;
@@ -17776,7 +17776,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 											// justify block
 											if (!CP_TCPDF_STATIC::empty_string($this->lispacer)) {
 												$this->lispacer = '';
-												continue;
+												continue 2;
 											}
 											preg_match('/([0-9\.\+\-]*)[\s]([0-9\.\+\-]*)[\s]([0-9\.\+\-]*)[\s]('.$strpiece[1][0].')[\s](re)([\s]*)/x', $pmid, $xmatches);
 											if (!isset($xmatches[1])) {

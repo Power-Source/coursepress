@@ -110,6 +110,8 @@ class CoursePress_View_Front_EnrollmentPopup {
 		$step_data = $data->data;
 		$json_data = array();
 		$success = false;
+		$current_user_id = get_current_user_id();
+		$is_logged_in = ( $current_user_id > 0 );
 
 		if ( empty( $data->action ) ) {
 			$json_data['message'] = __( 'Enrolment: No action.', 'cp' );
@@ -132,9 +134,19 @@ class CoursePress_View_Front_EnrollmentPopup {
 
 			// Update Course
 			case 'update_course':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_posts' ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
+
 				if ( isset( $step_data->step ) && wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 
 					$step = (int) $step_data->step;
+					$course_id = ! empty( $step_data->course_id ) ? (int) $step_data->course_id : 0;
+					if ( $course_id && ! current_user_can( 'edit_post', $course_id ) ) {
+						$json_data['message'] = __( 'Access denied.', 'cp' );
+						wp_send_json_error( $json_data );
+					}
 
 					$course_id = CoursePress_Data_Course::update( $step_data->course_id, $step_data );
 					$json_data['course_id'] = $course_id;
@@ -149,7 +161,11 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'toggle_course_status':
-				$course_id = $data->data->course_id;
+				$course_id = (int) $data->data->course_id;
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', $course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 
 				if ( wp_verify_nonce( $data->data->nonce, 'publish-course' ) ) {
 					wp_update_post( array(
@@ -168,6 +184,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 
 			// Delete Instructor
 			case 'delete_instructor':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 					CoursePress_Data_Course::remove_instructor( $data->data->course_id, $data->data->instructor_id );
 					$json_data['instructor_id'] = $data->data->instructor_id;
@@ -180,6 +200,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 
 			// Add Instructor
 			case 'add_instructor':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 
 				if ( wp_verify_nonce( $data->data->nonce, 'coursepress_add_instructor' ) ) {
 					CoursePress_Data_Course::add_instructor( $data->data->course_id, $data->data->instructor_id );
@@ -200,6 +224,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 
 			// Invite Instructor
 			case 'invite_instructor':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 
 				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 					$response = CoursePress_Data_Instructor::send_invitation(
@@ -219,6 +247,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 
 			// Delete Invite
 			case 'delete_instructor_invite':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 					CoursePress_Data_Instructor::delete_invitation( $data->data->course_id, $data->data->invite_code );
 					$json_data['course_id'] = $data->data->course_id;
@@ -230,6 +262,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'withdraw_student':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'withdraw-single-student' ) ) {
 					CoursePress_Data_Course::withdraw_student( $data->data->student_id, $data->data->course_id );
 					$json_data['student_id'] = $data->data->student_id;
@@ -241,6 +277,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'withdraw_all_students':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'withdraw_all_students' ) ) {
 					CoursePress_Data_Course::withdraw_all_students( $data->data->course_id );
 					$json_data['course_id'] = $data->data->course_id;
@@ -251,6 +291,10 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'invite_student':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_post', (int) $data->data->course_id ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'invite_student' ) ) {
 					$email_data = CoursePress_Helper_Utility::object_to_array( $data->data );
 					$response = CoursePress_Data_Course::send_invitation( $email_data );
@@ -263,11 +307,19 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'bulk_actions':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_posts' ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'bulk_action_nonce' ) ) {
 					$courses = $data->data->courses;
 					$action = $data->data->the_action;
 
 					foreach ( $courses as $course_id ) {
+						$course_id = (int) $course_id;
+						if ( ! current_user_can( 'edit_post', $course_id ) ) {
+							continue;
+						}
 
 						switch ( $action ) {
 							case 'publish':
@@ -285,6 +337,9 @@ class CoursePress_View_Front_EnrollmentPopup {
 								break;
 
 							case 'delete':
+								if ( ! current_user_can( 'delete_post', $course_id ) ) {
+									continue 2;
+								}
 								wp_delete_post( $course_id );
 								do_action( 'coursepress_course_deleted', $course_id );
 								break;
@@ -298,8 +353,16 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'delete_course':
+				if ( ! $is_logged_in ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'delete_course' ) ) {
 					$course_id = (int) $data->data->course_id;
+					if ( ! current_user_can( 'delete_post', $course_id ) ) {
+						$json_data['message'] = __( 'Access denied.', 'cp' );
+						wp_send_json_error( $json_data );
+					}
 					wp_delete_post( $course_id );
 					do_action( 'coursepress_course_deleted', $course_id );
 
@@ -311,8 +374,16 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'duplicate_course':
+				if ( ! $is_logged_in || ! current_user_can( 'edit_posts' ) ) {
+					$json_data['message'] = __( 'Access denied.', 'cp' );
+					wp_send_json_error( $json_data );
+				}
 				if ( wp_verify_nonce( $data->data->nonce, 'duplicate_course' ) ) {
 					$course_id = (int) $data->data->course_id;
+					if ( ! current_user_can( 'edit_post', $course_id ) ) {
+						$json_data['message'] = __( 'Access denied.', 'cp' );
+						wp_send_json_error( $json_data );
+					}
 					$the_course = get_post( $course_id );
 
 					if ( ! empty( $the_course ) ) {
@@ -533,7 +604,14 @@ class CoursePress_View_Front_EnrollmentPopup {
 				break;
 
 			case 'enroll_student':
-				$student_id = (int) $data->data->student_id;
+				if ( ! $is_logged_in || empty( $data->data->nonce ) || ! wp_verify_nonce( $data->data->nonce, 'coursepress_enrollment_action' ) ) {
+					$json_data['error_message'] = __( 'Invalid request.', 'cp' );
+					$json_data['success'] = false;
+					$success = false;
+					break;
+				}
+
+				$student_id = $current_user_id;
 				$course_id = (int) $data->data->course_id;
 				$type = CoursePress_Data_Course::get_setting( $course_id, 'enrollment_type', 'manually' );
 
@@ -549,13 +627,21 @@ class CoursePress_View_Front_EnrollmentPopup {
 				}
 
 				$json_data['callback'] = 'handle_enroll_student_return';
+				$json_data['nonce'] = wp_create_nonce( 'coursepress_enrollment_action' );
 
 				$success = isset( $json_data['success'] ) ? $json_data['success'] : false;
 				break;
 			case 'enroll_with_passcode':
+				if ( ! $is_logged_in || empty( $data->data->nonce ) || ! wp_verify_nonce( $data->data->nonce, 'coursepress_enrollment_action' ) ) {
+					$json_data['success'] = false;
+					$json_data['message'] = __( 'Invalid request.', 'cp' );
+					$success = false;
+					break;
+				}
+
 				$passcode = $data->data->passcode;
-				$student_id = $data->data->student_id;
-				$course_id = $data->data->course_id;
+				$student_id = $current_user_id;
+				$course_id = (int) $data->data->course_id;
 				// Verify passcode
 				$course_passcode = CoursePress_Data_Course::get_setting( $course_id, 'enrollment_passcode' );
 
@@ -566,6 +652,7 @@ class CoursePress_View_Front_EnrollmentPopup {
 					CoursePress_Data_Course::enroll_student( $student_id, $course_id );
 					$json_data['success'] = true;
 				}
+				$json_data['nonce'] = wp_create_nonce( 'coursepress_enrollment_action' );
 				$success = isset( $json_data['success'] ) ? $json_data['success'] : false;
 				break;
 

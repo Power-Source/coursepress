@@ -348,15 +348,20 @@ if ( ! function_exists( 'cp_object_decode' ) ) {
 		$object = str_replace( '&apos;', "'", $object );
 		$object = json_decode( $object );
 
-		// Convert to correct Class.
-		return unserialize(
-			sprintf(
-				'O:%d:"%s"%s',
-				strlen( $class ),
-				$class,
-				strstr( strstr( serialize( $object ), '"' ), ':' )
-			)
-		);
+		if ( ! is_object( $object ) ) {
+			return $object;
+		}
+
+		if ( 'stdClass' === $class || ! class_exists( $class ) ) {
+			return $object;
+		}
+
+		$decoded = new $class();
+		foreach ( get_object_vars( $object ) as $property => $value ) {
+			$decoded->$property = $value;
+		}
+
+		return $decoded;
 	}
 }
 

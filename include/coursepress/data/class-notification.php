@@ -202,7 +202,7 @@ class CoursePress_Data_Notification {
 			case 'delete':
 				if ( wp_verify_nonce( $data->data->nonce, 'delete-notification' ) ) {
 					$notification_id = $data->data->notification_id;
-					if ( self::is_correct_post_type( $notification_id ) ) {
+					if ( self::is_correct_post_type( $notification_id ) && CoursePress_Data_Capabilities::can_delete_notification( $notification_id ) ) {
 						wp_delete_post( $notification_id );
 						$json_data['notification_id'] = $notification_id;
 						$json_data['nonce'] = wp_create_nonce( 'delete-notification' );
@@ -214,7 +214,7 @@ class CoursePress_Data_Notification {
 			case 'toggle':
 				if ( wp_verify_nonce( $data->data->nonce, 'publish-notification' ) ) {
 					$notification_id = $data->data->notification_id;
-					if ( self::is_correct_post_type( $notification_id ) ) {
+					if ( self::is_correct_post_type( $notification_id ) && CoursePress_Data_Capabilities::can_update_notification( $notification_id ) ) {
 						wp_update_post( array(
 							'ID' => $notification_id,
 							'post_status' => $data->data->status,

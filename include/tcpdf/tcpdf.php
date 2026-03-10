@@ -12576,7 +12576,7 @@ class CP_TCPDF {
 		$k = $this->k;
 		$this->javascript .= sprintf("f".$name."=this.addField('%s','%s',%u,[%F,%F,%F,%F]);", $name, $type, $this->PageNo()-1, $x*$k, ($this->h-$y)*$k+1, ($x+$w)*$k, ($this->h-$y-$h)*$k+1)."\n";
 		$this->javascript .= 'f'.$name.'.textSize='.$this->FontSizePt.";\n";
-		while (list($key, $val) = each($prop)) {
+		foreach ($prop as $key => $val) {
 			if (strcmp(substr($key, -5), 'Color') == 0) {
 				$val = CP_TCPDF_COLORS::_JScolor($val);
 			} else {
@@ -16540,7 +16540,7 @@ class CP_TCPDF {
 					// get attributes
 					preg_match_all('/([^=\s]*)[\s]*=[\s]*"([^"]*)"/', $element, $attr_array, PREG_PATTERN_ORDER);
 					$dom[$key]['attribute'] = array(); // reset attribute array
-					while (list($id, $name) = each($attr_array[1])) {
+					foreach ($attr_array[1] as $id => $name) {
 						$dom[$key]['attribute'][strtolower($name)] = $attr_array[2][$id];
 					}
 					if (!empty($css)) {
@@ -16553,7 +16553,7 @@ class CP_TCPDF {
 						// get style attributes
 						preg_match_all('/([^;:\s]*):([^;]*)/', $dom[$key]['attribute']['style'], $style_array, PREG_PATTERN_ORDER);
 						$dom[$key]['style'] = array(); // reset style attribute array
-						while (list($id, $name) = each($style_array[1])) {
+						foreach ($style_array[1] as $id => $name) {
 							// in case of duplicate attribute the last replace the previous
 							$dom[$key]['style'][strtolower($name)] = trim($style_array[2][$id]);
 						}
@@ -17716,7 +17716,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 										if ($offset === false) {
 											$this->Error('HTML Justification: malformed PDF code.');
 										}
-										continue;
+										continue 2;
 									}
 									if ($this->isRTLTextDir()) {
 										$spacew = ($spacewidth * ($nsmax - $ns));
@@ -17740,7 +17740,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 											$pmid_e = substr($pmid, $epsposend);
 											$pmid = $pmid_b."\nq\n".$trx."\n".$pmid_m."\nQ\n".$pmid_e;
 											$offset = $epsposend;
-											continue;
+											continue 2;
 										}
 									}
 									$currentxpos = 0;

@@ -611,20 +611,20 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				admin_url( 'edit.php' )
 			);
 
-			$install_message = __( 'Please contact your administrator to enable MarketPress for your site.', 'cp' );
+			$install_message = __( 'Kontaktiere bitte deinen Administrator, um MarketPress für deine Webseite zu aktivieren.', 'cp' );
 			$install_message2 = '';
 			$installed = $mp_class->installed();
 
 			if ( current_user_can( 'install_plugins' ) || current_user_can( 'activate_plugins ' ) ) {
-				$install_message = __( 'To start selling your course, please <a href="%s">install and activate MarketPress</a>.', 'cp' );
+				$install_message = __( 'Um mit dem Verkauf deines Kurses zu beginnen, bitte <a href="%s">installiere und aktiviere MarketPress</a>.', 'cp' );
 
 				if ( $installed && $mp_class->activated() ) {
-					$install_message = __( 'To start selling your course, please <a href="%s">complete setup</a> of of MarketPress.', 'cp' );
+					$install_message = __( 'Um mit dem Verkauf deines Kurses zu beginnen, bitte <a href="%s">schließe die Einrichtung</a> von MarketPress ab.', 'cp' );
 					$install_url = $mp_url;
 				}
 
 				if ( false === $installed ) {
-					$install_message2 = __( 'The full version of MarketPress has been bundled with CoursePress.', 'cp' );
+					$install_message2 = __( 'Die vollständige Version von MarketPress wurde mit CoursePress gebündelt.', 'cp' );
 				}
 			}
 			$install_message = sprintf( $install_message, esc_url_raw( $install_url ) );
@@ -635,10 +635,10 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 			$payment_message = sprintf(
 				'<div class="payment-message %1$s"><h4>%2$s</h4>%3$s%4$s<p>%5$s: WooCommerce</p></div>',
 				esc_attr( $is_paid_course ? '' : 'hidden' ),
-				__( 'Sell your courses online with MarketPress.', 'cp' ),
+				__( 'Verkaufe deine Kurse online mit MarketPress.', 'cp' ),
 				! empty( $install_message2 ) ? sprintf( '<p>%s</p>', $install_message2 ) : '',
 				! empty( $install_message ) ? sprintf( '<p>%s</p>', $install_message ) : '',
-				__( 'Other supported plugins', 'cp' )
+				__( 'Andere unterstützte Plugins', 'cp' )
 			);
 			$payment_message = apply_filters( 'coursepress_course_payment_message', $payment_message, self::$course_id );
 
@@ -649,7 +649,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				'course_id' => self::$course_id,
 				'setup_class' => $setup_class,
 				'disable_payment' => $disable_payment,
-				'title2' => false === $disable_payment ? __( '& Course Cost', 'cp' ) : '',
+				'title2' => false === $disable_payment ? __( '& Kurskosten', 'cp' ) : '',
 				'enrollment_types' => self::$data_course->get_enrollment_types_array( self::$course_id ),
 				'enrollment_type' => self::$settings['enrollment_type'],
 				'prerequisite_class' => 'prerequisite' === self::$settings['enrollment_type'] ? '' : ' hidden',
@@ -682,23 +682,23 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 
 			$pre_completion_content = self::$settings['pre_completion_content'];
 			if ( empty( $pre_completion_content ) ) {
-				$pre_completion_content = sprintf( '<h3>%s</h3>', __( 'Congratulations! You have completed COURSE_NAME!', 'cp' ) );
-				$pre_completion_content .= sprintf( '<p>%s</p>', __( 'Your course instructor will now review your work and get back to you with your final grade before issuing you a certificate of completion.', 'cp' ) );
+				$pre_completion_content = sprintf( '<h3>%s</h3>', __( 'Herzlichen Glückwunsch! Du hast COURSE_NAME abgeschlossen!', 'cp' ) );
+				$pre_completion_content .= sprintf( '<p>%s</p>', __( 'Dein Kursleiter wird nun deine Arbeit überprüfen und dir deine endgültige Note mitteilen, bevor er dir ein Abschlusszertifikat ausstellt.', 'cp' ) );
 			}
 
 			$completion_content = self::$settings['course_completion_content'];
 			if ( empty( $completion_content ) ) {
 				$completion_content = sprintf( '<h3>%s</h3><p>%s</p><p>DOWNLOAD_CERTIFICATE_BUTTON</p>',
-					__( 'Congratulations! You have successfully completed and passed COURSE_NAME!', 'cp' ),
-					__( 'You can download your certificate here.', 'cp' )
+					__( 'Herzlichen Glückwunsch! Du hast COURSE_NAME erfolgreich abgeschlossen und bestanden!', 'cp' ),
+					__( 'Du kannst dein Zertifikat hier herunterladen.', 'cp' )
 				);
 			}
 
 			$failed_content = self::$settings['course_failed_content'];
 			if ( empty( $failed_content ) ) {
 				$failed_content = sprintf( '<p>%s</p><p>%s</p>',
-					__( 'Unfortunately, you didn\'t pass COURSE_NAME.', 'cp' ),
-					__( 'Better luck next time!', 'cp' )
+					__( 'Leider hast du COURSE_NAME nicht bestanden.', 'cp' ),
+					__( 'Viel Glück beim nächsten Mal!', 'cp' )
 				);
 			}
 
@@ -720,7 +720,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				'setup_class' => $setup_class,
 				'course_id' => self::$course_id,
 				'minimum_grade_required' => self::$settings['minimum_grade_required'],
-				'token_message' => sprintf( __( 'Use these tokens to display actual course details: %s', 'cp' ), implode( ', ', $tokens ) ),
+				'token_message' => sprintf( __( 'Verwende diese Tokens, um die tatsächlichen Kursdetails anzuzeigen: %s', 'cp' ), implode( ', ', $tokens ) ),
 				'precompletion' => array(
 					'title' => self::$settings['pre_completion_title'],
 					'content' => htmlspecialchars_decode( $pre_completion_content ),
@@ -740,7 +740,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 						'course_id' => self::$course_id,
 					) ),
 					'enabled' => ! empty( self::$settings['basic_certificate'] ),
-					'token_message' => sprintf( __( 'Use these tokens to display actual course details: %s', 'cp' ), implode( ', ', $certificate_tokens ) ),
+					'token_message' => sprintf( __( 'Verwende diese Tokens, um die tatsächlichen Kursdetails anzuzeigen: %s', 'cp' ), implode( ', ', $certificate_tokens ) ),
 					'background' => self::$settings['certificate_background'],
 					'logo' => self::$settings['certificate_logo'],
 					'logo_position' => self::$settings['logo_position'],
@@ -775,9 +775,9 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				 */
 				$date_format = apply_filters( 'coursepress_basic_certificate_date_format', get_option( 'date_format' ) );
 				$vars = array(
-					'FIRST_NAME' => __( 'Jon', 'cp' ),
-					'LAST_NAME' => __( 'Snow', 'cp' ),
-					'COURSE_NAME' => __( 'Example Course Title', 'cp' ),
+					'FIRST_NAME' => __( 'Max', 'cp' ),
+					'LAST_NAME' => __( 'Mustermann', 'cp' ),
+					'COURSE_NAME' => __( 'Beispielkurs Titel', 'cp' ),
 					'COMPLETION_DATE' => date_i18n( $date_format, CoursePress_Data_Course::time_now() ),
 					'CERTIFICATE_NUMBER' => uniqid( rand(), true ),
 				);
@@ -931,23 +931,6 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				CoursePress_Helper_PDF::make_pdf( $html, $args );
 				exit;
 			}
-		}
-
-		/**
-		 * Message in FREE version, when we have more than 0 (zero) courses and we
-		 * try to add next one. This is advertising to buy PRO version.
-		 *
-		 * @since 2.0.0
-		 */
-		public static function notice_about_pro_when_try_to_add_new_course() {
-			echo '<p>';
-			_e( 'The free version of CoursePress is limited to one course. To add more courses, upgrade to CoursePress for unlimited courses and more payment gateways.', 'cp' );
-			echo '</p>';
-			printf(
-				'<p><a href="%s" class="button-primary">%s</a></p>',
-				esc_url( __( 'https://cp-psource.github.io/coursepress/', 'cp' ) ),
-				esc_html__( 'Try CoursePress for Free', 'cp' )
-			);
 		}
 
 		/**

@@ -40,34 +40,34 @@
 			?>
 		</div>
 		<div>
-			<h3><?php esc_html_e( 'Export Options', 'cp' ); ?></h3>
+			<h3><?php esc_html_e( 'Exportiere Optionen', 'cp' ); ?></h3>
 			<div>
 				<label>
 					<input type="checkbox" name="coursepress[students]" class="input-requiredby" value="1" />
-					<?php esc_html_e( 'Include students', 'cp' ); ?>
+					<?php esc_html_e( 'Schüler einbeziehen', 'cp' ); ?>
 				</label>
 				<p class="description">
-					<?php esc_html_e( 'Will include course students and their course submission progress.', 'cp' ); ?>
+					<?php esc_html_e( 'Wird Kursteilnehmer und deren Fortschritt bei Kursabgaben einbeziehen.', 'cp' ); ?>
 				</p>
 			</div><br />
 			<div>
 				<label>
 					<input type="checkbox" name="coursepress[comments]" data-required-imput="coursepress[students]" disabled="disabled" value="1" />
-					<?php esc_html_e( 'Include thread/comments', 'cp' ); ?>
+					<?php esc_html_e( 'Thread/Kommentare einbeziehen', 'cp' ); ?>
 				</label>
 				<p class="description">
-					<?php esc_html_e( 'Will include comments from Course forum and discussion modules.', 'cp' ); ?>
+					<?php esc_html_e( 'Wird Kommentare aus Kursforum- und Diskussionsmodulen einbeziehen.', 'cp' ); ?>
 				</p>
 			</div>
 		</div>
 		<div class="cp-right">
 		<?php
 			// Show paginate
-			echo CoursePress_Helper_UI::admin_paginate( $paged, $courses->found_posts, $per_page, '', __( 'Course', 'cp' ) );
+			echo CoursePress_Helper_UI::admin_paginate( $paged, $courses->found_posts, $per_page, '', __( 'Kurse', 'cp' ) );
 		?>
 		</div>
 		<div class="clear cp-submit">
-			<?php submit_button( __( 'Export Courses', 'cp' ), 'button-primary disabled' ); ?>
+			<?php submit_button( __( 'Kurse exportieren', 'cp' ), 'button-primary disabled' ); ?>
 		</div>
 	</form>
 </div>

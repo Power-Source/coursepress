@@ -273,15 +273,19 @@ class CoursePress_View_Admin_Course_Export {
 		function wxr_authors_list( array $post_ids = null ) {
 			global $wpdb;
 
+			$query = "SELECT DISTINCT post_author FROM $wpdb->posts WHERE post_status != 'auto-draft'";
 			if ( ! empty( $post_ids ) ) {
 				$post_ids = array_map( 'absint', $post_ids );
-				$and = 'AND ID IN ( ' . implode( ', ', $post_ids ) . ')';
-			} else {
-				$and = '';
+				$post_ids = array_filter( $post_ids );
+				if ( empty( $post_ids ) ) {
+					return;
+				}
+				$placeholders = implode( ', ', array_fill( 0, count( $post_ids ), '%d' ) );
+				$query = $wpdb->prepare( $query . " AND ID IN ( $placeholders )", $post_ids );
 			}
 
 			$authors = array();
-			$results = $wpdb->get_results( "SELECT DISTINCT post_author FROM $wpdb->posts WHERE post_status != 'auto-draft' $and" );
+			$results = $wpdb->get_results( $query );
 			foreach ( (array) $results as $result ) {
 				$authors[] = get_userdata( $result->post_author ); }
 
@@ -375,8 +379,14 @@ class CoursePress_View_Admin_Course_Export {
 
 	// Fetch 20 posts at a time rather than loading the entire table into memory.
 	while ( $next_posts = array_splice( $post_ids, 0, 20 ) ) {
-		$where = 'WHERE ID IN (' . join( ',', $next_posts ) . ')';
-		$posts = $wpdb->get_results( "SELECT * FROM {$wpdb->posts} $where" );
+		$next_posts = array_map( 'absint', $next_posts );
+		$next_posts = array_filter( $next_posts );
+		if ( empty( $next_posts ) ) {
+			continue;
+		}
+		$placeholders = implode( ', ', array_fill( 0, count( $next_posts ), '%d' ) );
+		$query = $wpdb->prepare( "SELECT * FROM {$wpdb->posts} WHERE ID IN ( $placeholders )", $next_posts );
+		$posts = $wpdb->get_results( $query );
 
 		// Begin Loop.
 		foreach ( $posts as $post ) {

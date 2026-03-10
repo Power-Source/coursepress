@@ -19,7 +19,7 @@ class CoursePress_Helper_Extension_MarketPress {
 
 	public static function add_to_extensions_list( $plugins ) {
 		$download_source = 'https://github.com/Power-Source/marketpress/releases/latest';
-		$external_url = 'https://cp-psource.github.io/coursepress/';
+		$external_url = 'https://power-source.github.io/marketpress/';
 		$source_message = 'GitHub';
 		$is_link = true;
 		$base_path = 'marketpress/marketpress.php';
@@ -88,20 +88,20 @@ class CoursePress_Helper_Extension_MarketPress {
 				),
 				admin_url( 'edit.php' )
 			);
-			$message = sprintf( '<strong>%s</strong> ', __( 'Install MarketPress plugin in order to sell courses.', 'cp' ) );
-			$message .= sprintf( '<a href="%s">%s</a>', $mp_settings_url, __( 'Install MarketPress', 'cp' ) );
+			$message = sprintf( '<strong>%s</strong> ', __( 'Installiere unser PS MarketPress Plugin, um Kurse zu verkaufen.', 'cp' ) );
+			$message .= sprintf( '<a href="%s">%s</a>', $mp_settings_url, __( 'Installiere PS MarketPress', 'cp' ) );
 		} elseif ( ! self::activated() ) {
-			$mp_link = sprintf( '<a href="%s">%s</a>', admin_url( 'plugins.php' ), __( 'MarketPress', 'cp' ) );
-			$message = sprintf( __( 'Activate %s to start selling courses.', 'cp' ), $mp_link );
+			$mp_link = sprintf( '<a href="%s">%s</a>', admin_url( 'plugins.php' ), __( 'PS MarketPress', 'cp' ) );
+			$message = sprintf( __( 'Aktiviere %s, um mit dem Verkauf von Kursen zu beginnen.', 'cp' ), $mp_link );
 		} elseif ( self::activated() ) {
 			if ( defined( 'MP_VERSION' ) ) {
-				if ( version_compare( MP_VERSION, '3.1.2' ) < 0 ) {
+				if ( version_compare( MP_VERSION, '1.0.0' ) < 0 ) {
 					$plugin_url = admin_url( 'plugins.php' );
-					$mp = sprintf( '<a href="%s">%s</a>', $plugin_url, '<strong>MarketPress</strong>' );
+					$mp = sprintf( '<a href="%s">%s</a>', $plugin_url, '<strong>PS MarketPress</strong>' );
 					$cp = defined( 'CP_IS_PREMIUM' ) && CP_IS_PREMIUM ? '<strong>CoursePress</strong>' : '<strong>CoursePress</strong>';
 					$cp = sprintf( '<a href="%s">%s</a>', $plugin_url, $cp );
-					$message = __( 'You are using an older version of %s plugin. %s require the latest version for compatilibity.', 'cp' );
-					$message .= __( ' Update your %s now!', 'cp' );
+					$message = __( 'Du benutzt eine ältere Version des %s Plugins. %s benötigt die neueste Version für die Kompatibilität.', 'cp' );
+					$message .= __( ' Aktualisiere jetzt dein %s!', 'cp' );
 					$message = sprintf( $message, $mp, $cp, $mp );
 				}
 			}

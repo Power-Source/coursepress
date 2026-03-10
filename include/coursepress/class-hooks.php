@@ -7,6 +7,12 @@
  **/
 class CoursePress_Hooks {
 	static $warning_message = '';
+	protected static $allowed_ajax_requests = array(
+		'CoursePress_Module' => array(
+			'add_single_comment',
+			'record_expired_answer',
+		),
+	);
 
 	public static function init() {
 		// Listen to course withdrawal request
@@ -82,9 +88,23 @@ class CoursePress_Hooks {
 	public static function process_request() {
 		$input = json_decode( file_get_contents( 'php://input' ) );
 
+		if ( ! is_object( $input ) ) {
+			wp_send_json_error( array( 'message' => __( 'Invalid request.', 'cp' ) ) );
+		}
+
 		if ( ! empty( $input->cpnonce ) && wp_verify_nonce( $input->cpnonce, 'coursepress_nonce' ) ) {
-			$method = $input->method;
-			$class = $input->className;
+			$method = isset( $input->method ) ? trim( $input->method ) : '';
+			$class = isset( $input->className ) ? trim( $input->className ) : '';
+			$allowed_ajax_requests = apply_filters( 'coursepress_allowed_ajax_requests', self::$allowed_ajax_requests );
+
+			if (
+				empty( $class )
+				|| empty( $method )
+				|| empty( $allowed_ajax_requests[ $class ] )
+				|| ! in_array( $method, (array) $allowed_ajax_requests[ $class ], true )
+			) {
+				wp_send_json_error( array( 'message' => __( 'Unauthorized request.', 'cp' ) ) );
+			}
 
 			if ( class_exists( $class ) && method_exists( $class, $method ) ) {
 				$input = CoursePress_Helper_Utility::object_to_array( $input );
@@ -94,6 +114,8 @@ class CoursePress_Hooks {
 				exit;
 			}
 		}
+
+		wp_send_json_error( array( 'message' => __( 'Invalid nonce.', 'cp' ) ) );
 	}
 
 	public static function admin_classes( $class ) {

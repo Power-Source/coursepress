@@ -627,7 +627,7 @@ class CoursePress_Data_Discussion {
 			case 'delete':
 				if ( wp_verify_nonce( $data->data->nonce, 'delete-discussion' ) ) {
 					$discussion_id = $data->data->discussion_id;
-					if ( self::is_correct_post_type( $discussion_id ) ) {
+					if ( self::is_correct_post_type( $discussion_id ) && CoursePress_Data_Capabilities::can_delete_discussion( $discussion_id ) ) {
 						wp_delete_post( $discussion_id );
 						$json_data['discussion_id'] = $discussion_id;
 						$json_data['nonce'] = wp_create_nonce( 'delete-discussion' );
@@ -641,7 +641,7 @@ class CoursePress_Data_Discussion {
 				$json_data['ID'] = $discussion_id;
 				$nounce_name = sprintf( 'publish-discussion-%d', $discussion_id );
 				if ( wp_verify_nonce( $data->data->nonce, $nounce_name ) ) {
-					if ( self::is_correct_post_type( $discussion_id ) ) {
+					if ( self::is_correct_post_type( $discussion_id ) && CoursePress_Data_Capabilities::can_update_discussion( $discussion_id ) ) {
 						wp_update_post( array(
 							'ID' => $discussion_id,
 							'post_status' => $data->data->status,

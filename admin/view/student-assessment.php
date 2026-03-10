@@ -2,7 +2,7 @@
 $course_id = isset( $_REQUEST['course_id'] ) ? (int) $_REQUEST['course_id'] : 0;
 $can_update = CoursePress_Data_Capabilities::can_update_course( $course_id );
 if ( ! $can_update ) {
-	wp_die( __( 'Sorry, you are not allowed to access this page.' ), 403 );
+	wp_die( __( 'Sorry, Du bist nicht berechtigt, auf diese Seite zuzugreifen.' ), 403 );
 }
 $course = get_post( $course_id );
 $unit_id = isset( $_REQUEST['unit_id'] ) ? (int) $_REQUEST['unit_id'] : 0;
@@ -25,16 +25,16 @@ $certified = $is_completed ? '' : 'style="display:none;"';
 wp_nonce_field( 'student-grade-feedback' );
 ?>
 <div class="wrap coursepress_wrapper coursepress-assessment">
-	<h2><?php esc_html_e( 'Student Workbook', 'cp' ); ?></h2><hr />
+	<h2><?php esc_html_e( 'Studentenarbeitsbuch', 'cp' ); ?></h2><hr />
 
 	<input type="hidden" id="cp_student_id" value="<?php echo $student_id; ?>" />
 	<div class="cp-actions">
-		<button style="display: none;" type="button" title="<?php esc_attr_e( 'Revalidate user submission', 'cp' ); ?>" class="button cp-right cp-refresh-progress" data-course="<?php echo $course_id; ?>" data-student="<?php echo $student_id; ?>">
-			<span class="fa fa-refresh"></span> <?php esc_html_e( 'Refresh', 'cp' ); ?>
+		<button style="display: none;" type="button" title="<?php esc_attr_e( 'Benutzereinreichung erneut validieren', 'cp' ); ?>" class="button cp-right cp-refresh-progress" data-course="<?php echo $course_id; ?>" data-student="<?php echo $student_id; ?>">
+			<span class="fa fa-refresh"></span> <?php esc_html_e( 'Aktualisieren', 'cp' ); ?>
 		</button>
 
 		<div class="cp-box">
-			<label><?php esc_html_e( 'Select course', 'cp' ); ?></label>
+			<label><?php esc_html_e( 'Kurs auswählen', 'cp' ); ?></label>
 			<?php
 			$enrolled_courses = CoursePress_Data_Student::get_enrolled_courses_ids( $student_id );
 			$enrolled_courses = array_map( 'get_post', $enrolled_courses );
@@ -47,10 +47,10 @@ wp_nonce_field( 'student-grade-feedback' );
 			?>
 		</div>
 		<div class="cp-box">
-			<label><?php esc_html_e( 'Select Display', 'cp' ); ?></label>
+			<label><?php esc_html_e( 'Anzeige auswählen', 'cp' ); ?></label>
 			<select id="grade-type" class="medium dropdown">
-				<option value="all" <?php selected( 'all', $display_type ); ?>><?php esc_html_e( 'Show all modules', 'cp' ); ?></option>
-				<option value="all_assessable" <?php selected( 'all_assessable', $display_type ); ?>><?php esc_html_e( 'Show all assessable modules', 'cp' ); ?></option>
+				<option value="all" <?php selected( 'all', $display_type ); ?>><?php esc_html_e( 'Alle Module anzeigen', 'cp' ); ?></option>
+				<option value="all_assessable" <?php selected( 'all_assessable', $display_type ); ?>><?php esc_html_e( 'Alle bewertbaren Module anzeigen', 'cp' ); ?></option>
 			</select>
 		</div>
 		<?php if ( $is_completed ) : ?>
@@ -58,7 +58,7 @@ wp_nonce_field( 'student-grade-feedback' );
 			<?php
 			$certificate_url = CoursePress_Data_Certificate::get_encoded_url( $course_id, $student_id );
 			?>
-			<a href="<?php echo esc_url( $certificate_url ); ?>" target="_blank" class="button"><?php _e( 'View Certificate', 'cp' ); ?></a>
+			<a href="<?php echo esc_url( $certificate_url ); ?>" target="_blank" class="button"><?php _e( 'Zertifikat anzeigen', 'cp' ); ?></a>
 		</div>
 		<?php endif; ?>
 	</div>
@@ -76,7 +76,7 @@ wp_nonce_field( 'student-grade-feedback' );
 					<td align="right">
 						<span class="cp-course-grade final-grade" data-student="<?php echo $student_id; ?>"><?php echo $course_grade; ?>%</span>
 						<span class="cp-certified" <?php echo $certified; ?>>
-							<?php esc_html_e( 'Certified', 'cp' ); ?>
+							<?php esc_html_e( 'Zertifiziert', 'cp' ); ?>
 						</span>
 					</td>
 				</tr>

@@ -94,6 +94,7 @@ class CoursePress_Admin_Controller_Course {
 				if (
 					isset( $step_data->step )
 					&& wp_verify_nonce( $data->data->nonce, 'setup-course' )
+					&& CoursePress_Data_Capabilities::can_update_course( $step_data->course_id )
 				) {
 
 					$step = (int) $step_data->step;
@@ -171,17 +172,23 @@ class CoursePress_Admin_Controller_Course {
 
 				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 					$json_data['who'] = 'instructor';
-					if ( isset( $data->data->who ) && 'facilitator' === $data->data->who ) {
+					if (
+						isset( $data->data->who )
+						&& 'facilitator' === $data->data->who
+						&& CoursePress_Data_Capabilities::can_assign_facilitator( $data->data->course_id )
+					) {
 						CoursePress_Data_Facilitator::remove_course_facilitator(
 							$data->data->course_id,
 							$data->data->instructor_id
 						);
 						$json_data['who'] = 'facilitator';
-					} else {
+					} elseif ( CoursePress_Data_Capabilities::can_assign_course_instructor( $data->data->course_id ) ) {
 						CoursePress_Data_Course::remove_instructor(
 							$data->data->course_id,
 							$data->data->instructor_id
 						);
+					} else {
+						break;
 					}
 					$json_data['instructor_id'] = $data->data->instructor_id;
 					$json_data['course_id'] = $data->data->course_id;
@@ -195,7 +202,10 @@ class CoursePress_Admin_Controller_Course {
 			// Add Instructor
 			case 'add_instructor':
 
-				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'setup-course' )
+					&& CoursePress_Data_Capabilities::can_assign_course_instructor( $data->data->course_id )
+				) {
 					CoursePress_Data_Course::add_instructor( $data->data->course_id, $data->data->instructor_id );
 					$user = get_userdata( $data->data->instructor_id );
 					$json_data['id'] = $data->data->instructor_id;
@@ -215,20 +225,26 @@ class CoursePress_Admin_Controller_Course {
 
 				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 					$response = '';
-					if ( isset( $data->data->who ) && 'facilitator' === $data->data->who ) {
+					if (
+						isset( $data->data->who )
+						&& 'facilitator' === $data->data->who
+						&& CoursePress_Data_Capabilities::can_assign_facilitator( (int) $data->data->course_id )
+					) {
 						$response = CoursePress_Data_Facilitator::send_invitation(
 							(int) $data->data->course_id,
 							$data->data->email,
 							$data->data->first_name,
 							$data->data->last_name
 						);
-					} else {
+					} elseif ( CoursePress_Data_Capabilities::can_assign_course_instructor( (int) $data->data->course_id ) ) {
 						$response = CoursePress_Data_Instructor::send_invitation(
 							(int) $data->data->course_id,
 							$data->data->email,
 							$data->data->first_name,
 							$data->data->last_name
 						);
+					} else {
+						break;
 					}
 					$json_data['message'] = $response['message'];
 					$json_data['data'] = $data->data;
@@ -242,17 +258,23 @@ class CoursePress_Admin_Controller_Course {
 			case 'delete_instructor_invite':
 				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
 					$json_data['who'] = 'instructor';
-					if ( isset( $data->data->who ) && 'facilitator' === $data->data->who ) {
+					if (
+						isset( $data->data->who )
+						&& 'facilitator' === $data->data->who
+						&& CoursePress_Data_Capabilities::can_assign_facilitator( $data->data->course_id )
+					) {
 						CoursePress_Data_Facilitator::delete_invitation(
 							$data->data->course_id,
 							$data->data->invite_code
 						);
 						$json_data['who'] = 'facilitator';
-					} else {
+					} elseif ( CoursePress_Data_Capabilities::can_assign_course_instructor( $data->data->course_id ) ) {
 						CoursePress_Data_Instructor::delete_invitation(
 							$data->data->course_id,
 							$data->data->invite_code
 						);
+					} else {
+						break;
 					}
 					$json_data['course_id'] = $data->data->course_id;
 					$json_data['invite_code'] = $data->data->invite_code;
@@ -263,7 +285,10 @@ class CoursePress_Admin_Controller_Course {
 				break;
 
 			case 'enroll_student':
-				if ( wp_verify_nonce( $data->data->nonce, 'add_student' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'add_student' )
+					&& CoursePress_Data_Capabilities::can_assign_course_student( $data->data->course_id )
+				) {
 					/**
 					 * Turn off enroll_student check when we are in ajax admin action
 					 */
@@ -281,7 +306,10 @@ class CoursePress_Admin_Controller_Course {
 
 			case 'withdraw_student':
 				$nonce = sprintf( 'withdraw-single-student-%d', $data->data->student_id );
-				if ( wp_verify_nonce( $data->data->nonce, $nonce ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, $nonce )
+					&& CoursePress_Data_Capabilities::can_withdraw_students( $data->data->course_id )
+				) {
 					CoursePress_Data_Course::withdraw_student( $data->data->student_id, $data->data->course_id );
 					$json_data['student_id'] = $data->data->student_id;
 					$json_data['course_id'] = $data->data->course_id;
@@ -293,7 +321,10 @@ class CoursePress_Admin_Controller_Course {
 
 			case 'withdraw_all_students':
 
-				if ( wp_verify_nonce( $data->data->nonce, 'withdraw_all_students' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'withdraw_all_students' )
+					&& CoursePress_Data_Capabilities::can_withdraw_students( $data->data->course_id )
+				) {
 					CoursePress_Data_Course::withdraw_all_students( $data->data->course_id );
 					$json_data['course_id'] = $data->data->course_id;
 
@@ -304,7 +335,10 @@ class CoursePress_Admin_Controller_Course {
 
 			case 'invite_student':
 
-				if ( wp_verify_nonce( $data->data->nonce, 'invite_student' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'invite_student' )
+					&& CoursePress_Data_Capabilities::can_invite_students( $data->data->course_id )
+				) {
 					$email_data = CoursePress_Helper_Utility::object_to_array( $data->data );
 					$response = CoursePress_Data_Course::send_invitation( $email_data );
 
@@ -331,7 +365,10 @@ class CoursePress_Admin_Controller_Course {
 				break;
 
 			case 'remove_student_invitation':
-				if ( wp_verify_nonce( $data->data->nonce, 'coursepress_remove_invite' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'coursepress_remove_invite' )
+					&& CoursePress_Data_Capabilities::can_invite_students( $data->data->course_id )
+				) {
 					$course_id = (int) $data->data->course_id;
 					$student_email = sanitize_email( $data->data->email );
 					$invited_students = CoursePress_Data_Course::get_setting( $course_id, 'invited_students', array() );
@@ -347,7 +384,10 @@ class CoursePress_Admin_Controller_Course {
 
 			// Add facilitator
 			case 'add_facilitator':
-				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'setup-course' )
+					&& CoursePress_Data_Capabilities::can_assign_facilitator( $data->data->course_id )
+				) {
 					CoursePress_Data_Facilitator::add_course_facilitator( $data->data->course_id, $data->data->facilitator_id );
 					$json_data['who'] = 'facilitator';
 					$json_data['id'] = $data->data->facilitator_id;
@@ -367,7 +407,10 @@ class CoursePress_Admin_Controller_Course {
 				break;
 			// Remove facilitator
 			case 'remove_facilitator':
-				if ( wp_verify_nonce( $data->data->nonce, 'setup-course' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'setup-course' )
+					&& CoursePress_Data_Capabilities::can_assign_facilitator( $data->data->course_id )
+				) {
 					CoursePress_Data_Facilitator::remove_course_facilitator( $data->data->course_id, $data->data->facilitator_id );
 					$json_data['facilitator_id'] = $data->data->facilitator_id;
 					$json_data['nonce'] = wp_create_nonce( 'setup-course' );
@@ -387,7 +430,7 @@ class CoursePress_Admin_Controller_Course {
 
 							case 'publish':
 								if ( ! CoursePress_Data_Capabilities::can_update_course( $course_id ) ) {
-									continue;
+									continue 2;
 								}
 								wp_update_post( array(
 									'ID' => $course_id,
@@ -396,7 +439,7 @@ class CoursePress_Admin_Controller_Course {
 							break;
 							case 'unpublish':
 								if ( ! CoursePress_Data_Capabilities::can_update_course( $course_id ) ) {
-									continue;
+									continue 2;
 								}
 								wp_update_post( array(
 									'ID' => $course_id,
@@ -404,6 +447,9 @@ class CoursePress_Admin_Controller_Course {
 								) );
 							break;
 							case 'delete':
+								if ( ! CoursePress_Data_Capabilities::can_delete_course( $course_id ) ) {
+									continue 2;
+								}
 								CoursePress_Admin_Controller_Course::delete_course( $course_id );
 							break;
 
@@ -423,7 +469,10 @@ class CoursePress_Admin_Controller_Course {
 
 			case 'delete_course':
 
-				if ( wp_verify_nonce( $data->data->nonce, 'delete_course' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'delete_course' )
+					&& CoursePress_Data_Capabilities::can_delete_course( (int) $data->data->course_id )
+				) {
 
 					$course_id = (int) $data->data->course_id;
 					CoursePress_Admin_Controller_Course::delete_course( $course_id );
@@ -438,7 +487,11 @@ class CoursePress_Admin_Controller_Course {
 
 			case 'duplicate_course':
 				// Check wp nonce.
-				if ( wp_verify_nonce( $data->data->nonce, 'duplicate_course' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'duplicate_course' )
+					&& ! empty( $data->data->course_id )
+					&& CoursePress_Data_Capabilities::can_update_course( $data->data->course_id )
+				) {
 					$json_data = CoursePress_Data_Course::duplicate_course( $data );
 					$success = (bool) $json_data['success'];
 					if ( $success ) {
@@ -452,7 +505,10 @@ class CoursePress_Admin_Controller_Course {
 				break;
 
 			case 'send_email':
-				if ( wp_verify_nonce( $data->data->nonce, 'send_email_to_enroled_students' ) ) {
+				if (
+					wp_verify_nonce( $data->data->nonce, 'send_email_to_enroled_students' )
+					&& CoursePress_Data_Capabilities::can_view_course_students( $data->data->course_id )
+				) {
 					$course_id = $data->data->course_id;
 					$students = CoursePress_Data_Course::get_students( $course_id );
 					$error_message = __( 'No email sent!', 'cp' );
