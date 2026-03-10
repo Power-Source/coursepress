@@ -317,32 +317,29 @@ class CoursePress_View_Front_EnrollmentPopup {
 
 					foreach ( $courses as $course_id ) {
 						$course_id = (int) $course_id;
-						if ( ! current_user_can( 'edit_post', $course_id ) ) {
-							continue;
-						}
+						if ( current_user_can( 'edit_post', $course_id ) ) {
+							switch ( $action ) {
+								case 'publish':
+									wp_update_post( array(
+										'ID' => $course_id,
+										'post_status' => 'publish',
+									) );
+									break;
 
-						switch ( $action ) {
-							case 'publish':
-								wp_update_post( array(
-									'ID' => $course_id,
-									'post_status' => 'publish',
-								) );
-								break;
+								case 'unpublish':
+									wp_update_post( array(
+										'ID' => $course_id,
+										'post_status' => 'draft',
+									) );
+									break;
 
-							case 'unpublish':
-								wp_update_post( array(
-									'ID' => $course_id,
-									'post_status' => 'draft',
-								) );
-								break;
-
-							case 'delete':
-								if ( ! current_user_can( 'delete_post', $course_id ) ) {
-									continue 2;
-								}
-								wp_delete_post( $course_id );
-								do_action( 'coursepress_course_deleted', $course_id );
-								break;
+								case 'delete':
+									if ( current_user_can( 'delete_post', $course_id ) ) {
+										wp_delete_post( $course_id );
+										do_action( 'coursepress_course_deleted', $course_id );
+									}
+									break;
+							}
 						}
 					}
 
