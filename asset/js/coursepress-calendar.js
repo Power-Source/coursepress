@@ -10,6 +10,7 @@
                 action: 'refresh_course_calendar',
                 course_id: $( course_calendar ).data( 'courseid' ),
                 date: date,
+                nonce: $( course_calendar ).data( 'nonce' ) || '',
             }
         ).done( function( data ) {
 			if ( data && data !== '0' ) {

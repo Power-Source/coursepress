@@ -11,27 +11,46 @@ class CoursePress_View_Front_Calendar {
 		$ajax_response = array();
 		$ajax_status   = 1; //success
 
-		if ( ! empty( $_POST['date'] ) && ! empty( $_POST['course_id'] ) ) {
+		$nonce = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'coursepress_calendar_refresh' ) ) {
+			$ajax_status = 0;
+		} elseif ( ! empty( $_POST['date'] ) && ! empty( $_POST['course_id'] ) ) {
 
-			$date = getdate( strtotime( str_replace( '-', '/', $_POST['date'] ) ) );
-			$pre  = ! empty( $_POST['pre_text'] ) ? $_POST['pre_text'] : false;
-			$next = ! empty( $_POST['next_text'] ) ? $_POST['next_text'] : false;
+			$course_id = (int) $_POST['course_id'];
+			$date_raw = sanitize_text_field( wp_unslash( $_POST['date'] ) );
 
-			$calendar = new CoursePress_Template_Calendar( array(
-				'course_id' => $_POST['course_id'],
-				'month'     => $date['mon'],
-				'year'      => $date['year'],
-			) );
-
-			$html = '';
-
-			if ( $pre && $next ) {
-				$html = $calendar->create_calendar( $pre, $next );
+			if ( $course_id < 1 || ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', $date_raw ) ) {
+				$ajax_status = 0;
 			} else {
-				$html = $calendar->create_calendar();
-			}
+				$course = get_post( $course_id );
+				$course_post_type = CoursePress_Data_Course::get_post_type_name();
 
-			$ajax_response['calendar'] = $html;
+				if ( empty( $course ) || $course_post_type !== $course->post_type ) {
+					$ajax_status = 0;
+				} elseif ( 'publish' !== $course->post_status && ! current_user_can( 'edit_post', $course_id ) ) {
+					$ajax_status = 0;
+				} else {
+					$date = getdate( strtotime( str_replace( '-', '/', $date_raw ) ) );
+					$pre  = ! empty( $_POST['pre_text'] ) ? sanitize_text_field( wp_unslash( $_POST['pre_text'] ) ) : false;
+					$next = ! empty( $_POST['next_text'] ) ? sanitize_text_field( wp_unslash( $_POST['next_text'] ) ) : false;
+
+					$calendar = new CoursePress_Template_Calendar( array(
+						'course_id' => $course_id,
+						'month'     => $date['mon'],
+						'year'      => $date['year'],
+					) );
+
+					$html = '';
+
+					if ( $pre && $next ) {
+						$html = $calendar->create_calendar( $pre, $next );
+					} else {
+						$html = $calendar->create_calendar();
+					}
+
+					$ajax_response['calendar'] = $html;
+				}
+			}
 		}
 
 		$response = array(

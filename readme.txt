@@ -23,6 +23,13 @@ PS CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Socia
 
 == ChangeLog ==
 
+= 1.0.1 =
+
+* Security: Frontend-AJAX-Hardening verbessert (Nonce-Prüfungen, Ownership-/Capability-Checks, Zugriffskontrollen für Enrollment- und Course-Aktionen).
+* Security: Kalender-Refresh-Endpunkt abgesichert (Nonce-Validierung, Input-Sanitization und Kurszugriffsprüfung).
+* Compatibility: PHP-8-Kompatibilität für gebündeltes TCPDF überarbeitet (Legacy-Syntax ersetzt, veraltete Konstrukte aktualisiert).
+* Fix: Warnungen/Fehler in TCPDF- und Frontend-Request-Pfaden reduziert, um stabileren Betrieb unter aktuellen PHP-Versionen zu gewährleisten.
+
 = 1.0.0  =
 
 * Release 

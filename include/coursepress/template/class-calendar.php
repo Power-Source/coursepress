@@ -93,7 +93,7 @@ class CoursePress_Template_Calendar {
 	public function create_calendar( $pre = '&laquo;', $next = '&raquo;' ) {
 		global $wp_locale;
 
-		$calendar = '<div class="course-calendar" data-courseid="' . $this->course_id . '">';
+		$calendar = '<div class="course-calendar" data-courseid="' . $this->course_id . '" data-nonce="' . wp_create_nonce( 'coursepress_calendar_refresh' ) . '">';
 		$calendar .= ! empty( $this->previous_month ) ? '<a class="pre-month" data-date="' . $this->previous_month . '">' . $pre . '</a>' : '<a class="pre-month" data-date="empty">' . $pre . '</a>';
 		$calendar .= ! empty( $this->next_month ) ? '<a class="next-month" data-date="' . $this->next_month . '">' . $next . '</a>' : '<a class="next-month" data-date="empty">' . $next . '</a>';
 		$calendar .= sprintf( '<table class="course-calendar-body %s">', esc_attr( $this->date_indicator ) );

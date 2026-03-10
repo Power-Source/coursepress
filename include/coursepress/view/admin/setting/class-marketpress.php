@@ -40,8 +40,8 @@ class CoursePress_View_Admin_Setting_MarketPress {
 
 	public static function add_tabs( $tabs ) {
 		$tabs['marketpress'] = array(
-			'title' => __( 'MarketPress', 'cp' ),
-			'description' => __( 'Allow to integrate MarketPress to sell courses...', 'cp' ),
+			'title' => __( 'PS MarketPress', 'cp' ),
+			'description' => __( 'Ermögliche die Integration von PS MarketPress zum Verkauf von Kursen...', 'cp' ),
 			'order' => 69,
 		);
 
@@ -70,9 +70,9 @@ class CoursePress_View_Admin_Setting_MarketPress {
 								name="coursepress_settings[marketpress][enabled]"
 								class="certificate_enabled"
 								value="1" />
-							<?php esc_html_e( 'Use MarketPress to sell courses', 'cp' ); ?>
+							<?php esc_html_e( 'Verwende PS MarketPress zum Verkauf von Kursen', 'cp' ); ?>
 						</label>
-						<p class="description"><?php _e( 'If checked, MarketPress will be use for selling courses', 'cp' ) ?></p>
+						<p class="description"><?php _e( 'Wenn aktiviert, wird PS MarketPress zum Verkauf von Kursen verwendet', 'cp' ) ?></p>
 </td>
 					</tr>
 					<tr>
@@ -82,42 +82,42 @@ class CoursePress_View_Admin_Setting_MarketPress {
 								name="coursepress_settings[marketpress][redirect]"
 								class="certificate_enabled"
 								value="1" />
-							<?php esc_html_e( 'Redirect MarketPress product post to a parent course post', 'cp' ); ?>
+							<?php esc_html_e( 'Weiterleitung des PS MarketPress-Produktbeitrags zu einem übergeordneten Kursbeitrag', 'cp' ); ?>
 						</label>
-							<p class="description"><?php _e( 'If checked, visitors who try to access MarketPress single post will be automatically redirected to a parent course single post.', 'cp' ) ?></p>
+							<p class="description"><?php _e( 'Wenn aktiviert, werden Besucher, die versuchen, auf einen einzelnen PS MarketPress-Beitrag zuzugreifen, automatisch zu einem übergeordneten Kursbeitrag weitergeleitet.', 'cp' ) ?></p>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<h3><?php esc_html_e( 'When the course becomes unpaid, then:', 'cp' ); ?></h3>
+							<h3><?php esc_html_e( 'Wenn der Kurs unbezahlt wird, dann:', 'cp' ); ?></h3>
 							<ul>
 								<li><label><input type="radio"
 									<?php checked( $unpaid, 'change_status' ); ?>
 									name="coursepress_settings[marketpress][unpaid]"
 									class="certificate_enabled"
-									value="change_status" /> <?php esc_html_e( 'Change to draft related MarketPress product.', 'cp' ); ?></label></li>
+									value="change_status" /> <?php esc_html_e( 'Ändere den Status des zugehörigen PS MarketPress-Produkts auf Entwurf.', 'cp' ); ?></label></li>
 								<li><label><input type="radio"
 									<?php checked( $unpaid, 'delete' ); ?>
 									name="coursepress_settings[marketpress][unpaid]"
 									class="certificate_enabled"
-									value="delete" /> <?php esc_html_e( 'Delete related MarketPress product.', 'cp' ); ?></label></li>
+									value="delete" /> <?php esc_html_e( 'Lösche das zugehörige PS MarketPress-Produkt.', 'cp' ); ?></label></li>
 							</ul>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<h3><?php esc_html_e( 'When the course is deleted, then:', 'cp' ); ?></h3>
+							<h3><?php esc_html_e( 'Wenn der Kurs gelöscht wird, dann:', 'cp' ); ?></h3>
 							<ul>
 								<li><label><input type="radio"
 									<?php checked( $delete, 'change_status' ); ?>
 									name="coursepress_settings[marketpress][delete]"
 									class="certificate_enabled"
-									value="change_status" /> <?php esc_html_e( 'Change to draft related MarketPress product.', 'cp' ); ?></label></li>
+									value="change_status" /> <?php esc_html_e( 'Ändere den Status des zugehörigen PS MarketPress-Produkts auf Entwurf.', 'cp' ); ?></label></li>
 								<li><label><input type="radio"
 									<?php checked( $delete, 'delete' ); ?>
 									name="coursepress_settings[marketpress][delete]"
 									class="certificate_enabled"
-									value="delete" /> <?php esc_html_e( 'Delete related MarketPress product.', 'cp' ); ?></label></li>
+									value="delete" /> <?php esc_html_e( 'Lösche das zugehörige PS MarketPress-Produkt.', 'cp' ); ?></label></li>
 							</ul>
 						</td>
 					</tr>
