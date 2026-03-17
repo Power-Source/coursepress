@@ -1005,7 +1005,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 			global $wp_rich_edit;
 			if ( ! $wp_rich_edit ) {
 				$screen = get_current_screen();
-				if ( in_array( $screen->id, array( 'course' ), true ) ) {
+				if ( $screen && in_array( $screen->id, array( 'course' ), true ) ) {
 					return true;
 				}
 			}

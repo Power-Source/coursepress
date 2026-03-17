@@ -29,6 +29,7 @@ PS CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Socia
 * Security: Kalender-Refresh-Endpunkt abgesichert (Nonce-Validierung, Input-Sanitization und Kurszugriffsprüfung).
 * Compatibility: PHP-8-Kompatibilität für gebündeltes TCPDF überarbeitet (Legacy-Syntax ersetzt, veraltete Konstrukte aktualisiert).
 * Fix: Warnungen/Fehler in TCPDF- und Frontend-Request-Pfaden reduziert, um stabileren Betrieb unter aktuellen PHP-Versionen zu gewährleisten.
+* Fix: PHP-Warning „Attempt to read property id on null" in enable_tinymce() behoben – get_current_screen() wird jetzt vor dem Zugriff auf id auf null geprüft.
 
 = 1.0.0  =
 
