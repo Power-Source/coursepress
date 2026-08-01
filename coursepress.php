@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: CoursePress
- * Version:     1.0.0
+ * Version:     1.0.1
  * Description: CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Social Sharing und einer interaktiven Lernumgebung, mit der mehr Schüler miteinander verbunden werden können.
  * Author:      PSOURCE
  * Author URI:  https://github.com/Power-Source
@@ -60,7 +60,7 @@ class CoursePress {
 	 *
 	 * @var string
 	 */
-	public static $version = '1.0.0';
+	public static $version = '1.0.1';
 
 	/**
 	 * Plugin name, this reflects the Pro/Standard version.

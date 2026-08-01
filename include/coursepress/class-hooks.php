@@ -62,6 +62,7 @@ class CoursePress_Hooks {
 		add_action( 'wp_ajax_coursepress_user_search', array( 'CoursePress_Admin_Students', 'search_user' ) );
 
 		// Set front scripts
+		add_action( 'wp_head', array( 'CoursePress_Helper_Javascript', 'print_front_ajax_url' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( 'CoursePress_Helper_Javascript', 'front_assets' ) );
 		// Print assets at wp_footer if CP shortcode is used!
 		add_action( 'wp_footer', array( 'CoursePress_Helper_Javascript', 'maybe_print_assets' ) );

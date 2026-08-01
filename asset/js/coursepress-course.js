@@ -232,7 +232,9 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		/**
 		 * post status
 		 */
-		data.post_status = $('#post_status').val();
+		data.post_status = 'finish' === action_type && CoursePress.Course.get( 'publish_after_validation' )
+			? 'publish'
+			: $( '#post_status' ).val();
 		/**
 		 * nonce
 		 */
@@ -353,8 +355,8 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 		// Setup Chosen
 		//$( '.chosen-select' ).chosen( { disable_search_threshold: 10 } );
-		$( '.chosen-select.medium' ).chosen( { disable_search_threshold: 5, width: '40%' } );
-		$( '.chosen-select.narrow' ).chosen( { disable_search_threshold: 5, width: '20%' } );
+		$( 'select.chosen-select.medium' ).chosen( { disable_search_threshold: 5, width: '40%' } );
+		$( 'select.chosen-select.narrow' ).chosen( { disable_search_threshold: 5, width: '20%' } );
 
 		// Tree for course structure
 		var treegridtable = $( 'table.course-structure-tree' ),
@@ -469,6 +471,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 			// Prevent from updating, moving forward if required fields are empty
 
 			var required_fields = [];
+			var first_invalid_field = null;
 
 			if ( 1 <= step ) {
 				// Required fields for step 1
@@ -533,6 +536,9 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 					if ( ! val || '' == val ) {
 						field.addClass('error');
+						if ( null === first_invalid_field ) {
+							first_invalid_field = field;
+						}
 						found += 1;
 					}
 
@@ -540,6 +546,11 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 				if ( found > 0 ) {
 					CoursePress.Course.hasError = true;
+					var invalid_container_class = first_invalid_field.closest( '.cp-box-content' ).attr( 'class' ) || '';
+					var invalid_step = invalid_container_class.match( /step-\d{1,10}/g );
+					if ( invalid_step ) {
+						$( '.step-title.' + invalid_step[0] ).trigger( 'click' );
+					}
 					// Alert
 					// @todo: Make this message info nicer!
 					alert( _coursepress.labels.required_fields );
@@ -1139,7 +1150,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 			update_nonce( data );
 
-			if ( data.redirect ) {
+			if ( data.redirect && ! CoursePress.Course.get( 'publish_after_validation' ) ) {
 				var dest = location.href.replace( '&tab=setup', '' );
 
 				if ( !/\&post/.test( dest ) ) {
@@ -1162,6 +1173,17 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 					}
 				}
 			}
+			if ( data.redirect && CoursePress.Course.get( 'publish_after_validation' ) ) {
+				var status_field = $( '#post_status' );
+				var status_label = status_field.find( 'option[value="publish"]' ).text();
+
+				status_field.val( 'publish' );
+				$( '#hidden_post_status' ).val( 'publish' );
+				if ( status_label ) {
+					$( '#post-status-display' ).text( status_label );
+				}
+			}
+			CoursePress.Course.unset( 'publish_after_validation' );
 		} );
 
 		CoursePress.Course.on( 'coursepress:update_course_error', function( data ) {
@@ -1326,6 +1348,16 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 		CoursePress.Course.on( 'coursepress:toggle_course_status_success', function( data ) {
 			$( '[name="publish-course-toggle"]' ).attr( 'data-nonce', data.nonce );
+
+			var status = 'off' === data.state ? 'draft' : 'publish';
+			var status_field = $( '#post_status' );
+			var status_label = status_field.find( 'option[value="' + status + '"]' ).text();
+
+			status_field.val( status );
+			$( '#hidden_post_status' ).val( status );
+			if ( status_label ) {
+				$( '#post-status-display' ).text( status_label );
+			}
 		} );
 
 		CoursePress.Course.on( 'coursepress:toggle_course_status_error', function() {
@@ -1766,6 +1798,11 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 			finishbutton = $( '#course-setup-steps .cp-box-content:visible .finish.step-7' )
 		;
 
+		if ( CoursePress.Course.get( 'publish_after_validation' ) ) {
+			$( '#course-setup-steps .finish.step-7' ).trigger( 'click' );
+			return false;
+		}
+
 		if ( 0 === step.length && 0 === finishbutton.length ) {
 			// Search students helper
 			var s = $( '[name="s"]', form ),
@@ -1810,6 +1847,10 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		if ( target.is( '#post-preview' ) ) {
 			var href = target.attr('href');
 			window.open(href);
+		}
+
+		if ( target.hasClass( 'force-publish' ) ) {
+			CoursePress.Course.set( 'publish_after_validation', true );
 		}
 
 		form.unbind('submit').submit();
@@ -1943,7 +1984,7 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 	})
 	.on( 'change', '[name="meta_basic_certificate"]', toggleCertificatePreview )
 	.on( 'change', '[name="meta_structure_show_duration"]', toggleTimePreview )
-	.on( 'click', '.post-type-course #publish, .post-type-course #search-submit, .post-type-course #post-preview', CoursePress.maybeUpdateCourse )
+	.on( 'click', '.post-type-course #publish, .post-type-course #search-submit, .post-type-course #post-preview, .force-publish', CoursePress.maybeUpdateCourse )
 	.on( 'submit', '.post-type-course form#post', CoursePress.updateCourse );
 
 })( jQuery );

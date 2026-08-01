@@ -3,7 +3,7 @@ Contributors: DerN3rd (PSOURCE)
 Tags: classicpress-plugin, lms
 Requires at least: 4.9
 Tested up to: 6.8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -30,6 +30,10 @@ PS CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Socia
 * Compatibility: PHP-8-Kompatibilität für gebündeltes TCPDF überarbeitet (Legacy-Syntax ersetzt, veraltete Konstrukte aktualisiert).
 * Fix: Warnungen/Fehler in TCPDF- und Frontend-Request-Pfaden reduziert, um stabileren Betrieb unter aktuellen PHP-Versionen zu gewährleisten.
 * Fix: PHP-Warning „Attempt to read property id on null" in enable_tinymce() behoben – get_current_screen() wird jetzt vor dem Zugriff auf id auf null geprüft.
+* Fix: Frontend-Variable `ajaxurl` wird frühzeitig bereitgestellt, damit AJAX-Aufrufe auch in Kursvorschauen zuverlässig funktionieren.
+* Fix: Chosen-Initialisierung auf echte Auswahlfelder beschränkt, um JavaScript-Abbrüche durch kollidierende Admin-Elemente zu verhindern.
+* Fix: Kursveröffentlichung validiert und speichert alle Setup-Schritte in einem Durchgang, ohne jeden Schritt einzeln durchschalten zu müssen.
+* Fix: Veröffentlichungsstatus und Publish-Switch werden mit der ClassicPress-Metabox synchronisiert; nach der Veröffentlichung bleibt die Kursbearbeitung im Setup.
 
 = 1.0.0  =
 

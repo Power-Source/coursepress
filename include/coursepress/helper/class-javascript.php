@@ -419,8 +419,16 @@ class CoursePress_Helper_JavaScript {
 		}
 	}
 
+	public static function print_front_ajax_url() {
+		printf(
+			'<script>window.ajaxurl = window.ajaxurl || %s;</script>',
+			wp_json_encode( CoursePress_Helper_Utility::get_ajax_url() )
+		);
+	}
+
 	public static function front_assets() {
-		if ( false === CoursePress_Core::$is_cp_page ) {
+		$is_course = CoursePress_Data_Course::get_post_type_name() === get_post_type();
+		if ( false === CoursePress_Core::$is_cp_page && ! $is_course ) {
 			return;
 		}
 

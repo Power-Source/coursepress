@@ -64,7 +64,7 @@ class CoursePress_View_Admin_Setting_General {
 					<table class="form-table slug-settings">
 						<tbody>
 							<tr valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Courses Slug', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Kurse Slug', 'cp' ) . '</th>
 								<td>' . esc_html( trailingslashit( home_url() ) ) . '
 									&nbsp;<input type="text" name="coursepress_settings[slugs][course]" id="course_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ) . '" />&nbsp;/
 									<p class="description">' . esc_html__( 'Deine Kurs-URL wird wie folgt aussehen: ', 'cp' ) . esc_html( trailingslashit( home_url() ) ) . esc_html( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ) . esc_html__( '/mein-kurs/', 'cp' ) . '</p>
@@ -115,13 +115,13 @@ class CoursePress_View_Admin_Setting_General {
 							</tr>
 
 							<tr class="hidden" valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Enrollment Prozess Slug', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Einschreibungsprozess Slug', 'cp' ) . '</th>
 								<td>' . trailingslashit( esc_url( home_url() ) ) . '
 									&nbsp;<input type="text" name="coursepress_settings[slugs][enrollment]" id="enrollment_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/enrollment', 'enrollment_process' ) ) . '" />&nbsp;/
 								</td>
 							</tr>
 							<tr class="hidden" valign="top">
-								<th scope="row">' . esc_html__( 'Enrollment Prozess Seite', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Einschreibungsprozess Seite', 'cp' ) . '</th>
 								<td>' .  self::add_page_dropdown_description( $page_dropdowns['enrollment'], 'enrollment_process' ).  '</td>
 							</tr>
 
@@ -170,7 +170,7 @@ class CoursePress_View_Admin_Setting_General {
 							</tr>
 
 							<tr valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Mentor Profil Slug', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Dozentenprofil Slug', 'cp' ) . '</th>
 								<td>' . trailingslashit( esc_url( home_url() ) ) . '
 									&nbsp;<input type="text" name="coursepress_settings[slugs][instructor_profile]" id="instructor_profile_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/instructor_profile', 'instructor' ) ) . '" />&nbsp;/
 								</td>
@@ -179,26 +179,25 @@ class CoursePress_View_Admin_Setting_General {
 		if ( function_exists( 'messaging_init' ) ) {
 
 			$content .= '
-							<tr valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Nachrichten: Posteingang Slug', 'cp' ) . '</th>
-								<td>' . trailingslashit( esc_url( home_url() ) ) . '
-									&nbsp;<input type="text" name="coursepress_settings[slugs][inbox]" id="inbox_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/inbox', 'student-inbox' ) ) . '" />&nbsp;/
-								</td>
-							</tr>
-							<tr valign="top">
-								<th scope="row">' . esc_html__( 'Nachrichten: Gesendete Nachrichten Slug', 'cp' ) . '</th>
-								<td>' . trailingslashit( esc_url( home_url() ) ) . '
-									&nbsp;<input type="text" name="coursepress_settings[slugs][sent_messages]" id="sent_messages" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/sent_messages', 'student-sent-messages' ) ) . '" />&nbsp;/
-								</td>
-							</tr>
-							<tr valign="top">
-								<th scope="row">' . esc_html__( 'Nachrichten: Neue Nachrichten Slug', 'cp' ) . '</th>
-								<td>' . trailingslashit( esc_url( home_url() ) ) . '
-									&nbsp;<input type="text" name="coursepress_settings[slugs][new_messages]" id="new_messages_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/new_messages', 'student-new-message' ) ) . '" />&nbsp;/
-								</td>
-							</tr>
+				<tr valign="top" class="break">
+					<th scope="row">' . esc_html__( 'Nachrichten: Posteingang Slug', 'cp' ) . '</th>
+					<td>' . trailingslashit( esc_url( home_url() ) ) . '
+						&nbsp;<input type="text" name="coursepress_settings[slugs][inbox]" id="inbox_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/inbox', 'student-inbox' ) ) . '" />&nbsp;/
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">' . esc_html__( 'Nachrichten: Gesendete Nachrichten Slug', 'cp' ) . '</th>
+					<td>' . trailingslashit( esc_url( home_url() ) ) . '
+						&nbsp;<input type="text" name="coursepress_settings[slugs][sent_messages]" id="sent_messages" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/sent_messages', 'student-sent-messages' ) ) . '" />&nbsp;/
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">' . esc_html__( 'Nachrichten: Neue Nachrichten Slug', 'cp' ) . '</th>
+					<td>' . trailingslashit( esc_url( home_url() ) ) . '
+						&nbsp;<input type="text" name="coursepress_settings[slugs][new_messages]" id="new_messages_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/new_messages', 'student-new-message' ) ) . '" />&nbsp;/
+					</td>
+				</tr>
 			';
-
 		}
 
 		$content .= '
@@ -242,7 +241,7 @@ class CoursePress_View_Admin_Setting_General {
 			}
 			if ( $menu_error ) {
 
-				$content .= '<span class="settings-error">' . __( 'Please add at least one menu and select its theme location in order to show CoursePress menu items automatically.', 'cp' ) . '
+				$content .= '<span class="settings-error">' . __( 'Bitte füge mindestens ein Menü hinzu und wähle dessen Theme-Position aus, damit die CoursePress-Menüpunkte automatisch angezeigt werden.', 'cp' ) . '
 				</span>';
 			}
 		}
@@ -255,7 +254,7 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- LOGIN FORM -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Login Form', 'cp' ) . '</span></h3>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'Login Formular', 'cp' ) . '</span></h3>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
