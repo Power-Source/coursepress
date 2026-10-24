@@ -4,8 +4,8 @@
  * Version:     1.0.2
  * Description: CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Social Sharing und einer interaktiven Lernumgebung, mit der mehr Schüler miteinander verbunden werden können.
  * Author:      PSOURCE
- * Author URI:  https://github.com/Power-Source
- * Plugin URI:  https://power-source.github.io/coursepress/
+ * Author URI:  https://psource.eimen.net/
+ * Plugin URI:  https://psource.eimen.net/psource/ps-coursepress/
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: cp
@@ -16,7 +16,7 @@
 /**
  * Copyright notice.
  *
- * @copyright PSOURCE (https://github.com/Power-Source)
+ * @copyright PSOURCE (https://psource.eimen.net/)
  *
  * Authors: PSOURCE
  * Contributors: DerN3rd (PSOURCE) 
