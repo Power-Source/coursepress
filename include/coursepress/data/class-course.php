@@ -2963,6 +2963,7 @@ class CoursePress_Data_Course {
 								$excluded_modules = array(
 									'input-textarea',
 									'input-text',
+									'input-code',
 								);
 
 								if ( ! $pass && ! in_array( $module_type, $excluded_modules ) ) {

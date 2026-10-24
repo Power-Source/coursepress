@@ -17,7 +17,7 @@
 ## Funktionen
 
 - **Kursverwaltung:** Kurse, Einheiten und Lernmodule in einem geführten Einrichtungsprozess erstellen.
-- **Interaktive Lerninhalte:** Text, Video, Audio, Downloads, Quizze, Aufgaben und Diskussionen kombinieren.
+- **Interaktive Lerninhalte:** Text, Video, Audio, Downloads, Quizze, Coding-Aufgaben, Aufgaben und Diskussionen kombinieren.
 - **Teilnehmendenverwaltung:** Einschreibungen, Fortschritt, Bewertungen und Berichte zentral verwalten.
 - **Dozentinnen und Dozenten:** Mehrere Lehrpersonen pro Kurs zuweisen und per E-Mail einladen.
 - **Bewertungen und Zertifikate:** Automatisierte Bewertungen, individuelle Rückmeldungen und druckbare Abschlusszertifikate.

@@ -1011,6 +1011,7 @@ class CoursePress_Data_Student {
 									$excluded_modules = array(
 										'input-textarea',
 										'input-text',
+										'input-code',
 										'input-upload',
 										'input-form',
 									);
@@ -1701,6 +1702,7 @@ class CoursePress_Data_Student {
 				$excluded_modules = array(
 					'input-textarea',
 					'input-text',
+					'input-code',
 				);
 
 				if ( ! empty( $last_answer ) ) {
@@ -2116,6 +2118,7 @@ class CoursePress_Data_Student {
 		switch ( $module_type ) {
 			case 'input-text':
 			case 'input-textarea':
+			case 'input-code':
 			case 'input-radio':
 			case 'input-select':
 			return $response != $old['response'];
@@ -2166,6 +2169,7 @@ class CoursePress_Data_Student {
 			case 'input-upload':
 			case 'input-textarea':
 			case 'input-text':
+			case 'input-code':
 				if ( ! $response ) {
 					return false;
 				}
@@ -2265,7 +2269,7 @@ class CoursePress_Data_Student {
 				$correct = self::module_answer_is_correct( $module_id, $response );
 
 				if ( ! empty( $response ) && ! $correct && $is_mandatory && $is_assessable ) {
-				    if ( ! in_array( $attributes['module_type'], array( 'input-text', 'input-textarea', 'input-upload', 'input-form' ) ) ) {
+				    if ( ! in_array( $attributes['module_type'], array( 'input-text', 'input-textarea', 'input-code', 'input-upload', 'input-form' ) ) ) {
 						$incomplete++;
 					}
 				}

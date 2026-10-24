@@ -71,6 +71,7 @@ class CoursePress_Module {
 				$excluded_modules = array(
 					'input-textarea',
 					'input-text',
+					'input-code',
 				);
 
 				if ( true === $is_assessable && ! in_array( $module_type, $excluded_modules ) ) {
@@ -249,6 +250,7 @@ class CoursePress_Module {
 		$excluded_modules = array(
 			'input-textarea',
 			'input-text',
+			'input-code',
 			'input-upload',
 			'input-form',
 		);

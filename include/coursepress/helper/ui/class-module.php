@@ -16,6 +16,7 @@ class CoursePress_Helper_UI_Module {
 	const INPUT_SELECT_CHOICE = 'input-select';
 	const INPUT_SHORT_TEXT = 'input-text';
 	const INPUT_LONG_TEXT = 'input-textarea';
+	const INPUT_CODE = 'input-code';
 	const INPUT_UPLOAD = 'input-upload';
 	const INPUT_ADVANCED = 'input-mixed';
 	const INPUT_QUIZ = 'input-quiz';
@@ -240,6 +241,12 @@ class CoursePress_Helper_UI_Module {
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'editor-alignleft',
+			),
+			self::INPUT_CODE => array(
+				'title' => __( 'Coding-Aufgabe', 'cp' ),
+				'mode' => 'input',
+				'icon' => 'default',
+				'dashicon' => 'editor-code',
 			),
 			self::INPUT_UPLOAD => array(
 				'title' => __( 'Datei-Upload', 'cp' ),
@@ -949,6 +956,99 @@ class CoursePress_Helper_UI_Module {
 									"type": "text-input",
 									"class": "component-placeholder-text wide",
 									"name": "meta_placeholder_text"
+								}
+							]
+						}
+					]
+				}
+			',
+			self::INPUT_CODE => '
+				{
+					"id": "0",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
+					"duration": "0:00",
+					"type": "' . self::INPUT_CODE . '",
+					"show_title": "1",
+					"mandatory": "0",
+					"assessable": "0",
+					"minimum_grade": "100",
+					"allow_retries": "1",
+					"retry_attempts": "0",
+					"content": "",
+					"editor_height": "200",
+					"order": "0",
+					"components": [
+						{
+							"label": "' . __( 'Programmiersprache', 'cp' ) . '",
+							"description": "' . __( 'Optionaler Hinweis für Darstellung und Bewertung.', 'cp' ) . '",
+							"class": "wide",
+							"items": [
+								{
+									"type": "select",
+									"class": "component-code-language wide",
+									"name": "meta_code_language",
+									"default": "text",
+									"options": {
+										"text": "' . __( 'Keine Auswahl', 'cp' ) . '",
+										"php": "PHP",
+										"javascript": "JavaScript",
+										"python": "Python",
+										"java": "Java",
+										"csharp": "C#",
+										"cpp": "C++",
+										"html": "HTML",
+										"css": "CSS",
+										"sql": "SQL",
+										"shell": "Shell"
+									}
+								}
+							]
+						},
+						{
+							"label": "' . __( 'Startcode', 'cp' ) . '",
+							"description": "' . __( 'Optionaler Code, der beim ersten Öffnen der Aufgabe im Editor steht.', 'cp' ) . '",
+							"class": "wide",
+							"items": [
+								{
+									"type": "textarea",
+									"class": "component-code-starter wide",
+									"name": "meta_code_starter"
+								}
+							]
+						},
+						{
+							"label": "' . __( 'Lösungshinweis', 'cp' ) . '",
+							"description": "' . __( 'Optionaler Hinweis, der Lernenden unter der Aufgabe angezeigt wird.', 'cp' ) . '",
+							"class": "wide",
+							"items": [
+								{
+									"type": "textarea",
+									"class": "component-code-hint wide",
+									"name": "meta_code_hint"
+								}
+							]
+						},
+						{
+							"label": "' . __( 'Erwartete Ausgabe', 'cp' ) . '",
+							"description": "' . __( 'Optionales Beispiel der erwarteten Programmausgabe.', 'cp' ) . '",
+							"class": "wide",
+							"items": [
+								{
+									"type": "textarea",
+									"class": "component-code-expected-output wide",
+									"name": "meta_code_expected_output"
+								}
+							]
+						},
+						{
+							"label": "' . __( 'Testfälle', 'cp' ) . '",
+							"description": "' . __( 'Optionale Testfälle oder Prüfschritte zur Selbstkontrolle.', 'cp' ) . '",
+							"class": "wide",
+							"items": [
+								{
+									"type": "textarea",
+									"class": "component-code-tests wide",
+									"name": "meta_code_tests"
 								}
 							]
 						}

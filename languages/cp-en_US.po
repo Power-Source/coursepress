@@ -9644,3 +9644,15 @@ msgstr "In reply to: %s"
 
 msgid "Löschen"
 msgstr "Delete"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Coding-Aufgabe"
+msgstr "Coding assignment"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Programmiersprache"
+msgstr "Programming language"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionaler Hinweis für Darstellung und Bewertung."
+msgstr "Optional hint for presentation and assessment."

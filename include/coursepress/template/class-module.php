@@ -75,6 +75,11 @@ class CoursePress_Template_Module {
 						$content .= '</ul>';
 
 				break;
+			case 'input-code':
+					if ( ! empty( $response ) ) {
+						$content .= sprintf( '<pre class="coursepress-code-answer"><code>%s</code></pre>', esc_html( $response ) );
+					}
+				break;
 			case 'input-textarea': case 'input-text':
 					if ( ! empty( $response ) ) {
 						$content .= sprintf( '<div class="cp-answer-box">%s</div>', $response );
@@ -175,7 +180,7 @@ class CoursePress_Template_Module {
 	public static function get_module_status( $module_id, $student_id ) {
 		$attributes = self::attributes( $module_id );
 		$module_type = $attributes['module_type'];
-		$assessables = array( 'input-text', 'input-textarea', 'input-upload', 'input-form' );
+		$assessables = array( 'input-text', 'input-textarea', 'input-code', 'input-upload', 'input-form' );
 		$response = self::get_response( $module_id, $student_id, true );
 		$grades = (array) CoursePress_Helper_Utility::get_array_val( $response, 'grades' );
 		$grades = array_pop( $grades );
@@ -963,6 +968,40 @@ class CoursePress_Template_Module {
 		$format = '<textarea name="module[%s]" placeholder="%s" %s rows="3">%s</textarea>';
 
 		$content = sprintf( $format, $module->ID, esc_attr( $placeholder_text ), $disabled_attr, esc_textarea( $response ) );
+
+		return $content;
+	}
+
+	public static function render_input_code( $module, $attributes = false, $student_progress = false, $disabled = false ) {
+		$attributes = false === $attributes ? self::attributes( $module->ID ) : $attributes;
+		$disabled_attr = $disabled ? 'disabled="disabled"' : '';
+		$response = self::get_response( $module->ID, get_current_user_id() );
+		$language = get_post_meta( $module->ID, 'code_language', true );
+		$starter = get_post_meta( $module->ID, 'code_starter', true );
+		$hint = get_post_meta( $module->ID, 'code_hint', true );
+		$expected_output = get_post_meta( $module->ID, 'code_expected_output', true );
+		$tests = get_post_meta( $module->ID, 'code_tests', true );
+		$value = '' === $response ? $starter : $response;
+
+		$content = sprintf(
+			'<div class="coursepress-code-submission" data-language="%1$s"><textarea class="coursepress-code-editor" name="module[%2$s]" spellcheck="false" %3$s>%4$s</textarea></div>',
+			esc_attr( $language ),
+			$module->ID,
+			$disabled_attr,
+			esc_textarea( $value )
+		);
+
+		if ( '' !== $hint ) {
+			$content .= sprintf( '<section class="coursepress-code-hint"><h4>%s</h4><p>%s</p></section>', esc_html__( 'Lösungshinweis', 'cp' ), nl2br( esc_html( $hint ) ) );
+		}
+
+		if ( '' !== $expected_output ) {
+			$content .= sprintf( '<section class="coursepress-code-expected-output"><h4>%s</h4><pre><code>%s</code></pre></section>', esc_html__( 'Erwartete Ausgabe', 'cp' ), esc_html( $expected_output ) );
+		}
+
+		if ( '' !== $tests ) {
+			$content .= sprintf( '<section class="coursepress-code-tests"><h4>%s</h4><pre><code>%s</code></pre></section>', esc_html__( 'Testfälle', 'cp' ), esc_html( $tests ) );
+		}
 
 		return $content;
 	}

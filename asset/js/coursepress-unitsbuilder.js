@@ -1208,6 +1208,27 @@ var CoursePress = CoursePress || {};
 						content += '<input type="' + input_type + '"' + attr + ' value="' + meta_value + '" placeholder="' + placeholder + '" />';
 						break;
 
+					case 'textarea':
+						var textarea_meta_value = item[ 'name' ].replace( 'meta_', '' );
+						textarea_meta_value = module.get_meta( textarea_meta_value, '' );
+						attr = item[ 'name' ] ? ' name="' + item[ 'name' ] + '"' : '';
+						attr += item[ 'class' ] ? ' class="' + item[ 'class' ] + '"' : '';
+						placeholder = item[ 'placeholder' ] ? item[ 'placeholder' ] : '';
+						content += '<textarea' + attr + ' placeholder="' + placeholder + '">' + _.escape( textarea_meta_value ) + '</textarea>';
+						break;
+
+					case 'select':
+						var select_meta_value = item[ 'name' ].replace( 'meta_', '' );
+						select_meta_value = module.get_meta( select_meta_value, item[ 'default' ] || '' );
+						attr = item[ 'name' ] ? ' name="' + item[ 'name' ] + '"' : '';
+						attr += item[ 'class' ] ? ' class="' + item[ 'class' ] + '"' : '';
+						content += '<select' + attr + '>';
+						$.each( item[ 'options' ] || {}, function( option_value, option_label ) {
+							content += '<option value="' + option_value + '"' + CoursePress.utility.checked( select_meta_value, option_value ) + '>' + option_label + '</option>';
+						} );
+						content += '</select>';
+						break;
+
 					case 'text':
 						attr = item[ 'class' ] ? ' class="' + item[ 'class' ] + '"' : '';
 						text = item[ 'text' ] ? item[ 'text' ] : '';

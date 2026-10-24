@@ -103,7 +103,7 @@ class CoursePress_View_Admin_Student_Workbook {
 			$units = CoursePress_Data_Course::get_units_with_modules( $selected_course, array( 'publish', 'draft' ) );
 			$active_unit_id = ! empty( $_GET['unit_id'] ) ? (int) $_GET['unit_id'] : null;
 			$active_unit = null;
-			$excluded_modules = array( 'input-textarea', 'input-text' );
+			$excluded_modules = array( 'input-textarea', 'input-text', 'input-code' );
 
 			if ( ! empty( $units ) ) :
 			?>

@@ -239,7 +239,7 @@ class CoursePress_Data_Shortcode_Student {
 						);
 						$grade = empty( $grades['grade'] ) ? 0 : (int) $grades['grade'];
 
-						$excluded_modules = array( 'input-textarea', 'input-text', 'input-upload', 'input-form' );
+						$excluded_modules = array( 'input-textarea', 'input-text', 'input-code', 'input-upload', 'input-form' );
 
 						if ( in_array( $module_type, $excluded_modules ) ) {
 							if ( ( 'auto' == $graded_by || empty( $graded_by ) ) && ! empty( $response ) ) {
@@ -342,6 +342,10 @@ class CoursePress_Data_Shortcode_Student {
 									}
 								}
 								$response_display = $display;
+								break;
+							case 'input-code':
+									$response_display = empty( $response_display ) ? __( 'Keine Antwort!', 'cp' ) : $response_display;
+									$display = sprintf( '<pre class="coursepress-code-answer"><code>%s</code></pre>', esc_html( $response_display ) );
 								break;
 							case 'input-text': case 'input-textarea':
 									$response_display = empty( $response_display ) ? __( 'Keine Antwort!', 'cp' ) : $response_display;
@@ -879,7 +883,7 @@ class CoursePress_Data_Shortcode_Student {
 						);
 						$grade = empty( $grades['grade'] ) ? 0 : (int) $grades['grade'];
 
-						$excluded_modules = array( 'input-textarea', 'input-text', 'input-upload', 'input-form' );
+						$excluded_modules = array( 'input-textarea', 'input-text', 'input-code', 'input-upload', 'input-form' );
 
 						$auto_grade = true;
 						if ( in_array( $module_type, $excluded_modules ) ) {
@@ -965,7 +969,7 @@ class CoursePress_Data_Shortcode_Student {
 								}
 							break;
 
-							case 'input-text': case 'input-textarea':
+							case 'input-code': case 'input-text': case 'input-textarea':
 									if ( ! empty( $response_display ) && $auto_grade ) {
 										$module_done++;
 									}

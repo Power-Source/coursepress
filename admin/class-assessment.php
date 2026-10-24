@@ -700,7 +700,7 @@ class CoursePress_Admin_Assessment extends CoursePress_Admin_Controller_Menu {
 					$grades = CoursePress_Data_Student::get_grade( $student_id, $course_id, $unit_id, $module_id, false, false, $student_progress );
 					$grade = empty( $grades['grade'] ) ? 0 : (int) $grades['grade'];
 
-					$excluded_modules = array( 'input-textarea', 'input-text', 'input-upload', 'input-form' );
+					$excluded_modules = array( 'input-textarea', 'input-text', 'input-code', 'input-upload', 'input-form' );
 
 					// Check if the grade came from an instructor
 					$graded_by = CoursePress_Helper_Utility::get_array_val(
@@ -727,7 +727,7 @@ class CoursePress_Admin_Assessment extends CoursePress_Admin_Controller_Menu {
 					$page_content .= '<div class="cp-module '. $no_anwer_class . '" id="unit-' . $unit_id . '-module-' . $module_id . '">';
 
 					// Will only allow feedback for 'Short', 'Long', and 'Upload' modules.
-					$allowed_for_feedback = array( 'input-text', 'input-textarea', 'input-upload', 'input-form' );
+					$allowed_for_feedback = array( 'input-text', 'input-textarea', 'input-code', 'input-upload', 'input-form' );
 
 					if ( false === $no_anwer && ( $is_assessable || $require_instructor_assessment ) && in_array( $module_type, $allowed_for_feedback ) ) {
 						$no_feedback_button_label = __( 'Den Abschluss ohne Feedback übermitteln.', 'cp' );
@@ -871,7 +871,7 @@ class CoursePress_Admin_Assessment extends CoursePress_Admin_Controller_Menu {
 										$page_content .= '</ul>';
 
 										break;
-							case 'input-textarea': case 'input-text':
+							case 'input-code': case 'input-textarea': case 'input-text':
 									if ( ! empty( $response ) ) {
 										$page_content .= sprintf( '<div class="cp-answer-box">%s</div>', $response );
 									}

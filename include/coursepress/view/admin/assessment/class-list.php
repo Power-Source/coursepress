@@ -719,6 +719,11 @@ class CoursePress_View_Admin_Assessment_List {
 
 											break;
 
+								case 'input-code':
+										if ( ! empty( $response ) ) {
+											$page_content .= sprintf( '<pre class="coursepress-code-answer"><code>%s</code></pre>', esc_html( $response ) );
+										}
+										break;
 								case 'input-textarea': case 'input-text':
 										if ( ! empty( $response ) ) {
 											$page_content .= sprintf( '<div class="cp-answer-box">%s</div>', $response );
@@ -778,7 +783,7 @@ class CoursePress_View_Admin_Assessment_List {
 							$page_content .= sprintf( '<div class="cp-answer-box"><span class="dashicons dashicons-no"></span> %s</div>', __( 'Keine Antwort!', 'cp' ) );
 						} else {
 							// Will only allow feedback for 'Short', 'Long', and 'Upload' modules.
-							$allowed_for_feedback = array( 'input-text', 'input-textarea', 'input-upload' );
+							$allowed_for_feedback = array( 'input-text', 'input-textarea', 'input-code', 'input-upload' );
 
 							if ( in_array( $module_type, $allowed_for_feedback ) ) {
 
