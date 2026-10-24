@@ -181,8 +181,8 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 			self::$tabs = apply_filters( self::$slug . '_tabs', self::$tabs );
 
 			self::$tabs['setup'] = array(
-				'title' => __( 'Course Setup', 'cp' ),
-				'description' => __( 'Edit your course specific settings below.', 'cp' ),
+				'title' => __( 'Kurs-Einstellungen', 'cp' ),
+				'description' => __( 'Bearbeite deine kursspezifischen Einstellungen unten.', 'cp' ),
 				'order' => 10,
 				'buttons' => 'none',
 				'is_form' => false,
@@ -193,8 +193,8 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				if ( CoursePress_Data_Capabilities::can_view_course_units( $course_id ) ) {
 					$units = self::$data_course->get_unit_ids( $course_id, array( 'publish', 'draft' ) );
 					self::$tabs['units'] = array(
-						'title' => sprintf( __( 'Units (%s)', 'cp' ), count( $units ) ),
-						'description' => __( 'Edit your course specific settings below.', 'cp' ),
+						'title' => sprintf( __( 'Einheiten (%s)', 'cp' ), count( $units ) ),
+						'description' => __( 'Bearbeite deine kursspezifischen Einstellungen unten.', 'cp' ),
 						'order' => 20,
 						'buttons' => 'none',
 						'is_form' => false,
@@ -204,10 +204,10 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				if ( CoursePress_Data_Capabilities::can_view_course_students( $course_id ) ) {
 					self::$tabs['students'] = array(
 						'title' => sprintf(
-							__( 'Students (%s)', 'cp' ),
+							__( 'Schüler (%s)', 'cp' ),
 							self::$data_course->count_students( $course_id )
 						),
-						'description' => __( 'Edit your course specific settings below.', 'cp' ),
+						'description' => __( 'Bearbeite deine kursspezifischen Einstellungen unten.', 'cp' ),
 						'order' => 30,
 						'buttons' => 'none',
 						'is_form' => false,
@@ -273,7 +273,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 			$publish_toggle = '';
 
 			$ui = array(
-				'label' => __( 'Publish Course', 'cp' ),
+				'label' => __( 'Veröffentliche Kurs', 'cp' ),
 				'left' => '<i class="fa fa-ban"></i>',
 				'left_class' => 'red',
 				'right' => '<i class="fa fa-check"></i>',
@@ -327,7 +327,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				$content .= sprintf(
 					'<input type="button" class="button step prev step-%d" value="%s" />',
 					esc_attr( $step ),
-					esc_attr__( 'Previous', 'cp' )
+					esc_attr__( 'Zurück', 'cp' )
 				);
 			}
 
@@ -335,7 +335,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				$content .= sprintf(
 					'<input type="button" class="button step next step-%d" value="%s" />',
 					esc_attr( $step ),
-					esc_attr__( 'Next', 'cp' )
+					esc_attr__( 'Weiter', 'cp' )
 				);
 			}
 
@@ -343,7 +343,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 			if ( 7 == $step ) {
 				$content .= sprintf(
 					'<input type="button" class="button step finish step-7" value="%s" />',
-					esc_attr__( 'Finish', 'cp' )
+					esc_attr__( 'Fertigstellen', 'cp' )
 				);
 			}
 			/**
@@ -353,7 +353,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				$content .= sprintf(
 					'<input type="button" class="button step update hidden step-%d" value="%s" />',
 					esc_attr( $step ),
-					esc_attr__( 'Update', 'cp' )
+					esc_attr__( 'Aktualisieren', 'cp' )
 				);
 			}
 			/**
@@ -515,18 +515,18 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 			$label = $description = $placeholder = '';
 
 			if ( $can_assign_instructor && $can_assign_facilitator ) {
-				$label = esc_html__( 'Invite New Instructor or Facilitator', 'cp' );
-				$description = esc_html__( 'If the instructor or the facilitator can not be found in the list above, you will need to invite them via email.', 'cp' );
+				$label = esc_html__( 'Neuen Instruktor oder Moderator einladen', 'cp' );
+				$description = esc_html__( 'Wenn der Instruktor oder der Moderator nicht in der obigen Liste gefunden werden kann, musst du ihn per E-Mail einladen.', 'cp' );
 				$placeholder = __( 'instructor-or-facilitator@email.com', 'cp' );
 
 			} else if ( $can_assign_instructor ) {
-				$label = esc_html__( 'Invite New Instructor', 'cp' );
-				$description = esc_html__( 'If the instructor can not be found in the list above, you will need to invite them via email.', 'cp' );
+				$label = esc_html__( 'Neuen Instruktor einladen', 'cp' );
+				$description = esc_html__( 'Wenn die Lehrer nicht in der obigen Liste gefunden werden kann, musst Du sie per e-Mail einladen.', 'cp' );
 				$placeholder = __( 'facilitator@email.com', 'cp' );
 
 			} else if ( $can_assign_facilitator ) {
-				$label = esc_html__( 'Invite New Facilitator', 'cp' );
-				$description = esc_html__( 'If the facilitator can not be found in the list above, you will need to invite them via email.', 'cp' );
+				$label = esc_html__( 'Neuen Moderator einladen', 'cp' );
+				$description = esc_html__( 'Wenn der Moderator nicht in der obigen Liste gefunden werden kann, musst du ihn per E-Mail einladen.', 'cp' );
 				$placeholder = __( 'instructor@email.com', 'cp' );
 			}
 
@@ -915,7 +915,7 @@ if ( ! class_exists( 'CoursePress_Admin_Edit' ) ) :
 				$html = CoursePress_Helper_Utility::replace_vars( $html, $vars );
 				// Set PDF args
 				$args = array(
-					'title' => __( 'Course Completion Certificate', 'cp' ),
+					'title' => __( 'Teilnahmebestätigung zum Fortbildungsabschluss', 'cp' ),
 					'orientation' => $orientation,
 					'image' => $background,
 					'filename' => $filename,

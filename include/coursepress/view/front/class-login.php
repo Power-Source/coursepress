@@ -24,7 +24,7 @@ class CoursePress_View_Front_Login {
 			return;
 		}
 			$content = '';
-			$page_title = __( 'Student Login', 'cp' );
+			$page_title = __( 'Teilnehmer Login', 'cp' );
 			$args = array(
 				'slug' => CoursePress_Core::get_slug( 'login' ),
 				'title' => esc_html( $page_title ),
@@ -37,7 +37,7 @@ class CoursePress_View_Front_Login {
 	public static function render_student_login_page() {
 
 		if ( is_user_logged_in() ) {
-			_e( 'You are already logged in.', 'cp' );
+			_e( 'Sie sind bereits eingeloggt.', 'cp' );
 			return;
 		}
 

@@ -123,9 +123,9 @@ class CoursePress_Admin_Table_Forums extends CoursePress_Admin_Table_Notificatio
 	public function get_columns() {
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'title' => __( 'Topic', 'cp' ),
-			'course' => __( 'Course', 'cp' ),
-			'comments' => '<span class="vers comment-grey-bubble" title="' . esc_attr__( 'Comments', 'cp' ) . '"><span class="screen-reader-text">' . __( 'Comments', 'cp' ) . '</span></span>',
+			'title' => __( 'Thema', 'cp' ),
+			'course' => __( 'Kurs', 'cp' ),
+			'comments' => '<span class="vers comment-grey-bubble" title="' . esc_attr__( 'Kommentare', 'cp' ) . '"><span class="screen-reader-text">' . __( 'Kommentare', 'cp' ) . '</span></span>',
 			'status' => __( 'Status', 'cp' ),
 		);
 		return $columns;
@@ -148,7 +148,7 @@ class CoursePress_Admin_Table_Forums extends CoursePress_Admin_Table_Notificatio
 						'id' => $item->ID,
 					)
 				);
-				$row_actions['untrash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Restore', 'cp' ) );
+				$row_actions['untrash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Wiederherstellen', 'cp' ) );
 			} else {
 				$url = add_query_arg(
 					array(
@@ -156,7 +156,7 @@ class CoursePress_Admin_Table_Forums extends CoursePress_Admin_Table_Notificatio
 						'id' => $item->ID,
 					)
 				);
-				$row_actions['edit'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Edit', 'cp' ) );
+				$row_actions['edit'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Bearbeiten', 'cp' ) );
 			}
 		}
 		if ( $item->user_can_delete ) {
@@ -168,7 +168,7 @@ class CoursePress_Admin_Table_Forums extends CoursePress_Admin_Table_Notificatio
 						'action' => 'delete',
 					)
 				);
-				$row_actions['delete'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Delete Permanently', 'cp' ) );
+				$row_actions['delete'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Dauerhaft löschen', 'cp' ) );
 			} else {
 				$url = add_query_arg(
 					array(
@@ -177,13 +177,13 @@ class CoursePress_Admin_Table_Forums extends CoursePress_Admin_Table_Notificatio
 						'action' => 'trash',
 					)
 				);
-				$row_actions['trash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Trash', 'cp' ) );
+				$row_actions['trash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Papierkorb', 'cp' ) );
 			}
 		}
 		if ( 'publish' == $item->post_status ) {
 			$url = CoursePress_Data_Discussion::get_url( $item );
 			if ( ! empty( $url ) ) {
-				$row_actions['view'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'View', 'cp' ) );
+				$row_actions['view'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Anzeigen', 'cp' ) );
 			}
 		}
 		return $this->row_actions( $row_actions );
@@ -206,7 +206,7 @@ class CoursePress_Admin_Table_Forums extends CoursePress_Admin_Table_Notificatio
 			<input type="submit" class="button" name="action" value="<?php esc_attr_e( 'Filter', 'cp' ); ?>" />
 		</div>
 <?php
-		$this->search_box( __( 'Search Forums', 'cp' ), 'search_discussions' );
+		$this->search_box( __( 'Foren durchsuchen', 'cp' ), 'search_discussions' );
 	}
 
 	/**

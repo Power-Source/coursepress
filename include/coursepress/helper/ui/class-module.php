@@ -212,37 +212,37 @@ class CoursePress_Helper_UI_Module {
 
 		$types = array(
 			self::INPUT_MULTIPLE_CHOICE => array(
-				'title' => __( 'Multiple Choice', 'cp' ),
+				'title' => __( 'Mehrfachauswahl', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'list-view',
 			),
 			self::INPUT_SINGLE_CHOICE => array(
-				'title' => __( 'Single Choice', 'cp' ),
+				'title' => __( 'Einfach-Auswahl', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'editor-ul',
 			),
 			self::INPUT_SELECT_CHOICE => array(
-				'title' => __( 'Selectable', 'cp' ),
+				'title' => __( 'Auswählbar', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'menu',
 			),
 			self::INPUT_SHORT_TEXT => array(
-				'title' => __( 'Short Answer', 'cp' ),
+				'title' => __( 'Kurze Antwort', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'editor-textcolor',
 			),
 			self::INPUT_LONG_TEXT => array(
-				'title' => __( 'Long Answer', 'cp' ),
+				'title' => __( 'Lange Antwort', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'editor-alignleft',
 			),
 			self::INPUT_UPLOAD => array(
-				'title' => __( 'File Upload', 'cp' ),
+				'title' => __( 'Datei-Upload', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'upload',
@@ -254,7 +254,7 @@ class CoursePress_Helper_UI_Module {
 				'dashicon' => 'forms',
 			),
 			self::INPUT_FORM => array(
-				'title' => __( 'Form', 'cp' ),
+				'title' => __( 'Formular', 'cp' ),
 				'mode' => 'input',
 				'icon' => 'default',
 				'dashicon' => 'feedback',
@@ -285,7 +285,7 @@ class CoursePress_Helper_UI_Module {
 				'icon' => 'default',
 			),
 			self::OUTPUT_IMAGE => array(
-				'title' => __( 'Image', 'cp' ),
+				'title' => __( 'Bild', 'cp' ),
 				'mode' => 'output',
 				'excerpt' => 'hidden',
 				'icon' => 'default',
@@ -306,21 +306,21 @@ class CoursePress_Helper_UI_Module {
 				'dashicon' => 'format-audio',
 			),
 			self::OUTPUT_DOWNLOAD => array(
-				'title' => __( 'File Download', 'cp' ),
+				'title' => __( 'Datei Download', 'cp' ),
 				'mode' => 'output',
 			// 'excerpt' => 'hidden',
 				'icon' => 'default',
 				'dashicon' => 'media-text',
 			),
 			self::OUTPUT_ZIPPED_OBJECT => array(
-				'title' => __( 'Zipped Object', 'cp' ),
+				'title' => __( 'Gezipptes Objekt', 'cp' ),
 				'mode' => 'output',
 			// 'excerpt' => 'hidden',
 				'icon' => 'default',
 				'dashicon' => 'media-archive',
 			),
 			self::OUTPUT_DISCUSSION => array(
-				'title' => __( 'Discussion', 'cp' ),
+				'title' => __( 'Diskussion', 'cp' ),
 				'mode' => 'output',
 				'icon' => 'default',
 				'dashicon' => 'testimonial',
@@ -333,33 +333,33 @@ class CoursePress_Helper_UI_Module {
 	public static function get_labels() {
 
 		return apply_filters( 'coursepress_module_labels', array(
-			'module_title' => __( 'Title', 'cp' ),
-			'module_title_desc' => __( 'The title is used to identify this module element and is useful for assessment.', 'cp' ),
-			'module_duration' => __( 'Student Completion Time Limit ([hh:]mm:ss)', 'cp' ),
-			'module_show_title' => __( 'Show Title', 'cp' ),
-			'module_show_title_desc' => __( 'Show title in unit view', 'cp' ),
-			'module_mandatory' => __( 'Required', 'cp' ),
-			'module_mandatory_desc' => __( 'A response is required', 'cp' ),
-			'module_assessable' => __( 'Assessable', 'cp' ),
-			'module_assessable_desc' => __( 'This is a gradable item', 'cp' ),
+			'module_title' => __( 'Titel', 'cp' ),
+			'module_title_desc' => __( 'Der Titel dient zur Identifizierung dieses Modulelements und ist für die Bewertung nützlich.', 'cp' ),
+			'module_duration' => __( 'Schülerabschluss Zeitlimit ([hh:]mm:ss)', 'cp' ),
+			'module_show_title' => __( 'Titel anzeigen', 'cp' ),
+			'module_show_title_desc' => __( 'Titel in der Einheitenansicht anzeigen', 'cp' ),
+			'module_mandatory' => __( 'Erforderlich', 'cp' ),
+			'module_mandatory_desc' => __( 'Eine Antwort ist erforderlich', 'cp' ),
+			'module_assessable' => __( 'Beurteilbar', 'cp' ),
+			'module_assessable_desc' => __( 'Das ist ein abgestuftes Element', 'cp' ),
 			'module_minimum_grade' => __( 'Minimum', 'cp' ),
-			'module_minimum_grade_desc' => __( 'Minimum grade (%) required to pass', 'cp' ),
-			'module_minimum_grade' => __( 'Minimum Grade', 'cp' ),
-			'module_instructor_assessable' => __( 'Require instructor assessment.', 'cp' ),
-			'module_instructor_assessable_desc' => __( 'Check this box to allow instructor to provide final grading assessment.', 'cp' ),
-			'module_allow_retries' => __( 'Allow Retries', 'cp' ),
-			'module_allow_retries_desc' => __( 'Allow and set amount of retries (0 unlimited)', 'cp' ),
-			'module_use_timer' => __( 'Use Timer', 'cp' ),
-			'module_use_timer_desc' => __( 'Use duration as time restriction', 'cp' ),
-			'module_question' => __( 'Question/Task', 'cp' ),
-			'module_question_desc' => __( 'The question or instructions to complete this task.', 'cp' ),
-			'module_content' => __( 'Content', 'cp' ),
-			'module_content_desc' => __( 'Content that will display on the unit page.', 'cp' ),
-			'module_answer' => __( 'Answer', 'cp' ),
-			'module_answer_desc' => __( 'Set the correct answer', 'cp' ),
-			'module_answer_add_new' => __( 'Add', 'cp' ),
-			'module_delete' => __( 'Delete Module', 'cp' ),
-			'module_start_quiz' => __( 'Start Quiz', 'cp' ),
+			'module_minimum_grade_desc' => __( 'Mindestnote (%) um zu bestehen', 'cp' ),
+			'module_minimum_grade' => __( 'Mindestnote', 'cp' ),
+			'module_instructor_assessable' => __( 'Erfordert Instruktor-Bewertung.', 'cp' ),
+			'module_instructor_assessable_desc' => __( 'Aktiviere die Kontrollkästchen eine endgültige Benotung / Bewertung durch den Instruktor zuzulassen.', 'cp' ),
+			'module_allow_retries' => __( 'Wiederholungen zulassen', 'cp' ),
+			'module_allow_retries_desc' => __( 'Anzahl der Wiederholungsversuche zulassen und festlegen (0 unbegrenzt)', 'cp' ),
+			'module_use_timer' => __( 'Timer verwenden', 'cp' ),
+			'module_use_timer_desc' => __( 'Dauer als zeitliche Beschränkung verwenden', 'cp' ),
+			'module_question' => __( 'Frage/Aufgabe', 'cp' ),
+			'module_question_desc' => __( 'Die Frage oder die Anweisungen, um diese Aufgabe zu erledigen.', 'cp' ),
+			'module_content' => __( 'Inhalt', 'cp' ),
+			'module_content_desc' => __( 'Inhalt, der auf der Seite angezeigt wird.', 'cp' ),
+			'module_answer' => __( 'Antwort', 'cp' ),
+			'module_answer_desc' => __( 'Stelle die richtige Antwort ein', 'cp' ),
+			'module_answer_add_new' => __( 'Hinzufügen', 'cp' ),
+			'module_delete' => __( 'Modul löschen', 'cp' ),
+			'module_start_quiz' => __( 'Quiz starten', 'cp' ),
 		) );
 
 	}
@@ -371,7 +371,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_TEXT => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_TEXT . '",
 					"show_title": "1",
@@ -388,7 +388,7 @@ class CoursePress_Helper_UI_Module {
 			',
 			self::OUTPUT_CHAT => '{
 				"id": "0",
-				"title": "' . __( 'Untitled', 'cp' ) . '",
+				"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 				"duration": "0:00",
 				"type": "' . self::OUTPUT_CHAT . '",
 				"show_title": "1",
@@ -405,7 +405,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_IMAGE => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_IMAGE . '",
 					"show_title": "1",
@@ -419,8 +419,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Image Source', 'cp' ) . '",
-							"description": "' . __( 'Enter a URL or Browse for an image', 'cp' ) . '",
+							"label": "' . __( 'Bild-Quelle', 'cp' ) . '",
+							"description": "' . __( 'Eine URL eingeben oder nach einem Bild suchen', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -429,32 +429,32 @@ class CoursePress_Helper_UI_Module {
 									"media_type": "image",
 									"container_class": "wide",
 									"class": "widemedium",
-									"button_text": "' . __( 'Browse', 'cp' ) . '",
-									"placeholder": "' . __( 'Add Media URL or Browse for Media', 'cp' ) . '"
+									"button_text": "' . __( 'Durchsuchen', 'cp' ) . '",
+									"placeholder": "' . __( 'Medien-URL hinzufügen oder nach Medien suchen', 'cp' ) . '"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Image Caption', 'cp' ) . '",
-							"description": "' . __( 'Hide, show and customise the image caption.', 'cp' ) . '",
+							"label": "' . __( 'Bildunterschrift', 'cp' ) . '",
+							"description": "' . __( 'Verstecke, zeige und passe die Bildunterschrift an.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
 									"type": "media-caption-settings",
 									"class": "component-media-caption wide",
-									"label": "' . __( 'Show Caption', 'cp' ) . '",
+									"label": "' . __( 'Beschriftung anzeigen', 'cp' ) . '",
 									"enable_name": "meta_show_media_caption",
 									"option_name": "meta_caption_field",
 									"input_name": "meta_caption_custom_text",
 									"option_class": "caption-source",
-									"no_caption": "' . __( 'Media has no caption', 'cp' ) . '",
+									"no_caption": "' . __( 'Medien haben keine Beschriftung', 'cp' ) . '",
 									"media_type": "image",
 									"option_labels": {
-										"media": "' . __( 'Media Caption', 'cp' ) . '",
-										"custom": "' . __( 'Custom Caption', 'cp' ) . '"
+										"media": "' . __( 'Medienbeschriftung', 'cp' ) . '",
+										"custom": "' . __( 'Benutzerdefinierte Beschriftung', 'cp' ) . '"
 									},
 									"selected": "0",
-									"placeholder": "' . __( 'Please enter a custom caption here.', 'cp' ) . '"
+									"placeholder": "' . __( 'Bitte gebe hier eine benutzerdefinierte Beschriftung ein.', 'cp' ) . '"
 								}
 							]
 						}
@@ -464,7 +464,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_VIDEO => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_VIDEO . '",
 					"show_title": "1",
@@ -478,8 +478,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Video Source', 'cp' ) . '",
-							"description": "' . __( 'You can enter a Youtube or Vimeo link (oEmbed support is required). Alternatively you can Browse for a file - supported video extensions (mp4, m4v, webm, ogv, wmv, flv)', 'cp' ) . '",
+							"label": "' . __( 'Videoquelle', 'cp' ) . '",
+							"description": "' . __( 'Du kannst einen Youtube- oder Vimeo-Link eingeben (oEmbed Support ist erforderlich). Alternativ kannst Du nach einer Datei suchen - unterstützte Video-Erweiterungen (mp4, m4v, webm, ogv, wmv, flv)', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -488,38 +488,38 @@ class CoursePress_Helper_UI_Module {
 									"media_type": "video",
 									"container_class": "wide",
 									"class": "widemedium",
-									"button_text": "' . __( 'Browse', 'cp' ) . '",
-									"placeholder": "' . __( 'Add Media URL or Browse for Media', 'cp' ) . '"
+									"button_text": "' . __( 'Durchsuchen', 'cp' ) . '",
+									"placeholder": "' . __( 'Medien-URL hinzufügen oder nach Medien suchen', 'cp' ) . '"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Video Caption', 'cp' ) . '",
-							"description": "' . __( 'Hide, show and customise the video caption.', 'cp' ) . '",
+							"label": "' . __( 'Video-Untertitel', 'cp' ) . '",
+							"description": "' . __( 'Zeige, verberge oder bearbeite den Video-Untertitel', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
 									"type": "media-caption-settings",
 									"class": "component-media-caption wide",
-									"label": "' . __( 'Show Caption', 'cp' ) . '",
+									"label": "' . __( 'Beschriftung anzeigen', 'cp' ) . '",
 									"enable_name": "meta_show_media_caption",
 									"option_name": "meta_caption_field",
 									"input_name": "meta_caption_custom_text",
 									"option_class": "caption-source",
-									"no_caption": "' . __( 'Media has no caption', 'cp' ) . '",
+									"no_caption": "' . __( 'Medien haben keine Beschriftung', 'cp' ) . '",
 									"media_type": "video",
 									"option_labels": {
-										"media": "' . __( 'Media Caption', 'cp' ) . '",
-										"custom": "' . __( 'Custom Caption', 'cp' ) . '"
+										"media": "' . __( 'Medienbeschriftung', 'cp' ) . '",
+										"custom": "' . __( 'Benutzerdefinierte Beschriftung', 'cp' ) . '"
 									},
 									"selected": "0",
-									"placeholder": "' . __( 'Please enter a custom caption here.', 'cp' ) . '"
+									"placeholder": "' . __( 'Bitte gebe hier eine benutzerdefinierte Beschriftung ein.', 'cp' ) . '"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Player Width', 'cp' ) . '",
-							"description": "' . __( 'Width of the video player.', 'cp' ) . '",
+							"label": "' . __( 'Spieler Breite', 'cp' ) . '",
+							"description": "' . __( 'Breite des Videoplayers.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -531,8 +531,8 @@ class CoursePress_Helper_UI_Module {
 							]
 						},
 						{
-							"label": "' . __( 'Player Height', 'cp' ) . '",
-							"description": "' . __( 'Height of the video player.', 'cp' ) . '",
+							"label": "' . __( 'Spielerhöhe', 'cp' ) . '",
+							"description": "' . __( 'Höhe des Videoplayers.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -548,42 +548,42 @@ class CoursePress_Helper_UI_Module {
 							"class": "wide",
 							"items": [
 								{
-									"label": "' . __( 'Autoplay the video on page load.', 'cp' ) . '",
+									"label": "' . __( 'Spielt das Video beim Laden der Seite automatisch ab.', 'cp' ) . '",
 									"type": "checkbox",
 									"name": "meta_video_autoplay"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Loop Video', 'cp' ) . '",
+							"label": "' . __( 'Video wiederholen', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
-									"label": "' . __( 'Restart the video when it ends', 'cp' ) . '",
+									"label": "' . __( 'Starte das Video neu, wenn es endet', 'cp' ) . '",
 									"type": "checkbox",
 									"name": "meta_video_loop"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Hide Controls', 'cp' ) . '",
+							"label": "' . __( 'Ausblenden', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
-									"label": "' . __( 'Hide video control buttons', 'cp' ) . '",
+									"label": "' . __( 'Schaltflächen zur Videosteuerung ausblenden', 'cp' ) . '",
 									"type": "checkbox",
 									"name": "meta_video_hide_controls"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Related Videos', 'cp' ) . '",
-							"description": "' . __( 'Hide related videos for some video services (e.g. YouTube). Services like Vimeo sets this per video.', 'cp' ) . '",
+							"label": "' . __( 'Ähnliche Videos', 'cp' ) . '",
+							"description": "' . __( 'Blende verwandte Videos bei einigen Videodiensten (z. B. YouTube) aus. Bei Diensten wie Vimeo wird dies pro Video eingestellt.', 'cp' ) . '",
 							"class": "wide",
                             "items": [
                                 {
                                     "type": "checkbox",
-                                    "label": "' . __( 'Hide related videos', 'cp' ) . '",
+                                    "label": "' . __( 'Verberge ähnliche Videos', 'cp' ) . '",
                                     "name": "meta_hide_related_media"
                                 }
                             ]
@@ -594,7 +594,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_AUDIO => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_AUDIO . '",
 					"show_title": "1",
@@ -608,8 +608,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Audio Source', 'cp' ) . '",
-							"description": "' . __( 'Enter a URL or Browse for an audio file. Supported audio extensions (mp3, ogg, wma, m4a, wav)', 'cp' ) . '",
+							"label": "' . __( 'Audioquelle', 'cp' ) . '",
+							"description": "' . __( 'Gib eine URL für eine Audiodatei ein oder lade eine hoch (unterstützte Formate: mp3, ogg, wma, m4a, wav)', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -618,23 +618,23 @@ class CoursePress_Helper_UI_Module {
 									"media_type": "audio",
 									"container_class": "wide",
 									"class": "widemedium",
-									"button_text": "' . __( 'Browse', 'cp' ) . '",
-									"placeholder": "' . __( 'Add Media URL or Browse for Media', 'cp' ) . '"
+									"button_text": "' . __( 'Durchsuchen', 'cp' ) . '",
+									"placeholder": "' . __( 'Medien-URL hinzufügen oder nach Medien suchen', 'cp' ) . '"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Audio Playback', 'cp' ) . '",
+							"label": "' . __( 'Audio-Wiedergabe', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
 									"type": "checkbox",
-									"label": "' . __( 'Loop audio', 'cp' ) . '",
+									"label": "' . __( 'Schleife Audio', 'cp' ) . '",
 									"name": "meta_loop"
 								},
 								{
 									"type": "checkbox",
-									"label": "' . __( 'Autoplay audio', 'cp' ) . '",
+									"label": "' . __( 'Audio automatisch wiedergeben', 'cp' ) . '",
 									"name": "meta_autoplay"
 								}
 							]
@@ -645,7 +645,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_DOWNLOAD => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_DOWNLOAD . '",
 					"show_title": "1",
@@ -659,7 +659,7 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Download Source', 'cp' ) . '",
+							"label": "' . __( 'Quelldatei herunterladen', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -668,8 +668,8 @@ class CoursePress_Helper_UI_Module {
 									"media_type": "any",
 									"container_class": "wide",
 									"class": "widemedium",
-									"button_text": "' . __( 'Browse', 'cp' ) . '",
-									"placeholder": "' . __( 'Add File URL or Browse for File to download', 'cp' ) . '"
+									"button_text": "' . __( 'Durchsuchen', 'cp' ) . '",
+									"placeholder": "' . __( 'Datei URL hinzufügen oder Datei zum Download suchen', 'cp' ) . '"
 								}
 							]
 						},
@@ -690,7 +690,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_ZIPPED_OBJECT => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_ZIPPED_OBJECT . '",
 					"show_title": "1",
@@ -704,8 +704,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Object Source', 'cp' ) . '",
-							"description": "' . __( 'Browse for the zip file that contains your resources.', 'cp' ) . '",
+							"label": "' . __( 'Objekt Quelle', 'cp' ) . '",
+							"description": "' . __( 'Suche nach der Zip-Datei, die deine Ressourcen enthält.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -714,27 +714,27 @@ class CoursePress_Helper_UI_Module {
 									"media_type": "file",
 									"container_class": "wide",
 									"class": "widemedium",
-									"button_text": "' . __( 'Browse', 'cp' ) . '",
-									"placeholder": "' . __( 'Browse for zipped file', 'cp' ) . '"
+									"button_text": "' . __( 'Durchsuchen', 'cp' ) . '",
+									"placeholder": "' . __( 'Nach gezippter Datei suchen', 'cp' ) . '"
 								}
 							]
 						},
 						{
-							"label": "' . __( 'Primary File', 'cp' ) . '",
-							"description": "' . __( 'This is the file of the object that will be loaded first.', 'cp' ) . '",
+							"label": "' . __( 'Primärdatei', 'cp' ) . '",
+							"description": "' . __( 'Dies ist die Datei des Objekts, das zuerst geladen wird.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
 									"type": "text-input",
 									"name": "meta_primary_file",
 									"class": "medium",
-									"placeholder": "' . __( 'e.g. index.html', 'cp' ) . '"
+									"placeholder": "' . __( 'z.B. index.html', 'cp' ) . '"
 								}
 							]
 						},
 						{
 							"label": "' . __( 'Link Text', 'cp' ) . '",
-							"description": "' . __( 'This is the text of the link that will open your primary file.', 'cp' ) . '",
+							"description": "' . __( 'Dies ist der Text des Links, der deine Primärdatei öffnen wird.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -750,7 +750,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_SECTION => '
 			{
 				"id": "0",
-				"title": "' . __( 'Untitled', 'cp' ) . '",
+				"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 				"duration": "0:00",
 				"type": "' . self::OUTPUT_SECTION . '",
 				"show_title": "1",
@@ -768,7 +768,7 @@ class CoursePress_Helper_UI_Module {
 			self::OUTPUT_DISCUSSION => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::OUTPUT_DISCUSSION . '",
 					"show_title": "1",
@@ -786,7 +786,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_MULTIPLE_CHOICE => '
 			{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_MULTIPLE_CHOICE . '",
 					"show_title": "1",
@@ -800,8 +800,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Answer', 'cp' ) . '",
-							"description": "' . __( 'Add checkboxes next to the correct answers', 'cp' ) . '",
+							"label": "' . __( 'Antwort', 'cp' ) . '",
+							"description": "' . __( 'Füge Kontrollkästchen neben den richtigen Antworten hinzu', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -809,8 +809,8 @@ class CoursePress_Helper_UI_Module {
 									"class": "component-checkbox-answer wide",
 									"name": "meta_answers",
 									"answers": [
-										"' . __( 'Answer A', 'cp' ) . '",
-										"' . __( 'Answer B', 'cp' ) . '"
+										"' . __( 'Antwort A', 'cp' ) . '",
+										"' . __( 'Antwort B', 'cp' ) . '"
 									],
 									"selected": [
 										"0"
@@ -824,7 +824,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_SINGLE_CHOICE => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_SINGLE_CHOICE . '",
 					"show_title": "1",
@@ -838,8 +838,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Answer', 'cp' ) . '",
-							"description": "' . __( 'Select the correct answer', 'cp' ) . '",
+							"label": "' . __( 'Antwort', 'cp' ) . '",
+							"description": "' . __( 'Wähle die richtige Antwort aus.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -847,8 +847,8 @@ class CoursePress_Helper_UI_Module {
 									"class": "component-radio-answer wide",
 									"name": "meta_answers",
 									"answers": [
-										"' . __( 'Answer A', 'cp' ) . '",
-										"' . __( 'Answer B', 'cp' ) . '"
+										"' . __( 'Antwort A', 'cp' ) . '",
+										"' . __( 'Antwort B', 'cp' ) . '"
 									],
 									"selected": "0"
 								}
@@ -860,7 +860,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_SELECT_CHOICE => '
 						{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_SELECT_CHOICE . '",
 					"show_title": "1",
@@ -874,8 +874,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Answer', 'cp' ) . '",
-							"description": "' . __( 'Select the correct answer', 'cp' ) . '",
+							"label": "' . __( 'Antwort', 'cp' ) . '",
+							"description": "' . __( 'Wähle die richtige Antwort aus.', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -883,8 +883,8 @@ class CoursePress_Helper_UI_Module {
 									"class": "component-select-answer wide",
 									"name": "meta_answers",
 									"answers": [
-										"' . __( 'Answer A', 'cp' ) . '",
-										"' . __( 'Answer B', 'cp' ) . '"
+										"' . __( 'Antwort A', 'cp' ) . '",
+										"' . __( 'Antwort B', 'cp' ) . '"
 									],
 									"selected": "0"
 								}
@@ -896,7 +896,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_SHORT_TEXT => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_SHORT_TEXT . '",
 					"show_title": "1",
@@ -910,8 +910,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Placeholder Text', 'cp' ) . '",
-							"description": "' . __( 'Placeholder text to put inside the textbox (additional information)', 'cp' ) . '",
+							"label": "' . __( 'Platzhalter Text', 'cp' ) . '",
+							"description": "' . __( 'Platzhaltertext, der in das Textfeld eingefügt wird (zusätzliche Informationen)', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -927,7 +927,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_LONG_TEXT => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_LONG_TEXT . '",
 					"show_title": "1",
@@ -941,8 +941,8 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Placeholder Text', 'cp' ) . '",
-							"description": "' . __( 'Placeholder text to put inside the textbox (additional information)', 'cp' ) . '",
+							"label": "' . __( 'Platzhalter Text', 'cp' ) . '",
+							"description": "' . __( 'Platzhaltertext, der in das Textfeld eingefügt wird (zusätzliche Informationen)', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
@@ -958,7 +958,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_UPLOAD => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_UPLOAD . '",
 					"show_title": "1",
@@ -976,7 +976,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_QUIZ => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_QUIZ . '",
 					"show_title": "1",
@@ -991,19 +991,19 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Questions', 'cp' ) . '",
-							"description": "' . __( 'Add all the questions for your quiz here', 'cp' ) . '",
+							"label": "' . __( 'Fragen', 'cp' ) . '",
+							"description": "' . __( 'Füge hier alle Fragen für dein Quiz ein', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
-									"title": "' . __( 'Multiple Choice', 'cp' ) .'",
+									"title": "' . __( 'Mehrfachauswahl', 'cp' ) .'",
 									"type": "action",
 									"class": "input-element module-input-checkbox quiz-action-button multiple wide",
 									"action": "multiple",
 									"dashicon": "list-view"
 								},
 								{
-									"title": "' . __( 'Single Choice', 'cp' ) .'",
+									"title": "' . __( 'Einfach-Auswahl', 'cp' ) .'",
 									"type": "action",
 									"class": "input-element module-input-radio quiz-action-button single wide",
 									"action": "single",
@@ -1027,7 +1027,7 @@ class CoursePress_Helper_UI_Module {
 			self::INPUT_FORM => '
 				{
 					"id": "0",
-					"title": "' . __( 'Untitled', 'cp' ) . '",
+					"title": "' . __( 'Ohne Titel', 'cp' ) . '",
 					"duration": "0:00",
 					"type": "' . self::INPUT_FORM . '",
 					"show_title": "1",
@@ -1042,26 +1042,26 @@ class CoursePress_Helper_UI_Module {
 					"order": "0",
 					"components": [
 						{
-							"label": "' . __( 'Form elements', 'cp' ) . '",
-							"description": "' . __( 'Add all the elements for your form here', 'cp' ) . '",
+							"label": "' . __( 'Formularelemente', 'cp' ) . '",
+							"description": "' . __( 'Füge hier alle Elemente für dein Formular hinzu', 'cp' ) . '",
 							"class": "wide",
 							"items": [
 								{
-									"title": "' . __( 'Short Answer', 'cp' ) .'",
+									"title": "' . __( 'Kurze Antwort', 'cp' ) .'",
 									"type": "action",
 									"class": "input-element form-action-button short wide",
 									"action": "short",
 									"dashicon": "editor-textcolor"
 								},
 								{
-									"title": "' . __( 'Long Answer', 'cp' ) .'",
+									"title": "' . __( 'Lange Antwort', 'cp' ) .'",
 									"type": "action",
 									"class": "input-element form-action-button long wide",
 									"action": "long",
 									"dashicon": "editor-alignleft"
 								},
 								{
-									"title": "' . __( 'Selectable', 'cp' ) . '",
+									"title": "' . __( 'Auswählbar', 'cp' ) . '",
 									"type": "action",
 									"class": "input-element form-action-button selectable wide",
 									"action": "selectable",

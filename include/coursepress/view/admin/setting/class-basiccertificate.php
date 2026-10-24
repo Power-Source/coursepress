@@ -43,8 +43,8 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 
 	public static function add_tabs( $tabs ) {
 		$tabs['basic_certificate'] = array(
-			'title' => __( 'Basic Certificate', 'cp' ),
-			'description' => __( 'Setup the settings for the certificates issued upon course completion.', 'cp' ),
+			'title' => __( 'Basiszertifikat', 'cp' ),
+			'description' => __( 'Richte die Einstellungen für die Zertifikate ein, die bei Kursabschluss ausgestellt werden.', 'cp' ),
 			'order' => 40,
 		);
 
@@ -76,7 +76,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 
 		<!-- Enable Checkbox -->
 		<h3 class="hndle" style="cursor:auto;">
-			<span><?php esc_html_e( 'Certificate Options', 'cp' ); ?></span>
+			<span><?php esc_html_e( 'Zertifikat Optionen', 'cp' ); ?></span>
 		</h3>
         <div class="inside">
 <?php
@@ -92,7 +92,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 			'<a href="%s" target="_blank" class="button button-certificate %s">%s</a>',
 			esc_url( $certificate_link ),
 			esc_attr( $is_enabled? '':'hidden' ),
-			esc_html__( 'Preview', 'cp' )
+			esc_html__( 'Vorschau', 'cp' )
 		);
 
 ?>
@@ -105,7 +105,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 								name="coursepress_settings[basic_certificate][enabled]"
 								class="certificate_enabled"
 								value="1" />
-							<?php esc_html_e( 'Enable Basic Certificate', 'cp' ); ?>
+							<?php esc_html_e( 'Basiszertifikat aktivieren', 'cp' ); ?>
 						</label></td>
 					</tr>
                     <tr class="use-cp-default <?php echo $is_enabled? '':'hidden'; ?>">
@@ -115,7 +115,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 								name="coursepress_settings[basic_certificate][use_cp_default]"
 								class="certificate_default"
 								value="1" />
-							<?php esc_html_e( 'Use default CoursePress  Certificate', 'cp' ); ?>
+							<?php esc_html_e( 'Verwende benutzerdefiniertes CoursePress-Zertifikat', 'cp' ); ?>
 						</label></td>
 					</tr>
 				</tbody>
@@ -125,10 +125,10 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 		<!-- Certificate Layout -->
 		<div class="certificate-details hidden">
 		<h3 class="hndle" style="cursor:auto;">
-			<span><?php esc_html_e( 'Certificate Layout', 'cp' ); ?></span>
+			<span><?php esc_html_e( 'Zertifikat Layout', 'cp' ); ?></span>
 		</h3>
 		<p class="description">
-			<?php esc_html_e( 'Use the editor below to create the layout of your certificate.', 'cp' ); ?>
+			<?php esc_html_e( 'Verwende den Editor unten, um das Layout deines Zeugnisses zu erstellen.', 'cp' ); ?>
 		</p>
 		<p class="description">
 			<?php
@@ -144,7 +144,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 					null
 				);
 				$field_keys = array_keys( $fields );
-				esc_html_e( 'These codes will be replaced with actual data: ', 'cp' );
+				esc_html_e( 'Diese Codes werden durch aktuelle Daten ersetzt:', 'cp' );
 				echo implode( ', ', $field_keys );
 				?>
 		</p>
@@ -175,7 +175,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 			</tr>
 
 			<tr>
-				<th><?php esc_html_e( 'Background Image', 'cp' ); ?></th>
+				<th><?php esc_html_e( 'Hintergrundbild', 'cp' ); ?></th>
 				<td>
 				<div class="certificate_background_image_holder">
 					<input class="image_url certificate_background_url"
@@ -190,7 +190,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 					<div class="invalid_extension_message">
 						<?php
 						printf(
-							esc_html__( 'Extension of the file is not valid. Please use one of the following: %s', 'cp' ),
+							esc_html__( 'Die Erweiterung der Datei ist nicht gültig. Bitte verwende eine der folgenden: %s', 'cp' ),
 							implode( ', ', $allowed_extensions )
 						);
 						?>
@@ -215,7 +215,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 					<div class="invalid_extension_message">
 						<?php
 						printf(
-							esc_html__( 'Extension of the file is not valid. Please use one of the following: %s', 'cp' ),
+							esc_html__( 'Die Erweiterung der Datei ist nicht gültig. Bitte verwende eine der folgenden: %s', 'cp' ),
 							implode( ', ', $allowed_extensions )
 						);
 						?>
@@ -241,7 +241,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 						   name="coursepress_settings[basic_certificate][logo][y]"
 						   value="<?php echo esc_attr( $cert_logo_y ); ?>" />
 
-					<span><?php esc_html_e( 'Width', 'cp' ); ?></span>
+					<span><?php esc_html_e( 'Breite', 'cp' ); ?></span>
 					<input type="number"
 						   class="logo_width small-text"
 						   name="coursepress_settings[basic_certificate][logo][width]"
@@ -251,22 +251,22 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 
 			<tr>
 				<th>
-					<?php esc_html_e( 'Content Margin', 'cp' ); ?><br />
+					<?php esc_html_e( 'Inhalt Margin (Außenabstand)', 'cp' ); ?><br />
 				</th>
 				<td>
-					<span><?php esc_html_e( 'Top', 'cp' ); ?></span>
+					<span><?php esc_html_e( 'Oben', 'cp' ); ?></span>
 					<input type="number"
 						class="margin_top small-text"
 						name="coursepress_settings[basic_certificate][margin][top]"
 						value="<?php echo esc_attr( $cert_margin_top ); ?>" />
 
-					<span><?php esc_html_e( 'Left', 'cp' ); ?></span>
+					<span><?php esc_html_e( 'Links', 'cp' ); ?></span>
 					<input type="number"
 						class="margin_left small-text"
 						name="coursepress_settings[basic_certificate][margin][left]"
 						value="<?php echo esc_attr( $cert_margin_left ); ?>" />
 
-					<span><?php esc_html_e( 'Right', 'cp' ); ?></span>
+					<span><?php esc_html_e( 'Rechts', 'cp' ); ?></span>
 					<input type="number"
 						class="margin_right small-text"
 						name="coursepress_settings[basic_certificate][margin][right]"
@@ -276,17 +276,17 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 
 			<tr>
 				<th>
-					<?php esc_html_e( 'Page Orientation', 'cp' ); ?><br />
+					<?php esc_html_e( 'Seitenausrichtung', 'cp' ); ?><br />
 				</th>
 				<td>
 					<select name="coursepress_settings[basic_certificate][orientation]"
 						style="width: max-width: 200px;"
 						id="cert_field_orientation">
 						<option value="L" <?php selected( $cert_orientation, 'L' ); ?>>
-							<?php esc_html_e( 'Landscape', 'cp' ); ?>
+							<?php esc_html_e( 'Querformat', 'cp' ); ?>
 						</option>
 						<option value="P" <?php selected( $cert_orientation, 'P' ); ?>>
-							<?php esc_html_e( 'Portrait', 'cp' ); ?>
+							<?php esc_html_e( 'Hochformat', 'cp' ); ?>
 						</option>
 					</select>
 				</td>
@@ -294,7 +294,7 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 
 			<tr>
 				<th>
-					<?php esc_html_e( 'Text Color', 'cp' ); ?><br />
+					<?php esc_html_e( 'Textfarbe', 'cp' ); ?><br />
 				</th>
 				<td style="padding: 15px 0;">
 					<input
@@ -323,12 +323,12 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 	public static function default_certificate_content() {
 		$msg = __(
 			'<h2>%1$s %2$s</h2>
-			has successfully completed the course
+			den Kurs erfolgreich abgeschlossen hat
 
 			<h3>%3$s</h3>
 
-			<h4>Date: %4$s</h4>
-			<small>Certificate no.: %5$s</small>', 'cp'
+			<h4>Datum: %4$s
+			</h4><small>Zertifikat Nr.: %5$s</small>', 'cp'
 		);
 
 		$default_certification_content = sprintf(
@@ -346,18 +346,18 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 
 	public static function default_email_subject() {
 		return sprintf(
-			__( '[%s] Congratulations. You passed your course.', 'cp' ),
+			__( '[%s] Herzlichen Glückwunsch! Du hast deinen Kurs bestanden.', 'cp' ),
 			get_option( 'blogname' )
 		);
 	}
 
 	public static function default_email_content() {
 		$msg = __(
-			'Hi %1$s,
+			'Hallo %1$s,
 
-			Congratulations! You have completed the course: %2$s
+			Herzlichen Glückwunsch! Du hast den Kurs abgeschlossen: %2$s
 
-			Please find attached your certificate of completion.'
+			Im Anhang findest du dein Abschlusszertifikat.'
 			, 'cp'
 		);
 
@@ -365,14 +365,14 @@ class CoursePress_View_Admin_Setting_BasicCertificate {
 		 * download instead attach
 		 */
 		$msg = __(
-			'Hi %1$s,
+			'Hallo %1$s,
 
-Congratulations! You have completed the course: %2$s
+Herzlichen Glückwunsch! Du hast den Kurs abgeschlossen: %2$s
 
-Please %3$sdownload your certificate of completion%4$s.
+Bitte %3$slade dein Abschlusszertifikat herunter%4$s.
 
-Best wishes,
-The %5$s Team', 'cp');
+Herzlichen Glückwunsch!
+Das %5$sTeam', 'cp');
 
 		$default_basic_certificate_email = sprintf(
 			$msg,

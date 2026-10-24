@@ -1,5 +1,5 @@
 <div class="step-title step-6">
-	<?php printf( __( 'Step 6 &ndash; Enrollment %s', 'cp' ), $title2 ); ?>
+	<?php printf( __( 'Schritt 6 - Einschreibung %s', 'cp' ), $title2 ); ?>
 	<div class="status <?php echo $setup_class; ?>"></div>
 </div>
 
@@ -7,14 +7,14 @@
 	<input type="hidden" name="meta_setup_step_6" value="saved" />
 
 	<div class="wide">
-		<label><?php _e( 'Enrollment Restrictions', 'cp' ); ?></label>
-		<p class="description"><?php _e( 'Select the limitations on accessing and enrolling in this course.', 'cp' ); ?></p>
+		<label><?php _e( 'Einschreibungsbeschränkungen', 'cp' ); ?></label>
+		<p class="description"><?php _e( 'Wähle die Einschränkungen für den Zugang zu und die Einschreibung in diesen Kurs aus.', 'cp' ); ?></p>
 		<?php echo CoursePress_Helper_UI::select( 'meta_enrollment_type', $enrollment_types, $enrollment_type, 'chosen-select medium' ); ?>
 	</div>
 
 	<div class="wide enrollment-type-options prerequisite<?php echo $prerequisite_class; ?>">
-		<label><?php _e( 'Prerequisite Courses', 'cp' ); ?></label>
-		<p class="description"><?php _e( 'Select the courses a student needs to complete before enrolling in this course', 'cp' ); ?></p>
+		<label><?php _e( 'Voraussetzungskurse', 'cp' ); ?></label>
+		<p class="description"><?php _e( 'Wähle die Kurse aus, die ein Student absolvieren muss, bevor sie sich in diesem Kurs anmelden', 'cp' ); ?></p>
 		<select name="meta_enrollment_prerequisite" class="medium chosen-select chosen-select-course <?php echo $class_extra; ?>" multiple="true" data-placeholder=" ">
 
 			<?php if ( ! empty( $courses ) ) : foreach ( $courses as $course ) : ?>
@@ -25,17 +25,17 @@
 	</div>
 
 	<div class="wide enrollment-type-options passcode <?php echo $passcode_class; ?>">
-		<label><?php _e( 'Course Passcode', 'cp' ); ?></label>
-		<p class="description"><?php _e( 'Enter the passcode required to access this course', 'cp' ); ?></p>
+		<label><?php _e( 'Kurs-Passcode', 'cp' ); ?></label>
+		<p class="description"><?php _e( 'Gib das Passwort ein, um Zugang zu diesem Kurs zu erhalten.', 'cp' ); ?></p>
 		<input type="text" name="meta_enrollment_passcode" value="<?php echo esc_attr( $enrollment_passcode ); ?>" />
 	</div>
 
 	<?php if ( false === $disable_payment ) :
 		$one = array(
 				'meta_key' => 'payment_paid_course',
-				'title' => __( 'Course Payment', 'cp' ),
-				'description' => __( 'Payment options for your course. Additional plugins are required and settings vary depending on the plugin.', 'cp' ),
-				'label' => __( 'This is a paid course', 'cp' ),
+				'title' => __( 'Kurs Bezahlung', 'cp' ),
+				'description' => __( 'Zahlungsoptionen für deinen Kurs. Es sind zusätzliche Plugins erforderlich und die Einstellungen variieren je nach Plugin.', 'cp' ),
+				'label' => __( 'Dies ist ein kostenpflichtiger Kurs', 'cp' ),
 				'default' => false,
 			);
 		echo '<hr class="separator" />';

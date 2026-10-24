@@ -19,17 +19,17 @@
 <input type="hidden" id="base_location" value="<?php esc_attr_e( $base_location ); ?>" />
 <div class="cp-assessment-page" data-nonce="<?php esc_attr_e( $nonce ); ?>">
 	<?php if ( empty( $courses ) ): ?>
-		<p class="description"><?php esc_html_e( 'You currently have no courses assigned.', 'cp' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Dir wurden derzeit noch keine Kurse zugewiesen.', 'cp' ); ?></p>
 	<?php else: ?>
 		<div class="cp-course-selector">
 			<div class="cp-box">
-				<label><?php esc_html_e( 'Select Course', 'cp' ); ?></label>
+				<label><?php esc_html_e( 'Kurs auswählen', 'cp' ); ?></label>
 				<?php echo CoursePress_Helper_UI::get_course_dropdown( 'course-list', 'course-list', $courses, array( 'class' => 'medium', 'value' => $selected_course ) ); ?>
 			</div>
 			<div class="cp-box">
 				<select id="unit-list">
-					<option value="all"><?php esc_html_e( 'Show all', 'cp' ); ?></option>
-					<option value="all_submitted" <?php selected( 'all_submitted', $current_unit ); ?>><?php esc_html_e('Show all assessable students', 'cp' ); ?></option>
+					<option value="all"><?php esc_html_e( 'Alle anzeigen', 'cp' ); ?></option>
+					<option value="all_submitted" <?php selected( 'all_submitted', $current_unit ); ?>><?php esc_html_e('Zeige alle beurteilbaren Studenten', 'cp' ); ?></option>
 
 					<?php foreach( $units as $unit ): ?>
 						<option value="<?php echo $unit->ID; ?>" <?php selected( $current_unit, $unit->ID ); ?>>
@@ -40,18 +40,18 @@
 			</div>
 			<div class="cp-box">
 				<select id="ungraded-list">
-					<option value="all"><?php esc_html_e( 'Show graded and ungraded students', 'cp' ); ?></option>
-					<option value="ungraded" <?php selected( 'ungraded', $type ); ?>><?php esc_html_e( 'Show ungraded students only', 'cp' ); ?></option>
-					<option value="graded" <?php selected( 'graded', $type ); ?>><?php esc_html_e( 'Show graded students only', 'cp' ); ?></option>
+					<option value="all"><?php esc_html_e( 'Zeige alle bewertete und nicht bewertete Studenten', 'cp' ); ?></option>
+					<option value="ungraded" <?php selected( 'ungraded', $type ); ?>><?php esc_html_e( 'Nur unbenotete Schüler anzeigen', 'cp' ); ?></option>
+					<option value="graded" <?php selected( 'graded', $type ); ?>><?php esc_html_e( 'Zeige nur bewertete Studenten', 'cp' ); ?></option>
 				</select>
 			</div>
 		</div>
 		<table class="wp-list-table widefat fixed striped cp-table">
 			<thead>
-				<th><?php esc_html_e( 'Student', 'cp' ); ?></th>
-				<th><?php esc_html_e( 'Last Active', 'cp' ); ?></th>
-				<th class="unit-grade"><?php esc_html_e( 'Grade', 'cp' ); ?></th>
-				<th width="10%"><?php esc_html_e( 'Submission', 'cp' ); ?></th>
+				<th><?php esc_html_e( 'Teilnehmer', 'cp' ); ?></th>
+				<th><?php esc_html_e( 'Zuletzt aktiv', 'cp' ); ?></th>
+				<th class="unit-grade"><?php esc_html_e( 'Note', 'cp' ); ?></th>
+				<th width="10%"><?php esc_html_e( 'Einreichung', 'cp' ); ?></th>
 			</thead>
 			<tbody id="the-list">
 				<?php
@@ -145,10 +145,10 @@
 		</table>
 		<br />
 		<div class="no-student-info" style="display: none;">
-			<p class="description"><?php esc_html_e( '0 students found under this unit', 'cp' ); ?></p>
+			<p class="description"><?php esc_html_e( '0 Studenten in dieser Einheit gefunden', 'cp' ); ?></p>
 		</div>
 		<div class="no-assessable-info" style="display: none;">
-			<p class="description"><?php esc_html_e( 'There are no assessable students found!', 'cp' ); ?></p>
+			<p class="description"><?php esc_html_e( 'Es gibt keine bewertbaren Schüler!', 'cp' ); ?></p>
 		</div>
 		<?php
 		$url = remove_query_arg( array( 'unit', 'type' ) );

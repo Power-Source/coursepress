@@ -14,10 +14,10 @@ class CoursePress_Widget_FeaturedCourse extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname' => 'cp_featured_widget',
-			'description' => __( 'Displays a selected course as featured', 'cp' ),
+			'description' => __( 'Zeigt einen ausgewählten Kurs als Featured an', 'cp' ),
 		);
 
-		parent::__construct( 'CP_Featured_Course', __( 'Featured Course', 'cp' ), $widget_ops );
+		parent::__construct( 'CP_Featured_Course', __( 'Empfohlener Kurs', 'cp' ), $widget_ops );
 	}
 
 	public static function enqueue_featured_script() {
@@ -53,11 +53,11 @@ class CoursePress_Widget_FeaturedCourse extends WP_Widget {
 
 		$courses = get_posts( $args );
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'cp' ); ?>:
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Titel', 'cp' ); ?>:
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>"/></label>
 		</p>
 
-		<p><label for="<?php echo $this->get_field_id( 'course' ); ?>"><?php _e( 'Course', 'cp' ); ?><br/>
+		<p><label for="<?php echo $this->get_field_id( 'course' ); ?>"><?php _e( 'Kurs', 'cp' ); ?><br/>
 			<select name="<?php echo $this->get_field_name( 'course' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'course' ); ?>">
 				<?php
 				foreach ( $courses as $course ) {
@@ -69,23 +69,23 @@ class CoursePress_Widget_FeaturedCourse extends WP_Widget {
 			</select>
 		</label></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'type' ); ?>"><?php _e( 'Featured Media', 'cp' ); ?><br/>
+		<p><label for="<?php echo $this->get_field_id( 'type' ); ?>"><?php _e( 'Empfohlene Medien', 'cp' ); ?><br/>
 			<select name="<?php echo $this->get_field_name( 'type' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'type' ); ?>">
-				<option value="default" <?php selected( $selected_type, 'default', true ); ?>><?php _e( 'Priority Mode (default)', 'cp' ); ?></option>
-				<option value="video" <?php selected( $selected_type, 'video', true ); ?>><?php _e( 'Featured Video', 'cp' ); ?></option>
-				<option value="image" <?php selected( $selected_type, 'image', true ); ?>><?php _e( 'List Image', 'cp' ); ?></option>
+				<option value="default" <?php selected( $selected_type, 'default', true ); ?>><?php _e( 'Prioritätsmodus (Standard)', 'cp' ); ?></option>
+				<option value="video" <?php selected( $selected_type, 'video', true ); ?>><?php _e( 'Hervorgehobenes Video', 'cp' ); ?></option>
+				<option value="image" <?php selected( $selected_type, 'image', true ); ?>><?php _e( 'Listenbild', 'cp' ); ?></option>
 			</select>
 		</label></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'priority' ); ?>"><?php _e( 'Priority Media', 'cp' ); ?><br/>
-			<small><?php _e( 'Priority needs to be set above.', 'cp' ); ?></small>
+		<p><label for="<?php echo $this->get_field_id( 'priority' ); ?>"><?php _e( 'Vorrangige Medien', 'cp' ); ?><br/>
+			<small><?php _e( 'Die Priorität muss nach oben gesetzt werden.', 'cp' ); ?></small>
 			<select name="<?php echo $this->get_field_name( 'priority' ); ?>" class="widefat" id="<?php echo $this->get_field_id( 'priority' ); ?>">
-				<option value="video" <?php selected( $selected_priority, 'video', true ); ?>><?php _e( 'Featured Video (image fallback)', 'cp' ); ?></option>
-				<option value="image" <?php selected( $selected_priority, 'image', true ); ?>><?php _e( 'List Image (video fallback)', 'cp' ); ?></option>
+				<option value="video" <?php selected( $selected_priority, 'video', true ); ?>><?php _e( 'Featured Video (Bildrückfall)', 'cp' ); ?></option>
+				<option value="image" <?php selected( $selected_priority, 'image', true ); ?>><?php _e( 'Listenbild (Video-Fallback)', 'cp' ); ?></option>
 			</select>
 		</label></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'button_title' ); ?>"><?php _e( 'Button Title', 'cp' ); ?>:
+		<p><label for="<?php echo $this->get_field_id( 'button_title' ); ?>"><?php _e( 'Button Titel', 'cp' ); ?>:
 			<input class="widefat" id="<?php echo $this->get_field_id( 'button_title' ); ?>" name="<?php echo $this->get_field_name( 'button_title' ); ?>" type="text" value="<?php echo( ! isset( $button_title ) ? __( 'Find out more', 'cp' ) : esc_attr( $button_title ) ); ?>"/></label>
 		</p>
 	<?php

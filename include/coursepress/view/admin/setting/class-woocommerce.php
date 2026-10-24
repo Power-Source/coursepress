@@ -38,7 +38,7 @@ class CoursePress_View_Admin_Setting_WooCommerce {
 	public static function add_tabs( $tabs ) {
 		$tabs['woocommerce'] = array(
 			'title' => __( 'WooCommerce', 'cp' ),
-			'description' => __( 'Allow to integrate WooCommerce to sell courses.', 'cp' ),
+			'description' => __( 'Erlaube es, WooCommerce zu integrieren, um Kurse zu verkaufen.', 'cp' ),
 			'order' => 69,
 		);
 
@@ -67,9 +67,9 @@ class CoursePress_View_Admin_Setting_WooCommerce {
 								name="coursepress_settings[woocommerce][enabled]"
 								class="certificate_enabled"
 								value="1" />
-							<?php esc_html_e( 'Use WooCommerce to sell courses', 'cp' ); ?>
+							<?php esc_html_e( 'Verwenden von WooCommerce, um  Kurse zu verkaufen', 'cp' ); ?>
 						</label>
-						<p class="description"><?php _e( 'If checked, WooCommerce will be use instead of the MarketPress for selling courses', 'cp' ) ?></p>
+						<p class="description"><?php _e( 'Wenn diese Option aktiviert ist, wird WooCommerce anstelle von MarketPress für den Verkauf von Kursen verwendet', 'cp' ) ?></p>
 						</td>
 					</tr>
 					<tr>
@@ -79,42 +79,42 @@ class CoursePress_View_Admin_Setting_WooCommerce {
 								name="coursepress_settings[woocommerce][redirect]"
 								class="certificate_enabled"
 								value="1" />
-							<?php esc_html_e( 'Redirect WooCommerce product post to a parent course post', 'cp' ); ?>
+							<?php esc_html_e( 'WooCommerce-Produktbeitrag zu einem übergeordneten Kursbeitrag umleiten', 'cp' ); ?>
 						</label>
-							<p class="description"><?php _e( 'If checked, visitors who try to access WooCommerce single post will be automatically redirected to a parent course single post.', 'cp' ) ?></p>
+							<p class="description"><?php _e( 'Wenn diese Option aktiviert ist, werden Besucher, die versuchen, auf einen WooCommerce-Einzelposten zuzugreifen, automatisch zu einem übergeordneten Kurs-Einzelposten weitergeleitet.', 'cp' ) ?></p>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<h3><?php esc_html_e( 'When the course becomes unpaid, then:', 'cp' ); ?></h3>
+							<h3><?php esc_html_e( 'Wenn der Kurs nicht bezahlt wird, dann:', 'cp' ); ?></h3>
 							<ul>
 								<li><label><input type="radio"
 									<?php checked( $unpaid, 'change_status' ); ?>
 									name="coursepress_settings[woocommerce][unpaid]"
 									class="certificate_enabled"
-									value="change_status" /> <?php esc_html_e( 'Change to draft related WooCommerce product.', 'cp' ); ?></label></li>
+									value="change_status" /> <?php esc_html_e( 'Wechsle zu einem Entwurf für ein WooCommerce-Produkt.', 'cp' ); ?></label></li>
 								<li><label><input type="radio"
 									<?php checked( $unpaid, 'delete' ); ?>
 									name="coursepress_settings[woocommerce][unpaid]"
 									class="certificate_enabled"
-									value="delete" /> <?php esc_html_e( 'Delete related WooCommerce product.', 'cp' ); ?></label></li>
+									value="delete" /> <?php esc_html_e( 'Lösche das zugehörige WooCommerce-Produkt.', 'cp' ); ?></label></li>
 							</ul>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<h3><?php esc_html_e( 'When the course is deleted, then:', 'cp' ); ?></h3>
+							<h3><?php esc_html_e( 'Wenn der Kurs gelöscht wurde, dann:', 'cp' ); ?></h3>
 							<ul>
 								<li><label><input type="radio"
 									<?php checked( $delete, 'change_status' ); ?>
 									name="coursepress_settings[woocommerce][delete]"
 									class="certificate_enabled"
-									value="change_status" /> <?php esc_html_e( 'Change to draft related WooCommerce product.', 'cp' ); ?></label></li>
+									value="change_status" /> <?php esc_html_e( 'Wechsle zu einem Entwurf für ein WooCommerce-Produkt.', 'cp' ); ?></label></li>
 								<li><label><input type="radio"
 									<?php checked( $delete, 'delete' ); ?>
 									name="coursepress_settings[woocommerce][delete]"
 									class="certificate_enabled"
-									value="delete" /> <?php esc_html_e( 'Delete related WooCommerce product.', 'cp' ); ?></label></li>
+									value="delete" /> <?php esc_html_e( 'Lösche das zugehörige WooCommerce-Produkt.', 'cp' ); ?></label></li>
 							</ul>
 						</td>
 					</tr>

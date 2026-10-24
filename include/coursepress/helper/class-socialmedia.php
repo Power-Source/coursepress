@@ -13,7 +13,7 @@ class CoursePress_Helper_SocialMedia {
 			'facebook' => __( 'Facebook', 'cp' ),
 			'twitter' => __( 'Twitter', 'cp' ),
 			'google' => __( 'Google', 'cp' ),
-			'email' => __( 'Email', 'cp' ),
+			'email' => __( 'E-Mail', 'cp' ),
 		);
 		/**
 		 * Filter allow to add some social media.

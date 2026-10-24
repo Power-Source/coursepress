@@ -1872,11 +1872,11 @@ class CoursePress_Data_Student {
 		$is_completed = ! empty( $completed );
 
 		$labels = array(
-			'certified' => __( 'Certified', 'cp' ),
-			'failed' => __( 'Failed', 'cp' ),
-			'awaiting-review' => __( 'Awaiting Review', 'cp' ),
-			'ongoing' => __( 'Ongoing', 'cp' ),
-			'incomplete' => __( 'Incomplete', 'cp' ),
+			'certified' => __( 'Zertifiziert', 'cp' ),
+			'failed' => __( 'Fehlgeschlagen', 'cp' ),
+			'awaiting-review' => __( 'Freigabe ausstehend', 'cp' ),
+			'ongoing' => __( 'Fortlaufend', 'cp' ),
+			'incomplete' => __( 'Unvollständig', 'cp' ),
 		);
 
 		if ( $is_completed ) {

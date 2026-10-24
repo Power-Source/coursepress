@@ -25,16 +25,16 @@ class CoursePress_Module {
 
 		if ( empty( $input['course_id'] ) ) {
 			$has_error = true;
-			self::$error_message = __( 'Invalid course ID!', 'cp' );
+			self::$error_message = __( 'Ungültige Kurs-ID!', 'cp' );
 		} elseif ( false === CoursePress_Data_Course::student_enrolled( $input['student_id'], $input['course_id'] ) ) {
 			$has_error = true;
-			self::$error_message = __( 'You are currently not enrolled to this course!', 'cp' );
+			self::$error_message = __( 'Du bist derzeit nicht für diesen Kurs eingeschrieben!', 'cp' );
 		} elseif ( 'closed' == ( $course_status = CoursePress_Data_Course::get_course_status( $input['course_id'] ) ) ) {
 			$has_error = true;
-			self::$error_message = __( 'This course is completed, you can not submit answers anymore.', 'cp' );
+			self::$error_message = __( 'Dieser Kurs ist abgeschlossen, du kannst keine Antworten mehr einreichen.', 'cp' );
 		} elseif ( empty( $input['unit_id'] ) ) {
 			$has_error = true;
-			self::$error_message = __( 'Invalid unit!', 'cp' );
+			self::$error_message = __( 'Ungültige Einheit!', 'cp' );
 		}
 
 		return $has_error;
@@ -63,7 +63,7 @@ class CoursePress_Module {
 		if ( true === $mandatory ) {
 			if ( '' == $response ) {
 				$has_error = true;
-				self::$error_message = $is_focus ? __( 'You need to complete this module!', 'cp' ) : __( 'You need to complete the required modules!', 'cp' );
+				self::$error_message = $is_focus ? __( 'Du musst dieses Modul ausfüllen!', 'cp' ) : __( 'Du musst die benötigten Module ausfüllen!', 'cp' );
 			} else {
 				// Attempt to record the submission
 				CoursePress_Data_Student::module_response( $student_id, $course_id, $unit_id, $module_id, $response );
@@ -81,7 +81,7 @@ class CoursePress_Module {
 
 					if ( false === $pass ) {
 						$has_error = true;
-						self::$error_message = __( 'You did not pass the required minimum grade!', 'cp' );
+						self::$error_message = __( 'Du hasst die erforderliche Mindestnote nicht erreicht!', 'cp' );
 					}
 				}
 			}
@@ -102,7 +102,7 @@ class CoursePress_Module {
 		$module_id = $comments['comment_post_ID'];
 		$is_module = CoursePress_Data_Module::is_module( $module_id );
 		if ( ! $is_module ) {
-			return new WP_Error( 'error', __( 'Module do not exists.', 'cp' ) );
+			return new WP_Error( 'error', __( 'Modul gibt es nicht.', 'cp' ) );
 		}
 
 		$unit_id = get_post_field( 'post_parent', $module_id );
@@ -278,7 +278,7 @@ class CoursePress_Module {
 					if ( 'input-upload' == $module_type ) {
 						if ( false == $can_update_course && empty( $_FILES ) ) {
 							if ( $validate ) {
-								self::$error_message = __( 'You need to complete the required module!', 'cp' );
+								self::$error_message = __( 'Du musst das erforderliche Modul ausfüllen!', 'cp' );
 								$has_error = true;
 							}
 						}
@@ -293,7 +293,7 @@ class CoursePress_Module {
 									continue;
 								} else {
 									$has_error = true;
-									self::$error_message = __( 'Your participation to the discussion is required!', 'cp' );
+									self::$error_message = __( 'Deine Teilnahme an der Diskussion ist erforderlich!', 'cp' );
 									continue;
 								}
 							}
@@ -324,7 +324,7 @@ class CoursePress_Module {
 							// Check if module is mandatory
 							if ( $is_mandatory && false == $can_update_course ) {
 								if ( $validate ) {
-									self::$error_message = __( 'You need to complete the required module!', 'cp' );
+									self::$error_message = __( 'Du musst das erforderliche Modul ausfüllen!', 'cp' );
 									$has_error = true;
 								}
 							}
@@ -379,8 +379,8 @@ class CoursePress_Module {
 								if ( false === $pass && false == $can_update_course ) {
 									$has_error = true;
 									self::$error_message = ( $module_type == 'input-form' ) ?
-										__( 'You did not complete the form!', 'cp' )
-										: __( 'You did not pass the required minimum grade!', 'cp' );
+										__( 'Du hast das Formular nicht ausgefüllt!', 'cp' )
+										: __( 'Du hasst die erforderliche Mindestnote nicht erreicht!', 'cp' );
 								}
 							}
 						}
@@ -408,7 +408,7 @@ class CoursePress_Module {
 						if ( empty( $filename ) ) {
 							if ( empty( $response ) ) {
 								if ( $validate ) {
-									self::$error_message = __( 'You need to complete the required module!', 'cp' );
+									self::$error_message = __( 'Du musst das erforderliche Modul ausfüllen!', 'cp' );
 									$has_error = true;
 								}
 								continue;

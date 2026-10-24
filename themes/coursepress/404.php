@@ -14,13 +14,13 @@ get_header();
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title">
-					<?php _e( 'Oops! That page can&rsquo;t be found.', 'cp' ); ?>
+					<?php _e( 'Oje! Die Seite wurde nicht gefunden.', 'cp' ); ?>
 				</h1>
 			</header><!-- .page-header -->
 
 			<div class="page-content">
 				<p>
-					<?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'cp' ); ?>
+					<?php _e( 'Es sieht so aus, als wäre hier nichts. Vielleicht einen der folgenden Links oder eine Suche probieren?', 'cp' ); ?>
 				</p>
 
 				<?php get_search_form(); ?>
@@ -31,7 +31,7 @@ get_header();
 				<?php if ( coursepress_categorized_blog() ) : ?>
 				<div class="widget widget_categories">
 					<h2 class="widgettitle">
-						<?php _e( 'Most Used Categories', 'cp' ); ?>
+						<?php _e( 'Meistgenutzte Kategorien', 'cp' ); ?>
 					</h2>
 					<ul>
 						<?php
@@ -53,7 +53,7 @@ get_header();
 				// Translators: %1$s: smiley.
 				$archive_content = '<p>' .
 				sprintf(
-					__( 'Try looking in the monthly archives. %1$s', 'cp' ),
+					__( 'Versuchen Sie es mal im monatlichen Archiv. %1$s', 'cp' ),
 					convert_smilies( ':)' )
 				) .
 				'</p>';

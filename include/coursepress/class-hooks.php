@@ -90,7 +90,7 @@ class CoursePress_Hooks {
 		$input = json_decode( file_get_contents( 'php://input' ) );
 
 		if ( ! is_object( $input ) ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid request.', 'cp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Ungültige Anfrage.', 'cp' ) ) );
 		}
 
 		if ( ! empty( $input->cpnonce ) && wp_verify_nonce( $input->cpnonce, 'coursepress_nonce' ) ) {
@@ -104,7 +104,7 @@ class CoursePress_Hooks {
 				|| empty( $allowed_ajax_requests[ $class ] )
 				|| ! in_array( $method, (array) $allowed_ajax_requests[ $class ], true )
 			) {
-				wp_send_json_error( array( 'message' => __( 'Unauthorized request.', 'cp' ) ) );
+				wp_send_json_error( array( 'message' => __( 'Nicht autorisierte Anfrage.', 'cp' ) ) );
 			}
 
 			if ( class_exists( $class ) && method_exists( $class, $method ) ) {
@@ -116,7 +116,7 @@ class CoursePress_Hooks {
 			}
 		}
 
-		wp_send_json_error( array( 'message' => __( 'Invalid nonce.', 'cp' ) ) );
+		wp_send_json_error( array( 'message' => __( 'Ungültiger Nonce.', 'cp' ) ) );
 	}
 
 	public static function admin_classes( $class ) {

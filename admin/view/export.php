@@ -1,7 +1,7 @@
 <div class="wrap coursepress_wrapper coursepress-export">
 	<h2><?php esc_html_e( 'Export', 'cp' ); ?></h2>
 	<p class="description page-tagline">
-		<?php esc_html_e( 'Select courses to export to another site.', 'cp' ); ?>
+		<?php esc_html_e( 'Wähle Kurse aus, um sie auf eine andere Website zu exportieren.', 'cp' ); ?>
 	</p>
 	<form method="post" class="has-disabled">
 		<?php wp_nonce_field( 'coursepress_export', 'coursepress_export' ); ?>
@@ -9,7 +9,7 @@
 			<p>
 				<label>
 					<input type="checkbox" class="input-key" name="coursepress[all]" value="1" />
-					<?php esc_html_e( 'All courses', 'cp' ); ?>
+					<?php esc_html_e( 'Alle Kurse', 'cp' ); ?>
 				</label>
 			</p>
 			<?php

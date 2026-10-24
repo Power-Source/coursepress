@@ -16,8 +16,8 @@ class CoursePress_View_Admin_Setting_Pages extends CoursePress_View_Admin_Settin
 
 		self::$slug = 'pages';
 		$tabs[ self::$slug ] = array(
-			'title' => __( 'Pages', 'cp' ),
-			'description' => __( 'Configure the pages for CoursePress.', 'cp' ),
+			'title' => __( 'Seiten', 'cp' ),
+			'description' => __( 'Konfiguriere die Seiten für CoursePress.', 'cp' ),
 			'order' => 1,
 		);
 
@@ -32,7 +32,7 @@ class CoursePress_View_Admin_Setting_Pages extends CoursePress_View_Admin_Settin
 		$pages_args = array(
 			'selected' => CoursePress_Core::get_setting( 'pages/enrollment', 0 ),
 			'echo' => 0,
-			'show_option_none' => __( '&mdash; Select &mdash;', 'cp' ),
+			'show_option_none' => __( '&mdash; Auswählen &mdash;', 'cp' ),
 			'option_none_value' => 0,
 			'name' => 'coursepress_settings[pages][enrollment]',
 		);
@@ -67,54 +67,54 @@ class CoursePress_View_Admin_Setting_Pages extends CoursePress_View_Admin_Settin
 		 * Student Dashboard
 		 */
 		$content .= self::row(
-			__( 'Student Dashboard', 'cp' ),
+			__( 'Studenten Dashboard', 'cp' ),
 			$page_dropdowns['student_dashboard'],
-			__( 'Select page where student can view courses.', 'cp' )
+			__( 'Wählen Sie die Seite aus, in der der Schüler Kurse ansehen können.', 'cp' )
 		);
 
 		/**
 		 * Student Settings
 		 */
 		$content .= self::row(
-			__( 'Student Settings', 'cp' ),
+			__( 'Studenten Einstellungen', 'cp' ),
 			$page_dropdowns['student_settings'],
-			__( 'Select page where student can change accont settings.', 'cp' )
+			__( 'Wählen Sie die Seite aus, auf der der Schüler die Einstellungen ändern können.', 'cp' )
 		);
 
 		/**
 		 * login
 		 */
 		$content .= self::row(
-			__( 'Login', 'cp' ),
+			__( 'Anmelden', 'cp' ),
 			$page_dropdowns['login'],
-			__( 'Select page where student can login.', 'cp' )
+			__( 'Wähle die Seite aus, auf der sich der Schüler anmelden kann.', 'cp' )
 		);
 
 		/**
 		 * Signup
 		 */
 		$content .= self::row(
-			__( 'Signup', 'cp' ),
+			__( 'Registrieren', 'cp' ),
 			$page_dropdowns['signup'],
-			__( 'Select page where student can create an accont.', 'cp' )
+			__( 'Wähle die Seite aus, auf der du ein Konto anlegen kannst.', 'cp' )
 		);
 
 		/**
 		 * Instructor.
 		 */
 		$content .= self::row(
-			__( 'Instructor', 'cp' ),
+			__( 'Kursleiter', 'cp' ),
 			$page_dropdowns['instructor'],
-			__( 'Select page where we display instructor profile.', 'cp' )
+			__( 'Wähle die Seite aus, auf der wir das Profil der Lehrkraft anzeigen.', 'cp' )
 		);
 
 		/**
 		 * Enrollment
 		 */
 		$content .= self::row(
-			__( 'Enrollment Process Page', 'cp' ),
+			__( 'Seite zum Einschreibungsprozess', 'cp' ),
 			$page_dropdowns['enrollment'],
-			sprintf( __( 'Select page where we display enrollment process.', 'cp' ) . '</a>' )
+			sprintf( __( 'Wähle die Seite aus, auf der wir den Anmeldeprozess anzeigen.', 'cp' ) . '</a>' )
 		);
 		$content .= self::table_end();
 		return $content;

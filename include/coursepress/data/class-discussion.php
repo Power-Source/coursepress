@@ -11,18 +11,18 @@ class CoursePress_Data_Discussion {
 			'post_type' => self::get_post_type_name(),
 			'post_args' => array(
 				'labels' => array(
-					'name' => __( 'Forums', 'cp' ),
+					'name' => __( 'Foren', 'cp' ),
 					'singular_name' => __( 'Forum', 'cp' ),
-					'add_new' => __( 'Create New', 'cp' ),
-					'add_new_item' => __( 'Create New Thread', 'cp' ),
-					'edit_item' => __( 'Edit Thread', 'cp' ),
-					'edit' => __( 'Edit', 'cp' ),
-					'new_item' => __( 'New Thread', 'cp' ),
-					'view_item' => __( 'View Thread', 'cp' ),
-					'search_items' => __( 'Search Threads', 'cp' ),
-					'not_found' => __( 'No Threads Found', 'cp' ),
-					'not_found_in_trash' => __( 'No Threads found in Trash', 'cp' ),
-					'view' => __( 'View Thread', 'cp' ),
+					'add_new' => __( 'Neu erstellen', 'cp' ),
+					'add_new_item' => __( 'Neues Thema erstellen', 'cp' ),
+					'edit_item' => __( 'Thema bearbeiten', 'cp' ),
+					'edit' => __( 'Bearbeiten', 'cp' ),
+					'new_item' => __( 'Neue Unterhaltung', 'cp' ),
+					'view_item' => __( 'Eintrag ansehen', 'cp' ),
+					'search_items' => __( 'Eintrag suchen', 'cp' ),
+					'not_found' => __( 'Keine Einträge gefunden', 'cp' ),
+					'not_found_in_trash' => __( 'Keine Einträge im Papierkorb gefunden', 'cp' ),
+					'view' => __( 'Eintrag ansehen', 'cp' ),
 				),
 				'public' => false,
 				'show_ui' => false,
@@ -56,11 +56,11 @@ class CoursePress_Data_Discussion {
 		}
 
 		$course_id = (int) get_post_meta( $n_id, 'course_id', true );
-		$course_title = ! empty( $course_id ) ? get_the_title( $course_id ) : __( 'All courses', 'cp' );
+		$course_title = ! empty( $course_id ) ? get_the_title( $course_id ) : __( 'Alle Kurse', 'cp' );
 		$course_id = ! empty( $course_id ) ? $course_id : 'all';
 
 		$unit_id = (int) get_post_meta( $n_id, 'unit_id', true );
-		$unit_title = ! empty( $unit_id ) ? get_the_title( $unit_id ) : __( 'All units', 'cp' );
+		$unit_title = ! empty( $unit_id ) ? get_the_title( $unit_id ) : __( 'Alle Kurseinheiten', 'cp' );
 		$unit_id = ! empty( $unit_id ) ? $unit_id : 'course';
 		$unit_id = 'all' === $course_id ? 'course' : $unit_id;
 
@@ -432,8 +432,8 @@ class CoursePress_Data_Discussion {
 					delete_user_meta( $user_id, 'cp_subscribe_to_' . $post_id );
 
 					// Hooked to the content to show unsubscribe message.
-					$message = sprintf( '<h3 class="cp-unsubscribe-title">%s</h3>', __( 'Unsubscribe Successful', 'cp' ) );
-					$message .= '<p>' . sprintf( __( 'You have been removed from "%s" discussion.', 'cp' ), get_the_title( $post_id ) ) . '</p>';
+					$message = sprintf( '<h3 class="cp-unsubscribe-title">%s</h3>', __( 'Abmeldung erfolgreich', 'cp' ) );
+					$message .= '<p>' . sprintf( __( 'Du wurdest aus der Diskussion "%s" entfernt.', 'cp' ), get_the_title( $post_id ) ) . '</p>';
 
 					/**
 					 * Filter the unsubscribe message before printing.
@@ -570,11 +570,11 @@ class CoursePress_Data_Discussion {
 		);
 		$next_module_class = array( 'focus-nav-next' );
 		$labels = array(
-			'pre_text' => __( '&laquo; Previous', 'cp' ),
-			'next_text' => __( 'Next &raquo;', 'cp' ),
-			'next_section_title' => __( 'Proceed to the next section', 'cp' ),
-			'next_module_title' => __( 'Proceed to the next module', 'cp' ),
-			'next_section_text' => __( 'Next Section', 'cp' ),
+			'pre_text' => __( '&laquo; Zurück', 'cp' ),
+			'next_text' => __( 'Nächste &raquo;', 'cp' ),
+			'next_section_title' => __( 'Fahre mit dem nächsten Abschnitt fort', 'cp' ),
+			'next_module_title' => __( 'Fahre mit dem nächsten Modul fort', 'cp' ),
+			'next_section_text' => __( 'Nächster Abschnitt', 'cp' ),
 		);
 		extract( $labels );
 
@@ -618,7 +618,7 @@ class CoursePress_Data_Discussion {
 		$json_data['action'] = $action;
 
 		if ( empty( $data->action ) ) {
-			$json_data['message'] = __( 'Discussion Update: No action.', 'cp' );
+			$json_data['message'] = __( 'Diskussion Update: Keine Aktion.', 'cp' );
 			wp_send_json_error( $json_data );
 		}
 
@@ -651,10 +651,10 @@ class CoursePress_Data_Discussion {
 						$json_data['state'] = $data->data->state;
 						$success = true;
 					} else {
-						$json_data['message'] = __( 'Discussion update failed: post type missmatch.', 'cp' );
+						$json_data['message'] = __( 'Aktualisierung der Diskussion fehlgeschlagen: keine Übereinstimmung des Post Type.', 'cp' );
 					}
 				} else {
-					$json_data['message'] = __( 'Discussion update failed: wrong nounce.', 'cp' );
+					$json_data['message'] = __( 'Aktualisierung der Diskussion fehlgeschlagen: falscher Nounce.', 'cp' );
 				}
 				break;
 

@@ -491,7 +491,7 @@ class CoursePress_Data_Shortcode_Course {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
 			'date_format' => get_option( 'date_format' ),
-			'label' => __( 'Course Start Date', 'cp' ),
+			'label' => __( 'Kurs Startdatum', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ': ',
 			'class' => '',
@@ -516,7 +516,7 @@ class CoursePress_Data_Shortcode_Course {
 		}
 
 		if ( $open_ended || empty( $start_date ) ) {
-			$content .= __( 'already started', 'cp' );
+			$content .= __( 'bereits begonnen', 'cp' );
 		} else {
 			$content .= str_replace( ' ', '&nbsp;', date_i18n( $date_format, CoursePress_Data_Course::strtotime( $start_date ) ) );
 			// Add time if different to '00:00:00'
@@ -538,7 +538,7 @@ class CoursePress_Data_Shortcode_Course {
 	public static function course_length( $atts ) {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			'label' => __( 'Course Length', 'cp' ),
+			'label' => __( 'Fortbildungslänge', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ': ',
 			'class' => '',
@@ -592,10 +592,10 @@ class CoursePress_Data_Shortcode_Course {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
 			'date_format' => get_option( 'date_format' ),
-			'label' => __( 'Course End Date: ', 'cp' ),
+			'label' => __( 'Kurs Enddatum: ', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
-			'no_date_text' => __( 'No End Date', 'cp' ),
+			'no_date_text' => __( 'Kein Enddatum', 'cp' ),
 			'class' => '',
 		), $atts, 'course_end' ) );
 
@@ -636,11 +636,11 @@ class CoursePress_Data_Shortcode_Course {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
 			'date_format' => get_option( 'date_format' ),
-			'label' => __( 'Course Dates: ', 'cp' ),
+			'label' => __( 'Kurstermine: ', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
-			'no_date_text' => __( 'No End Date', 'cp' ),
-			'alt_display_text' => __( 'Open-ended', 'cp' ),
+			'no_date_text' => __( 'Kein Enddatum', 'cp' ),
+			'alt_display_text' => __( 'Offenes Ende', 'cp' ),
 			'show_alt_display' => 'no',
 			'class' => '',
 		), $atts, 'course_dates' ) );
@@ -696,10 +696,10 @@ class CoursePress_Data_Shortcode_Course {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
 			'date_format' => get_option( 'date_format' ),
-			'label' => __( 'Enrollment Start Date: ', 'cp' ),
+			'label' => __( 'Einschreibung möglich ab: ', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
-			'no_date_text' => __( 'Enroll Anytime', 'cp' ),
+			'no_date_text' => __( 'Jederzeit einschreiben', 'cp' ),
 			'class' => '',
 		), $atts, 'course_enrollment_start' ) );
 
@@ -753,10 +753,10 @@ class CoursePress_Data_Shortcode_Course {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
 			'date_format' => get_option( 'date_format' ),
-			'label' => __( 'Enrollment End Date: ', 'cp' ),
+			'label' => __( 'Einschreibung möglich bis: ', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
-			'no_date_text' => __( 'Enroll Anytime ', 'cp' ),
+			'no_date_text' => __( 'Einschreibung jederzeit ', 'cp' ),
 			'show_all_dates' => 'no',
 			'class' => '',
 		), $atts, 'course_enrollment_end' ) );
@@ -806,13 +806,13 @@ class CoursePress_Data_Shortcode_Course {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
 			'date_format' => get_option( 'date_format' ),
-			'label' => __( 'Enrollment Dates: ', 'cp' ),
-			'label_enrolled' => __( 'You Enrolled on: ', 'cp' ),
+			'label' => __( 'Einschreibungstermine: ', 'cp' ),
+			'label_enrolled' => __( 'Du bist eingeschrieben in:', 'cp' ),
 			'show_enrolled_display' => 'yes',
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
-			'no_date_text' => __( 'Enroll Anytime', 'cp' ),
-			'alt_display_text' => __( 'Open-ended', 'cp' ),
+			'no_date_text' => __( 'Jederzeit einschreiben', 'cp' ),
+			'alt_display_text' => __( 'Offenes Ende', 'cp' ),
 			'show_alt_display' => 'no',
 			'class' => '',
 		), $atts, 'course_enrollment_dates' ) );
@@ -881,15 +881,15 @@ class CoursePress_Data_Shortcode_Course {
 	public static function course_enrollment_type( $atts ) {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			'anyone_text' => __( 'Anyone', 'cp' ),
+			'anyone_text' => __( 'Jeder', 'cp' ),
 			'class' => '',
 			'label_delimeter' => ':',
 			'label_tag' => 'strong',
-			'label' => __( 'Who can Enroll: ', 'cp' ),
-			'manual_text' => __( 'Students are added by instructors.', 'cp' ),
-			'passcode_text' => __( 'A passcode is required to enroll.', 'cp' ),
-			'prerequisite_text' => __( 'Students need to complete %s first.', 'cp' ),
-			'registered_text' => __( 'Registered users.', 'cp' ),
+			'label' => __( 'Wer kann sich einschreiben: ', 'cp' ),
+			'manual_text' => __( 'Teilnehmer werden vom Dozenten freigegeben.', 'cp' ),
+			'passcode_text' => __( 'Ein Passwort ist erforderlich, zum Einschreiben.', 'cp' ),
+			'prerequisite_text' => __( 'Die Schüler müssen zuerst %s ausfüllen.', 'cp' ),
+			'registered_text' => __( 'Registrierte Benutzer.', 'cp' ),
 		), $atts, 'course_enrollment_type' ) );
 
 		$course_id = (int) $course_id;
@@ -974,9 +974,9 @@ class CoursePress_Data_Shortcode_Course {
 			'class' => '',
 			'label_delimeter' => ':',
 			'label_tag' => 'strong',
-			'label' => __( 'Class Size: ', 'cp' ),
-			'no_limit_text' => __( 'Unlimited', 'cp' ),
-			'remaining_text' => __( '(%d places left)', 'cp' ),
+			'label' => __( 'Klassengröße: ', 'cp' ),
+			'no_limit_text' => __( 'Unbegrenzt', 'cp' ),
+			'remaining_text' => __( '(%d Plätze links)', 'cp' ),
 			'show_no_limit' => 'no',
 			'show_remaining' => 'yes',
 		), $atts, 'course_class_size' ) );
@@ -1042,8 +1042,8 @@ class CoursePress_Data_Shortcode_Course {
 			'class' => '',
 			'label_delimeter' => ': ',
 			'label_tag' => 'strong',
-			'label' => __( 'Price:&nbsp;', 'cp' ),
-			'no_cost_text' => __( 'FREE', 'cp' ),
+			'label' => __( 'Preis:&nbsp;', 'cp' ),
+			'no_cost_text' => __( 'KOSTENLOS', 'cp' ),
 			'show_icon' => 'no',
 		), $atts, 'course_cost' ) );
 
@@ -1097,7 +1097,7 @@ class CoursePress_Data_Shortcode_Course {
 	public static function course_language( $atts ) {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			'label' => __( 'Course Language: ', 'cp' ),
+			'label' => __( 'Kurssprache: ', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
 			'class' => '',
@@ -1138,10 +1138,10 @@ class CoursePress_Data_Shortcode_Course {
 	public static function course_category( $atts ) {
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			'label' => __( 'Course Category: ', 'cp' ),
+			'label' => __( 'Kurskategorie: ', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ':',
-			'no_category_text' => __( 'None', 'cp' ),
+			'no_category_text' => __( 'Nichts', 'cp' ),
 			'class' => '',
 		), $atts, 'course_category' ) );
 
@@ -1494,9 +1494,9 @@ class CoursePress_Data_Shortcode_Course {
 		$content = '<div class="apply-links course-action-links course-action-links-' . $course_id . ' ' . $class . '">';
 
 		if ( $withdraw_link_visible ) {
-			$content .= '<a href="' . wp_nonce_url( '?withdraw=' . $course_id, 'withdraw_from_course_' . $course_id, 'course_nonce' ) . '" onClick="return withdraw();">' . esc_html__( 'Withdraw', 'cp' ) . '</a> | ';
+			$content .= '<a href="' . wp_nonce_url( '?withdraw=' . $course_id, 'withdraw_from_course_' . $course_id, 'course_nonce' ) . '" onClick="return withdraw();">' . esc_html__( 'Auszahlung', 'cp' ) . '</a> | ';
 		}
-		$content .= '<a href="' . get_permalink( $course_id ) . '">' . esc_html__( 'Course Details', 'cp' ) . '</a>';
+		$content .= '<a href="' . get_permalink( $course_id ) . '">' . esc_html__( 'Kursdetails', 'cp' ) . '</a>';
 
 		// Add certificate link.
 		if ( CP_IS_PREMIUM ) {
@@ -1593,7 +1593,7 @@ class CoursePress_Data_Shortcode_Course {
 
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			'label' => __( 'Estimated Duration:&nbsp;', 'cp' ),
+			'label' => __( 'Geschätzte Dauer:', 'cp' ),
 			'label_tag' => 'strong',
 			'label_delimeter' => ': ',
 			'wrapper' => 'no',

@@ -10,23 +10,23 @@ class CoursePress_Data_Notification {
 			'post_type' => self::get_post_type_name(),
 			'post_args' => array(
 				'labels' => array(
-					'name' => __( 'Notifications', 'cp' ),
-					'singular_name' => __( 'Notification', 'cp' ),
-					'add_new' => __( 'Create New', 'cp' ),
-					'add_new_item' => __( 'Create New Notification', 'cp' ),
-					'edit_item' => __( 'Edit Notification', 'cp' ),
-					'edit' => __( 'Edit', 'cp' ),
-					'new_item' => __( 'New Notification', 'cp' ),
-					'view_item' => __( 'View Notification', 'cp' ),
-					'search_items' => __( 'Search Notifications', 'cp' ),
-					'not_found' => __( 'No Notifications Found', 'cp' ),
-					'not_found_in_trash' => __( 'No Notifications found in Trash', 'cp' ),
-					'view' => __( 'View Notification', 'cp' ),
-					'insert_into_item' => __( 'Insert into notification', 'cp' ),
-					'uploaded_to_this_item' => __( 'Uploaded to this notification', 'cp' ),
-					'items_list' => __( 'Notifications list', 'cp' ),
-					'filter_items_list' => __( 'Filter notification list', 'cp' ),
-					'items_list_navigation' => __( 'Notifications list navigation', 'cp' ),
+					'name' => __( 'Benachrichtigungen', 'cp' ),
+					'singular_name' => __( 'Benachrichtigung', 'cp' ),
+					'add_new' => __( 'Neu erstellen', 'cp' ),
+					'add_new_item' => __( 'Neue Mitteilung erstellen', 'cp' ),
+					'edit_item' => __( 'Mitteilung bearbeiten', 'cp' ),
+					'edit' => __( 'Bearbeiten', 'cp' ),
+					'new_item' => __( 'Neue Benachrichtigung', 'cp' ),
+					'view_item' => __( 'Mitteilung ansehen', 'cp' ),
+					'search_items' => __( 'Benachrichtigungen suchen', 'cp' ),
+					'not_found' => __( 'Keine Benachrichtigungen gefunden', 'cp' ),
+					'not_found_in_trash' => __( 'Keine Mitteilungen im Papierkorb gefunden', 'cp' ),
+					'view' => __( 'Mitteilung ansehen', 'cp' ),
+					'insert_into_item' => __( 'In Mitteilung einfügen', 'cp' ),
+					'uploaded_to_this_item' => __( 'In diese Mitteilung hochgeladen', 'cp' ),
+					'items_list' => __( 'Mitteilungsliste', 'cp' ),
+					'filter_items_list' => __( 'Mitteilungsliste filtern', 'cp' ),
+					'items_list_navigation' => __( 'Mitteilungsliste Navigation', 'cp' ),
 				),
 				'public' => false,
 				'show_ui' => false,
@@ -60,7 +60,7 @@ class CoursePress_Data_Notification {
 		}
 
 		$course_id = (int) get_post_meta( $n_id, 'course_id', true );
-		$course_title = ! empty( $course_id ) ? get_the_title( $course_id ) : __( 'All courses', 'cp' );
+		$course_title = ! empty( $course_id ) ? get_the_title( $course_id ) : __( 'Alle Kurse', 'cp' );
 		$course_id = ! empty( $course_id ) ? $course_id : 'all';
 
 		return array(
@@ -193,7 +193,7 @@ class CoursePress_Data_Notification {
 		$json_data['action'] = $action;
 
 		if ( empty( $data->action ) ) {
-			$json_data['message'] = __( 'Notification Update: No action.', 'cp' );
+			$json_data['message'] = __( 'Mitteilungsaktualisierung: Keine Aktion.', 'cp' );
 			wp_send_json_error( $json_data );
 		}
 
@@ -224,7 +224,7 @@ class CoursePress_Data_Notification {
 						$json_data['state'] = $data->data->state;
 						$success = true;
 					} else {
-						$json_data['message'] = __( 'Notification update failed.', 'cp' );
+						$json_data['message'] = __( 'Mitteilungsaktualisierung fehlgeschlagen.', 'cp' );
 						$json_data['ID'] = $notification_id;
 					}
 				}

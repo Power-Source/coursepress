@@ -51,8 +51,8 @@ if ( ! function_exists( 'coursepress_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => __( 'Primary Menu', 'cp' ),
-				'secondary' => __( 'Footer Menu', 'cp' ),
+				'primary' => __( 'Hauptmenü', 'cp' ),
+				'secondary' => __( 'Footer Menü', 'cp' ),
 			)
 		);
 
@@ -141,7 +141,7 @@ if ( ! function_exists( 'coursepress_widgets_init' ) ) :
 	function coursepress_widgets_init() {
 		register_sidebar(
 			array(
-				'name' => __( 'Sidebar', 'cp' ),
+				'name' => __( 'Seitenleiste', 'cp' ),
 				'id' => 'sidebar-1',
 				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 				'after_widget' => '</aside>',

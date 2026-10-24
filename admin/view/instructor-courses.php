@@ -20,8 +20,8 @@ $assigned_courses = array_map( 'get_post', $assigned_courses );
 	<table class="wp-list-table widefat stripe">
 		<thead>
 			<tr>
-				<th><?php esc_html_e( 'Course', 'cp' ); ?></th>
-				<th><?php esc_html_e( 'Course status', 'cp' ); ?></th>
+				<th><?php esc_html_e( 'Kurs', 'cp' ); ?></th>
+				<th><?php esc_html_e( 'Kurs Status', 'cp' ); ?></th>
 			</tr>
 		</thead>
 		<tbody>

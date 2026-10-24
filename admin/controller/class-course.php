@@ -79,7 +79,7 @@ class CoursePress_Admin_Controller_Course {
 		$success = false;
 
 		if ( empty( $data->action ) ) {
-			$json_data['message'] = __( 'Course Update: No action.', 'cp' );
+			$json_data['message'] = __( 'Kurs-Update: Keine Aktion.', 'cp' );
 			wp_send_json_error( $json_data );
 		}
 
@@ -401,7 +401,7 @@ class CoursePress_Admin_Controller_Course {
 					$success = true;
 				} else {
 					$json_data['facilitator_id'] = $data->data->facilitator_id;
-					$json_data['message'] = __( 'Unable to add facilitator!', 'cp' );
+					$json_data['message'] = __( 'Du kannst keinen Vermittler hinzufügen!', 'cp' );
 				}
 
 				break;
@@ -511,7 +511,7 @@ class CoursePress_Admin_Controller_Course {
 				) {
 					$course_id = $data->data->course_id;
 					$students = CoursePress_Data_Course::get_students( $course_id );
-					$error_message = __( 'No email sent!', 'cp' );
+					$error_message = __( 'E-Mail nicht gesendet!', 'cp' );
 
 					// Filter list of students to send email to
 					if ( ! empty( $data->data->send_to ) && 'all' != $data->data->send_to ) {
@@ -542,7 +542,7 @@ class CoursePress_Admin_Controller_Course {
 						if ( count( $filtered_students ) > 0 ) {
 							$students = $filtered_students;
 						} else {
-							$error_message = __( 'No students found!', 'cp' );
+							$error_message = __( 'Keine Teilnehmer gefunden!', 'cp' );
 							$students = array();
 						}
 					}
@@ -609,8 +609,8 @@ class CoursePress_Admin_Controller_Course {
 						$success = true;
 						$json_data['message']['info'] = sprintf(
 							_n(
-								'%d email have been sent successfully.',
-								'%d emails have been sent successfully.',
+								'%d E-Mail wurde erfolgreich gesendet.',
+								'%d E-Mails wurden erfolgreich gesendet.',
 								$count,
 								'cp'
 							),
@@ -622,7 +622,7 @@ class CoursePress_Admin_Controller_Course {
 					}
 				} else {
 					$json_data['message']['to'] = 0;
-					$json_data['message']['info'] = __( 'Something went wrong.', 'cp' );
+					$json_data['message']['info'] = __( 'Etwas ist schief gelaufen.', 'cp' );
 				}
 				break;
 

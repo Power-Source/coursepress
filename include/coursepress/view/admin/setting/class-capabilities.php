@@ -35,11 +35,11 @@ class CoursePress_View_Admin_Setting_Capabilities {
 			 * WordPress admins, so instructors cannot edit their own caps...
 			 */
 			$tabs['capabilities'] = array(
-				'title' => __( 'Instructor Capabilities', 'cp' ),
+				'title' => __( 'Instruktor Berechtigungen', 'cp' ),
 				'description' => sprintf(
 					'%s %s',
-					__( 'Here you can decide, what your instructors can do on your page. Those are special capabilities only relevant for CoursePress.', 'cp' ),
-					__( 'NOTE: For security reasons this page is only available for WordPress administrators!', 'cp' )
+					__( 'Hier kannst du entscheiden, was deine Lehrkräfte auf deiner Seite tun können. Das sind spezielle Funktionen, die nur für CoursePress relevant sind.', 'cp' ),
+					__( 'HINWEIS: Aus Sicherheitsgründen ist diese Seite nur für WordPress-Administratoren zugänglich!', 'cp' )
 				),
 				'order' => 30,
 			);
@@ -104,39 +104,39 @@ class CoursePress_View_Admin_Setting_Capabilities {
 	private static function _capability_boxes() {
 		$options = array(
 			'general' => array(
-				'title' => __( 'General', 'cp' ),
+				'title' => __( 'Allgemein', 'cp' ),
 				'items' => self::_instructor_capabilities_general(),
 			),
 			'course' => array(
-				'title' => __( 'Courses', 'cp' ),
+				'title' => __( 'Kurse', 'cp' ),
 				'items' => self::_instructor_capabilities_courses(),
 			),
 			'course-category' => array(
-				'title' => __( 'Course Categories', 'cp' ),
+				'title' => __( 'Kurskategorien', 'cp' ),
 				'items' => self::_instructor_capabilities_course_categories(),
 			),
 			'course-unit' => array(
-				'title' => __( 'Units', 'cp' ),
+				'title' => __( 'Einheiten', 'cp' ),
 				'items' => self::_instructor_capabilities_units(),
 			),
 			'instructor' => array(
-				'title' => __( 'Instructors', 'cp' ),
+				'title' => __( 'Trainer', 'cp' ),
 				'items' => self::_instructor_capabilities_instructors(),
 			),
 			'facilitator' => array(
-				'title' => __( 'Facilitators', 'cp' ),
+				'title' => __( 'Erleichterer', 'cp' ),
 				'items' => self::_facilitator_capabilities(),
 			),
 			'student' => array(
-				'title' => __( 'Students', 'cp' ),
+				'title' => __( 'Teilnehmer', 'cp' ),
 				'items' => self::_instructor_capabilities_students(),
 			),
 			'notification' => array(
-				'title' => __( 'Notifications', 'cp' ),
+				'title' => __( 'Benachrichtigungen', 'cp' ),
 				'items' => self::_instructor_capabilities_notifications(),
 			),
 			'discussion' => array(
-				'title' => __( 'Discussions', 'cp' ),
+				'title' => __( 'Diskussionen', 'cp' ),
 				'items' => self::_instructor_capabilities_discussions(),
 			),
 		);
@@ -146,7 +146,7 @@ class CoursePress_View_Admin_Setting_Capabilities {
 		$is_marketpress_active = apply_filters( 'coursepress_is_marketpress_active', false );
 		if ( $is_marketpress_active ) {
 			$options['wordpress'] = array(
-				'title' => __( 'Grant default WordPress capabilities', 'cp' ),
+				'title' => __( 'Gewährung von Standard-WordPress-Funktionen', 'cp' ),
 				'items' => self::_instructor_capabilities_posts_and_pages(),
 			);
 		}
@@ -155,81 +155,81 @@ class CoursePress_View_Admin_Setting_Capabilities {
 
 	private static function _instructor_capabilities_general() {
 		return array(
-			'coursepress_dashboard_cap' => __( 'See the main CoursePress menu', 'cp' ),
-			'coursepress_courses_cap' => __( 'Access the Courses submenus', 'cp' ),
+			'coursepress_dashboard_cap' => __( 'Siehe das Hauptmenü von CoursePress', 'cp' ),
+			'coursepress_courses_cap' => __( 'Zugriff auf die Untermenüs der Kurse', 'cp' ),
 			// 'coursepress_instructors_cap' => __( 'Access the Intructors submenu', 'cp' ),
-			'coursepress_students_cap' => __( 'Access the Students submenu', 'cp' ),
-			'coursepress_assessment_cap' => __( 'Access the Assessment submenu', 'cp' ),
-			'coursepress_reports_cap' => __( 'Access the Reports submenu', 'cp' ),
-			'coursepress_notifications_cap' => __( 'Access the Notifications submenu', 'cp' ),
-			'coursepress_discussions_cap' => __( 'Access the Forum submenu', 'cp' ),
-			'coursepress_settings_cap' => __( 'Access the Settings submenu', 'cp' ),
+			'coursepress_students_cap' => __( 'Zugriff auf das Untermenü Schüler', 'cp' ),
+			'coursepress_assessment_cap' => __( 'Zugriff auf das Untermenü Bewertung', 'cp' ),
+			'coursepress_reports_cap' => __( 'Zugriff auf das Untermenü Berichte', 'cp' ),
+			'coursepress_notifications_cap' => __( 'Zugriff auf das Untermenü "Benachrichtigungen', 'cp' ),
+			'coursepress_discussions_cap' => __( 'Zugriff auf das Untermenü Forum', 'cp' ),
+			'coursepress_settings_cap' => __( 'Zugriff auf das Untermenü "Einstellungen', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_courses() {
 		return array(
-			'coursepress_create_course_cap' => __( 'Create new courses', 'cp' ),
-			'coursepress_view_others_course_cap' => __( 'View other instructors course', 'cp' ),
-			'coursepress_update_my_course_cap' => __( 'Update own courses', 'cp' ),
-			'coursepress_update_course_cap' => __( 'Update any course', 'cp' ),
+			'coursepress_create_course_cap' => __( 'Neuen Kurs anlegen', 'cp' ),
+			'coursepress_view_others_course_cap' => __( 'Andere Ausbilderkurse ansehen', 'cp' ),
+			'coursepress_update_my_course_cap' => __( 'Eigene Kurse aktualisieren', 'cp' ),
+			'coursepress_update_course_cap' => __( 'Jeden Kurs aktualisieren', 'cp' ),
 			// 'coursepress_update_all_courses_cap' => __( 'Update ANY course', 'cp' ),
-			'coursepress_delete_my_course_cap' => __( 'Delete own courses', 'cp' ),
-			'coursepress_delete_course_cap' => __( 'Delete any assigned course', 'cp' ),
+			'coursepress_delete_my_course_cap' => __( 'Eigene Kurse löschen', 'cp' ),
+			'coursepress_delete_course_cap' => __( 'Einen zugewiesenen Kurs löschen', 'cp' ),
 			// 'coursepress_delete_all_courses_cap' => __( 'Delete ANY course', 'cp' ),
-			'coursepress_change_my_course_status_cap' => __( 'Change status of own courses', 'cp' ),
-			'coursepress_change_course_status_cap' => __( 'Change status of any assigned course', 'cp' ),
+			'coursepress_change_my_course_status_cap' => __( 'Status der eigenen Kurse ändern', 'cp' ),
+			'coursepress_change_course_status_cap' => __( 'Status eines zugewiesenen Kurses ändern', 'cp' ),
 			// 'coursepress_change_all_courses_status_cap' => __( 'Change status of ALL course', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_course_categories() {
 		return array(
-			'coursepress_course_categories_manage_terms_cap' => __( 'View and create categories', 'cp' ),
-			'coursepress_course_categories_edit_terms_cap' => __( 'Edit any category', 'cp' ),
-			'coursepress_course_categories_delete_terms_cap' => __( 'Delete any category', 'cp' ),
+			'coursepress_course_categories_manage_terms_cap' => __( 'Kategorien anzeigen und erstellen', 'cp' ),
+			'coursepress_course_categories_edit_terms_cap' => __( 'Jede Kategorie bearbeiten', 'cp' ),
+			'coursepress_course_categories_delete_terms_cap' => __( 'Jede Kategorie löschen', 'cp' ),
 		);
 	}
 
 	private static function _facilitator_capabilities() {
 		return array(
-			'coursepress_assign_my_course_facilitator_cap' => __( 'Assign facilitator to own course', 'cp' ),
-			'coursepress_assign_facilitator_cap' => __( 'Assign facilitator to any course', 'cp' ),
+			'coursepress_assign_my_course_facilitator_cap' => __( 'Vermittler für eigenen Kurs zuweisen', 'cp' ),
+			'coursepress_assign_facilitator_cap' => __( 'Vermittler einem beliebigen Kurs zuweisen', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_units() {
 		return array(
-			'coursepress_create_course_unit_cap' => __( 'Create new course units', 'cp' ),
-			'coursepress_view_all_units_cap' => __( 'View units in every course (also from other instructors)', 'cp' ),
-			'coursepress_update_my_course_unit_cap' => __( 'Update own units', 'cp' ),
-			'coursepress_update_course_unit_cap' => __( 'Update any unit within assigned courses', 'cp' ),
+			'coursepress_create_course_unit_cap' => __( 'Neue Kurslektionen anlegen', 'cp' ),
+			'coursepress_view_all_units_cap' => __( 'Einheiten in jedem Kurs ansehen (auch von anderen Ausbildern)', 'cp' ),
+			'coursepress_update_my_course_unit_cap' => __( 'Eigene Einheiten aktualisieren', 'cp' ),
+			'coursepress_update_course_unit_cap' => __( 'Aktualisiere jede Einheit innerhalb der zugewiesenen Kurse', 'cp' ),
 			// 'coursepress_update_all_courses_unit_cap' => __( 'Update units of ALL courses', 'cp' ),
-			'coursepress_delete_my_course_units_cap' => __( 'Delete own units', 'cp' ),
-			'coursepress_delete_course_units_cap' => __( 'Delete any unit within assigned courses', 'cp' ),
+			'coursepress_delete_my_course_units_cap' => __( 'Eigene Einheiten löschen', 'cp' ),
+			'coursepress_delete_course_units_cap' => __( 'Jede Einheit innerhalb der zugewiesenen Kurse löschen', 'cp' ),
 			// 'coursepress_delete_all_courses_units_cap' => __( 'Delete units of ALL courses', 'cp' ),
-			'coursepress_change_my_course_unit_status_cap' => __( 'Change status of own units', 'cp' ),
-			'coursepress_change_course_unit_status_cap' => __( 'Change status of any unit within assigned courses', 'cp' ),
+			'coursepress_change_my_course_unit_status_cap' => __( 'Status der eigenen Einheiten ändern', 'cp' ),
+			'coursepress_change_course_unit_status_cap' => __( 'Änderung des Status einer Einheit innerhalb der zugewiesenen Kurse', 'cp' ),
 			// 'coursepress_change_all_courses_unit_status_cap' => __( 'Change status of any unit of ALL courses', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_instructors() {
 		return array(
-			'coursepress_assign_and_assign_instructor_my_course_cap' => __( 'Assign other instructors to own courses', 'cp' ),
-			'coursepress_assign_and_assign_instructor_course_cap' => __( 'Assign other instructors to any course', 'cp' ),
+			'coursepress_assign_and_assign_instructor_my_course_cap' => __( 'Weisen Sie anderen Ausbildern eigene Kurse zu', 'cp' ),
+			'coursepress_assign_and_assign_instructor_course_cap' => __( 'Andere Lehrkräfte einem Kurs zuweisen', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_students() {
 		return array(
-			'coursepress_invite_my_students_cap' => __( 'Invite students to own courses', 'cp' ),
-			'coursepress_invite_students_cap' => __( 'Invite students to any course', 'cp' ),
-			'coursepress_withdraw_my_students_cap' => __( 'Withdraw students from own courses', 'cp' ),
-			'coursepress_withdraw_students_cap' => __( 'Withdraw students from any course', 'cp' ),
-			'coursepress_add_move_my_students_cap' => __( 'Add students to own courses', 'cp' ),
-			'coursepress_add_move_students_cap' => __( 'Add students to any course', 'cp' ),
-			'coursepress_add_move_my_assigned_students_cap' => __( 'Add students to assigned courses', 'cp' ),
+			'coursepress_invite_my_students_cap' => __( 'Schüler zu eigenen Kursen einladen', 'cp' ),
+			'coursepress_invite_students_cap' => __( 'Schüler zu jedem Kurs einladen', 'cp' ),
+			'coursepress_withdraw_my_students_cap' => __( 'Schüler aus eigenen Kursen zurückziehen', 'cp' ),
+			'coursepress_withdraw_students_cap' => __( 'Schüler aus einem Kurs zurückziehen', 'cp' ),
+			'coursepress_add_move_my_students_cap' => __( 'Schüler zu eigenen Kursen hinzufügen', 'cp' ),
+			'coursepress_add_move_students_cap' => __( 'Studenten zu allen Kursen hinzufügen', 'cp' ),
+			'coursepress_add_move_my_assigned_students_cap' => __( 'Schüler zu zugewiesenen Kursen hinzufügen', 'cp' ),
 			// 'coursepress_change_my_students_group_class_cap' => __( 'Change students group within own courses', 'cp' ),
 			// 'coursepress_change_students_group_class_cap' => __( 'Change students group in any course', 'cp' ),
 			//'coursepress_send_bulk_my_students_email_cap' => __( 'Send bulk email to students of own courses', 'cp' ),
@@ -241,37 +241,37 @@ class CoursePress_View_Admin_Setting_Capabilities {
 
 	private static function _instructor_capabilities_notifications() {
 		return array(
-			'coursepress_create_my_notification_cap' => __( 'Create new notifications for own courses', 'cp' ),
-			'coursepress_create_my_assigned_notification_cap' => __( 'Create new notifications for assigned courses', 'cp' ),
-			'coursepress_update_my_notification_cap' => __( 'Update own published notification', 'cp' ),
-			'coursepress_update_notification_cap' => __( 'Update every notification', 'cp' ),
-			'coursepress_delete_my_notification_cap' => __( 'Delete own notifications', 'cp' ),
-			'coursepress_delete_notification_cap' => __( 'Delete every notification', 'cp' ),
-			'coursepress_change_my_notification_status_cap' => __( 'Change statuses of own notifications', 'cp' ),
-			'coursepress_change_notification_status_cap' => __( 'Change status of every notification', 'cp' ),
+			'coursepress_create_my_notification_cap' => __( 'Neue Benachrichtigungen für eigene Kurse erstellen', 'cp' ),
+			'coursepress_create_my_assigned_notification_cap' => __( 'Neue Benachrichtigungen für zugewiesene Kurse erstellen', 'cp' ),
+			'coursepress_update_my_notification_cap' => __( 'Eigene veröffentlichte Meldung aktualisieren', 'cp' ),
+			'coursepress_update_notification_cap' => __( 'Jede Benachrichtigung aktualisieren', 'cp' ),
+			'coursepress_delete_my_notification_cap' => __( 'Eigene Benachrichtigungen löschen', 'cp' ),
+			'coursepress_delete_notification_cap' => __( 'Jede Benachrichtigung löschen', 'cp' ),
+			'coursepress_change_my_notification_status_cap' => __( 'Status der eigenen Benachrichtigungen ändern', 'cp' ),
+			'coursepress_change_notification_status_cap' => __( 'Status jeder Benachrichtigung ändern', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_discussions() {
 		return array(
-			'coursepress_create_my_discussion_cap' => __( 'Create new discussions for own courses', 'cp' ),
-			'coursepress_create_my_assigned_discussion_cap' => __( 'Create new discussions for assigned courses', 'cp' ),
-			'coursepress_update_my_discussion_cap' => __( 'Update own published discussions', 'cp' ),
-			'coursepress_update_discussion_cap' => __( 'Update every discussion', 'cp' ),
-			'coursepress_delete_my_discussion_cap' => __( 'Delete own discussions', 'cp' ),
-			'coursepress_delete_discussion_cap' => __( 'Delete every discussion', 'cp' ),
-			'coursepress_change_my_discussion_status_cap' => __( 'Change statuses of own discussions', 'cp' ),
-			'coursepress_change_discussion_status_cap' => __( 'Change status of every discussion', 'cp' ),
+			'coursepress_create_my_discussion_cap' => __( 'Neue Diskussionen für eigene Kurse erstellen', 'cp' ),
+			'coursepress_create_my_assigned_discussion_cap' => __( 'Neue Diskussionen für zugewiesene Kurse erstellen', 'cp' ),
+			'coursepress_update_my_discussion_cap' => __( 'Eigene veröffentlichte Diskussionen aktualisieren', 'cp' ),
+			'coursepress_update_discussion_cap' => __( 'Jede Diskussion aktualisieren', 'cp' ),
+			'coursepress_delete_my_discussion_cap' => __( 'Eigene Diskussionen löschen', 'cp' ),
+			'coursepress_delete_discussion_cap' => __( 'Jede Diskussion löschen', 'cp' ),
+			'coursepress_change_my_discussion_status_cap' => __( 'Status der eigenen Diskussionen ändern', 'cp' ),
+			'coursepress_change_discussion_status_cap' => __( 'Status jeder Diskussion ändern', 'cp' ),
 		);
 	}
 
 	private static function _instructor_capabilities_posts_and_pages() {
 		return array(
-			'edit_pages' => __( 'Edit Pages (required for MarketPress)', 'cp' ),
-			'edit_published_pages' => __( 'Edit Published Pages', 'cp' ),
-			'edit_posts' => __( 'Edit Posts', 'cp' ),
-			'publish_pages' => __( 'Publish Pages', 'cp' ),
-			'publish_posts' => __( 'Publish Posts', 'cp' ),
+			'edit_pages' => __( 'Seiten editieren', 'cp' ),
+			'edit_published_pages' => __( 'Veröffentlichte Seiten editieren', 'cp' ),
+			'edit_posts' => __( 'Beiträge bearbeiten', 'cp' ),
+			'publish_pages' => __( 'Seiten veröffentlichen', 'cp' ),
+			'publish_posts' => __( 'Beiträge veröffentlichen', 'cp' ),
 		);
 	}
 

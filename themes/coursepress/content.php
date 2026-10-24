@@ -32,11 +32,11 @@
 		<div class="entry-content">
 			<?php
 			the_content(
-				__( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cp' )
+				__( 'Weiterlesen <span class="meta-nav">&rarr;</span>', 'cp' )
 			);
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'cp' ),
+					'before' => '<div class="page-links">' . __( 'Seiten:', 'cp' ),
 					'after' => '</div>',
 				)
 			);
@@ -52,7 +52,7 @@
 			if ( $categories_list && coursepress_categorized_blog() ) :
 				?>
 				<span class="cat-links">
-					<?php printf( __( 'Posted in %1$s', 'cp' ), $categories_list ); ?>
+					<?php printf( __( 'Veröffentlicht in %1$s', 'cp' ), $categories_list ); ?>
 				</span>
 				<?php
 			endif; // End if categories
@@ -62,7 +62,7 @@
 			if ( $tags_list ) :
 				?>
 				<span class="tags-links">
-					<?php printf( __( 'Tagged %1$s', 'cp' ), $tags_list ); ?>
+					<?php printf( __( 'Verschlagwortet mit %1$s', 'cp' ), $tags_list ); ?>
 				</span>
 				<?php
 			endif; // End if $tags_list
@@ -72,9 +72,9 @@
 		<span class="comments-link">
 			<?php
 			comments_popup_link(
-				__( 'Leave a comment', 'cp' ),
-				__( '1 comment', 'cp' ),
-				__( '% comments', 'cp' )
+				__( 'Hinterlasse einen Kommentar', 'cp' ),
+				__( '1 Kommentar', 'cp' ),
+				__( '% Kommentare', 'cp' )
 			);
 			?>
 		</span>
@@ -82,7 +82,7 @@
 		endif;
 
 		edit_post_link(
-			__( 'Edit', 'cp' ),
+			__( 'Bearbeiten', 'cp' ),
 			'<span class="edit-link">',
 			'</span>'
 		);

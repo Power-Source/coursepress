@@ -14,10 +14,10 @@ if ( isset( $_POST['contact_submit_button'] ) ) {
 		empty( $_POST['subject'] ) ||
 		empty( $_POST['message'] )
 	) {
-		$form_message = __( 'All fields are required.', 'cp' );
+		$form_message = __( 'Alle Felder sind erforderlich.', 'cp' );
 		$form_message_class = 'error';
 	} elseif ( ! is_email( $_POST['sender_email'] ) ) {
-		$form_message = __( 'E-mail address is not valid.', 'cp' );
+		$form_message = __( 'Diese E-Mail-Adresse ist nicht gültig!', 'cp' );
 		$form_message_class = 'error';
 	} else {
 		add_filter( 'wp_mail_from', 'coursepress_set_sender_from_email' );
@@ -43,10 +43,10 @@ if ( isset( $_POST['contact_submit_button'] ) ) {
 		);
 
 		if ( $sent ) {
-			$form_message = __( 'E-mail sent successfully! We will respond as soon as possible.', 'cp' );
+			$form_message = __( 'E-Mail erfolgreich gesendet! Wir werden so schnell wie möglich antworten.', 'cp' );
 			$form_message_class = 'regular';
 		} else {
-			$form_message = __( 'An error occured while trying to send the e-mail. Please try again later.', 'cp' );
+			$form_message = __( 'Beim Versuch, die E-Mail zu senden, ist ein Fehler aufgetreten. Bitte versuche es später noch einmal.', 'cp' );
 			$form_message_class = 'error';
 		}
 	}
@@ -65,22 +65,22 @@ do_action( 'before_contact_form' );
 ?>
 <form id="contact_form" name="contact-form" method="post" class="contact-form">
 	<label class="full">
-		<?php _e( 'Your Name', 'cp' ); ?>:
+		<?php _e( 'Ihr Name', 'cp' ); ?>:
 		<input type="text" name="sender_name" value="" />
 	</label>
 	<?php do_action( 'after_contact_name' ); ?>
 	<label class="full">
-		<?php _e( 'Your E-mail', 'cp' ); ?>:
+		<?php _e( 'Ihre E-Mail-Adresse', 'cp' ); ?>:
 		<input type="text" name="sender_email" value="" />
 	</label>
 	<?php do_action( 'after_contact_email' ); ?>
 	<label class="full">
-		<?php _e( 'Subject', 'cp' ); ?>:
+		<?php _e( 'Betreff', 'cp' ); ?>:
 		<input type="text" name="subject" value="" />
 	</label>
 	<?php do_action( 'after_contact_subject' ); ?>
 	<label class="right">
-		<?php _e( 'Message', 'cp' ); ?>:
+		<?php _e( 'Nachricht', 'cp' ); ?>:
 		<textarea name="message"></textarea>
 	</label>
 	<?php do_action( 'after_contact_message' ); ?>

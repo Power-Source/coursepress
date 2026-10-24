@@ -14,10 +14,10 @@ $form_message = '';
 if ( isset( $_POST['new_question_submit'] ) ) {
 	check_admin_referer( 'new_question' );
 	if ( empty( $_POST['question_title'] ) ) {
-		$form_message = __( 'Question title is required.', 'cp' );
+		$form_message = __( 'Der Titel der Frage ist erforderlich.', 'cp' );
 		$form_message_class = 'red';
 	} elseif ( empty( $_POST['question_description'] ) ) {
-		$form_message = __( 'Question description is required.', 'cp' );
+		$form_message = __( 'Die Beschreibung der Frage ist erforderlich.', 'cp' );
 		$form_message_class = 'red';
 	} else {
 		CoursePress_Data_Discussion::update_discussion(
@@ -59,7 +59,7 @@ $post = CoursePress_Data_Discussion::get_one();
 				$scode = sprintf(
 					'[units_dropdown course_id="%d" include_general="true" general_title="%s"]',
 					$course_id,
-					__( 'Course General', 'cp' )
+					__( 'Kurs Allgemein', 'cp' )
 				);
 				echo do_shortcode( $scode );
 				?>
@@ -79,7 +79,7 @@ $post = CoursePress_Data_Discussion::get_one();
 					<a href="<?php
 						echo get_permalink( $course_id ) . CoursePress_Core::get_slug( 'discussion' );
 						?>/" class="button_cancel">
-						<?php esc_attr_e( 'Cancel', 'cp' ); ?>
+						<?php esc_attr_e( 'Abbrechen', 'cp' ); ?>
 					</a>
 
 					<?php wp_nonce_field( 'new_question' ); ?>

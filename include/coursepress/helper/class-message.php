@@ -97,12 +97,12 @@ class CoursePress_Helper_Message {
 		switch ( self::$message_code ) {
 
 			case 'no-access':
-				$message = __( 'You need a membership account to access this course.', 'cp' );
+				$message = __( 'Du benötigst ein Mitgliedskonto um auf diesen Kurs zuzugreifen.', 'cp' );
 				$classes[] = 'course-message-alert';
 			break;
 
 			case 'only-enroled':
-				$message = __( 'Only enrolled students can access this course material.', 'cp' );
+				$message = __( 'Nur immatrikulierte Schüler können auf dieses Kursmaterial zugreifen.', 'cp' );
 			break;
 
 			case 'unit-not-available':
@@ -197,13 +197,13 @@ class CoursePress_Helper_Message {
 			$when = date( 'M d', CoursePress_Data_Course::strtotime( $unit_availability_date ) );
 
 			return sprintf(
-				__( 'This unit will be available on %s', 'cp' ),
+				__( 'Diese Einheit wird am %s verfügbar sein', 'cp' ),
 				sprintf(
 					'<span class="unit-delay-date">%s</span>',
 					$when
 				)
 			);
 		}
-		return __( 'This unit is not available.', 'cp' );
+		return __( 'Diese Einheit ist nicht verfügbar.', 'cp' );
 	}
 }

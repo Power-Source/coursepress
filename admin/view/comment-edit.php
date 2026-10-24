@@ -50,9 +50,9 @@ wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
 <div id="misc-publishing-actions">
 
 <fieldset class="misc-pub-section misc-pub-comment-status" id="comment-status-radio">
-<legend class="screen-reader-text"><?php _e( 'Comment status', 'cp' ); ?></legend>
-<label><input type="radio"<?php checked( $comment->comment_approved, '1' ); ?> name="comment_status" value="1" /><?php _ex( 'Approved', 'comment status', 'cp' ); ?></label><br />
-<label><input type="radio"<?php checked( $comment->comment_approved, '0' ); ?> name="comment_status" value="0" /><?php _ex( 'Pending', 'comment status', 'cp' ); ?></label><br />
+<legend class="screen-reader-text"><?php _e( 'Kommentar Status', 'cp' ); ?></legend>
+<label><input type="radio"<?php checked( $comment->comment_approved, '1' ); ?> name="comment_status" value="1" /><?php _ex( 'Genehmigt', 'comment status', 'cp' ); ?></label><br />
+<label><input type="radio"<?php checked( $comment->comment_approved, '0' ); ?> name="comment_status" value="0" /><?php _ex( 'Ausstehend', 'comment status', 'cp' ); ?></label><br />
 <label><input type="radio"<?php checked( $comment->comment_approved, 'spam' ); ?> name="comment_status" value="spam" /><?php _ex( 'Spam', 'comment status', 'cp' ); ?></label>
 </fieldset>
 

@@ -38,7 +38,7 @@ class CoursePress_View_Admin_Setting_Setup {
 
 	public static function add_tabs( $tabs ) {
 		$tabs['setup'] = array(
-			'title' => __( 'Setup Guide', 'cp' ),
+			'title' => __( 'Einrichtungsanleitung', 'cp' ),
 			'description' => __( 'Dies ist eine Beschreibung dessen, was Du auf dieser Seite tun kannst.', 'cp' ),
 			'order' => 70,
 			'class' => 'setup_tab',
@@ -165,7 +165,7 @@ if ( current_user_can( 'manage_options' ) && ! get_option( 'permalink_structure'
 	if ( $show_warning ) {
 ?>
 		<div class="permalinks-error">
-			<h4><?php _e( 'Pretty permalinks are required to use CoursePress.', 'cp' ); ?></h4>
+			<h4><?php _e( 'Hübsche Permalinks sind erforderlich, um CoursePress zu nutzen.', 'cp' ); ?></h4>
 
 			<p><?php _e( 'Klicke auf die Schaltfläche unten, um deine Permalinks einzurichten.', 'cp' ); ?></p>
 			<a href="<?php echo admin_url( 'options-permalink.php' ); ?>" class="button button-units save-unit-button setup-permalinks-button"><?php _e( 'Permalinks einrichten', 'cp' ); ?></a>

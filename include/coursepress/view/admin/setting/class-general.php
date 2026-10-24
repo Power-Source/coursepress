@@ -22,7 +22,7 @@ class CoursePress_View_Admin_Setting_General {
 	}
 
 	public static function return_content( $content, $slug, $tab ) {
-		$my_course_prefix = __( 'my-course', 'cp' );
+		$my_course_prefix = __( 'mein-kurs', 'cp' );
 		$my_course_prefix = sanitize_text_field( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ) . '/'. $my_course_prefix;
 		$page_dropdowns = array();
 
@@ -126,7 +126,7 @@ class CoursePress_View_Admin_Setting_General {
 							</tr>
 
 							<tr valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Login Slug', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Anmelden Slug', 'cp' ) . '</th>
 								<td>' . trailingslashit( esc_url( home_url() ) ) . '
 									&nbsp;<input type="text" name="coursepress_settings[slugs][login]" id="login_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/login', 'student-login' ) ) . '" />&nbsp;/
 								</td>
@@ -148,7 +148,7 @@ class CoursePress_View_Admin_Setting_General {
 							</tr>
 
 							<tr valign="top" class="break">
-								<th scope="row">' . esc_html__( 'Student Dashboard Slug', 'cp' ) . '</th>
+								<th scope="row">' . esc_html__( 'Studenten-Dashboard Slug', 'cp' ) . '</th>
 								<td>' . trailingslashit( esc_url( home_url() ) ) . '
 									&nbsp;<input type="text" name="coursepress_settings[slugs][student_dashboard]" id="student_dashboard_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/student_dashboard', 'courses-dashboard' ) ) . '" />&nbsp;/
 								</td>
@@ -282,7 +282,7 @@ class CoursePress_View_Admin_Setting_General {
 				</div>
 
 				<!-- WP LOGING REDIRECTION -->
-				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'WordPress Login Redirect', 'cp' ) . '</span></h3>
+				<h3 class="hndle" style="cursor:auto;"><span>' . esc_html__( 'WordPress Login-Umleitung', 'cp' ) . '</span></h3>
 				<div class="inside">
 					<table class="form-table">
 						<tbody>
@@ -360,15 +360,15 @@ class CoursePress_View_Admin_Setting_General {
 		$selected_type = CoursePress_Core::get_setting( 'course/details_media_type', 'default' );
 		$content .= '
 									<select name="coursepress_settings[course][details_media_type]" class="widefat" id="course_details_media_type">
-										<option value="default" ' . selected( $selected_type, 'default', false ) .'>' . __( 'Priority Mode (default)', 'cp' ) . '</option>
-										<option value="video" ' . selected( $selected_type, 'video', false ) .'>' . __( 'Featured Video', 'cp' ) . '</option>
-										<option value="image" ' . selected( $selected_type, 'image', false ) .'>' . __( 'List Image', 'cp' ) . '</option>
+										<option value="default" ' . selected( $selected_type, 'default', false ) .'>' . __( 'Prioritätsmodus (Standard)', 'cp' ) . '</option>
+										<option value="video" ' . selected( $selected_type, 'video', false ) .'>' . __( 'Hervorgehobenes Video', 'cp' ) . '</option>
+										<option value="image" ' . selected( $selected_type, 'image', false ) .'>' . __( 'Listenbild', 'cp' ) . '</option>
 									</select>
 								</td>
 							</tr>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Priority', 'cp' ) . '
+								' . esc_html__( 'Priorität', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
@@ -415,7 +415,7 @@ class CoursePress_View_Admin_Setting_General {
 		$selected_type = CoursePress_Core::get_setting( 'course/listing_media_type', 'default' );
 		$content .= '
 									<select name="coursepress_settings[course][listing_media_type]" class="widefat" id="course_listing_media_type">
-										<option value="default" ' . selected( $selected_type, 'default', false ) .'>' . __( 'Priority Mode (default)', 'cp' ) . '</option>
+										<option value="default" ' . selected( $selected_type, 'default', false ) .'>' . __( 'Prioritätsmodus (Standard)', 'cp' ) . '</option>
 										<option value="video" ' . selected( $selected_type, 'video', false ) .'>' . __( 'Hervorgehobenes Video', 'cp' ) . '</option>
 										<option value="image" ' . selected( $selected_type, 'image', false ) .'>' . __( 'Listenbild', 'cp' ) . '</option>
 									</select>
@@ -423,7 +423,7 @@ class CoursePress_View_Admin_Setting_General {
 							</tr>
 							<tr valign="top">
 								<th scope="row">
-								' . esc_html__( 'Priority', 'cp' ) . '
+								' . esc_html__( 'Priorität', 'cp' ) . '
 									<a class="help-icon" href="#"></a>
 									<div class="tooltip hidden">
 										<div class="tooltip-before"></div>
@@ -698,7 +698,7 @@ class CoursePress_View_Admin_Setting_General {
 		$link_to_help = sprintf(
 			'<a href="%s">%s</a>',
 			esc_url( $url ),
-			esc_html__( 'shortcodes', 'cp' )
+			esc_html__( 'Shortcodes', 'cp' )
 		);
 		$content .= sprintf( $text, $shortcode, $link_to_help );
 		$content .= '</p>';

@@ -34,7 +34,7 @@ class CoursePress_Email {
 				'enabled' => 1,
 				'from' => get_option( 'blogname' ),
 				'email' => get_option( 'admin_email' ),
-				'subject' => __( 'Subject line here...', 'cp' ),
+				'subject' => __( 'Betreffzeile hier...', 'cp' ),
 				'content' => 'The content goes here...',
 		) );
 
@@ -71,7 +71,7 @@ class CoursePress_Email {
 				'enabled' => 1,
 				'from' => get_option( 'blogname' ),
 				'email' => get_option( 'admin_email' ),
-				'subject' => __( 'Subject line here...', 'cp' ),
+				'subject' => __( 'Betreffzeile hier...', 'cp' ),
 				'content' => 'The content goes here...',
 		) );
 
@@ -105,7 +105,7 @@ class CoursePress_Email {
 		// Enabled
 		$fields = '
 			<tr>
-				<th>' . esc_html__( 'Enabled', 'cp' ) . '</th>
+				<th>' . esc_html__( 'Aktiviert', 'cp' ) . '</th>
 				<td>
 					<input type="hidden" name="coursepress_settings[email][' . $this->email_type . '][enabled]" value="0" />
 					<input type="checkbox" class="widefat" name="coursepress_settings[email][' . $this->email_type . '][enabled]" value="1" '
@@ -117,7 +117,7 @@ class CoursePress_Email {
 		// From Name
 		$fields .= sprintf(
 			$block,
-			__( 'From Name', 'cp' ),
+			__( 'Von Name', 'cp' ),
 			isset( $email_settings['from_sub'] ) ? $email_settings['from_sub'] : '', // Allow description
 			$this->email_type,
 			'from',
@@ -127,7 +127,7 @@ class CoursePress_Email {
 		// From Email
 		$fields .= sprintf(
 			$block,
-			__( 'From Email', 'cp' ),
+			__( 'Von E-Mail', 'cp' ),
 			isset( $email_settings['email_sub'] ) ? $email_settings['email_sub'] : '', // Allow description
 			$this->email_type,
 			'email',
@@ -137,7 +137,7 @@ class CoursePress_Email {
 		// Subject
 		$fields .= sprintf(
 			$block,
-			__( 'Subject', 'cp' ),
+			__( 'Betreff', 'cp' ),
 			isset( $email_settings['subject_sub'] ) ? $email_settings['email_sub'] : '',
 			$this->email_type,
 			'subject',
@@ -149,11 +149,11 @@ class CoursePress_Email {
 		$mail_tokens = $this->mail_tokens();
 
 		if ( ! empty( $mail_tokens ) ) {
-			$content_help_text .= sprintf( '<p class="description"><strong>%s</strong>: <br />%s', __( 'Mail Tokens', 'cp' ), implode( ', ', $mail_tokens ) );
-			$content_help_text .= '<p class="description">* ' . __( 'These tokens will be replaced with actual data.', 'cp' ) . '</p>';
+			$content_help_text .= sprintf( '<p class="description"><strong>%s</strong>: <br />%s', __( 'Mail Zeichen', 'cp' ), implode( ', ', $mail_tokens ) );
+			$content_help_text .= '<p class="description">* ' . __( 'Diese Zeichen werden durch tatsächliche Daten ersetzt.', 'cp' ) . '</p>';
 		}
 
-		$fields .= '<tr><th>' . __( 'Email Body', 'cp' ) . '</th><td>' . $content_help_text;
+		$fields .= '<tr><th>' . __( 'E-Mail-Inhalt', 'cp' ) . '</th><td>' . $content_help_text;
 
 		ob_start();
 		$editor_settings = array(

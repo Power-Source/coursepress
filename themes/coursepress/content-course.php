@@ -43,7 +43,7 @@
 				echo do_shortcode( '[course_summary length="50" class="' . $extended_class . '"]' );
 				wp_link_pages(
 					array(
-						'before' => '<div class="page-links">' . __( 'Pages:', 'cp' ),
+						'before' => '<div class="page-links">' . __( 'Seiten:', 'cp' ),
 						'after' => '</div>',
 					)
 				);
@@ -53,7 +53,7 @@
 					echo do_shortcode( '[course_start label="" class="course-time"]' );
 					echo do_shortcode( '[course_language label="" class="course-lang"]' );
 					echo do_shortcode( '[course_cost label="" class="course-cost" show_icon="true"]' );
-					echo do_shortcode( '[course_join_button details_text="' . __( 'Details', 'cp' ) . '" course_expired_text="' . __( 'Not Available', 'cp' ) . '" list_page="yes"]' );
+					echo do_shortcode( '[course_join_button details_text="' . __( 'Details', 'cp' ) . '" course_expired_text="' . __( 'Nicht verfügbar', 'cp' ) . '" list_page="yes"]' );
 					?>
 					<!--go-to-course-button-->
 				</div>
@@ -69,7 +69,7 @@
 				if ( $categories_list && coursepress_categorized_blog() ) :
 					?>
 					<span class="cat-links">
-						<?php printf( __( 'Courses in %1$s', 'cp' ), $categories_list ); ?>
+						<?php printf( __( 'Kurse in %1$s', 'cp' ), $categories_list ); ?>
 					</span>
 					<?php
 				endif; // End if categories
@@ -79,7 +79,7 @@
 				if ( $tags_list ) :
 					?>
 					<span class="tags-links">
-						<?php printf( __( 'Tagged %1$s', 'cp' ), $tags_list ); ?>
+						<?php printf( __( 'Verschlagwortet mit %1$s', 'cp' ), $tags_list ); ?>
 					</span>
 					<?php
 				endif; // End if $tags_list

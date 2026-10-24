@@ -189,17 +189,17 @@ class CoursePress_Template_Module {
 			if ( ! empty( $attributes['assessable'] ) ) {
 				$graded_by = CoursePress_Helper_Utility::get_array_val( $grades, 'graded_by' );
 				if ( 'auto' === $graded_by || empty( $grades ) ) {
-					$status = __( 'Pending', 'cp' );
+					$status = __( 'Ausstehend', 'cp' );
 				} elseif ( $pass ) {
-					$status = __( 'Pass', 'cp' );
+					$status = __( 'Bestanden', 'cp' );
 				} else {
-				    $status = __( 'Failed', 'cp' );
+				    $status = __( 'Fehlgeschlagen', 'cp' );
 				}
 			} else {
-				$status = __( 'Non Gradable', 'cp' );
+				$status = __( 'Nicht beurteilbar', 'cp' );
 			}
 		} else {
-			$status = $pass ? __( 'Pass', 'cp' ) : __( 'Fail', 'cp' );
+			$status = $pass ? __( 'Bestanden', 'cp' ) : __( 'Fehlgeschlagen', 'cp' );
 		}
 
 		return $status;
@@ -293,11 +293,11 @@ class CoursePress_Template_Module {
 				$lapses = (int) get_user_meta( $student_id, $key, true );
 				$response_count += $lapses;
 
-				$try_again_label = __( 'Try Again', 'cp' );
+				$try_again_label = __( 'Noch einmal versuchen', 'cp' );
 
 				switch ( $module_type ) {
 					case 'input-upload':
-						$try_again_label = __( 'Upload a different file', 'cp' );
+						$try_again_label = __( 'Lade eine andere Datei hoch', 'cp' );
 					break;
 				}
 				$retry = sprintf( '<p class="cp-try-again"><a data-module="%s" class="button module-submit-action button-reload-module">%s</a></p>', $module_id, $try_again_label );
@@ -315,7 +315,7 @@ class CoursePress_Template_Module {
 					} else {
 						$retry .= sprintf(
 							'<p class="number-of-fails">%s</p>',
-							sprintf( __( 'Number of failed attempts: %d', 'cp' ), $response_count )
+							sprintf( __( 'Anzahl der Fehlversuche: %d', 'cp' ), $response_count )
 						);
 					}
 				}
@@ -349,7 +349,7 @@ class CoursePress_Template_Module {
 						}
 					}
 
-					$timer_info = __( 'Session Expired', 'cp' ) . $retry;
+					$timer_info = __( 'Sitzung abgelaufen', 'cp' ) . $retry;
 					$content .= sprintf( $format, $duration, $attempts, $timer_info );
 				}
 			}
@@ -393,7 +393,7 @@ class CoursePress_Template_Module {
 
 			if ( 'closed' == $course_status ) {
 				$format = '<div class="module-warnings"><p>%s</p></div>';
-				$module_warning = sprintf( $format, esc_html__( 'This course is completed, you can not submit answers anymore.', 'cp' ) );
+				$module_warning = sprintf( $format, esc_html__( 'Dieser Kurs ist abgeschlossen, du kannst keine Antworten mehr einreichen.', 'cp' ) );
 
 				/**
 				 * Filter the warning message.
@@ -460,11 +460,11 @@ class CoursePress_Template_Module {
 			$content .= '<h4 class="module-title">';
 			$content .= $module->post_title;
 			if ( $mandatory ) {
-				$content .= sprintf( '<span class="is-mandatory">%s</span>', __( 'Required', 'cp' ) );
+				$content .= sprintf( '<span class="is-mandatory">%s</span>', __( 'Erforderlich', 'cp' ) );
 			}
 			$content .= '</h4>';
 		} else if ( $mandatory ) {
-			$content .= sprintf( '<div class="is-mandatory">%s</div>', __( 'Required', 'cp' ) );
+			$content .= sprintf( '<div class="is-mandatory">%s</div>', __( 'Erforderlich', 'cp' ) );
 		}
 		$format = '<div class="module-header module %1$s module-%2$s %3$s" data-type="%1$s" data-module="%2$s">%4$s</div>';
 		$content = sprintf( $format, $attributes['module_type'], $module->ID, $attributes['mode'], $content );
@@ -693,7 +693,7 @@ class CoursePress_Template_Module {
 		} elseif ( empty( $attributes['primary_file'] ) ) {
 			$content .= sprintf(
 				'<div class="zip_holder error">%s</div>',
-				__( 'Primary File not set, please come back later.', 'cp' )
+				__( 'Primäre Datei nicht festgelegt, bitte komme später wieder.', 'cp' )
 			);
 		}
 
@@ -741,8 +741,8 @@ class CoursePress_Template_Module {
 
 		$args = array(
 			'class_form' => implode( ' ', $form_class ),
-			'title_reply' => __( 'Post Here', 'cp' ),
-			'label_submit' => __( 'Post', 'cp' ),
+			'title_reply' => __( 'Hier posten', 'cp' ),
+			'label_submit' => __( 'Beitrag', 'cp' ),
 			'must_log_in' => '',
 			'logged_in_as' => '',
 			'action' => '',
@@ -974,16 +974,16 @@ class CoursePress_Template_Module {
 		$response = self::get_response( $module->ID, get_current_user_id() );
 
 		$format = '<label class="file"><input type="file" name="module[%s]" %s /><span class="button" data-change="%s" data-upload="%s">%s <span class="upload-progress"></span></label>';
-		$content = sprintf( $format, $module->ID, $disabled_attr, __( 'Change File', 'cp' ), __( 'Upload File', 'cp' ), __( 'Upload File', 'cp' ) );
+		$content = sprintf( $format, $module->ID, $disabled_attr, __( 'Datei ändern', 'cp' ), __( 'Datei hochladen', 'cp' ), __( 'Datei hochladen', 'cp' ) );
 
 		$upload_types = CoursePress_Helper_Utility::allowed_student_mimes();
 		$upload_types = array_map( 'strtoupper', array_keys( $upload_types ) );
 		$format = '<div class="cp-sub"><p>%s %s</p><p>%s %s</p></div>';
 
 		$content .= sprintf( $format,
-			__( 'Accepted File Format: ', 'cp' ),
+			__( 'Akzeptiertes Datei Format: ', 'cp' ),
 			implode( ' ', $upload_types ),
-			__( 'Max File Size:', 'cp' ),
+			__( 'Maximale Dateigröße:', 'cp' ),
 			ini_get( 'upload_max_filesize' )
 		);
 		return $content;
@@ -1120,17 +1120,17 @@ class CoursePress_Template_Module {
 		$quiz_passed = ! empty( $quiz_result['passed'] );
 
 		$passed_class = $quiz_passed ? 'passed' : 'not-passed';
-		$passed_message = ! empty( $quiz_result['passed'] ) ? __( 'You have successfully passed the quiz. Here are your results.', 'cp' ) : __( 'You did not pass the quiz this time. Here are your results.', 'cp' );
+		$passed_message = ! empty( $quiz_result['passed'] ) ? __( 'Du hast das Quiz erfolgreich bestanden. Hier sind deine Ergebnisse.', 'cp' ) : __( 'Du hast das Quiz dieses Mal nicht bestanden. Hier sind deine Ergebnisse.', 'cp' );
 
 		$template = '<div class="module-quiz-questions">
 			<div class="coursepress-quiz-results ' . esc_attr( $passed_class ) . '">
 				<div class="quiz-message"><p class="result-message">' . $passed_message . '</p></div>
 				<div class="quiz-results">
 					<table>
-					<tr><th>' . esc_html__( 'Total Questions', 'cp' ) . '</th><td>' . esc_html( $quiz_result['total_questions'] ) . '</td></tr>
-					<tr><th>' . esc_html__( 'Correct', 'cp' ) . '</th><td>' . esc_html( $quiz_result['correct'] ) . '</td></tr>
-					<tr><th>' . esc_html__( 'Incorrect', 'cp' ) . '</th><td>' . esc_html( $quiz_result['wrong'] ) . '</td></tr>
-					<tr><th>' . esc_html__( 'Grade', 'cp' ) . '</th><td>' . esc_html( $quiz_result['grade'] ) . '%</td></tr>
+					<tr><th>' . esc_html__( 'Totale Anzahl Fragen', 'cp' ) . '</th><td>' . esc_html( $quiz_result['total_questions'] ) . '</td></tr>
+					<tr><th>' . esc_html__( 'Korrekt', 'cp' ) . '</th><td>' . esc_html( $quiz_result['correct'] ) . '</td></tr>
+					<tr><th>' . esc_html__( 'Falsch', 'cp' ) . '</th><td>' . esc_html( $quiz_result['wrong'] ) . '</td></tr>
+					<tr><th>' . esc_html__( 'Note', 'cp' ) . '</th><td>' . esc_html( $quiz_result['grade'] ) . '%</td></tr>
 					</table>
 				</div>
 			</div>

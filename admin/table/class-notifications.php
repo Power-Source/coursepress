@@ -142,9 +142,9 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 	public function get_columns() {
 		$columns = array(
 			'cb' => '<input type="checkbox" />',
-			'notification' => __( 'Notification', 'cp' ),
-			'course' => __( 'Course', 'cp' ),
-			'receivers' => __( 'Receivers', 'cp' ),
+			'notification' => __( 'Benachrichtigung', 'cp' ),
+			'course' => __( 'Kurs', 'cp' ),
+			'receivers' => __( 'Empfänger', 'cp' ),
 			'status' => __( 'Status', 'cp' ),
 		);
 
@@ -170,7 +170,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 						'id' => $item->ID,
 					)
 				);
-				$row_actions['untrash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Restore', 'cp' ) );
+				$row_actions['untrash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Wiederherstellen', 'cp' ) );
 			} else {
 				$url = add_query_arg(
 					array(
@@ -178,7 +178,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 						'id' => $item->ID,
 					)
 				);
-				$row_actions['edit'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Edit', 'cp' ) );
+				$row_actions['edit'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Bearbeiten', 'cp' ) );
 			}
 		}
 		if ( $this->can_delete( $item ) ) {
@@ -190,7 +190,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 						'action' => 'delete',
 					)
 				);
-				$row_actions['delete'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Delete Permanently', 'cp' ) );
+				$row_actions['delete'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Dauerhaft löschen', 'cp' ) );
 			} else {
 				$url = add_query_arg(
 					array(
@@ -199,7 +199,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 						'action' => 'trash',
 					)
 				);
-				$row_actions['trash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Trash', 'cp' ) );
+				$row_actions['trash'] = sprintf( '<a href="%s">%s</a>', esc_url( $url ), __( 'Papierkorb', 'cp' ) );
 			}
 		}
 		return $this->row_actions( $row_actions );
@@ -225,7 +225,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 		if ( 'all' == $course_id ) {
 			return sprintf(
 				'<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">%s</span>',
-				__( 'Option not available for all courses.', 'cp' )
+				__( 'Diese Option ist nicht für alle Kurse verfügbar.', 'cp' )
 			);
 		}
 		$recivers_allowed_options = array();
@@ -238,19 +238,19 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 		if ( isset( $recivers_allowed_options[ $receivers ] ) ) {
 			return $recivers_allowed_options[ $receivers ]['label'];
 		}
-		return __( 'Wrong receivers!', 'cp' );
+		return __( 'Falsche Empfänger!', 'cp' );
 	}
 
 	protected function get_bulk_actions() {
 		$actions = array(
-			'publish' => __( 'Publish', 'cp' ),
-			'draft' => __( 'Change status to Draft', 'cp' ),
-			'trash' => __( 'Move to Trash', 'cp' ),
+			'publish' => __( 'Veröffentlichen', 'cp' ),
+			'draft' => __( 'Status auf "Entwurf" ändern', 'cp' ),
+			'trash' => __( 'In den Papierkorb verschieben', 'cp' ),
 		);
 		if ( $this->is_trash ) {
 			$actions = array(
-				'untrash' => __( 'Restore', 'cp' ),
-				'delete' => __( 'Delete Permanently', 'cp' ),
+				'untrash' => __( 'Wiederherstellen', 'cp' ),
+				'delete' => __( 'Dauerhaft löschen', 'cp' ),
 			);
 		}
 		return $actions;
@@ -308,7 +308,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 		$options['value'] = $course_id;
 		$options['class'] = 'medium dropdown';
 		$options['first_option'] = array(
-			'text' => __( 'All courses', 'cp' ),
+			'text' => __( 'Alle Kurse', 'cp' ),
 			'value' => 'all',
 		);
 
@@ -340,7 +340,7 @@ class CoursePress_Admin_Table_Notifications extends WP_Posts_List_Table {
 			<input type="submit" class="button" name="action" value="<?php esc_attr_e( 'Filter', 'cp' ); ?>" />
 		</div>
 		<?php
-		$this->search_box( __( 'Search Notifications', 'cp' ), 'search_notifications' );
+		$this->search_box( __( 'Benachrichtigungen suchen', 'cp' ), 'search_notifications' );
 	}
 
 	/**

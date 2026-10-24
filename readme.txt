@@ -28,6 +28,7 @@ PS CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Socia
 * Security: Kursnavigationen im Backend und Frontend gegen manipulierte oder externe Ziel-URLs abgesichert.
 * Fix: Such- und Bewertungsfilter verwenden URL-Parameter mit sicherer Kodierung.
 * Compatibility: Veraltete `(boolean)`-Casts durch `(bool)` ersetzt, um PHP-8.5-Deprecation-Warnungen zu vermeiden.
+* Localization: Deutsche Quelltexte und englische Übersetzungsdateien für die Textdomain `cp` ergänzt.
 
 = 1.0.1 =
 

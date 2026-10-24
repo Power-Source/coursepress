@@ -7,8 +7,8 @@ class CoursePress_View_Admin_Student {
 	private static $table_manager = null;
 
 	public static function init() {
-		self::$title = __( 'Courses/Students', 'cp' );
-		self::$menu_title = __( 'Students', 'cp' );
+		self::$title = __( 'Kurse/Studenten', 'cp' );
+		self::$menu_title = __( 'Teilnehmer', 'cp' );
 
 		add_filter(
 			'coursepress_admin_valid_pages',
@@ -258,7 +258,7 @@ class CoursePress_View_Admin_Student {
 	public static function certificate_send() {
 		$results = array(
 			'success' => false,
-			'message' => __( 'Something went wrong. Sending failed.', 'cp' ),
+			'message' => __( 'Etwas ist schief gelaufen. Das Senden ist fehlgeschlagen.', 'cp' ),
 			'step' => 'init',
 		);
 		/**
@@ -299,7 +299,7 @@ class CoursePress_View_Admin_Student {
 				'message' => sprintf(
 					'<div class="notice notice-success certificate-send"><p>%s</p></div>',
 					sprintf(
-						__( 'Certificate of <b>%s</b> has been sent.', 'cp' ),
+						__( 'Bescheinigung über <b>%s</b> wurde gesendet.', 'cp' ),
 						get_the_title( $parent_id )
 					)
 				),

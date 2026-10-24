@@ -27,7 +27,7 @@ class CoursePress_View_Admin_Setting_Slugs extends CoursePress_View_Admin_Settin
 
 	public static function return_content( $content, $slug, $tab ) {
 
-		$my_course_prefix = __( 'my-course', 'cp' );
+		$my_course_prefix = __( 'mein-kurs', 'cp' );
 		$my_course_prefix = sanitize_text_field( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ) . '/'. $my_course_prefix;
 
 		$home_url = trailingslashit( esc_url( home_url() ) );
@@ -41,7 +41,7 @@ class CoursePress_View_Admin_Setting_Slugs extends CoursePress_View_Admin_Settin
 		$content .= self::row(
 			__( 'Kurse Slug', 'cp' ),
 			esc_html( $home_url ) . '&nbsp;<input type="text" name="coursepress_settings[slugs][course]" id="course_slug" value="' . esc_attr( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ).'" />&nbsp;/',
-			esc_html__( 'Deine Kurs-URL wird wie folgt aussehen: ', 'cp' ) . esc_html( $home_url ) . esc_html( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ) . esc_html__( '/my-course/', 'cp' )
+			esc_html__( 'Deine Kurs-URL wird wie folgt aussehen: ', 'cp' ) . esc_html( $home_url ) . esc_html( CoursePress_Core::get_setting( 'slugs/course', 'courses' ) ) . esc_html__( '/Mein-Kurs/', 'cp' )
 		);
 
 		$content .= self::row(

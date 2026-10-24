@@ -17,7 +17,7 @@ class CoursePress_Admin_Import extends CoursePress_Admin_Controller_Menu {
 	public function get_labels() {
 		return array(
 			'title' => __( 'CoursePress Import', 'cp' ),
-			'menu_title' => __( 'Import', 'cp' ),
+			'menu_title' => __( 'Importieren', 'cp' ),
 		);
 	}
 
@@ -97,7 +97,7 @@ class CoursePress_Admin_Import extends CoursePress_Admin_Controller_Menu {
 	 **/
 	public static function import_failed_wrong_or_empty_file() {
 		printf( '<div class="notice notice-error"><p>%s</p></div>',
-			__( 'Courses import fail. Wrong or empty file.', 'cp' )
+			__( 'Kurse importieren fehlgeschlagen. Falsche oder leere Datei.', 'cp' )
 		);
 	}
 
@@ -106,7 +106,7 @@ class CoursePress_Admin_Import extends CoursePress_Admin_Controller_Menu {
 	 **/
 	public static function import_completed() {
 		printf( '<div class="notice notice-info is-dismissible"><p>%s</p></div>',
-			__( 'Courses successfully imported!', 'cp' )
+			__( 'Kurse erfolgreich importiert!', 'cp' )
 		);
 	}
 

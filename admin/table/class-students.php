@@ -91,15 +91,15 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 			'cb' => '<input type="checkbox" />',
 			'user_id' => __( 'ID', 'cp' ),
 			'student_name' => __( 'Name', 'cp' ),
-			'last_login' => __( 'Last Login', 'cp' ),
-			'courses' => __( 'Number Courses', 'cp' ),
-			'courses_list' => __( 'Courses', 'cp' ),
+			'last_login' => __( 'Letzte Anmeldung', 'cp' ),
+			'courses' => __( 'Anzahl Kurse', 'cp' ),
+			'courses_list' => __( 'Kurse', 'cp' ),
 		);
 
 		if ( ! empty( $this->course_id ) ) {
 			unset( $columns['courses'] );
 			unset( $columns['courses_list'] );
-			$columns['average'] = __( 'Average', 'cp' );
+			$columns['average'] = __( 'Durchschnittlich', 'cp' );
 			$columns['status'] = __( 'Status', 'cp' );
 		}
 
@@ -110,7 +110,7 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 		$actions = array();
 
 		// @todo: add sanity check
-		$actions['withdraw'] = __( 'Withdraw', 'cp' );
+		$actions['withdraw'] = __( 'Auszahlung', 'cp' );
 
 		return $actions;
 	}
@@ -120,7 +120,7 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 		if ( 'top' !== $which ) {
 			parent::pagination( $which );
 		} else {
-			$this->search_box( __( 'Search Students', 'cp' ), 'search' );
+			$this->search_box( __( 'Kursteilnehmer suchen', 'cp' ), 'search' );
 		}
 	}
 
@@ -136,7 +136,7 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 	public function column_student_name( $user_id ) {
 		$actions = array();
 		$user = get_userdata( $user_id );
-		$actions['user_id'] = sprintf( __( 'User ID: %d', 'cp' ), $user_id );
+		$actions['user_id'] = sprintf( __( 'Benutzer-ID: %d', 'cp' ), $user_id );
 		// User avatar
 		$avatar = get_avatar( $user->user_email, 32 );
 		$name = CoursePress_Helper_Utility::get_user_name( $user_id, true );
@@ -151,7 +151,7 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 		);
 		// @todo: Add sanity check/validation
 		$profile_link = CoursePress_Data_Student::get_admin_profile_url( $user_id );
-		$actions['courses'] = sprintf( '<a href="%s">%s</a>', esc_url( $profile_link ), __( 'View Profile', 'cp' ) );
+		$actions['courses'] = sprintf( '<a href="%s">%s</a>', esc_url( $profile_link ), __( 'Profil anzeigen', 'cp' ) );
 
 		/**
 		 * Withdraw
@@ -165,12 +165,12 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 				'action' => $action,
 				'course_id' => 'all',
 			);
-			$withdraw_title = __( 'Withdraw to all courses', 'cp' );
+			$withdraw_title = __( 'Alle Kurse widerrufen', 'cp' );
 			/**
 			 * Add course data if list if filtered by Course.
 			 */
 			if ( ! empty( $this->course_id ) ) {
-				$withdraw_title = __( 'Withdraw', 'cp' );
+				$withdraw_title = __( 'Auszahlung', 'cp' );
 				$args['course_id'] = $this->course_id;
 			}
 			$delete_url = add_query_arg( $args );
@@ -224,7 +224,7 @@ class CoursePress_Admin_Table_Students extends CoursePress_Admin_Table_Instructo
 		if ( empty( $courses_ids ) ) {
 			return sprintf(
 				'<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">%s</span>',
-				__( 'Student is not enrolled to any course.', 'cp' )
+				__( 'Der Student ist in keinem Kurs eingeschrieben.', 'cp' )
 			);
 		}
 		$content = '<ul>';

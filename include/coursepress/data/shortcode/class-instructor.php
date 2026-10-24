@@ -64,14 +64,14 @@ class CoursePress_Data_Shortcode_Instructor {
 
 		extract( shortcode_atts( array(
 			'course_id' => CoursePress_Helper_Utility::the_course( true ),
-			'label' => __( 'Instructor', 'cp' ),
-			'label_plural' => __( 'Instructors', 'cp' ),
+			'label' => __( 'Kursleiter', 'cp' ),
+			'label_plural' => __( 'Trainer', 'cp' ),
 			'label_delimeter' => ':&nbsp;',
 			'label_tag' => '',
 			'count' => false, // Deprecated.
 			'list' => false, // Deprecated.
 			'link' => false,
-			'link_text' => __( 'View Full Profile', 'cp' ),
+			'link_text' => __( 'Gesamtes Profil anzeigen', 'cp' ),
 			'show_label' => 'no', // Yes, no.
 			'summary_length' => 50,
 			'style' => 'block', // List, list-flat, block, count.

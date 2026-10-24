@@ -85,10 +85,10 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 
 		// Saving system resources, we wont scan the font directory.
 		$fonts = array(
-			'cid0cs.php' => __( 'Arial Unicode MS (Simplified Chinese)', 'cp' ),
-			'cid0ct.php' => __( 'Arial Unicode MS (Chinese Traditional)', 'cp' ),
-			'cid0jp.php' => __( 'Arial Unicode MS (Japanese)', 'cp' ),
-			'cid0kr.php' => __( 'Arial Unicode MS (Korean)', 'cp' ),
+			'cid0cs.php' => __( 'Arial Unicode MS (Vereinfachtes Chinesisch)', 'cp' ),
+			'cid0ct.php' => __( 'Arial Unicode MS (Chinesisch traditionell)', 'cp' ),
+			'cid0jp.php' => __( 'Arial Unicode MS (Japanisch)', 'cp' ),
+			'cid0kr.php' => __( 'Arial Unicode MS (koreanisch)', 'cp' ),
 			'courier.php' => __( 'Courier', 'cp' ),
 			'courierb.php' => '',
 			'courierbi.php' => '',
@@ -102,7 +102,7 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 			'dejavusansbi.php' => '',
 			'dejavusansi.php' => '',
 			'symbol.php' => __( 'Symbol', 'cp' ),
-			'times.php' => __( 'Times-Roman', 'cp' ),
+			'times.php' => __( 'Times New Roman', 'cp' ),
 			'timesb.php' => '',
 			'timesbi.php' => '',
 			'timesi.php' => '',
@@ -121,7 +121,7 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 				'dejavusanscondensedb.php' => '',
 				'dejavusanscondensedbi.php' => '',
 				'dejavusanscondensedi.php' => '',
-				'dejavusansextralight.php' => __( 'DejaVu Sans ExtraLight', 'cp' ),
+				'dejavusansextralight.php' => __( 'DejaVu Sans Extralight', 'cp' ),
 				'dejavusansmono.php' => __( 'DejaVu Sans Mono', 'cp' ),
 				'dejavusansmonob.php' => '',
 				'dejavusansmonobi.php' => '',
@@ -134,7 +134,7 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 				'dejavuserifcondensedbi.php' => '',
 				'dejavuserifcondensedi.php' => '',
 				'dejavuserifi.php' => '',
-				'freemono.php' => __( 'Free Mono', 'cp' ),
+				'freemono.php' => __( 'Frei Mono', 'cp' ),
 				'freemonob.php' => '',
 				'freemonobi.php' => '',
 				'freemonoi.php' => '',
@@ -142,14 +142,14 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 				'freesansb.php' => '',
 				'freesansbi.php' => '',
 				'freesansi.php' => '',
-				'freeserif.php' => __( 'Free Serif', 'cp' ),
+				'freeserif.php' => __( 'Freie Serife', 'cp' ),
 				'freeserifb.php' => '',
 				'freeserifbi.php' => '',
 				'freeserifi.php' => '',
-				'hysmyeongjostdmedium.php' => __( 'MyungJo Medium (Korean)', 'cp' ),
-				'kozgopromedium.php' => __( 'Kozuka Gothic Pro (Japanese Sans-Serif)', 'cp' ),
+				'hysmyeongjostdmedium.php' => __( 'MyungJo Medium (koreanisch)', 'cp' ),
+				'kozgopromedium.php' => __( 'Kozuka Gothic Pro (Japanese Sans Serif)', 'cp' ),
 				'kozminproregular.php' => __( 'Kozuka Mincho Pro (Japanese Serif)', 'cp' ),
-				'msungstdlight.php' => __( 'MSung Light (Traditional Chinese)', 'cp' ),
+				'msungstdlight.php' => __( 'Msung Light (Traditionelles Chinesisch)', 'cp' ),
 				'pdfacourier.php' => __( 'PDFA Courier', 'cp' ),
 				'pdfacourierb.php' => '',
 				'pdfacourierbi.php' => '',
@@ -164,8 +164,8 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 				'pdfatimesbi.php' => '',
 				'pdfatimesi.php' => '',
 				'pdfazapfdingbats.php' => __( 'PDFA ZapfDingbats', 'cp' ),
-				'robotolight.php' => __( 'Roboto Light', 'cp' ),
-				'robotolightitalic.php' => __( 'Robot Light Italic', 'cp' ),
+				'robotolight.php' => __( 'Roboto Licht', 'cp' ),
+				'robotolightitalic.php' => __( 'Roboter Light Italic', 'cp' ),
 				'stsongstdlight.php' => __( 'STSong Light (Simplified Chinese)', 'cp' ),
 			) );
 		}
@@ -225,7 +225,7 @@ class CoursePress_Helper_PDF extends CP_TCPDF {
 	 */
 	public static function make_pdf( $html, $args = array() ) {
 		if ( ! isset( $args['title'] ) || empty( $args['title'] ) ) {
-			$args['title'] = __( 'CoursePress Report', 'cp' );
+			$args['title'] = __( 'CoursePress Bericht', 'cp' );
 		}
 
 		$selected_font = CoursePress_Core::get_setting( 'reports/font', 'helvetica' );
@@ -495,7 +495,7 @@ $pdf = new CoursePress_Helper_PDF( $page_orientation, PDF_UNIT, PDF_PAGE_FORMAT,
 		$cache_path = self::cache_path();
 		?>
 		<div class="notice notice-error">
-			<p><?php printf( esc_html__( 'CoursePress cannot generate PDF because directory is not writable: %s', 'cp' ), $cache_path); ?></p>
+			<p><?php printf( esc_html__( 'CoursePress kann kein PDF erzeugen, weil das Verzeichnis nicht beschreibbar ist: %s', 'cp' ), $cache_path); ?></p>
 		</div>
 		<?php
 	}

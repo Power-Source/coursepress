@@ -22,7 +22,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	public static function add_tabs( $tabs ) {
 		$tabs['shortcodes'] = array(
 			'title' => __( 'Shortcodes', 'cp' ),
-			'description' => __( 'Shortcodes allow you to include dynamic content in posts and pages on your site. Simply type or paste them into your post or page content where you would like them to appear. Optional attributes can be added in a format like <em>[shortcode attr1="value" attr2="value"]</em>.', 'cp' ),
+			'description' => __( 'Mit Shortcodes kannst du dynamische Inhalte in Beiträge und Seiten auf deiner Website einfügen. Tippe sie einfach ein oder füge sie an der Stelle in deinen Beitrag oder deine Seite ein, an der sie erscheinen sollen. Optionale Attribute können in einem Format wie <em>[shortcode attr1="Wert" attr2="Wert"]</em> hinzugefügt werden.', 'cp' ),
 			'order' => 50,
 			'buttons' => 'none',
 		);
@@ -59,127 +59,127 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _boxes() {
 		$boxes = array(
 			'course_instructors' => array(
-				'title' => __( 'Instructors List', 'cp' ),
+				'title' => __( 'Ausbilderliste', 'cp' ),
 				'content' => self::_box_course_instructors(),
 			),
 			'course_instructor_avatar' => array(
-				'title' => __( 'Instructors Avatar', 'cp' ),
+				'title' => __( 'Instruktor-Avatar', 'cp' ),
 				'content' => self::_box_course_instructor_avatar(),
 			),
 			'instructor_profile_url' => array(
-				'title' => __( 'Instructor Profile URL', 'cp' ),
+				'title' => __( 'URL des Ausbilderprofils', 'cp' ),
 				'content' => self::_box_instructor_profile_url(),
 			),
 			'course' => array(
-				'title' => __( 'Course', 'cp' ),
+				'title' => __( 'Kurs', 'cp' ),
 				'content' => self::_box_course(),
 			),
 			'course_details' => array(
-				'title' => __( 'Course Details', 'cp' ),
+				'title' => __( 'Kursdetails', 'cp' ),
 				'content' => self::_box_course_details(),
 			),
 			'course_title' => array(
-				'title' => __( 'Course Title', 'cp' ),
+				'title' => __( 'Kurstitel', 'cp' ),
 				'content' => self::_box_course_title(),
 			),
 			'course_summary' => array(
-				'title' => __( 'Course Summary', 'cp' ),
+				'title' => __( 'Kurszusammenfassung', 'cp' ),
 				'content' => self::_box_course_summary(),
 			),
 			'course_description' => array(
-				'title' => __( 'Course Description', 'cp' ),
+				'title' => __( 'Kurs Beschreibung', 'cp' ),
 				'content' => self::_box_course_description(),
 			),
 			'course_start' => array(
-				'title' => __( 'Course Start Date', 'cp' ),
+				'title' => __( 'Kurs Startdatum', 'cp' ),
 				'content' => self::_box_course_start_date(),
 			),
 			'course_end' => array(
-				'title' => __( 'Course End Date', 'cp' ),
+				'title' => __( 'Datum des Kursendes', 'cp' ),
 				'content' => self::_box_course_end_date(),
 			),
 			'course_dates' => array(
-				'title' => __( 'Course Dates', 'cp' ),
+				'title' => __( 'Kurstermine', 'cp' ),
 				'content' => self::_box_course_dates(),
 			),
 			'course_enrollment_start' => array(
-				'title' => __( 'Course Enrollment Start', 'cp' ),
+				'title' => __( 'Beginn der Kurseinschreibung', 'cp' ),
 				'content' => self::_box_course_enrollment_start(),
 			),
 			'course_enrollment_end' => array(
-				'title' => __( 'Course Enrollment End', 'cp' ),
+				'title' => __( 'Kurseinschreibung Ende', 'cp' ),
 				'content' => self::_box_course_enrollment_end(),
 			),
 			'course_enrollment_dates' => array(
-				'title' => __( 'Course Enrollment Dates', 'cp' ),
+				'title' => __( 'Termine für die Kurseinschreibung', 'cp' ),
 				'content' => self::_box_course_enrollment_dates(),
 			),
 			'course_enrollment_type' => array(
-				'title' => __( 'Coure Enrollment Type', 'cp' ),
+				'title' => __( 'Paar Einschreibeart', 'cp' ),
 				'content' => self::_box_course_enrollment_type(),
 			),
 			'course_class_size' => array(
-				'title' => __( 'Course Class Size', 'cp' ),
+				'title' => __( 'Kurs Klassengröße', 'cp' ),
 				'content' => self::_box_course_class_size(),
 			),
 			'course_cost' => array(
-				'title' => __( 'Course Cost', 'cp' ),
+				'title' => __( 'Kurskosten', 'cp' ),
 				'content' => self::_box_course_cost(),
 			),
 			'course_time_estimation' => array(
-				'title' => __( 'Course Time Estimation', 'cp' ),
+				'title' => __( 'Schätzung der Kursdauer', 'cp' ),
 				'content' => self::_box_course_time_estimation(),
 			),
 			'course_language' => array(
-				'title' => __( 'Course Language', 'cp' ),
+				'title' => __( 'Kurssprache', 'cp' ),
 				'content' => self::_box_course_language(),
 			),
 			'course_list_image' => array(
-				'title' => __( 'Course List Image', 'cp' ),
+				'title' => __( 'Bild der Kursliste', 'cp' ),
 				'content' => self::_box_course_list_image(),
 			),
 			'course_featured_video' => array(
-				'title' => __( 'Course Featured Video', 'cp' ),
+				'title' => __( 'Kurs Featured Video', 'cp' ),
 				'content' => self::_box_course_featured_video(),
 			),
 			'course_media' => array(
-				'title' => __( 'Course Media', 'cp' ),
+				'title' => __( 'Arbeitsdateien & Vorlagen zu diesem Kurs', 'cp' ),
 				'content' => self::_box_course_media(),
 			),
 			'course_join_button' => array(
-				'title' => __( 'Course Join Button', 'cp' ),
+				'title' => __( 'Schaltfläche "Kurs beitreten', 'cp' ),
 				'content' => self::_box_course_join_button(),
 			),
 			'course_action_links' => array(
-				'title' => __( 'Course Action Links', 'cp' ),
+				'title' => __( 'Kurs Aktion Links', 'cp' ),
 				'content' => self::_box_course_action_links(),
 			),
 			'course_calendar' => array(
-				'title' => __( 'Course Calendar', 'cp' ),
+				'title' => __( 'Kurskalender', 'cp' ),
 				'content' => self::_box_course_calendar(),
 			),
 			'course_list' => array(
-				'title' => __( 'Course List', 'cp' ),
+				'title' => __( 'Kursliste', 'cp' ),
 				'content' => self::_box_course_list(),
 			),
 			'course_featured' => array(
-				'title' => __( 'Featured Course', 'cp' ),
+				'title' => __( 'Empfohlener Kurs', 'cp' ),
 				'content' => self::_box_course_featured(),
 			),
 			'course_structure' => array(
-				'title' => __( 'Course Structure', 'cp' ),
+				'title' => __( 'Kursstruktur', 'cp' ),
 				'content' => self::_box_course_structure(),
 			),
 			'course_signup' => array(
-				'title' => __( 'Course Signup/Login Page', 'cp' ),
+				'title' => __( 'Kurs Registrierung/Login Seite', 'cp' ),
 				'content' => self::_box_course_signup(),
 			),
 			'courses_student_dashboard' => array(
-				'title' => __( 'Student Dashboard Template', 'cp' ),
+				'title' => __( 'Schüler Dashboard Vorlage', 'cp' ),
 				'content' => self::_box_courses_student_dashboard(),
 			),
 			'courses_student_settings' => array(
-				'title' => __( 'Student Settings Template', 'cp' ),
+				'title' => __( 'Vorlage für Schülereinstellungen', 'cp' ),
 				'content' => self::_box_courses_student_settings(),
 			),
 		);
@@ -198,60 +198,60 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_instructors() {
 		$data = array(
 			'shortcode' => 'course_instructors',
-			'content' => __( 'Display a list or count of Instructors ( gravatar, name and link to profile page )', 'cp' ),
+			'content' => __( 'Zeige eine Liste oder Anzahl der Ausbilder an (Gravatar, Name und Link zur Profilseite)', 'cp' ),
 			'parameters' => array(
 				'optional' => array(
 					'course_id' => array(
-						'content' => __( 'ID of the course instructors are assign to ( required if use it outside of a loop )', 'cp' ),
+						'content' => __( 'ID des Kurses, dem die Lehrkräfte zugeordnet sind (erforderlich, wenn sie außerhalb einer Schleife verwendet wird)', 'cp' ),
 					),
 					'style' => array(
-						'content' => __( 'How to display the instructors.', 'cp' ),
+						'content' => __( 'Wie man die Lehrkräfte anzeigt.', 'cp' ),
 						'options' => array( 'block', 'default', 'list', 'list-flat', 'count' ),
-						'options_description' => __( 'count - counts instructors for the course.', 'cp' ),
+						'options_description' => __( 'Zählen - Zähle Instruktoren für den Kurs.', 'cp' ),
 					),
 					'label' => array(
-						'content' => __( 'Label to display for the output.', 'cp' ),
+						'content' => __( 'Beschriftung, die für die Ausgabe angezeigt werden soll.', 'cp' ),
 					),
 					'label_plural' => array(
-						'content' => __( 'Plural if more than one instructor.', 'cp' ),
-						'default' => __( 'Instructors', 'cp' ),
+						'content' => __( 'Plural, wenn es mehr als einen Ausbilder gibt.', 'cp' ),
+						'default' => __( 'Trainer', 'cp' ),
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to put after label.', 'cp' ),
+						'content' => __( 'Symbol, das hinter dem Etikett stehen soll.', 'cp' ),
 						'default' => ':',
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag to wrap the label (without brackets, e.g. <em>h3</em>).', 'cp' ),
-						'default' => __( 'empty', 'cp' ),
+						'content' => __( 'HTML-Tag, um die Beschriftung einzuschließen (ohne Klammern, z. B. <em>h3</em>).', 'cp' ),
+						'default' => __( 'leer', 'cp' ),
 					),
 					'link_text' => array(
-						'content' => __( 'Text to click to link to full profiles.', 'cp' ),
-						'default' => __( 'View Full Profile', 'cp' ),
+						'content' => __( 'Text zum Anklicken für den Link zu den vollständigen Profilen.', 'cp' ),
+						'default' => __( 'Gesamtes Profil anzeigen', 'cp' ),
 					),
 					'show_label' => array(
-						'content' => __( 'Show the label.', 'cp' ),
+						'content' => __( 'Etikett zeigen.', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 					'summary_length' => array(
-						'content' => __( 'Length of instructor bio to show when style is "block".', 'cp' ),
+						'content' => __( 'Länge der Kursleiter Bio zu zeigen, wenn Stil "block".', 'cp' ),
 						'default' => __( 50, 'cp' ),
 					),
 					'list_separator' => array(
-						'content' => __( 'Symbol to use to separate instructors when styl is "list" or "list-flat".', 'cp' ),
+						'content' => __( 'Symbol zur Trennung von Lehrkräften, wenn der Stil "Liste" oder "Liste-flach" ist.', 'cp' ),
 						'default' => ',',
 					),
 					'avatar_size' => array(
-						'content' => __( 'Pixel size of the avatars when viewing in block mode.', 'cp' ),
+						'content' => __( 'Pixelgröße der Avatare bei der Anzeige im Blockmodus.', 'cp' ),
 						'default' => __( 80, 'cp' ),
 					),
 					'default_avatar' => array(
-						'content' => __( 'URL to a default image if the user avatar cannot be found.', 'cp' ),
+						'content' => __( 'URL zu einem Standardbild, wenn der Benutzeravatar nicht gefunden werden kann.', 'cp' ),
 					),
 					'show_divider' => array(
-						'content' => __( 'Put a divider between instructor profiles when style is "block".', 'cp' ),
+						'content' => __( 'Setze eine Trennlinie zwischen die Lehrerprofile, wenn der Stil "Block" ist.', 'cp' ),
 					),
 					'link_all' => array(
-						'content' => __( 'Make the entire instructor profile a link to the full profile.', 'cp' ),
+						'content' => __( 'Mache das gesamte Ausbilderprofil zu einem Link zum vollständigen Profil.', 'cp' ),
 					),
 				),
 			),
@@ -277,23 +277,23 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_instructor_avatar() {
 		$data = array(
 			'shortcode' => 'course_instructor_avatar',
-			'content' => __( 'Display an instructor’s avatar.', 'cp' ),
+			'content' => __( 'Zeige den Avatar einer Lehrkraft an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'instructor_id' => array(
-						'content' => __( 'The user id of the instructor.', 'cp' ),
+						'content' => __( 'Die Benutzerkennung des Lehrers.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'force_display' => array(
-						'content' => __( 'Whether to always show the default image, never the Gravatar.', 'cp' ),
+						'content' => __( 'Ob immer das Standardbild und nie der Gravatar angezeigt werden soll.', 'cp' ),
 					),
 					'thumb_size' => array(
-						'content' => __( 'Size of avatar thumbnail.', 'cp' ),
+						'content' => __( 'Größe der Avatar-Miniaturansicht.', 'cp' ),
 						'default' => 80,
 					),
 					'class' => array(
-						'content' => __( 'CSS class to use for the avatar.', 'cp' ),
+						'content' => __( 'CSS-Klasse, die für den Avatar verwendet werden soll.', 'cp' ),
 						'default' => 'small-circle-profile-image',
 					),
 				),
@@ -317,11 +317,11 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_instructor_profile_url() {
 		$data = array(
 			'shortcode' => 'instructor_profile_url',
-			'content' => __( 'Returns the URL to the instructor profile.', 'cp' ),
+			'content' => __( 'Gibt die URL zum Profil der Lehrkraft zurück.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'instructor_id' => array(
-						'content' => __( 'The user id of the instructor.', 'cp' ),
+						'content' => __( 'Die Benutzerkennung des Lehrers.', 'cp' ),
 					),
 				),
 			),
@@ -345,35 +345,35 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course() {
 		$data = array(
 			'shortcode' => 'course',
-			'content' => __( 'This shortcode allows you to display details about your course.', 'cp' ),
-		   'note' => __( 'All the same information can be retrieved by using the specific course shortcodes following.', 'cp' ),
+			'content' => __( 'Dieser Shortcode erlaubt es dir Kursdetails anzuzeigen.', 'cp' ),
+		   'note' => __( 'Die gleichen Informationen kannst du mit den folgenden spezifischen Kurs-Shortcodes abrufen.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 					'show' => array(
-						'content' => __( 'All the fields you would like to show.', 'cp' ),
+						'content' => __( 'Alle Felder, die du anzeigen möchtest.', 'cp' ),
 						'default' => 'summary',
 						'options' => array( 'title', ' summary', ' description', ' start', ' end', ' dates', ' enrollment_start', ' enrollment_end', ' enrollment_dates', ' enrollment_type', ' class_size', ' cost', ' language', ' instructors', ' image', ' video', ' media', ' button', ' action_links', ' calendar', ' thumbnail' ),
 					),
 				),
 				'optional' => array(
 					'show_title' => array(
-						'content' => __( 'Required when showing the "title" field.', 'cp' ),
+						'content' => __( 'Erforderlich, wenn das Feld "Titel" angezeigt wird.', 'cp' ),
 						'defulat' => 'no',
 						'options' => array( 'yes', 'no' ),
 					),
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
 						'defulat' => 'WP',
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'defulat' => 'strong',
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'defulat' => ':',
 					),
 				),
@@ -417,16 +417,16 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_title() {
 		$data = array(
 			'shortcode' => 'course_title',
-			'content' => __( 'Displays the course title.', 'cp' ),
+			'content' => __( 'Zeigt den Kurstitel.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'title_tag' => array(
-						'content' => __( 'The HTML tag (without brackets) to use for the title.', 'cp' ),
+						'content' => __( 'HTML tag (ohne Klammern) für den Kurstitel.', 'cp' ),
 						'default' => 'h3',
 					),
 					'link' => array(
@@ -456,11 +456,11 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_summary() {
 		$data = array(
 			'shortcode' => 'course_summary',
-			'content' => __( 'Displays the course summary/excerpt.', 'cp' ),
+			'content' => __( 'Zeigt die Kurszusammenfassung/den Kursauszug an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 			),
@@ -484,16 +484,16 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_description() {
 		$data = array(
 			'shortcode' => 'course_description',
-			'content' => __( 'Displays the longer course description (post content).', 'cp' ),
+			'content' => __( 'Zeigt die längere Kursbeschreibung (Post-Inhalt) an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'label' => array(
-						'content' => __( 'Additional label will be displayed before description.', 'cp' ),
+						'content' => __( 'Ein zusätzliches Etikett wird vor der Beschreibung angezeigt.', 'cp' ),
 					),
 				),
 			),
@@ -517,27 +517,27 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_start_date() {
 		$data = array(
 			'shortcode' => 'course_start',
-			'content' => __( 'Shows the course start date.', 'cp' ),
+			'content' => __( 'Zeigt das Datum des Kursbeginns an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
 						'default' => 'wp',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
-						'default' => __( 'strong', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
+						'default' => __( 'stark', 'cp' ),
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 				),
@@ -563,16 +563,16 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_end_date() {
 		$data = array(
 			'shortcode' => 'course_end',
-			'content' => __( 'Shows the course end date.', 'cp' ),
+			'content' => __( 'Zeigt den Kurs Endtermin.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
 						'default' => 'wp',
 						'description' => __( '<a href="https://codex.wordpress.org/Formatting_Date_and_Time">Documentation on date and time formatting</a>.' ),
 					),
@@ -580,16 +580,16 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
-						'default' => __( 'strong', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
+						'default' => __( 'stark', 'cp' ),
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'no_date_text' => array(
-						'content' => __( 'Text to display if the course has no end date.', 'cp' ),
-						'default' => __( 'No End Date', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs kein Enddatum hat.', 'cp' ),
+						'default' => __( 'Kein Enddatum', 'cp' ),
 					),
 				),
 			),
@@ -614,40 +614,40 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_dates() {
 		$data = array(
 			'shortcode' => 'course_dates',
-			'content' => __( 'Displays the course start and end date range. Typically as [course_start] - [course_end].', 'cp' ),
+			'content' => __( 'Zeigt den Datumsbereich für Kursbeginn und -ende an. Normalerweise als [Kurs_Start] - [Kurs_Ende].', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
 						'default' => 'wp',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'no_date_text' => array(
-						'content' => __( 'Text to display if the course has no end date.', 'cp' ),
-						'default' => __( 'No End Date', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs kein Enddatum hat.', 'cp' ),
+						'default' => __( 'Kein Enddatum', 'cp' ),
 					),
 					'alt_display_text' => array(
-						'content' => __( 'Alternate display when there is no end date.', 'cp' ),
-						'default' => __( 'Open-ended', 'cp' ),
+						'content' => __( 'Wechselnde Anzeige, wenn es kein Enddatum gibt.', 'cp' ),
+						'default' => __( 'Offenes Ende', 'cp' ),
 					),
 					'show_alt_display' => array(
-						'content' => __( 'If set to "yes" use the alt_display_text. If set to "no" use the "no_date_text".', 'cp' ),
-						'default' => __( 'no', 'cp' ),
+						'content' => __( 'Wenn du "ja" einstellst, verwende den alt_display_text. Wenn du "no" einstellst, verwende den "no_date_text".', 'cp' ),
+						'default' => __( 'nein', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 				),
@@ -673,32 +673,32 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_enrollment_start() {
 		$data = array(
 			'shortcode' => 'course_enrollment_start',
-			'content' => __( 'Displays the course enrollment start date.', 'cp' ),
+			'content' => __( 'Zeigt das Datum an, an dem die Einschreibung in den Kurs beginnt.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
 						'default' => 'wp',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
-						'default' => __( 'strong', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
+						'default' => __( 'stark', 'cp' ),
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'no_date_text' => array(
-						'content' => __( 'Text to display if the course has no defined enrollment start date.', 'cp' ),
-						'default' => __( 'Enroll Anytime', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs kein festgelegtes Einschreibedatum hat.', 'cp' ),
+						'default' => __( 'Jederzeit einschreiben', 'cp' ),
 					),
 				),
 			),
@@ -723,36 +723,36 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_enrollment_end() {
 		$data = array(
 			'shortcode' => 'course_enrollment_end',
-			'content' => __( 'Shows the course enrollment end date.', 'cp' ),
+			'content' => __( 'Zeigt das Enddatum der Kurseinschreibung an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
-						'default' => __( 'WordPress setting.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
+						'default' => __( 'WordPress-Einstellung.', 'cp' ),
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'no_date_text' => array(
-						'content' => __( 'Text to display if there is no enrollment end date.', 'cp' ),
-						'default' => __( 'Enroll Anytime', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn es kein Enddatum für die Einschreibung gibt.', 'cp' ),
+						'default' => __( 'Jederzeit einschreiben', 'cp' ),
 					),
 					'show_all_dates' => array(
-						'content' => __( 'If "yes" it will display the no_date_text even if there is no date. If "no" then nothing will be displayed.', 'cp' ),
-						'default' => __( 'no', 'cp' ),
+						'content' => __( 'Bei "ja" wird der no_date_text angezeigt, auch wenn es kein Datum gibt. Wenn "nein", wird nichts angezeigt.', 'cp' ),
+						'default' => __( 'nein', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 				),
@@ -778,49 +778,49 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_enrollment_dates() {
 		$data = array(
 			'shortcode' => 'course_enrollment_dates',
-			'content' => __( 'Displays the course enrollment start and end date range. Typically as [course_enrollment_start] - [course_enrollment_end].', 'cp' ),
+			'content' => __( 'Zeigt den Datumsbereich für Beginn und Ende der Kurseinschreibung an. Normalerweise als [kurs_einschreibung_start] - [kurs_einschreibung_ende].', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'alt_display_text' => array(
-						'content' => __( 'Alternate display when there is no enrollment start or end dates.', 'cp' ),
-						'default' => __( 'Open-ended', 'cp' ),
+						'content' => __( 'Wechselnde Anzeige, wenn es kein Start- oder Enddatum für die Einschreibung gibt.', 'cp' ),
+						'default' => __( 'Offenes Ende', 'cp' ),
 					),
 					'date_format' => array(
-						'content' => __( 'PHP style date format.', 'cp' ),
+						'content' => __( 'Datumsformat im PHP-Stil.', 'cp' ),
 						'default' => 'wp',
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => 'wp',
 					),
 					'label_enrolled' => array(
-						'content' => __( 'Label to display for enroled date.', 'cp' ),
-						'default' => __( 'You Enrolled on: ', 'cp' ),
+						'content' => __( 'Etikett, das für das Anmeldedatum angezeigt wird.', 'cp' ),
+						'default' => __( 'Du bist eingeschrieben in:', 'cp' ),
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
-						'default' => __( 'strong', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
+						'default' => __( 'stark', 'cp' ),
 					),
 					'no_date_text' => array(
-						'content' => __( 'Text to display if there is no enrollment start or end dates.', 'cp' ),
-						'default' => __( 'Enroll Anytime', 'cp' ),
+						'content' => __( 'Text, der angezeigt werden soll, wenn es kein Start- oder Enddatum für die Einschreibung gibt.', 'cp' ),
+						'default' => __( 'Jederzeit einschreiben', 'cp' ),
 					),
 					'show_alt_display' => array(
-						'content' => __( 'If set to "yes" use the alt_display_text. If set to "no" use the "no_date_text".', 'cp' ),
-						'default' => __( 'no', 'cp' ),
+						'content' => __( 'Wenn du "ja" einstellst, verwende den alt_display_text. Wenn du "no" einstellst, verwende den "no_date_text".', 'cp' ),
+						'default' => __( 'nein', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 					'show_enrolled_display' => array(
-						'content' => __( 'Display enrollment start label.', 'cp' ),
-						'default' => __( 'yes', 'cp' ),
+						'content' => __( 'Anzeige des Startetiketts für die Einschreibung.', 'cp' ),
+						'default' => __( 'ja', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 				),
@@ -846,44 +846,44 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_enrollment_type() {
 		$data = array(
 			'shortcode' => 'course_enrollment_type',
-			'content' => __( 'Shows the type of enrollment (manual, prerequisite, passcode or anyone).', 'cp' ),
+			'content' => __( 'Zeigt die Art der Einschreibung an (manuell, Voraussetzung, Passcode oder jeder).', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'anyone_text' => array(
-						'content' => __( 'Text to display when anyone can enroll.', 'cp' ),
-						'default' => __( 'Anyone', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn sich jemand anmelden kann.', 'cp' ),
+						'default' => __( 'Jeder', 'cp' ),
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'manual_text' => array(
-						'content' => __( 'Text to display for manual enrollments.', 'cp' ),
-						'default' => __( 'Students are added by instructors.', 'cp' ),
+						'content' => __( 'Text, der bei manuellen Anmeldungen angezeigt wird.', 'cp' ),
+						'default' => __( 'Teilnehmer werden vom Dozenten freigegeben.', 'cp' ),
 					),
 					'passcode_text' => array(
-						'content' => __( 'Text to display when a passcode is required.', 'cp' ),
-						'default' => __( 'A passcode is required to enroll.', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn ein Passcode erforderlich ist.', 'cp' ),
+						'default' => __( 'Ein Passwort ist erforderlich, zum Einschreiben.', 'cp' ),
 					),
 					'prerequisite_text' => array(
-						'content' => __( 'Text to display when there is a prerequisite. Use %s as placeholder for prerequisite course title.', 'cp' ),
-						'default' => __( 'Students need to complete "%s" first.', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn es eine Voraussetzung gibt. Verwende %s als Platzhalter für den Titel des vorausgesetzten Kurses.', 'cp' ),
+						'default' => __( 'Teilnehmer müssen zuerst "%s" abschließen.', 'cp' ),
 					),
 					'registered_text' => array(
-						'content' => __( 'Text to display for registered users.', 'cp' ),
-						'default' => __( 'Registered users.', 'cp' ),
+						'content' => __( 'Text, der für registrierte Benutzer angezeigt wird.', 'cp' ),
+						'default' => __( 'Registrierte Benutzer.', 'cp' ),
 					),
 				),
 			),
@@ -909,40 +909,40 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_class_size() {
 		$data = array(
 			'shortcode' => 'course_class_size',
-			'content' => __( 'Shows the course class size, limits and remaining seats.', 'cp' ),
+			'content' => __( 'Zeigt die Klassengröße, die Grenzen und die verbleibenden Plätze an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'no_limit_text' => array(
-						'content' => __( 'Text to display for unlimited class sizes.', 'cp' ),
-						'default' => __( 'Unlimited', 'cp' ),
+						'content' => __( 'Text zur Anzeige für unbegrenzte Klassengrößen.', 'cp' ),
+						'default' => __( 'Unbegrenzt', 'cp' ),
 					),
 					'remaining_text' => array(
-						'content' => __( 'Text to display for remaining places. Use %d for the remaining number.', 'cp' ),
-						'default' => __( '(%d places left)', 'cp' ),
+						'content' => __( 'Text, der für die verbleibenden Plätze angezeigt werden soll. Verwende %d für die verbleibende Zahl.', 'cp' ),
+						'default' => __( '(%d Plätze links)', 'cp' ),
 					),
 					'show_no_limit' => array(
-						'content' => __( 'If "yes" it will show the no_limit_text. If "no" then nothing will display for unlimited courses.', 'cp' ),
+						'content' => __( 'Wenn "ja", wird der no_limit_text angezeigt. Wenn "nein", wird bei unbegrenzten Kursen nichts angezeigt.', 'cp' ),
 						'default' => 'no',
 						'options' => array( 'yes', 'no' ),
 					),
 					'show_remaining' => array(
-						'content' => __( 'If "yes" show remaining_text. If "no" don’t show remaining places.', 'cp' ),
+						'content' => __( 'Wenn "ja" zeige verbleibenden_Text. Wenn "nein", zeige die verbleibenden Orte nicht an.', 'cp' ),
 						'default' => 'yes',
 						'options' => array( 'yes', 'no' ),
 					),
@@ -970,32 +970,32 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_cost() {
 		$data = array(
 			'shortcode' => 'course_cost',
-			'content' => __( 'Shows the pricing for the course or free for unpaid courses.', 'cp' ),
+			'content' => __( 'Zeigt den Preis für den Kurs an oder ist bei unbezahlten Kursen kostenlos.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'no_cost_text' => array(
-						'content' => __( 'Text to display for unpaid courses.', 'cp' ),
-						'default' => __( 'FREE', 'cp' ),
+						'content' => __( 'Text, der bei unbezahlten Kursen angezeigt wird.', 'cp' ),
+						'default' => __( 'KOSTENLOS', 'cp' ),
 					),
 					'show_icon' => array(
-						'content' => __( 'Add extra span with class "product_price" around no_cost_text.', 'cp' ),
-						'default' => __( 'no', 'cp' ),
+						'content' => __( 'Füge einen zusätzlichen Span mit der Klasse "product_price" um no_cost_text hinzu.', 'cp' ),
+						'default' => __( 'nein', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 				),
@@ -1003,7 +1003,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 			'add_class_to_optional' => true,
 			'examples' => array(
 				'[course_cost]',
-				'[course_cost no_cost_text="'. __( 'Free as in beer.', 'cp' ) .'"]',
+				'[course_cost no_cost_text="'. __( 'Frei wie ein Bier.', 'cp' ) .'"]',
 			),
 		);
 		$content = self::_prepare_box( $data );
@@ -1021,27 +1021,27 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_time_estimation() {
 		$data = array(
 			'shortcode' => 'course_time_estimation',
-			'content' => __( 'Shows the total time estimation based on calculation of unit elements.', 'cp' ),
+			'content' => __( 'Zeigt die geschätzte Gesamtzeit basierend auf der Berechnung der Einheitselemente an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'label' => array(
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'wrapper' => array(
-						'content' => __( 'Wrap inside a div tag (yes|no).', 'cp' ),
+						'content' => __( 'Wickeln Sie innerhalb eines Div-Tags (ja | nein).', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 				),
@@ -1068,11 +1068,11 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_language() {
 		$data = array(
 			'shortcode' => 'course_language',
-			'content' => __( 'Displays the language of the course (if set).', 'cp' ),
+			'content' => __( 'Zeigt die Sprache des Kurses an (falls eingestellt).', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
@@ -1080,11 +1080,11 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 						'content' => __( 'Label to display for the output. Set label to "" to hide the label completely.', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 				),
@@ -1110,21 +1110,21 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_list_image() {
 		$data = array(
 			'shortcode' => 'course_list_image',
-			'content' => __( 'Displays the course list image. (See [course_media]).', 'cp' ),
+			'content' => __( 'Zeigt das Bild der Kursliste an. (Siehe [course_media]).', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'width' => array(
-						'content' => __( 'Width of image.', 'cp' ),
-						'default' => __( 'Original width', 'cp' ),
+						'content' => __( 'Breite des Bildes.', 'cp' ),
+						'default' => __( 'Ursprüngliche Breite', 'cp' ),
 					),
 					'height' => array(
-						'content' => __( 'Height of image.', 'cp' ),
-						'default' => __( 'Original height', 'cp' ),
+						'content' => __( 'Höhe des Bildes.', 'cp' ),
+						'default' => __( 'Ursprüngliche Höhe', 'cp' ),
 					),
 				),
 			),
@@ -1149,21 +1149,21 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_featured_video() {
 		$data = array(
 			'shortcode' => 'course_featured_video',
-			'content' => __( 'Embeds a video player with the course’s featured video. (See [course_media]).', 'cp' ),
+			'content' => __( 'Bettet einen Videoplayer mit dem Video des Kurses ein. (Siehe [course_media]).', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'width' => array(
-						'content' => __( 'Width of video player.', 'cp' ),
-						'default' => __( 'Default player width', 'cp' ),
+						'content' => __( 'Breite des Videoplayers.', 'cp' ),
+						'default' => __( 'Standardbreite des Spielers', 'cp' ),
 					),
 					'height' => array(
-						'content' => __( 'Height of video player.', 'cp' ),
-						'default' => __( 'Default player height', 'cp' ),
+						'content' => __( 'Höhe des Videoplayers.', 'cp' ),
+						'default' => __( 'Standardhöhe des Spielers', 'cp' ),
 					),
 				),
 			),
@@ -1188,40 +1188,40 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_media() {
 		$data = array(
 			'shortcode' => 'course_media',
-			'content' => __( 'Displays either the list image or the featured video (with the other option as possible fallback).', 'cp' ),
+			'content' => __( 'Zeigt entweder das Listenbild oder das vorgestellte Video an (mit der anderen Option als möglichem Fallback).', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'width' => array(
-						'content' => __( 'Width of media.', 'cp' ),
-						'default' => __( 'CoursePress settings.', 'cp' ),
+						'content' => __( 'Breite der Medien.', 'cp' ),
+						'default' => __( 'CoursePress-Einstellungen.', 'cp' ),
 					),
 					'height' => array(
-						'content' => __( 'Height of media.', 'cp' ),
-						'default' => __( 'CoursePress settings.', 'cp' ),
+						'content' => __( 'Höhe der Medien.', 'cp' ),
+						'default' => __( 'CoursePress-Einstellungen.', 'cp' ),
 					),
 					'list_page' => array(
-						'content' => __( 'Use "yes" to use the CoursePress Settings for "Course Listings". Use "no" to use the CoursePress Settings for "Course Details Page".', 'cp' ),
-						'default' => __( 'no', 'cp' ),
+						'content' => __( 'Verwende "ja", um die CoursePress-Einstellungen für "Kurslisten" zu verwenden. Verwende "nein", um die CoursePress-Einstellungen für die "Kursdetailseite" zu verwenden.', 'cp' ),
+						'default' => __( 'nein', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 					'priority' => array(
-						'content' => __( 'Use "image" to try to show the list image first. If not available, then try to use the featured video.  Use "video" to try to show the featured video first. If not available, try to use the list image.', 'cp' ),
-						'default' => __( 'CoursePress Settings', 'cp' ),
+						'content' => __( 'Verwende "Bild", um zu versuchen, das Listenbild zuerst anzuzeigen. Wenn es nicht verfügbar ist, dann versuche, das vorgestellte Video zu verwenden.  Verwende "video", um zu versuchen, das vorgestellte Video zuerst zu zeigen. Wenn es nicht verfügbar ist, versuche, das Listenbild zu verwenden.', 'cp' ),
+						'default' => __( 'CoursePress Einstellungen', 'cp' ),
 						'options' => array( 'image', 'video', 'default' ),
 					),
 					'type' => array(
-						'content' => __( 'Use "image" to only display list image if available. Use "video" to only show the video if available. Use "thumbnail" to show the course thumbnail (shortcut for type="image" and priority="image"). Use "default" to enable priority mode (see priority attribute).', 'cp' ),
-						'default' => __( 'CoursePress Settings', 'cp' ),
+						'content' => __( 'Verwende "Bild", um nur das Listenbild anzuzeigen, wenn es verfügbar ist. Verwende "video", um nur das Video anzuzeigen, wenn es verfügbar ist. Verwende "thumbnail", um die Miniaturansicht des Kurses anzuzeigen (Abkürzung für type="image" und priority="image"). Verwende "default", um den Prioritätsmodus zu aktivieren (siehe Attribut priority).', 'cp' ),
+						'default' => __( 'CoursePress Einstellungen', 'cp' ),
 						'options' => array( 'image', 'video', 'thumbnail', 'default' ),
 					),
 					'wrapper' => array(
-						'content' => __( 'Wrap inside a tag.', 'cp' ),
-						'default' => __( 'empty string, but if height or width is defined, then wrapper is a "div" tag.', 'cp' ),
+						'content' => __( 'Wickeln Sie innerhalb Tags.', 'cp' ),
+						'default' => __( 'leerer String, aber wenn Höhe oder Breite definiert sind, ist der Wrapper ein "div"-Tag.', 'cp' ),
 					),
 				),
 			),
@@ -1249,76 +1249,76 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_join_button() {
 		$data = array(
 			'shortcode' => 'course_join_button',
-			'content' => __( 'Shows the Join/Signup/Enroll button for the course. What it displays is dependent on the course settings and the user’s status/enrollment.<br />See the attributes for possible button labels.', 'cp' ),
+			'content' => __( 'Zeigt die Schaltfläche Beitreten/Anmelden/Einschreiben für den Kurs an. Was angezeigt wird, hängt von den Kurseinstellungen und dem Status bzw. der Einschreibung des Nutzers ab.<br />Siehe die Attribute für mögliche Schaltflächenbeschriftungen.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'access_text' => array(
-						'content' => __( 'Text to display when the user is enrolled and ready to learn.', 'cp' ),
-						'default' => __( 'Start Learning', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der/die Nutzer/in eingeschrieben und bereit zum Lernen ist.', 'cp' ),
+						'default' => __( 'Lernen beginnen', 'cp' ),
 					),
 					'continue_learning_text' => array(
-						'content' => __( 'Text to display when the course can be continued.', 'cp' ),
-						'default' => __( 'Continue Learning', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs fortgesetzt werden kann.', 'cp' ),
+						'default' => __( 'Weiter lernen', 'cp' ),
 					),
 					'course_expired_text' => array(
-						'content' => __( 'Text to display when the course has expired.', 'cp' ),
-						'default' => __( 'Not available', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs abgelaufen ist.', 'cp' ),
+						'default' => __( 'Nicht verfügbar', 'cp' ),
 					),
 					'course_full_text' => array(
-						'content' => __( 'Text to display if the course is full.', 'cp' ),
-						'default' => __( 'Course Full', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs voll ist.', 'cp' ),
+						'default' => __( 'Kurs voll', 'cp' ),
 					),
 					'details_text' => array(
-						'content' => __( 'Text for the button that takes you to the full course page.', 'cp' ),
-						'default' => __( 'Course Details', 'cp' ),
+						'content' => __( 'Text für die Schaltfläche, die dich zur vollständigen Kursseite führt.', 'cp' ),
+						'default' => __( 'Kursdetails', 'cp' ),
 					),
 					'enrollment_closed_text' => array(
-						'content' => __( 'Text to display when enrollments haven’t started yet.', 'cp' ),
-						'default' => __( 'Enrollments Closed', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn die Anmeldungen noch nicht begonnen haben.', 'cp' ),
+						'default' => __( 'Einschreibung geschlossen', 'cp' ),
 					),
 					'enrollment_finished_text' => array(
-						'content' => __( 'Text to display when enrollments are finished (expired).', 'cp' ),
-						'default' => __( 'Enrollments Finished', 'cp' ),
+						'content' => __( 'Text, der angezeigt werden soll, wenn Anmeldungen beendet werden (abgelaufen sind).', 'cp' ),
+						'default' => __( 'Beendete Einschreibungen', 'cp' ),
 					),
 					'enroll_text' => array(
-						'content' => __( 'Text to display when course is ready for enrollments.', 'cp' ),
-						'default' => __( 'Enroll now', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs für Einschreibungen bereit ist.', 'cp' ),
+						'default' => __( 'Jetzt anmelden', 'cp' ),
 					),
 					'instructor_text' => array(
-						'content' => __( 'Text to display when current user is an instructor of this course.', 'cp' ),
-						'default' => __( 'Access Course', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der/die aktuelle Nutzer/in ein/e Lehrkraft dieses Kurses ist.', 'cp' ),
+						'default' => __( 'Den Kurs betreten', 'cp' ),
 					),
 					'list_page' => array(
-						'content' => __( 'Show button to course details.', 'cp' ),
+						'content' => __( 'Schaltfläche zum Anzeigen der Kursdetails.', 'cp' ),
 						'default' => 'false',
 					),
 					'not_started_text' => array(
-						'content' => __( 'Text to display when a student is enrolled, but the course hasn’t started yet.', 'cp' ),
-						'default' => __( 'Not available', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn ein Schüler eingeschrieben ist, der Kurs aber noch nicht begonnen hat.', 'cp' ),
+						'default' => __( 'Nicht verfügbar', 'cp' ),
 					),
 					'passcode_text' => array(
-						'content' => __( 'Text to display if the course requires a password.', 'cp' ),
-						'default' => __( 'Passcode Required', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs ein Passwort erfordert.', 'cp' ),
+						'default' => __( 'Passwort erforderlich', 'cp' ),
 					),
 					'prerequisite_text' => array(
-						'content' => __( 'Text to display if the course has a prerequisite.', 'cp' ),
-						'default' => __( 'Pre-requisite Required', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs eine Voraussetzung hat.', 'cp' ),
+						'default' => __( 'Voraussetzungen', 'cp' ),
 					),
 					'signup_text' => array(
-						'content' => __( 'Text to display when course is ready for enrollments, but the user is not logged in (visitor).', 'cp' ),
-						'default' => __( 'Signup!', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Kurs für Einschreibungen bereit ist, der Nutzer aber nicht angemeldet ist (Besucher).', 'cp' ),
+						'default' => __( 'Bitte erst anmelden', 'cp' ),
 					),
 				),
 			),
 			'add_class_to_optional' => true,
 			'examples' => array(
 				'[course_join_button]',
-				'[course_join_button course_id="11" course_expired_text="'. __( 'You missed out big time!', 'cp' ).'"]',
+				'[course_join_button course_id="11" course_expired_text="'. __( 'Du hast etwas verpasst!', 'cp' ).'"]',
 			),
 		);
 		$content = self::_prepare_box( $data );
@@ -1336,11 +1336,11 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_action_links() {
 		$data = array(
 			'shortcode' => 'course_action_links',
-			'content' => __( 'Shows  "Course Details" and "Withdraw" links to students.', 'cp' ),
+			'content' => __( 'Zeigt den Schülern die Links "Kursdetails" und "Zurücktreten" an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 			),
@@ -1364,33 +1364,33 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_calendar() {
 		$data = array(
 			'shortcode' => 'course_calendar',
-			'content' => __( 'Shows the course calendar (bounds are restricted by course start and end dates). Will always attempt to show today’s date on a calendar first.', 'cp' ),
+			'content' => __( 'Zeigt den Kurskalender an (die Grenzen sind durch das Start- und Enddatum des Kurses begrenzt). Es wird immer versucht, zuerst das heutige Datum im Kalender anzuzeigen.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'date_indicator' => array(
-						'content' => __( 'Classes string added calendar table tag holder.', 'cp' ),
-						'default' => __( 'indicator_light_block', 'cp' ),
+						'content' => __( 'Klassen String hinzugefügt Kalender Tabelle Tag Halter.', 'cp' ),
+						'default' => __( 'blinker_licht_block', 'cp' ),
 					),
 					'month' => array(
-						'content' => __( 'Month to display as number (e.g. 03 for March).', 'cp' ),
-						'default' => __( 'Today’s date', 'cp' ),
+						'content' => __( 'Monat, der als Zahl angezeigt werden soll (z. B. 03 für März).', 'cp' ),
+						'default' => __( 'Heutiges Datum', 'cp' ),
 					),
 					'next' => array(
-						'content' => __( 'Text to display for next month link.', 'cp' ),
-						'default' => __( 'Next &raquo;', 'cp' ),
+						'content' => __( 'Text, der für den Link zum nächsten Monat angezeigt werden soll.', 'cp' ),
+						'default' => __( 'Nächste &raquo;', 'cp' ),
 					),
 					'pre' => array(
-						'content' => __( 'Text to display for previous month link.', 'cp' ),
-						'default' => __( '&laquo; Previous', 'cp' ),
+						'content' => __( 'Text, der für den Link zum Vormonat angezeigt werden soll.', 'cp' ),
+						'default' => __( '&laquo; Zurück', 'cp' ),
 					),
 					'year' => array(
-						'content' => __( 'Year to display as 4-digit number (e.g. 2014).', 'cp' ),
-						'default' => __( 'Today’s date', 'cp' ),
+						'content' => __( 'Jahr, das als 4-stellige Zahl angezeigt werden soll (z. B. 2014).', 'cp' ),
+						'default' => __( 'Heutiges Datum', 'cp' ),
 					),
 				),
 			),
@@ -1414,116 +1414,116 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_list() {
 		$data = array(
 			'shortcode' => 'course_list',
-			'content' => __( 'Displays a listing of courses. Can be for all courses or restricted by instructors or students (only one or the other, if both specified only students will be used).', 'cp' ),
+			'content' => __( 'Zeigt eine Liste von Kursen an. Kann für alle Kurse oder nach Lehrkräften oder Schülern eingeschränkt werden (nur das eine oder das andere; wenn beides angegeben wird, werden nur Schüler angezeigt).', 'cp' ),
 			'parameters' => array(
 				'optional' => array(
 					'categories' => array(
-						'content' => __( 'A comma separated category slugs to show courses on specific course categories.', 'cp' ),
+						'content' => __( 'Ein kommagetrennter Kategorie-Slug, um Kurse zu bestimmten Kurskategorien anzuzeigen.', 'cp' ),
 						'default' => 'empty',
 					),
 					'completed_label' => array(
-						'content' => __( 'Label for completed courses list.', 'cp' ),
-						'default' => __( 'Completed courses', 'cp' ),
+						'content' => __( 'Etikett für die Liste der abgeschlossenen Kurse.', 'cp' ),
+						'default' => __( 'Abgeschlossene Kurse', 'cp' ),
 					),
 					'context' => array(
-						'content' => __( 'Context for the courses list. Possible values: .', 'cp' ),
+						'content' => __( 'Kontext für die Kursliste. Mögliche Werte: .', 'cp' ),
 						'default' => 'all',
 						'options' => array( 'enrolled', 'future', 'incomplete', 'completed', 'past', 'manage', 'facilitator', 'all' ),
 					),
 					'current_label' => array(
-						'content' => __( 'Label for current courses.', 'cp' ),
-						'default' => __( 'Current Courses', 'cp' ),
+						'content' => __( 'Etikett für aktuelle Kurse.', 'cp' ),
+						'default' => __( 'Aktuelle Kurse', 'cp' ),
 					),
 					'dashboard' => array(
-						'content' => __( 'If is true or "yes" then switch context to "dashboard".', 'cp' ),
+						'content' => __( 'Wenn wahr oder "ja", dann schalte den Kontext auf "Dashboard" um.', 'cp' ),
 						'default' => 'empty',
 					),
 					'facilitator_label' => array(
-						'content' => __( 'Label before courses list for "facilitator" context.', 'cp' ),
-						'default' => __( 'Facilitated Courses', 'cp' ),
+						'content' => __( 'Etikett vor der Kursliste für den Kontext "Vermittler".', 'cp' ),
+						'default' => __( 'Erleichterte Kurse', 'cp' ),
 					),
 					'facilitator' => array(
-						'content' => __( 'If this true or "yes" switch content to "facilitator".', 'cp' ),
+						'content' => __( 'Wenn dies zutrifft oder "ja", schalte den Inhalt auf "Vermittler" um.', 'cp' ),
 						'default' => 'empty',
 					),
 					'future_label' => array(
-						'content' => __( 'Label for future courses.', 'cp' ),
-						'default' => __( 'Starting soon', 'cp' ),
+						'content' => __( 'Etikett für zukünftige Kurse.', 'cp' ),
+						'default' => __( 'Beginnt bald', 'cp' ),
 					),
 					'incomplete_label' => array(
-						'content' => __( 'Label for incomplete courses.', 'cp' ),
-						'default' => __( 'Incomplete courses', 'cp' ),
+						'content' => __( 'Etikett für unvollständige Kurse.', 'cp' ),
+						'default' => __( 'Unvollständige Kurse', 'cp' ),
 					),
 					'instructor_msg' => array(
-						'content' => __( 'Message displayed on intructor page, when instructor do not have any assigned courses.', 'cp' ),
-						'default' => __( 'The Instructor does not have any courses assigned yet.', 'cp' ),
+						'content' => __( 'Meldung auf der Dozentenseite, wenn der Dozent keine zugewiesenen Kurse hat.', 'cp' ),
+						'default' => __( 'Der/die Ausbilder/in hat noch keine Kurse zugewiesen.', 'cp' ),
 					),
 					'instructor' => array(
-						'content' => __( 'The instructor id to list courses for a specific instructor. Can also specify multiple instructors using commas. (e.g. instructor="1,2,3").', 'cp' ),
+						'content' => __( 'Die Ausbilderkennung, um die Kurse eines bestimmten Ausbilders aufzulisten. Du kannst auch mehrere Lehrkräfte mit Kommas angeben. (z. B. lehrer="1,2,3").', 'cp' ),
 						'default' => 'empty',
-						'description' => __( 'If both student and instructor are specified, only the student will be used.', 'cp' ),
+						'description' => __( 'Wenn sowohl Schüler als auch Ausbilder angegeben werden, wird nur der Schüler verwendet.', 'cp' ),
 					),
 					'limit' => array(
-						'content' => __( 'Limit the number of courses. Use -1 to show all.', 'cp' ),
+						'content' => __( 'Schränke die Anzahl der Kurse ein. Verwende -1, um alle anzuzeigen.', 'cp' ),
 						'default' => __( '-1', 'cp' ),
 					),
 					'manage_label' => array(
-						'content' => __( 'Label before manageable courses.', 'cp' ),
-						'default' => __( 'Manage Courses', 'cp' ),
+						'content' => __( 'Etikett vor beartbaren Kursen.', 'cp' ),
+						'default' => __( 'Kurse verwalten', 'cp' ),
 					),
 					'order' => array(
-						'content' => __( 'Order the courses. "ASC" for ascending order. "DESC" for descending order.', 'cp' ),
-						'default' => __( 'ASC', 'cp' ),
+						'content' => __( 'Ordne die Kurse. "ASC" für aufsteigende Reihenfolge. "DESC" für absteigende Reihenfolge.', 'cp' ),
+						'default' => __( 'Aufsteigend', 'cp' ),
 						'options' => array( 'ASC', 'DESC' ),
 					),
 					'orderby' => array(
-						'content' => __( 'Orderby the courses by course date or by course title.', 'cp' ),
-						'default' => __( 'meta', 'cp' ),
+						'content' => __( 'Ordne die Kurse nach Kursdatum oder nach Kurstitel.', 'cp' ),
+						'default' => __( 'Meta', 'cp' ),
                         'options' => array( 'meta', 'title' ),
-                        'description' => __('It works only with default "context".', 'cp' ),
+                        'description' => __('Es funktioniert nur mit dem Standard-"Kontext".', 'cp' ),
 					),
 					'past_label' => array(
-						'content' => __( 'Label before past courses.', 'cp' ),
-						'default' => __( 'Past courses', 'cp' ),
+						'content' => __( 'Etikett vor vergangenen Kursen.', 'cp' ),
+						'default' => __( 'Vergangene Kurse', 'cp' ),
 					),
 					'show_labels' => array(
-						'content' => __( 'Show labels.', 'cp' ),
+						'content' => __( 'Labels anzeigen.', 'cp' ),
 						'default' => 'false',
 					),
 					'status' => array(
-						'content' => __( 'The status of courses to show (uses WordPress status).', 'cp' ),
-						'default' => __( 'published', 'cp' ),
+						'content' => __( 'Der Status der Kurse, die angezeigt werden sollen (verwendet den WordPress-Status).', 'cp' ),
+						'default' => __( 'veröffentlicht', 'cp' ),
 					),
 					'student_msg' => array(
-						'content' => __( 'Messge displayed when student is not enroled to any course.', 'cp' ),
+						'content' => __( 'Diese Meldung wird angezeigt, wenn ein Schüler nicht für einen Kurs eingeschrieben ist.', 'cp' ),
 						'default' => sprintf(
-							__( 'You are not enrolled in any courses. %s', 'cp' ),
+							__( 'Du bist in keinem Kurs eingeschrieben. %s', 'cp' ),
 							htmlentities(
 								sprintf(
-									__( '<a href="%s">See available courses.</a>', 'cp' ),
+									__( '<a href="%s">Siehe verfügbare Kurse.</a>', 'cp' ),
 									esc_attr( '/'.CoursePress_Core::get_setting( 'slugs/course', 'courses' ) )
 								)
 							)
 						),
 					),
 					'student' => array(
-						'content' => __( 'The student id to list courses for a specific student. Can also specify multiple students using commas. (e.g. student="1,2,3").', 'cp' ),
+						'content' => __( 'Die Schüler-ID, um die Kurse für einen bestimmten Schüler aufzulisten. Du kannst auch mehrere Schüler mit Kommas angeben. (z. B. student="1,2,3").', 'cp' ),
 						'default' => 'empty',
-						'description' => __( 'If both student and instructor are specified, only the student will be used.', 'cp' ),
+						'description' => __( 'Wenn sowohl Schüler als auch Ausbilder angegeben werden, wird nur der Schüler verwendet.', 'cp' ),
 						'suggested_label' => array(
-							'content' => __( 'Label before suggested courses.', 'cp' ),
-							'default' => __( 'Suggested courses', 'cp' ),
+							'content' => __( 'Etikett vor den vorgeschlagenen Kursen.', 'cp' ),
+							'default' => __( 'Vorgeschlagene Kurse', 'cp' ),
 						),
 						'suggested_msg' => array(
-							'content' => __( 'Message will be show when student is not enrolled to any course, but we have some suggested courses.', 'cp' ),
+							'content' => __( 'Es wird eine Meldung angezeigt, wenn der/die Schüler/in für keinen Kurs eingeschrieben ist, aber wir haben einige Kursvorschläge.', 'cp' ),
 							'default' => sprintf(
 								__( 'You are not enrolled in any courses.<br />Here are a few you might like, or %s' ),
-								htmlentities( __( ' <a href="%s">see all available courses.</a>', 'cp' ) )
+								htmlentities( __( ' <a href="%s">siehe alle verfügbaren Kurse.</a>', 'cp' ) )
 							),
 						),
 					),
 					'show_withdraw_link' => array(
-						'content' => __( 'Allow to show withdraw link, but it work only when is a student and status is set on "incomplete".', 'cp' ),
+						'content' => __( 'Erlaube es, den Link zum Zurückziehen anzuzeigen, aber es funktioniert nur, wenn es ein Schüler ist und der Status auf "unvollständig" gesetzt ist.', 'cp' ),
 						'default' => 'false',
 					),
 				),
@@ -1551,30 +1551,30 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_featured() {
 		$data = array(
 			'shortcode' => 'course_featured',
-			'content' => __( 'Shows a featured course.', 'cp' ),
+			'content' => __( 'Zeigt einen empfohlenen Kurs.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'featured_title' => array(
-						'content' => __( 'The title to display for the featured course.', 'cp' ),
-						'default' => __( 'Featured Course', 'cp' ),
+						'content' => __( 'Der Titel, der für den vorgestellten Kurs angezeigt werden soll.', 'cp' ),
+						'default' => __( 'Empfohlener Kurs', 'cp' ),
 					),
 					'button_title' => array(
-						'content' => __( 'Text to display on the call to action button.', 'cp' ),
-						'default' => __( 'Find out more.', 'cp' ),
+						'content' => __( 'Text, der auf dem Call-to-Action-Button angezeigt werden soll.', 'cp' ),
+						'default' => __( 'Erfahren Sie mehr.', 'cp' ),
 					),
 					'media_type' => array(
-						'content' => __( 'Media type to use for featured course. See [course_media].', 'cp' ),
+						'content' => __( 'Medientyp, der für den vorgestellten Kurs verwendet werden soll. Siehe [course_media].', 'cp' ),
 						'default' => 'default',
 						'options' => array( 'image', 'video', 'thumbnail', 'default' ),
 					),
 					'media_priority' => array(
-						'content' => __( 'Media priority to use for featured course. See [course_media].', 'cp' ),
-						'default' => __( 'video', 'cp' ),
+						'content' => __( 'Medienpriorität, die für den vorgestellten Kurs verwendet werden soll. Siehe [course_media].', 'cp' ),
+						'default' => __( 'Video', 'cp' ),
 						'options' => array( 'image', 'video', 'default' ),
 					),
 				),
@@ -1600,55 +1600,55 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_structure() {
 		$data = array(
 			'shortcode' => 'course_structure',
-			'content' => __( 'Displays a tree view of the course structure.', 'cp' ),
+			'content' => __( 'Zeigt eine Baumansicht der Kursstruktur an.', 'cp' ),
 			'parameters' => array(
 				'required' => array(
 					'course_id' => array(
-						'content' => __( 'If outside of the WordPress loop.', 'cp' ),
+						'content' => __( 'Wenn außerhalb der WordPress-Schleife.', 'cp' ),
 					),
 				),
 				'optional' => array(
 					'deep' => array(
-						'content' => __( 'Show all course modules.', 'cp' ),
+						'content' => __( 'Alle Kursmodule anzeigen.', 'cp' ),
 						'default' => 'false',
 					),
 					'free_class' => array(
-						'content' => __( 'Additional CSS classes for styling free preview items.', 'cp' ),
-						'default' => __( 'free', 'cp' ),
+						'content' => __( 'Zusätzliche CSS-Klassen für die Gestaltung von kostenlosen Vorschaubildern.', 'cp' ),
+						'default' => __( 'kostenlos', 'cp' ),
 					),
 					'free_show' => array(
-						'content' => __( 'Show for FREE preview items.', 'cp' ),
+						'content' => __( 'Für KOSTENLOSE Vorschauobjekte anzeigen.', 'cp' ),
 						'default' => 'true',
 					),
 					'free_text' => array(
-						'content' => __( 'Text to show for FREE preview items.', 'cp' ),
-						'default' => __( 'Preview', 'cp' ),
+						'content' => __( 'Text zum Anzeigen für KOSTENLOSE Vorschauartikel.', 'cp' ),
+						'default' => __( 'Vorschau', 'cp' ),
 					),
 					'label_delimeter' => array(
-						'content' => __( 'Symbol to use after the label.', 'cp' ),
+						'content' => __( 'Symbol für die Verwendung nach dem Etikett.', 'cp' ),
 						'default' => ':',
 					),
 					'label' => array(
-						'content' => __( 'Label to display for the output.', 'cp' ),
-						'default' => __( 'Course Structure', 'cp' ),
+						'content' => __( 'Beschriftung, die für die Ausgabe angezeigt werden soll.', 'cp' ),
+						'default' => __( 'Kursstruktur', 'cp' ),
 					),
 					'label_tag' => array(
-						'content' => __( 'HTML tag (without brackets) to use for the individual labels.', 'cp' ),
+						'content' => __( 'HTML-Tag (ohne Klammern), der für die einzelnen Beschriftungen verwendet werden soll.', 'cp' ),
 						'default' => 'strong',
 					),
 					'show_divider' => array(
-						'content' => __( 'Show divider between major items in the tree, "yes" or "no".', 'cp' ),
-						'default' => __( 'yes', 'cp' ),
+						'content' => __( 'Zeige eine Trennlinie zwischen den wichtigsten Elementen im Baum, "ja" oder "nein".', 'cp' ),
+						'default' => __( 'ja', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 					'show_label' => array(
-						'content' => __( 'Show label text as tree heading, "yes" or "no".', 'cp' ),
-						'default' => __( 'no', 'cp' ),
+						'content' => __( 'Beschriftungstext als Baumüberschrift anzeigen, "ja" oder "nein".', 'cp' ),
+						'default' => __( 'nein', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 					'show_title' => array(
-						'content' => __( 'Show course title in structure, "yes" or "no".', 'cp' ),
-						'default' => __( '"no"', 'cp' ),
+						'content' => __( 'Zeige den Kurstitel in der Struktur an, "ja" oder "nein".', 'cp' ),
+						'default' => __( '"Nein"', 'cp' ),
 						'options' => array( 'yes', 'no' ),
 					),
 				),
@@ -1657,7 +1657,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 			'examples' => array(
 				'[course_structure]',
 				'[course_structure course_id="42" free_text="'.__( 'Gratis!', 'cp' ).'" show_title="no"]',
-				'[course_structure show_title="no" label="'.__( 'Curriculum', 'cp' ).'"]',
+				'[course_structure show_title="no" label="'.__( 'Lehrplan', 'cp' ).'"]',
 			),
 		);
 		$content = self::_prepare_box( $data );
@@ -1675,55 +1675,55 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_course_signup() {
 		$data = array(
 			'shortcode' => 'course_signup',
-			'content' => __( 'Shows a custom login or signup page for front-end user registration and login.', 'cp' ),
-		   'note' => __( 'This is already part of CoursePress and can be set in CoursePress Settings. Links to default pages can be found in Appearance > Menus > CoursePress.', 'cp' ),
+			'content' => __( 'Zeigt eine benutzerdefinierte Login- oder Anmeldeseite für die Benutzerregistrierung und -anmeldung im Frontend an.', 'cp' ),
+		   'note' => __( 'Dies ist bereits Teil von CoursePress und kann in den CoursePress-Einstellungen festgelegt werden. Links zu den Standardseiten findest du unter Erscheinungsbild > Menüs > CoursePress.', 'cp' ),
 			'parameters' => array(
 				'optional' => array(
 					'failed_login_class' => array(
-						'content' => __( 'CSS class to use for invalid login.', 'cp' ),
+						'content' => __( 'CSS-Klasse, die für ungültige Anmeldungen verwendet wird.', 'cp' ),
 						'default' => 'red',
 					),
 					'failed_login_text' => array(
-						'content' => __( 'Text to display when user doesn’t authenticate.', 'cp' ),
-						'default' => __( 'Invalid login.', 'cp' ),
+						'content' => __( 'Text, der angezeigt wird, wenn der Benutzer sich nicht authentifiziert.', 'cp' ),
+						'default' => __( 'Ungültige Anmeldung.', 'cp' ),
 					),
 					'login_tag' => array(
-						'content' => __( 'Title tag wrapper.', 'cp' ),
+						'content' => __( 'Title Tag Wrapper.', 'cp' ),
 						'default' => 'h3',
 					),
 					'login_title' => array(
-						'content' => __( 'Title to use for Login section.', 'cp' ),
-						'default' => __( 'Login', 'cp' ),
+						'content' => __( 'Titel für den Login-Bereich.', 'cp' ),
+						'default' => __( 'Anmelden', 'cp' ),
 					),
 					'login_url' => array(
-						'content' => __( 'URL to redirect to when clicking on "Already have an Account?".', 'cp' ),
-						'default' => __( 'Plugin defaults.', 'cp' ),
+						'content' => __( 'URL, zu der du weitergeleitet wirst, wenn du auf "Hast du schon ein Konto?" klickst.', 'cp' ),
+						'default' => __( 'Plugin-Standardwerte.', 'cp' ),
 					),
 					'logout_url' => array(
-						'content' => __( 'URL to redirect to when user logs out.', 'cp' ),
-						'default' => __( 'Plugin defaults.', 'cp' ),
+						'content' => __( 'URL, zu der weitergeleitet wird, wenn sich der Benutzer abmeldet.', 'cp' ),
+						'default' => __( 'Plugin-Standardwerte.', 'cp' ),
 					),
 					'page' => array(
-						'content' => __( 'Page parameter if not set CoursePress try to use "page" variable from $_REQUEST.', 'cp' ),
+						'content' => __( 'Wenn der Seitenparameter nicht gesetzt ist, versucht CoursePress, die Variable "page" aus $_REQUEST zu verwenden.', 'cp' ),
 						'default' => 'empty',
 					),
 					'signup_tag' => array(
-						'content' => __( 'Title tag wrapper.', 'cp' ),
+						'content' => __( 'Title Tag Wrapper.', 'cp' ),
 						'default' => 'h3',
 					),
 					'signup_title' => array(
-						'content' => __( 'Title to use for Signup section.', 'cp' ),
-						'default' => __( 'Signup', 'cp' ),
+						'content' => __( 'Titel für den Anmeldebereich.', 'cp' ),
+						'default' => __( 'Registrieren', 'cp' ),
 					),
 					'signup_url' => array(
-						'content' => __( 'URL to redirect to when clicking on "Don\'t have an account? Go to Signup!"', 'cp' ),
+						'content' => __( 'URL, zu der du weitergeleitet wirst, wenn du auf "Du hast noch kein Konto? Gehe zur Anmeldung!"', 'cp' ),
 						'default' => 'empty',
 					),
 				),
 			),
 			'examples' => array(
 				'[course_signup]',
-				'[course_signup signup_title="&lt;h1&gt;'.__( 'Signup Now', 'cp' ).'&lt;/h1&gt;"]',
+				'[course_signup signup_title="&lt;h1&gt;'.__( 'Jetzt registrieren', 'cp' ).'&lt;/h1&gt;"]',
 			),
 		);
 		$content = self::_prepare_box( $data );
@@ -1741,7 +1741,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_courses_student_dashboard() {
 		$data = array(
 			'shortcode' => 'courses_student_dashboard',
-			'content' => __( 'Loads the student dashboard template.', 'cp' ),
+			'content' => __( 'Lädt die Dashboard-Vorlage für Schüler.', 'cp' ),
 			'examples' => array(
 				'[courses_student_dashboard]',
 			),
@@ -1761,7 +1761,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 	private static function _box_courses_student_settings() {
 		$data = array(
 			'shortcode' => 'courses_student_settings',
-			'content' => __( 'Loads the student settings template.', 'cp' ),
+			'content' => __( 'Lädt die Vorlage für die Schülereinstellungen.', 'cp' ),
 			'examples' => array(
 				'[courses_student_settings]',
 			),
@@ -1782,12 +1782,12 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 		$content = sprintf( '<span class="cp-shortcode-code">[%s]</span><br />', $data['shortcode'] );
 		$content .= sprintf( '<p class="description">%s</p>', $data['content'] );
 		if ( isset( $data['note'] ) ) {
-			$content .= sprintf( __( '<p class="description"><strong>Note</strong>: %s</p>', 'cp' ), $data['note'] );
+			$content .= sprintf( __( '<p class="description"><strong>Hinweis</strong>: %s</p>', 'cp' ), $data['note'] );
 		}
 		if ( isset( $data['parameters'] ) ) {
 			$kinds = array(
-				'required' => __( 'Required Attributes:', 'cp' ),
-				'optional' => __( 'Optional Attributes:', 'cp' ),
+				'required' => __( 'Erforderliche Eigenschaften:', 'cp' ),
+				'optional' => __( 'Optionale Attribute:', 'cp' ),
 			);
 			if ( isset( $data['add_class_to_optional'] ) && $data['add_class_to_optional'] ) {
 				if ( ! isset( $data['parameters'] ) ) {
@@ -1796,7 +1796,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 				if ( ! isset( $data['parameters']['optional'] ) ) {
 					$data['parameters']['optional'] = array();
 				}
-				$data['parameters']['optional']['class'] = array( 'content' => __( 'Additional CSS classes to use for further styling.', 'cp' ) );
+				$data['parameters']['optional']['class'] = array( 'content' => __( 'Zusätzliche CSS-Klassen, die du für weiteres Styling verwenden kannst.', 'cp' ) );
 			}
 			foreach ( $kinds as $kind => $kind_label ) {
 				if ( isset( $data['parameters'][ $kind ] ) && is_array( $data['parameters'][ $kind ] ) && ! empty( $data['parameters'][ $kind ] ) ) {
@@ -1816,7 +1816,7 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 						if ( isset( $attr_data['options'] ) ) {
 							$content .= '<p class="options">';
 							$options = '<em>'.implode( '</em>, <em>', $attr_data['options'] ).'</em>';
-                            $content .= sprintf( __( 'Options: %s.', 'cp' ), $options );
+                            $content .= sprintf( __( 'Optionen: %s.', 'cp' ), $options );
                             $content .= '</p>';
 							if ( isset( $attr_data['options_description'] ) && ! empty( $attr_data['options_description'] ) ) {
 								$content .= sprintf( '<p class="description">%s</p>', esc_html( $attr_data['options_description'] ) );
@@ -1827,22 +1827,22 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 							$content .= '<p class="default">';
 							switch ( $attr_data['default'] ) {
 								case ':':
-									$content .= __( 'Default is colon (<em>:</em>)', 'cp' );
+									$content .= __( 'Standard ist der Doppelpunkt (<em>:</em>)', 'cp' );
 								break;
 								case ',':
-									$content .= __( 'Default is coma (<em>,</em>)', 'cp' );
+									$content .= __( 'Standard ist das Komma (<em>,</em>)', 'cp' );
 								break;
 								case 'WP':
-										$content .= sprintf( __( 'Default: <em>%s</em>.', 'cp' ), __( 'WordPress Settings' ) );
+										$content .= sprintf( __( 'Standard: <em>%s</em>.', 'cp' ), __( 'WordPress Settings' ) );
 								break;
 								case 'empty':
-										$content .= sprintf( __( 'Default: <em>%s</em>.', 'cp' ), __( 'empty string' ) );
+										$content .= sprintf( __( 'Standard: <em>%s</em>.', 'cp' ), __( 'empty string' ) );
 								break;
 								default:
 									if ( is_numeric( $attr_data['default'] ) ) {
-										$content .= sprintf( __( 'Default: <em>%s</em>.', 'cp' ), htmlentities( $attr_data['default'] ) );
+										$content .= sprintf( __( 'Standard: <em>%s</em>.', 'cp' ), htmlentities( $attr_data['default'] ) );
 									} else {
-										$content .= sprintf( __( 'Default: "<em>%s</em>"', 'cp' ), htmlentities( $attr_data['default'] ) );
+										$content .= sprintf( __( 'Standard: "<em>%s</em>"', 'cp' ), htmlentities( $attr_data['default'] ) );
 									}
                             }
                             $content .= '</p>';
@@ -1858,11 +1858,11 @@ class CoursePress_View_Admin_Setting_Shortcodes {
 				}
 			}
 		} else {
-			$content .= wpautop( __( 'This shortcode has no parameters.', 'cp' ) );
+			$content .= wpautop( __( 'Dieser Shortcode hat keine Parameter.', 'cp' ) );
 		}
 		if ( isset( $data['examples'] ) && is_array( $data['examples'] ) && ! empty( $data['examples'] ) ) {
 			$content .= '<div class="cp-shortcode-examples">';
-			$content .= sprintf( '<p class="cp-shortcode-subheading">%s</p>', esc_attr__( 'Examples:', 'cp' ) );
+			$content .= sprintf( '<p class="cp-shortcode-subheading">%s</p>', esc_attr__( 'Beispiele:', 'cp' ) );
 			$content .= '<code>';
 			$content .= join( '<br />', $data['examples'] );
 			$content .= '</code>';

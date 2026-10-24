@@ -31,9 +31,9 @@ class CoursePress_Helper_Extension {
 			<thead>
 				<tr>
 					<th>' . esc_html__( 'Plugin', 'cp' ) . '</th>
-					<th>' . esc_html__( 'Source', 'cp' ) . '</th>
+					<th>' . esc_html__( 'Quelle', 'cp' ) . '</th>
 					<th>' . esc_html__( 'Status', 'cp' ) . '</th>
-					<th>' . esc_html__( 'Action', 'cp' ) . '</th>
+					<th>' . esc_html__( 'Aktion', 'cp' ) . '</th>
 				</tr>
 			</thead>
 			<tbody>';
@@ -58,7 +58,7 @@ class CoursePress_Helper_Extension {
 						<input type="hidden" name="location" value="' . $location . '">
 						<input type="hidden" name="base" value="' . $plugin['base_path'] . '">
 						<input type="hidden" name="_wp_nonce" value="' . wp_create_nonce( 'deactivate-plugin' ) . '">
-						<input type="submit" class="button" value="' . esc_attr__( 'De-Activate', 'cp' ) . '" />
+						<input type="submit" class="button" value="' . esc_attr__( 'Deaktivieren', 'cp' ) . '" />
 					</form>
 					';
 				}
@@ -74,7 +74,7 @@ class CoursePress_Helper_Extension {
 						<input type="hidden" name="location" value="' . $location . '">
 						<input type="hidden" name="base" value="' . $plugin['base_path'] . '">
 						<input type="hidden" name="_wp_nonce" value="' . wp_create_nonce( 'activate-plugin' ) . '">
-						<input type="submit" class="button" value="' . esc_attr__( 'Activate', 'cp' ) . '" />
+						<input type="submit" class="button" value="' . esc_attr__( 'Aktivieren', 'cp' ) . '" />
 					</form>
 					';
 				}
@@ -94,11 +94,11 @@ class CoursePress_Helper_Extension {
 							<input type="hidden" name="external" value="' . $plugin['external'] . '">
 							<input type="hidden" name="protocol" value="' . $plugin['protocol'] . '">
 							<input type="hidden" name="_wp_nonce" value="' . wp_create_nonce( 'install-plugin' ) . '">
-							<input type="submit" class="button" value="' . esc_attr__( 'Install', 'cp' ) . '" />
+							<input type="submit" class="button" value="' . esc_attr__( 'Installieren', 'cp' ) . '" />
 						</form>
 						';
 					} else {
-						$action = sprintf( '<a href="%1$s" class="button">%2$s</a>', esc_url_raw( $plugin['source'] ), __( 'Install', 'cp') );
+						$action = sprintf( '<a href="%1$s" class="button">%2$s</a>', esc_url_raw( $plugin['source'] ), __( 'Installieren', 'cp') );
 					}
 				}
 			}

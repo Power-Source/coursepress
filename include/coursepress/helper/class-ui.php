@@ -14,8 +14,8 @@ class CoursePress_Helper_UI {
 		$args['textbox_class'] = isset( $args['textbox_class'] ) ? sanitize_text_field( $args['textbox_class'] ) : 'medium';
 		$args['title'] = isset( $args['title'] ) ? sanitize_text_field( $args['title'] ) : '';
 		$args['value'] = isset( $args['value'] ) ? sanitize_text_field( $args['value'] ) : '';
-		$args['placeholder'] = isset( $args['placeholder'] ) ? sanitize_text_field( $args['placeholder'] ) : __( 'Add Media URL or Browse for Media', 'cp' );
-		$args['button_text'] = isset( $args['button_text'] ) ? sanitize_text_field( $args['button_text'] ) : __( 'Browse', 'cp' );
+		$args['placeholder'] = isset( $args['placeholder'] ) ? sanitize_text_field( $args['placeholder'] ) : __( 'Medien-URL hinzufügen oder nach Medien suchen', 'cp' );
+		$args['button_text'] = isset( $args['button_text'] ) ? sanitize_text_field( $args['button_text'] ) : __( 'Durchsuchen', 'cp' );
 		$args['type'] = isset( $args['type'] ) ? sanitize_text_field( $args['type'] ) : 'image';
 		$args['invalid_message'] = isset( $args['invalid_message'] ) ? sanitize_text_field( $args['invalid_message'] ) : '';
 		$args['description'] = isset( $args['description'] ) ? sanitize_text_field( $args['description'] ) : '';
@@ -43,7 +43,7 @@ class CoursePress_Helper_UI {
 			</label>
 			<input class="' . $args['textbox_class'] . ' ' . $args['type'] . '_url" type="text" name="' . $name . '" id="' . $name . '" placeholder="' . esc_attr( $args['placeholder'] ) . '" value="' . esc_attr( $args['value'] ) . '"/>
 			<input class="button browse-media-field" type="button" name="' . $name . '-button" value="' . esc_attr( $args['button_text'] ) . '"/>
-			<div class="invalid_extension_message">' . sprintf( esc_html__( 'Extension of the file is not valid. Please use one of the following: %s', 'cp' ), $supported_extensions ) . '</div>
+			<div class="invalid_extension_message">' . sprintf( esc_html__( 'Die Erweiterung der Datei ist nicht gültig. Bitte verwende eine der folgenden: %s', 'cp' ), $supported_extensions ) . '</div>
 		</div>';
 
 		return $content;
@@ -482,7 +482,7 @@ class CoursePress_Helper_UI {
 	 */
 	public static function get_admin_edit_title_field( $value, $label = '' ) {
 		if ( empty( $label ) ) {
-			$label = __( 'Enter title here.', 'cp' );
+			$label = __( 'Titel hier eingeben.', 'cp' );
 		}
 		$content = '<div id="titlediv">';
 		$content .= '<div id="titlewrap">';
@@ -542,7 +542,7 @@ class CoursePress_Helper_UI {
 	public static function get_message_required_modules( $error_message ) {
 		$error_message .= PHP_EOL;
 		$error_message .= PHP_EOL;
-		$error_message .= __( 'Please press the Prev button on the left to continue.', 'cp' );
+		$error_message .= __( 'Drücke bitte die Schaltfläche "zurück" auf der linken Seite, um fortzufahren.', 'cp' );
 		return wpautop( $error_message );
 	}
 

@@ -37,7 +37,7 @@ class CoursePress_View_Front_Signup {
 			return;
 		}
 		$content = '';
-		$page_title = __( 'New Signup', 'cp' );
+		$page_title = __( 'Neue Anmeldung', 'cp' );
 		$args = array(
 			'slug' => CoursePress_Core::get_slug( 'signup' ),
 			'title' => esc_html( $page_title ),
@@ -54,7 +54,7 @@ class CoursePress_View_Front_Signup {
 	 */
 	public static function render_student_signup_page() {
 		if ( is_user_logged_in() ) {
-			_e( 'You are already logged in.', 'cp' );
+			_e( 'Sie sind bereits eingeloggt.', 'cp' );
 			return;
 		}
 		$redirect_url = '';

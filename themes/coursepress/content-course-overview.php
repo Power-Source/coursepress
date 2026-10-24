@@ -33,7 +33,7 @@
 				// Change to yes for 'Open-ended'.
 				echo do_shortcode( '[course_enrollment_dates show_alt_display="no"]' );
 				echo do_shortcode( '[course_class_size]' );
-				echo do_shortcode( '[course_enrollment_type label="' . __( 'Who can Enroll: ', 'cp' ) . '"]' );
+				echo do_shortcode( '[course_enrollment_type label="' . __( 'Wer kann sich einschreiben: ', 'cp' ) . '"]' );
 				echo do_shortcode( '[course_language]' );
 				echo do_shortcode( '[course_cost]' );
 				?>
@@ -47,7 +47,7 @@
 	<section id="additional-summary">
 		<div class="social-shares">
 			<span>
-				<?php _e( 'SHARE', 'cp' ); ?>
+				<?php _e( 'TEILEN', 'cp' ); ?>
 			</span>
 			<a href="http://www.facebook.com/sharer/sharer.php?s=100&p[url]=<?php the_permalink(); ?>&p[images][0]=&p[title]=<?php the_title(); ?>&p[summary]=<?php echo urlencode( strip_tags( get_the_excerpt() ) ); ?>" class="facebook-share" target="_blank"></a>
 			<a href="http://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink(); ?>" class="twitter-share" target="_blank"></a>
@@ -60,19 +60,19 @@
 
 	<?php $instructors = CoursePress_Data_Shortcode_Instructor::course_instructors( array( 'style' => 'block' ) ); ?>
 	<div class="entry-content <?php echo( count( $instructors ) > 0 ? 'left-content' : '' ); ?>">
-		<h1 class="h1-about-course"><?php _e( 'About the Course', 'cp' ); ?></h1>
+		<h1 class="h1-about-course"><?php _e( 'Über den Kurs', 'cp' ); ?></h1>
 		<div class="content"><?php echo do_shortcode( '[course_description course_id="' . get_the_ID() . '"]' ); ?></div>
 <?php
 if ( CoursePress_Data_Course::get_setting( get_the_ID(), 'structure_visible', true ) ) : ?>
 			<h1 class = "h1-about-course"><?php
-			_e( 'Course Structure', 'cp' );
+			_e( 'Kursstruktur', 'cp' );
 			?></h1>
 			<?php echo do_shortcode( '[course_structure label="" show_title="no" show_divider="yes"]' );
 		endif;
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'cp' ),
+				'before' => '<div class="page-links">' . __( 'Seiten:', 'cp' ),
 				'after' => '</div>',
 			)
 		);
@@ -81,7 +81,7 @@ if ( CoursePress_Data_Course::get_setting( get_the_ID(), 'structure_visible', tr
 
 	<?php if ( ! empty( $instructors ) ) : ?>
 		<div class="course-instructors right-content">
-			<h1 class="h1-instructors"><?php _e( 'Instructors', 'cp' ); ?></h1>
+			<h1 class="h1-instructors"><?php _e( 'Trainer', 'cp' ); ?></h1>
 			<?php echo $instructors; ?>
 		</div><!--course-instructors right-content-->
 	<?php endif; ?>
@@ -112,23 +112,23 @@ if ( CoursePress_Data_Course::get_setting( get_the_ID(), 'structure_visible', tr
 		/**
 		 * default meta text
 		 */
-		$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'cp' );
+		$meta_text = __( 'Link zu Ihren Lesezeichen hinzufügen <a href=„%3$s“ rel=„bookmark“>permalink</a>.', 'cp' );
 		/**
 		 * check categories and tags
 		 */
 		if ( ! coursepress_categorized_blog() ) {
 			// This blog only has 1 category so we just need to worry about tags in the meta text.
 			if ( $tag_list ) {
-				$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'cp' );
+				$meta_text = __( '<a href="%3$s" rel="bookmark">Lesezeichen</a> anlegen.', 'cp' );
 			} else {
 				$meta_text = '';
 			}
 		} else {
 			// But this blog has loads of categories so we should probably display them here.
 			if ( ! empty( $tag_list ) ) {
-				$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'cp' );
+				$meta_text = __( 'Dieser Eintrag wurde in %1$s und getaggt %2$s. Lesezeichen: <a href="%3$s" rel="bookmark">Permalink</a>.', 'cp' );
 			} else if ( ! empty( $category_list ) ) {
-				$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'cp' );
+				$meta_text = __( 'Dieser Eintrag wurde in %1$s geschrieben. Speichere das <a href="%3$s" rel="bookmark">Lesezeichen</a>.', 'cp' );
 			}
 		} // end check for categories on this blog.
 
@@ -142,7 +142,7 @@ if ( CoursePress_Data_Course::get_setting( get_the_ID(), 'structure_visible', tr
 
 		<?php
 		edit_post_link(
-			__( 'Edit', 'cp' ),
+			__( 'Bearbeiten', 'cp' ),
 			'<span class="edit-link">',
 			'</span>'
 		);

@@ -109,7 +109,7 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 			$this->students_list = new CoursePress_Admin_Table_Students;
 			$this->students_list->prepare_items();
 
-			add_screen_option( 'per_page', array( 'default' => 20, 'option' => 'coursepress_students_per_page', 'label' => __( 'Number of students per page:', 'cp' ) ) );
+			add_screen_option( 'per_page', array( 'default' => 20, 'option' => 'coursepress_students_per_page', 'label' => __( 'Anzahl der Schüler pro Seite:', 'cp' ) ) );
 		} else {
 			$view = $_REQUEST['view'];
 			$this->slug = 'student-' . $view;
@@ -318,7 +318,7 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 	public static function certificate_send() {
 		$results = array(
 			'success' => false,
-			'message' => __( 'Something went wrong. Sending failed.', 'cp' ),
+			'message' => __( 'Etwas ist schief gelaufen. Das Senden ist fehlgeschlagen.', 'cp' ),
 			'step' => 'init',
 		);
 		/**
@@ -358,7 +358,7 @@ class CoursePress_Admin_Students extends CoursePress_Admin_Controller_Menu {
 				'message' => sprintf(
 					'<div class="notice notice-success certificate-send"><p>%s</p></div>',
 					sprintf(
-						__( 'Certificate of <b>%s</b> has been sent.', 'cp' ),
+						__( 'Bescheinigung über <b>%s</b> wurde gesendet.', 'cp' ),
 						get_the_title( $parent_id )
 					)
 				),

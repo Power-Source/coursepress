@@ -39,7 +39,7 @@ class CoursePress_View_Front_General {
 
 			$courses = new stdClass();
 
-			$courses->title = __( 'Courses', 'cp' );
+			$courses->title = __( 'Kurse', 'cp' );
 			$courses->description = '';
 			$courses->menu_item_parent = 0;
 			$courses->ID = 'cp-courses';
@@ -74,7 +74,7 @@ class CoursePress_View_Front_General {
 
 				$dashboard_courses = new stdClass();
 
-				$dashboard_courses->title = __( 'My Courses', 'cp' );
+				$dashboard_courses->title = __( 'Meine Kurse', 'cp' );
 				$dashboard_courses->description = '';
 				$dashboard_courses->menu_item_parent = - 9998;
 				$dashboard_courses->ID = 'cp-dashboard-courses';
@@ -90,7 +90,7 @@ class CoursePress_View_Front_General {
 
 				$settings_profile = new stdClass();
 
-				$settings_profile->title = __( 'My Profile', 'cp' );
+				$settings_profile->title = __( 'Mein Profil', 'cp' );
 				$settings_profile->description = '';
 				$settings_profile->menu_item_parent = - 9998;
 				$settings_profile->ID = 'cp-dashboard-settings';
@@ -129,9 +129,9 @@ class CoursePress_View_Front_General {
 			/* Log in / Log out links */
 			$login = new stdClass();
 			if ( $is_in ) {
-				$login->title = __( 'Log Out', 'cp' );
+				$login->title = __( 'Abmelden', 'cp' );
 			} else {
-				$login->title = __( 'Log In', 'cp' );
+				$login->title = __( 'Anmelden', 'cp' );
 			}
 			$login->description = '';
 			$login->menu_item_parent = 0;
@@ -202,8 +202,8 @@ class CoursePress_View_Front_General {
 			switch ( $item->url ) {
 				case '#coursepress-endpoints-login':
 					if ( is_user_logged_in() ) {
-						if ( __( 'Log In', 'cp' ) == $item->title  ) {
-							$item->title = __( 'Log Out', 'cp' );
+						if ( __( 'Anmelden', 'cp' ) == $item->title  ) {
+							$item->title = __( 'Abmelden', 'cp' );
 						}
 					}
 					$item->url = self::get_log_in_out_link();

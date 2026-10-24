@@ -9,12 +9,12 @@ class CoursePress_View_Front_Student {
 	public static function render_enrollment_process_page() {
 
 		if ( ! is_user_logged_in() ) {
-			_e( 'You must be logged in in order to complete the action', 'cp' );
+			_e( 'Du musst eingeloggt sein, um die Aktion abschließen zu können', 'cp' );
 			return;
 		}
 
 		if ( ! isset( $_POST['course_id'] ) || ! is_numeric( $_POST['course_id'] ) ) {
-			_e( 'Please select a course first you want to enroll in.', 'cp' );
+			_e( 'Bitte wähle zuerst einen Kurs in den du dich einschreiben möchtest.', 'cp' );
 			return;
 		}
 
@@ -50,25 +50,25 @@ class CoursePress_View_Front_Student {
 				if ( 0 == $course_price ) {//Course is FREE
 					//Enroll student in
 					if ( CoursePress_Data_Course::enroll_student( $student_id, $course_id ) ) {
-						printf( __( 'Congratulations, you have successfully enrolled in "%s" course! Check your %s for more info.', 'cp' ), '<strong>' . $course->details->post_title . '</strong>', '<a href="' . $this->get_student_dashboard_slug( true ) . '">' . __( 'Dashboard', 'cp' ) . '</a>' );
+						printf( __( 'Gratulation, du hast dich erfolgreich in "%s" Kurs angemeldet! Prüfe dein %s für mehr Informationen.', 'cp' ), '<strong>' . $course->details->post_title . '</strong>', '<a href="' . $this->get_student_dashboard_slug( true ) . '">' . __( 'Dashboard', 'cp' ) . '</a>' );
 
 					} else {
-						_e( 'Something went wrong during the enrollment process. Please try again later.', 'cp' );
+						_e( 'Bei der Anmeldung ist etwas schief gelaufen. Bitte versuche es später noch einmal.', 'cp' );
 					}
 				} else {
 					if ( $course->is_user_purchased_course( $course->details->marketpress_product, $student_id ) ) {
 						//Enroll student in
 						if ( CoursePress_Data_Course::enroll_student( $student_id, $course_id ) ) {
-							printf( __( 'Congratulations, you have successfully enrolled in "%s" course! Check your %s for more info.', 'cp' ), '<strong>' . $course->details->post_title . '</strong>', '<a href="' . $this->get_student_dashboard_slug( true ) . '">' . __( 'Dashboard', 'cp' ) . '</a>' );
+							printf( __( 'Gratulation, du hast dich erfolgreich in "%s" Kurs angemeldet! Prüfe dein %s für mehr Informationen.', 'cp' ), '<strong>' . $course->details->post_title . '</strong>', '<a href="' . $this->get_student_dashboard_slug( true ) . '">' . __( 'Dashboard', 'cp' ) . '</a>' );
 						} else {
-							_e( 'Something went wrong during the enrollment process. Please try again later.', 'cp' );
+							_e( 'Bei der Anmeldung ist etwas schief gelaufen. Bitte versuche es später noch einmal.', 'cp' );
 						}
 					} else {
 						$course->show_purchase_form( $course->details->marketpress_product );
 					}
 				}
 			} else {
-				printf( __( 'Passcode is not valid. Please %s and try again.', 'cp' ), '<a href="' . esc_url( $course->get_permalink() ) . '">' . __( 'go back', 'cp' ) . '</a>' );
+				printf( __( 'Der Passcode ist nicht gültig. Bitte %s und versuche es erneut.', 'cp' ), '<a href="' . esc_url( $course->get_permalink() ) . '">' . __( 'zurück', 'cp' ) . '</a>' );
 
 			}
 		} else {
@@ -88,7 +88,7 @@ class CoursePress_View_Front_Student {
 	public static function render_student_dashboard_page( $student_id = 0, $atts = array() ) {
 
 		if ( ! is_user_logged_in() ) {
-			_e( 'You must be logged in in order to complete the action', 'cp' );
+			_e( 'Du musst eingeloggt sein, um die Aktion abschließen zu können', 'cp' );
 			exit;
 		} else {
 			if ( empty( $student_id ) ) {
@@ -111,7 +111,7 @@ class CoursePress_View_Front_Student {
 		if ( ! empty( $course_list )
 			&& ( CoursePress_Data_Capabilities::is_instructor() || CoursePress_Data_Capabilities::is_facilitator() ) ) {
 			echo '<div class="dashboard-managed-courses-list">';
-			echo '<h1 class="title managed-courses-title">' . __( 'Courses you manage:', 'cp' ) . '</h1>';
+			echo '<h1 class="title managed-courses-title">' . __( 'Kurse, die du verwaltest:', 'cp' ) . '</h1>';
 			echo '<div class="course-list course-list-managed course course-student-dashboard">';
 			echo $course_list;
 			echo '</div>';
@@ -138,15 +138,15 @@ class CoursePress_View_Front_Student {
 
 			//Random Courses
 			echo '<div class="dashboard-random-courses-list">';
-			echo '<h3 class="title suggested-courses">' . __( 'You are not enrolled in any courses.', 'cp' ) . '</h3>';
-			_e( 'Here are a few to help you get started:', 'cp' );
+			echo '<h3 class="title suggested-courses">' . __( 'Du bist in keinen Kursen eingeschrieben.', 'cp' ) . '</h3>';
+			_e( 'Hier sind einige Ideen, die Dir helfen können, den Anfang zu finden.', 'cp' );
 			echo '<hr />';
 			echo '<div class="dashboard-random-courses">' . do_shortcode( '[course_random number="3" featured_title="" media_type="image"]' ) . '</div>';
 			echo '</div>';
 		} else {
 			// Course List
 			echo '<div class="dashboard-current-courses-list">';
-			echo '<h1 class="title enrolled-courses-title current-courses-title">' . __( 'Your current courses:', 'cp' ) . '</h1>';
+			echo '<h1 class="title enrolled-courses-title current-courses-title">' . __( 'Deine aktuelle Kurse:', 'cp' ) . '</h1>';
 			echo '<div class="course-list course-list-current course course-student-dashboard">';
 			echo $course_list;
 			echo '</div>';
@@ -173,7 +173,7 @@ class CoursePress_View_Front_Student {
 		if ( ! empty( $course_list ) ) {
 			// Course List
 			echo '<div class="dashboard-completed-courses-list">';
-			echo '<h1 class="title completed-courses-title">' . __( 'Completed courses:', 'cp' ) . '</h1>';
+			echo '<h1 class="title completed-courses-title">' . __( 'Abgeschlossene Kurse', 'cp' ) . '</h1>';
 			echo '<div class="course-list course-list-completed course course-student-dashboard">';
 			echo $course_list;
 			echo '</div>';
@@ -188,7 +188,7 @@ class CoursePress_View_Front_Student {
 	public static function render_student_settings_page() {
 
 		if ( ! is_user_logged_in() ) {
-			_e( 'You must be logged in in order to complete the action', 'cp' );
+			_e( 'Du musst eingeloggt sein, um die Aktion abschließen zu können', 'cp' );
 			exit;
 		}
 
@@ -199,7 +199,7 @@ class CoursePress_View_Front_Student {
 
 			if ( ! isset( $_POST['student_settings_nonce'] ) || ! wp_verify_nonce( $_POST['student_settings_nonce'], 'student_settings_save' )
 			) {
-				_e( "Changed can't be saved because nonce didn't verify.", 'cp' );
+				_e( 'Geändert kann nicht gespeichert werden, weil die Nonce nicht verifiziert wurde.', 'cp' );
 			} else {
 				$student_data = array();
 				$student_data['ID'] = get_current_user_id();
@@ -211,7 +211,7 @@ class CoursePress_View_Front_Student {
 					if ( $_POST['password'] == $_POST['password_confirmation'] ) {
 						$student_data['user_pass'] = $_POST['password'];
 					} else {
-						$form_message = __( "Passwords don't match", 'cp' );
+						$form_message = __( 'Passwörter stimmen nicht überein', 'cp' );
 						$form_message_class = 'red';
 						$form_errors ++;
 					}
@@ -219,10 +219,10 @@ class CoursePress_View_Front_Student {
 					if (!CoursePress_Helper_Utility::is_password_strong()) {
 						if(CoursePress_Helper_Utility::is_password_strength_meter_enabled())
 						{
-							$form_message = __('Your password is too weak.', 'cp');
+							$form_message = __('Dein Passwort ist zu schwach.', 'cp');
 						}
 						else {
-							$form_message = sprintf(__('Your password must be at least %d characters long and have at least one letter and one number in it.', 'cp'), CoursePress_Helper_Utility::get_minimum_password_length());
+							$form_message = sprintf(__('Dein Passwort muss mindestens %d Zeichen lang sein und mindestens einen Buchstaben und eine Zahl enthalten.', 'cp'), CoursePress_Helper_Utility::get_minimum_password_length());
 						}
 						$form_message_class = 'red';
 						$form_errors++;
@@ -234,17 +234,17 @@ class CoursePress_View_Front_Student {
 				$student_data['last_name'] = $_POST['last_name'];
 
 				if ( ! is_email( $_POST['email'] ) ) {
-					$form_message = __( 'E-mail address is not valid.', 'cp' );
+					$form_message = __( 'Diese E-Mail-Adresse ist nicht gültig!', 'cp' );
 					$form_message_class = 'red';
 					$form_errors ++;
 				}
 
 				if ( 0 == $form_errors ) {
 					if ( CoursePress_Data_Student::update_student_data( get_current_user_id(), $student_data ) ) {
-						$form_message = __( 'Profile has been updated successfully.', 'cp' );
+						$form_message = __( 'Dein Profil wurde erfolgreich aktualisiert.', 'cp' );
 						$form_message_class = 'regular';
 					} else {
-						$form_message = __( 'An error occured while updating. Please check the form and try again.', 'cp' );
+						$form_message = __( 'Beim Aktualisieren ist ein Fehler aufgetreten. Bitte überprüfe das Formular und versuche es erneut.', 'cp' );
 						$form_message_class = 'red';
 					}
 				}
@@ -256,15 +256,15 @@ class CoursePress_View_Front_Student {
 	<?php do_action( 'coursepress_before_settings_form' ); ?>
 	<form id="student-settings" name="student-settings" method="post" class="student-settings">
 	<?php wp_nonce_field( 'student_settings_save', 'student_settings_nonce' ); ?>
-	<p><label><?php _e( 'First Name', 'cp' ); ?>: <input type="text" name="first_name" value="<?php esc_attr_e( $student->user_firstname ); ?>"/></label></p><?php do_action( 'coursepress_after_settings_first_name' ); ?>
+	<p><label><?php _e( 'Vorname', 'cp' ); ?>: <input type="text" name="first_name" value="<?php esc_attr_e( $student->user_firstname ); ?>"/></label></p><?php do_action( 'coursepress_after_settings_first_name' ); ?>
 
-	<p><label><?php _e( 'Last Name', 'cp' ); ?>: <input type="text" name="last_name" value="<?php esc_attr_e( $student->user_lastname ); ?>"/></label></p><?php do_action( 'coursepress_after_settings_last_name' ); ?>
+	<p><label><?php _e( 'Nachname', 'cp' ); ?>: <input type="text" name="last_name" value="<?php esc_attr_e( $student->user_lastname ); ?>"/></label></p><?php do_action( 'coursepress_after_settings_last_name' ); ?>
 
-	<p><label><?php _e( 'E-mail', 'cp' ); ?>: <input type="text" name="email" value="<?php esc_attr_e( $student->user_email ); ?>"/></label></p><?php do_action( 'coursepress_after_settings_email' ); ?>
+	<p><label><?php _e( 'E-Mail', 'cp' ); ?>: <input type="text" name="email" value="<?php esc_attr_e( $student->user_email ); ?>"/></label></p><?php do_action( 'coursepress_after_settings_email' ); ?>
 
-	<p><label><?php _e( 'Username', 'cp' ); ?>: <input type="text" name="username" value="<?php esc_attr_e( $student->user_login ); ?>" disabled="disabled"/> </label></p><?php do_action( 'coursepress_after_settings_username' ); ?>
+	<p><label><?php _e( 'Benutzername', 'cp' ); ?>: <input type="text" name="username" value="<?php esc_attr_e( $student->user_login ); ?>" disabled="disabled"/> </label></p><?php do_action( 'coursepress_after_settings_username' ); ?>
 
-	<p><label><?php _e( 'Password', 'cp' ); ?>: <input type="password" name="password" value="" placeholder="<?php _e( "Won't change if empty.", 'cp' ); ?>"/> </label></p><?php do_action( 'coursepress_after_settings_passwordon' ); ?>
+	<p><label><?php _e( 'Passwort', 'cp' ); ?>: <input type="password" name="password" value="" placeholder="<?php _e( "Won't change if empty.", 'cp' ); ?>"/> </label></p><?php do_action( 'coursepress_after_settings_passwordon' ); ?>
 
 	<p><label><?php _e( 'Confirm Password', 'cp' ); ?>: <input type="password" name="password_confirmation" value=""/> </label></p><?php do_action( 'coursepress_after_settings_pasword' ); ?>
 
