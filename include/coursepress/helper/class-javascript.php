@@ -102,8 +102,8 @@ class CoursePress_Helper_JavaScript {
 		/** COURSEPRESS_COURSE */
 		if ( $is_valid_page ) {
 
-			// Load SortableJS for modern drag-drop (replaces jquery-ui-sortable)
-			wp_enqueue_script( 'sortablejs', 'https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js', array(), '1.15.0', true );
+			// Load the plugin-bundled SortableJS for modern drag-drop.
+			wp_enqueue_script( 'sortablejs', CoursePress::$url . 'asset/js/sortable.min.js', array(), '1.15.1', true );
 
 			// Load fallback polyfills for jQuery UI components
 			$fallback_js = CoursePress::$url . 'asset/js/jquery-ui-modern-fallback.js';
