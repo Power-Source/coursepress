@@ -13,6 +13,35 @@ var CoursePress = CoursePress || {};
 	CoursePress.utility = CoursePress.utility || {};
 	CoursePress.Events = CoursePress.Events || {};
 
+	CoursePress.utility.getSameOriginUrl = function( url, action ) {
+		var destination;
+
+		try {
+			destination = new URL( url, window.location.origin );
+		} catch ( error ) {
+			console.warn( 'CoursePress could not ' + action + '.', error );
+			return false;
+		}
+
+		if ( destination.origin !== window.location.origin ) {
+			console.warn( 'CoursePress prevented ' + action + ' externally.' );
+			return false;
+		}
+
+		return destination;
+	};
+
+	CoursePress.utility.navigateSameOrigin = function( url, action ) {
+		var destination = CoursePress.utility.getSameOriginUrl( url, action );
+
+		if ( ! destination ) {
+			return false;
+		}
+
+		window.location.assign( destination.href );
+		return true;
+	};
+
 	CoursePress.utility.timer_validate = function( s, ref ) {
 		var time = 'ref_' + (CoursePress.utility.hashcode( '' + s ) + '').split('').reverse().join('');
 		return time === ref;
@@ -759,28 +788,44 @@ var CoursePress = CoursePress || {};
 	function bind_buttons() {
 		// Section Title Click
 		$( '.unit-archive-list-wrapper .section-title' ).on( 'click', function() {
-			var link = $( $( $( this ).parents( '.unit-archive-single' )[0] ).find('a.unit-archive-single-title')[0] ).attr('href');
-			var section_hash = 'section-' + $(this).attr('data-id');
+			var link = $( $( $( this ).parents( '.unit-archive-single' )[0] ).find('a.unit-archive-single-title')[0] ).attr('href'),
+				section_hash = 'section-' + $(this).attr('data-id'),
+				destination;
 			var has_link = $( this ).find( 'a.unit-archive-single-title').length > 0;
 
-			if ( has_link ) { window.location.href = link + '#' + section_hash; }
+			if ( has_link ) {
+				destination = CoursePress.utility.getSameOriginUrl( link, 'navigate to the course section' );
+				if ( destination ) {
+					destination.hash = section_hash;
+					window.location.assign( destination.href );
+				}
+			}
 		} );
 
 		// Module Title Click
 		$( '.unit-archive-list-wrapper .module-title' ).on( 'click', function() {
-			var link = $( $( $( this ).parents( '.unit-archive-single' )[0] ).find('a.unit-archive-single-title')[0] ).attr('href');
-			var mod_hash = 'module-' + $(this).attr('data-id');
+			var link = $( $( $( this ).parents( '.unit-archive-single' )[0] ).find('a.unit-archive-single-title')[0] ).attr('href'),
+				mod_hash = 'module-' + $(this).attr('data-id'),
+				destination;
 			var has_link = $( this ).find( 'a.unit-archive-single-title').length > 0;
 			if ( has_link ) {
-				window.location.href = link + '#' + mod_hash;
+				destination = CoursePress.utility.getSameOriginUrl( link, 'navigate to the course module' );
+				if ( destination ) {
+					destination.hash = mod_hash;
+					window.location.assign( destination.href );
+				}
 			}
 			/**
 			 * "focus" view mode
 			 */
 			if ( 'focus' == $( '.unit-archive-list-wrapper' ).data( 'view-mode' ) ) {
 				var module = $('a', $(this)).attr("href").split("#");
-				var link = $( $( $( this ).parents( '.unit-archive-single' )[0] ).find('a.unit-archive-single-title')[0] ).attr('href') + '#' + module[1];
-				window.location.href = link;
+				var link = $( $( $( this ).parents( '.unit-archive-single' )[0] ).find('a.unit-archive-single-title')[0] ).attr('href'),
+					destination = CoursePress.utility.getSameOriginUrl( link, 'navigate to the focused course module' );
+				if ( destination ) {
+					destination.hash = module[1];
+					window.location.assign( destination.href );
+				}
 			}
 		} );
 
@@ -797,7 +842,7 @@ var CoursePress = CoursePress || {};
 			var target = e.currentTarget;
 
 			if ( $( target ).attr( 'data-link' ) ) {
-				window.location.href = $( target ).attr( 'data-link' );
+				CoursePress.utility.navigateSameOrigin( $( target ).attr( 'data-link' ), 'navigate to the course page' );
 			}
 		} );
 
@@ -805,7 +850,7 @@ var CoursePress = CoursePress || {};
 			var target = e.currentTarget;
 
 			if ( $( target ).attr( 'data-link' ) ) {
-				window.location.href = $( target ).attr( 'data-link' );
+				CoursePress.utility.navigateSameOrigin( $( target ).attr( 'data-link' ), 'navigate to the course page' );
 			}
 		} );
 
@@ -814,7 +859,7 @@ var CoursePress = CoursePress || {};
 			var target = e.currentTarget;
 
 			if ( $( target ).attr( 'data-link' ) ) {
-				window.location.href = $( target ).attr( 'data-link' );
+				CoursePress.utility.navigateSameOrigin( $( target ).attr( 'data-link' ), 'navigate to the course page' );
 			}
 		} );
 
@@ -1575,7 +1620,7 @@ var CoursePress = CoursePress || {};
 
 					// Navigation changed to a different Unit:
 					// Need to reload the page to refresh all page elements.
-					window.location.href = url;
+					CoursePress.utility.navigateSameOrigin( url, 'navigate to the course unit' );
 					return false;
 				}
 			}
@@ -1896,4 +1941,3 @@ var CoursePress = CoursePress || {};
 })( jQuery );
 
 CoursePress.current = CoursePress.current || {};
-

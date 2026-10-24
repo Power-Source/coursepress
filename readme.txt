@@ -23,6 +23,11 @@ PS CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Socia
 
 == ChangeLog ==
 
+= 1.0.2 =
+
+* Security: Kursnavigationen im Backend und Frontend gegen manipulierte oder externe Ziel-URLs abgesichert.
+* Fix: Such- und Bewertungsfilter verwenden URL-Parameter mit sicherer Kodierung.
+
 = 1.0.1 =
 
 * Security: Frontend-AJAX-Hardening verbessert (Nonce-Prüfungen, Ownership-/Capability-Checks, Zugriffskontrollen für Enrollment- und Course-Aktionen).

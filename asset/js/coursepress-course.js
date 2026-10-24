@@ -73,6 +73,24 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 	CoursePress.Post = new CoursePress.Models.Post();
 
+	CoursePress.getSameOriginUrl = function( url, action ) {
+		var destination;
+
+		try {
+			destination = new URL( url, window.location.origin );
+		} catch ( error ) {
+			console.warn( 'CoursePress could not ' + action + '.', error );
+			return false;
+		}
+
+		if ( destination.origin !== window.location.origin ) {
+			console.warn( 'CoursePress prevented ' + action + ' externally.' );
+			return false;
+		}
+
+		return destination;
+	};
+
 	CoursePress.Course.multiple_elements = function( items, needle ) {
 		var item_count = 0;
 
@@ -1441,8 +1459,15 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		$( '.coursepress_settings_wrapper.assessment table .instructor-feedback' ).link_popup( { link_text: '<span class="dashicons dashicons-admin-comments"></span>' } );
 
 		$( '.coursepress_settings_wrapper.assessment [name="course-list"]' ).on( 'change', function() {
-			var course_id = $( this ).val();
-			location.href = _coursepress.assessment_grid_url + '&course_id=' + course_id;
+			var course_id = $( this ).val(),
+				destination = CoursePress.getSameOriginUrl( _coursepress.assessment_grid_url, 'redirect to the assessment grid' );
+
+			if ( ! destination ) {
+				return;
+			}
+
+			destination.searchParams.set( 'course_id', course_id );
+			window.location.assign( destination.href );
 		} );
 
 		$( '.coursepress_settings_wrapper.assessment .collapse-all-students' ).on( 'click', function() {
@@ -1461,8 +1486,15 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		} );
 
 		$( '.coursepress_settings_wrapper.reports [name="course-list"]' ).on( 'change', function() {
-			var course_id = $( this ).val();
-			location.href = _coursepress.assessment_report_url + '&course_id=' + course_id;
+			var course_id = $( this ).val(),
+				destination = CoursePress.getSameOriginUrl( _coursepress.assessment_report_url, 'redirect to the assessment report' );
+
+			if ( ! destination ) {
+				return;
+			}
+
+			destination.searchParams.set( 'course_id', course_id );
+			window.location.assign( destination.href );
 		} );
 
 		$( '.coursepress_settings_wrapper.reports .column-report .pdf' ).on( 'click', function() {
@@ -1806,9 +1838,14 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 		if ( 0 === step.length && 0 === finishbutton.length ) {
 			// Search students helper
 			var s = $( '[name="s"]', form ),
-				url = $( '[name="_wp_http_referer"]' );
+				url = $( '[name="_wp_http_referer"]' ),
+				destination = CoursePress.getSameOriginUrl( url.val(), 'submit the course search form' );
 
-			form.attr( 'action', url.val() );
+			if ( ! destination ) {
+				return false;
+			}
+
+			form.attr( 'action', destination.href );
 
 			return true;
 		}
@@ -1837,10 +1874,15 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 
 		if ( target.is( '#search-submit' ) ) {
 			var referer = form.find( '[name="_wp_http_referer"]' ),
-				s = form.find( '[name="s"]' ).val();
-			referer = referer.val() + '&s=' + s;
+				s = form.find( '[name="s"]' ).val(),
+				destination = CoursePress.getSameOriginUrl( referer.val(), 'redirect to the course search page' );
 
-			window.location = referer;
+			if ( ! destination ) {
+				return false;
+			}
+
+			destination.searchParams.set( 's', s );
+			window.location.assign( destination.href );
 			return false;
 		}
 
@@ -1988,4 +2030,3 @@ CoursePress.Events = CoursePress.Events || _.extend( {}, Backbone.Events );
 	.on( 'submit', '.post-type-course form#post', CoursePress.updateCourse );
 
 })( jQuery );
-
