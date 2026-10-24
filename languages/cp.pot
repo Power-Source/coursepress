@@ -9480,3 +9480,42 @@ msgstr ""
 #: include/coursepress/helper/ui/class-module.php
 msgid "Optionaler Hinweis für Darstellung und Bewertung."
 msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Keine Auswahl"
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Startcode"
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionaler Code, der beim ersten Öffnen der Aufgabe im Editor steht."
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+#: include/coursepress/template/class-module.php
+msgid "Lösungshinweis"
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionaler Hinweis, der Lernenden unter der Aufgabe angezeigt wird."
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+#: include/coursepress/template/class-module.php
+msgid "Erwartete Ausgabe"
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionales Beispiel der erwarteten Programmausgabe."
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+#: include/coursepress/template/class-module.php
+msgid "Testfälle"
+msgstr ""
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionale Testfälle oder Prüfschritte zur Selbstkontrolle."
+msgstr ""

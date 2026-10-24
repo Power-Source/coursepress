@@ -29,6 +29,7 @@ PS CoursePress vereinfacht die Online-Ausbildung mit Kursseiten, Paywalls, Socia
 * Fix: Such- und Bewertungsfilter verwenden URL-Parameter mit sicherer Kodierung.
 * Compatibility: Veraltete `(boolean)`-Casts durch `(bool)` ersetzt, um PHP-8.5-Deprecation-Warnungen zu vermeiden.
 * Localization: Deutsche Quelltexte und englische Übersetzungsdateien für die Textdomain `cp` ergänzt.
+* Feature: Neues Coding-Modul für manuell bewertete Code-Abgaben mit Sprachwahl, Startcode, Lösungshinweisen, erwarteter Ausgabe und Testfällen – ohne serverseitige Codeausführung.
 
 = 1.0.1 =
 

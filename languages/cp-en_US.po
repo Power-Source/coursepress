@@ -9656,3 +9656,42 @@ msgstr "Programming language"
 #: include/coursepress/helper/ui/class-module.php
 msgid "Optionaler Hinweis für Darstellung und Bewertung."
 msgstr "Optional hint for presentation and assessment."
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Keine Auswahl"
+msgstr "No selection"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Startcode"
+msgstr "Starter code"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionaler Code, der beim ersten Öffnen der Aufgabe im Editor steht."
+msgstr "Optional code shown in the editor when the assignment is first opened."
+
+#: include/coursepress/helper/ui/class-module.php
+#: include/coursepress/template/class-module.php
+msgid "Lösungshinweis"
+msgstr "Solution hint"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionaler Hinweis, der Lernenden unter der Aufgabe angezeigt wird."
+msgstr "Optional hint displayed to learners below the assignment."
+
+#: include/coursepress/helper/ui/class-module.php
+#: include/coursepress/template/class-module.php
+msgid "Erwartete Ausgabe"
+msgstr "Expected output"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionales Beispiel der erwarteten Programmausgabe."
+msgstr "Optional example of the expected program output."
+
+#: include/coursepress/helper/ui/class-module.php
+#: include/coursepress/template/class-module.php
+msgid "Testfälle"
+msgstr "Test cases"
+
+#: include/coursepress/helper/ui/class-module.php
+msgid "Optionale Testfälle oder Prüfschritte zur Selbstkontrolle."
+msgstr "Optional test cases or verification steps for self-assessment."

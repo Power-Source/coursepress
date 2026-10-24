@@ -572,5 +572,19 @@ Bitte überprüfe die Module:', 'cp' );
 			CoursePress::$version,
 			true
 		);
+
+		$dependencies = array( 'jquery' );
+		if ( function_exists( 'wp_enqueue_code_editor' ) ) {
+			wp_enqueue_code_editor( array( 'type' => 'text/plain' ) );
+			$dependencies[] = 'wp-codemirror';
+		}
+
+		wp_enqueue_script(
+			'coursepress-code-editor',
+			CoursePress::$url . 'asset/js/coursepress-code-editor.js',
+			$dependencies,
+			CoursePress::$version,
+			true
+		);
 	}
 }

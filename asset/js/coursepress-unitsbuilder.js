@@ -1224,7 +1224,7 @@ var CoursePress = CoursePress || {};
 						attr += item[ 'class' ] ? ' class="' + item[ 'class' ] + '"' : '';
 						content += '<select' + attr + '>';
 						$.each( item[ 'options' ] || {}, function( option_value, option_label ) {
-							content += '<option value="' + option_value + '"' + CoursePress.utility.checked( select_meta_value, option_value ) + '>' + option_label + '</option>';
+							content += '<option value="' + _.escape( option_value ) + '"' + ( select_meta_value === option_value ? ' selected="selected"' : '' ) + '>' + _.escape( option_label ) + '</option>';
 						} );
 						content += '</select>';
 						break;

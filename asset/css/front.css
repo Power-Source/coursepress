@@ -1162,6 +1162,32 @@ input.cp-has-error {
   display: none;
 }
 
+.coursepress-code-editor {
+  box-sizing: border-box;
+  min-height: 18rem;
+  width: 100%;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  tab-size: 4;
+}
+
+.coursepress-code-submission .CodeMirror {
+  border: 1px solid #ddd;
+  height: auto;
+  min-height: 18rem;
+}
+
+.coursepress-code-hint,
+.coursepress-code-expected-output,
+.coursepress-code-tests {
+  margin-top: 1.5rem;
+}
+
+.coursepress-code-expected-output pre,
+.coursepress-code-tests pre {
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
 /** Workbook **/
 .cp-student-workbook .course-completion-progress small {
   float: right;
