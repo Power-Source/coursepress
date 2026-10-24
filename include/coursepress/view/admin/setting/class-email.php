@@ -45,7 +45,7 @@ class CoursePress_View_Admin_Setting_Email {
 
 		$content .= '<div class="cp-content">';
 		foreach ( $email_sections as $key => $section ) {
-			$email_enabled = (boolean) CoursePress_Core::get_setting('email/' . $key . '/enabled', $default_settings[ $key ]['enabled']);
+			$email_enabled = (bool) CoursePress_Core::get_setting('email/' . $key . '/enabled', $default_settings[ $key ]['enabled']);
 			$content .= '<div class="email-template cp-content-box collapsed">';
 			$content .= '<h3 class="hndle">' . esc_html( $section['title'] ) . '</h3>';
 			$content .= '<div class="inside">';

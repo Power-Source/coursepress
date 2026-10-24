@@ -130,7 +130,7 @@ class CoursePress_Helper_Email {
 
 			$email_settings = self::get_email_fields( $type );
 
-			$email_enabled = (boolean) $email_settings['enabled'];
+			$email_enabled = (bool) $email_settings['enabled'];
 			if(!$email_enabled)
 			{
 				return false;

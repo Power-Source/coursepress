@@ -103,11 +103,11 @@
 	var reloadPageByCourse = function() {
 		var select = $(this),
 			course_id = select.val(),
-			url = window.location.toString()
+			url = new URL( window.location.href )
 		;
 
-		url += '&course_id=' + course_id;
-		window.location = url;
+		url.searchParams.set( 'course_id', course_id );
+		window.location.assign( url.href );
 	};
 
 	HighLightShortCode = function() {

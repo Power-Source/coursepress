@@ -24,6 +24,24 @@
 	var currentPage = 1,
 		activeUnit = 'all';
 
+	var getSameOriginUrl = function( url, action ) {
+		var destination;
+
+		try {
+			destination = new URL( url, window.location.origin );
+		} catch ( error ) {
+			console.warn( 'CoursePress could not ' + action + '.', error );
+			return false;
+		}
+
+		if ( destination.origin !== window.location.origin ) {
+			console.warn( 'CoursePress prevented ' + action + ' externally.' );
+			return false;
+		}
+
+		return destination;
+	};
+
 	var calculateUnitGrade = function( unit_id, student_id ) {
 		var unitDiv = $( '.cp-unit-div' ).filter(function(){
 				var data = $(this).data();
@@ -475,10 +493,10 @@
 	// Change display type
 	var changeDisplayType = function() {
 		var type = $( this ).val(),
-			url = window.location.toString()
+			url = new URL( window.location.href )
 		;
-		url += '&display=' + type;
-		window.location = url;
+		url.searchParams.set( 'display', type );
+		window.location.assign( url.href );
 	};
 
 	var toggleTitle = function() {
@@ -522,11 +540,16 @@
 	// Reload new course selection
 	var newCourse = function() {
 		var base_url = $( '#base_location' ).val(),
-			courselist = $( this )
+			courselist = $( this ),
+			destination = getSameOriginUrl( base_url, 'reload the assessment page' )
 		;
-		base_url += '&course_id=' + courselist.val();
 
-		window.location.assign( base_url );
+		if ( ! destination ) {
+			return;
+		}
+
+		destination.searchParams.set( 'course_id', courselist.val() );
+		window.location.assign( destination.href );
 	};
 
 	CoursePress.Events.on( 'coursepress:assessment_loaded', function() {

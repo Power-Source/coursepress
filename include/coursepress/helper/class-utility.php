@@ -1481,7 +1481,7 @@ class CoursePress_Helper_Utility {
 	 */
 	public static function convert_hex_color_to_rgb($hex_color, $default = array())
 	{
-		$color_valid = (boolean) preg_match('/^#[a-f0-9]{6}$/i', $hex_color);
+		$color_valid = (bool) preg_match('/^#[a-f0-9]{6}$/i', $hex_color);
 		if($color_valid)
 		{
 			$values = CP_TCPDF_COLORS::convertHTMLColorToDec($hex_color, CP_TCPDF_COLORS::$spotcolor);
@@ -1498,7 +1498,7 @@ class CoursePress_Helper_Utility {
 	 */
 	public static function is_password_strong()
 	{
-		$confirm_weak_password = isset($_POST['confirm_weak_password']) ? (boolean)$_POST['confirm_weak_password'] : false;
+		$confirm_weak_password = isset($_POST['confirm_weak_password']) ? (bool)$_POST['confirm_weak_password'] : false;
 		$min_password_length = self::get_minimum_password_length();
 
 		if (self::is_password_strength_meter_enabled()) {
@@ -1519,7 +1519,7 @@ class CoursePress_Helper_Utility {
 	 */
 	public static function is_password_strength_meter_enabled()
 	{
-		return (boolean) apply_filters('coursepress_display_password_strength_meter', true);
+		return (bool) apply_filters('coursepress_display_password_strength_meter', true);
 	}
 
 	/**
